@@ -1,0 +1,49 @@
+.container {
+    text-align: center;
+    align-items: center; /* Vertically align items */
+}
+
+#heading {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    justify-content: center; /* Horizontally align items */
+    margin-top: 20vh;
+}
+
+#title {
+    font-size: 5vw;
+    margin: 0;
+}
+
+#github-logo {
+    width: 6vw;
+    margin-left: 1vw;
+}
+
+#search {
+    margin: auto;
+    margin-top: 8vh;
+    width: 50vw;
+    height: 7vh;
+}
+
+#search-submit-button {
+    border-color: #CED4DA;
+}
+
+#search-icon:hover {
+    cursor: pointer;
+}
+
+.disclaimer {
+    margin-bottom: 0px;
+    position: fixed; /* Position relative to the viewport */
+    bottom: 0; /* Align at the bottom */
+    left: 0; /* Align to the left edge of the viewport */
+    width: 100%; /* Full width */
+    background-color: #d9d9d9; /* Background color */
+    padding: 3px; /* Padding for better readability */
+    text-align: center; /* Center text horizontally */
+    font-size: 2.2vh;
+    font-style: italic;
+}
