@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+            rel="stylesheet"
+        />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="static/assets/icon.png" />
+        <link rel="stylesheet" href="static/css/results_template.css" />
+        <title>{% block title %}{{query}}{% endblock %} - GitHub Search</title>
+    </head>
+    <header>
+            <img
+                id="logo"
+                alt="GitHub Search Logo"
+                src="static/assets/icon.png"
+            />
+            <form id="search-form" action="/search" method="GET">
+                <div
+                    class="input-group mb-3 input-group-prepend"
+                    id="search-div"
+                >
+                    <input
+                        class="form-control"
+                        aria-describedby="basic-addon1"
+                        id="search-bar"
+                        name="q"
+                        type="text"
+                        value="{{query}}"
+                        autocomplete="off"
+                        placeholder="What are you looking for?"
+                    />
+                    <button
+                        type="submit"
+                        class="btn btn-outline-secondary"
+                        id="search-submit-button"
+                    >
+                        <!-- Use the search button to call a JavaScript function search() -->
+                        <i
+                            id="search-icon"
+                            class="bi bi-search"
+                            style="height: 6vh"
+                        ></i>
+                    </button>
+                </div>
+            </form>
+    </header>
+    <body>
+        <div class="container">
+            <div id="search-results">
+                {% for result in search_results %}
+                <div class="search-result">
+                    <div class="search-result-content">
+                        <h2>{{ result.title }}</h2>
+                        <p>{{ result.snippet }}</p>
+                        <a href="{{ result.url }}">Read more</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <script src="static/js/results_template.js"></script>
+    </body>
+    <footer>
+        <div class="disclaimer">
+            <p class="disclaimer">
+                Disclaimer: This website is not affiliated with GitHub and has
+                no connection to it's owner, stakeholder, contributors or any
+                others. For the official GitHub Search website click
+                <a href="https://github.com/search">here</a>
+            </p>
+        </div>
+    </footer>
+</html>
