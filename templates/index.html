@@ -14,17 +14,17 @@
         <link rel="stylesheet" href="static/css/index.css" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="static/assets/github-search.png" />
+        <link rel="icon" href="static/assets/icon.png" />
         <title>Github Search</title>
     </head>
     <body>
         <div class="container">
             <div id="heading">
                 <h1 id="title">Github Search</h1>
-                <img id="github-logo" src="static/assets/github-search.png" />
+                <img id="github-logo" alt="Github Search Logo" src="static/assets/icon.png" />
             </div>
-            <form id="search-form" action="/searchGithub" method="GET">
-                <div class="input-group mb-3 input-group-prepend" id="search">
+            <form id="search-form" action="/search" method="GET">
+                <div class="input-group mb-3 input-group-prepend" id="search-div">
                     <input
                         class="form-control"
                         aria-describedby="basic-addon1"
@@ -39,12 +39,15 @@
                         class="btn btn-outline-secondary"
                         id="search-submit-button"
                     >
-                        <!-- Use the search button to call a JavaScript function searchGithub() -->
+                        <!-- Use the search button to call a JavaScript function search() -->
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
             </form>
         </div>
+        <script src="static/js/index.js"></script>
+    </body>
+    <footer>
         <div class="disclaimer">
             <p class="disclaimer">
                 Disclaimer: This website is not affiliated with GitHub and has
@@ -53,6 +56,5 @@
                 <a href="https://github.com/search">here</a>
             </p>
         </div>
-        <script src="static/js/index.js"></script>
-    </body>
+        </footer>
 </html>
