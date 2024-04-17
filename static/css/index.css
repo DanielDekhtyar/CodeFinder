@@ -20,7 +20,7 @@
     margin-left: 1vw;
 }
 
-#search {
+#search-div {
     margin: auto;
     margin-top: 8vh;
     width: 50vw;
@@ -31,9 +31,6 @@
     border-color: #CED4DA;
 }
 
-#search-icon:hover {
-    cursor: pointer;
-}
 
 .disclaimer {
     margin-bottom: 0px;
