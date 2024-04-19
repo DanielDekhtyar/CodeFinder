@@ -23,7 +23,7 @@
 
 #### 🚀 Added
 - The results page is now interactive and can display information about repositories based on JSON received from GitHub via their API.
-- `api_requests.py` has all the functions making the API requests. Now it only has `repositories()`
+- `api_requests.py` has all the functions making the API requests. Now it only has `repositories()`.
   
 ### 🔥 Enhancements
 - In the `index.html` page, when clicking on the link in the disclaimer, the link opens in a new tab.
