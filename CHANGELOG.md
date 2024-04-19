@@ -2,11 +2,23 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 0.2.0
+> ### Last Version : 0.3.0
 >
-> ### Last Update : 16/04/2024
+> ### Last Update : 19/04/2024
 >
 > _Date format DD-MM-YYYY_
+
+
+### 🗓️ _Version 0.3.0 - 19/04/2024 ([commit 42d6304](https://github.com/DanielDekhtyar/github-search/commit/42d6304))_
+
+---
+
+#### 🚀 Added
+- The results page is now interactive and can display information about repositories based on JSON received from GitHub via their API.
+- `api_requests.py` has all the functions making the API requests. Now it only has `repositories()`
+  
+### 🔥 Enhancements
+- In the `index.html` page, when clicking on the link in the disclaimer, the link opens in a new tab.
 
 
 ### 🗓️ _Version 0.2.0 - 17/04/2024 ([commit 33fff86](https://github.com/DanielDekhtyar/github-search/commit/33fff86))_
