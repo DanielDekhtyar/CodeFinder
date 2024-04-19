@@ -41,13 +41,14 @@
                     type="submit"
                     class="btn btn-outline-secondary"
                     id="search-submit-button"
+                    onmouseover="hover();" onmouseout="unhover();"
                 >
                     <!-- Use the search button to call a JavaScript function search() -->
-                    <i
+                    <img
                         id="search-icon"
-                        class="bi bi-search"
-                        style="height: 6vh"
-                    ></i>
+                        alt="Search"
+                        src="static/assets/search_black.png"
+                    ></img>
                 </button>
             </div>
         </form>
@@ -64,6 +65,7 @@
                 {% for result in search_results %}
                 <div class="search-result">
                     <div class="search-result-content">
+                        <div class="title">
                         <img class="avatar" src="{{ result.avatar_url }}" />
                         <a
                             class="title"
@@ -71,6 +73,7 @@
                             target="_blank"
                             >{{ result.title }}</a
                         >
+                    </div>
                         {% if result.description %}
                         <p class="description">{{ result.description }}</p>
                         {% endif %} {% if result.topics %}
@@ -88,7 +91,7 @@
                         </div>
                         {% endif %}
 
-                        <div class="languages-licenses-div">
+                        <div class="bottom-div">
                             <!-- Display the language icon if it exists-->
                             {% if result.language %}
                             <!-- Using Pythons OS library to check if the language icon exists -->
@@ -132,10 +135,10 @@
                             {% else %}
                             <p class="license">No license</p>
                             {% endif %}
+                            <p class="updated-at">
+                                Updated {{ result.pushed_at }}
+                            </p>
                         </div>
-                        <p class="updated-at">
-                            Updated {{ result.pushed_at }}
-                        </p>
                     </div>
                 </div>
                 {% endfor %}

@@ -29,6 +29,16 @@
 
 #search-submit-button {
     border-color: #CED4DA;
+    width: 3vw;
+    height: 7vh;
+}
+
+#search-icon {
+    height: 60%;
+}
+
+.form-control {
+    font-size: 2vh;
 }
 
 
@@ -41,6 +51,6 @@
     background-color: #d9d9d9; /* Background color */
     padding: 3px; /* Padding for better readability */
     text-align: center; /* Center text horizontally */
-    font-size: 2.2vh;
+    font-size: 1.5vh;
     font-style: italic;
 }
