@@ -62,7 +62,7 @@ header {
 
 #search-results {
     margin-top: 10vh; /* Adjust margin to leave space for the fixed header */
-    padding-bottom: 60px; /* Adjust padding to leave space for the fixed footer */
+    padding-bottom: 1vh; /* Adjust padding to leave space for the fixed footer */
 }
 
 .search-result {
@@ -181,7 +181,46 @@ header {
     font-size: 1.2vh;
     color: #5e5e5e;
     right: 0;
-    bottom: -1vh;
+    bottom: -1.5vh;
+}
+
+.pages {
+    padding-bottom: 10vh;
+    margin: auto;
+    width: 50vw;
+    text-align: center;
+}
+
+.page {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    border: solid 0.3vh #86b6ff;
+    background-color: #86b6ff;
+    border-radius: 4px;
+    min-width: 1vw;
+    color: white;
+    transition: background-color 0.3s, border-color 0.3s, border-radius 0.5s;
+    margin: 0.1vh;
+}
+
+.current-page {
+    background-color: #316DCA;
+    border-color: #316DCA;
+    color: white;
+    border-radius: 50%;
+}
+
+.page:hover {
+    background-color: #316DCA;
+    border-color: #316DCA;
+    color: white;
+    border-radius: 50%;
+}
+
+.page_button {
+    height: 2vh;
+    margin-bottom: 0.5vh;
 }
 
 #error-message-div {

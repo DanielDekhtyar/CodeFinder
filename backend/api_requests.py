@@ -9,14 +9,14 @@ import time
 
 from backend import helpers
 
-def repositories(user_query):
+def repositories(user_query, page):
     start_time = time.time() # Get the current time
     
     search_url = "https://api.github.com/search/repositories"
     params = {
-        "q": user_query,
-        "per_page": 30,
-        "page": 1
+        "q": user_query, # Search query
+        "per_page": 30, # Number of results per page
+        "page": page # Page number
     }
 
     response = requests.get(search_url, params=params)

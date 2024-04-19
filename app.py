@@ -19,8 +19,9 @@ def search():
     # Retrieve form data
     user_query = request.args.get('q')
     user_query.strip()
+    page = request.args.get('page')
     
-    search_results, time_it_took, result_count = api_requests.repositories(user_query)
+    search_results, time_it_took, result_count = api_requests.repositories(user_query, page)
 
     # Redirect to the GitHub search URL
     return render_template("results_template.html", query=user_query, search_results=search_results, time_it_took=time_it_took, result_count=result_count, os=os)

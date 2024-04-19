@@ -54,6 +54,7 @@
         </form>
     </header>
     <body>
+        <!-- github-search\templates\results_template.html -->
         <div class="container">
             <!-- If the search results are not empty, display them -->
             {% if result_count != 0 %}
@@ -143,6 +144,38 @@
                 </div>
                 {% endfor %}
             </div>
+            <!-- The pagination section at the bottom of the page -->
+            <div class="pages">
+                <!-- Can't display more than 1000 results due to GitHub's rate limit -->
+                {% if result_count > 1000 %}
+                {% set result_count = 1000 %}
+                {% endif %}
+
+                <!-- Calculate the number of pages to display -->
+                {% set number_of_pages = (result_count / 30) | round | int %}
+                <!-- Get the current page -->
+                {% set current_page = request.args.get('page') | default(1, true) | int %}
+                <!-- Render the page numbers -->
+                {% if number_of_pages > 1 %}
+                    {% if current_page != 1 %}
+                    <!-- Back Button -->
+                    <a href="/search?q={{ query }}&page={{ current_page -1 }}"><img src="static/assets/back.png" class="page_button" alt="Back" /></a>
+                    {% endif %}
+                    <!-- Display the pages between the range -->
+                    {% for page in range(1, number_of_pages + 1) %}
+                        {% if page == current_page %}
+                        <a class="page current-page" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a>
+                        {% else %}
+                        <a class="page" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if current_page != number_of_pages %}
+                    <!-- Forward Button -->
+                    <a href="/search?q={{ query }}&page={{ current_page + 1 }}"><img src="static/assets/forward.png" class="page_button" alt="Forward" /></a>
+                    {% endif %}
+                {% endif %}
+            </div>            
             {% else %}
             <!-- Display error message if the search results are empty -->
             <div id="error-message-div">
