@@ -9,6 +9,10 @@ header {
     background-color: white;
 }
 
+.container {
+    width: 80%;
+}
+
 #logo {
     height: 7vh;
     margin-top: auto;
@@ -28,6 +32,7 @@ header {
 
 #search-bar {
     height: 6vh;
+    font-size: 2.5vh;
 }
 
 #search-submit-button {
@@ -39,9 +44,15 @@ header {
     font-size: 3vh;
 }
 
+#search-results-header {
+    margin-top: 12vh;
+    font-size: 2vh;
+    color: #5e5e5e;
+}
+
 #search-results {
-    margin-top: 13vh; /* Adjust margin to leave space for the fixed header */
-    padding-bottom: 65px; /* Adjust padding to leave space for the fixed footer */
+    margin-top: 10vh; /* Adjust margin to leave space for the fixed header */
+    padding-bottom: 60px; /* Adjust padding to leave space for the fixed footer */
 }
 
 .search-result {
@@ -58,12 +69,127 @@ header {
     margin-left: 1.5vw;
 }
 
-.disclaimer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #d9d9d9;
-    padding: 10px 0; /* Adjust padding as needed */
+.avatar {
+    width: 3vh;
+    height: 3vh;
+    /* border-radius: 50%; */
+    float: left;
+    margin-right: 0.5vw;
+    margin-top: 0.4vh
+}
+
+.title {
+    font-size: 2.5vh;
+}
+
+.description {
+    font-size: 2.3vh;
+    color: black;
+    font-style: bold;
+    margin-top: 0.5vh;
+    margin-bottom: 0;
+}
+
+#topics-div {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.topics {
+    margin-top: 1vh;
+    font-size: 1.5vh;
+    border-radius: 2em;
+    background-color: #2A4D81;
+    white-space: nowrap;
+}
+
+.topics:hover {
+    cursor: pointer;
+    background-color: #316DCA;
+}
+
+.topic-link {
+    color: white;
+    text-decoration:none;
+}
+
+.topic-link:hover {
+    color: white;
+    text-decoration:none;
+}
+
+.languages-licenses-div {
+    margin-top: 1vh;
+    margin-bottom: 0;
+}
+
+.language-icon {
+    height: 2.5vh;
+    margin-right: 0.15vw;
+    margin-bottom: 0.4vh;
+}
+
+.language {
+    display: inline;
+    margin-top: 1vh;
+    font-size: 2vh;
+    color: #5e5e5e;
+}
+
+.license {
+    display: inline;
+    margin-right: 1vw;
+    font-size: 2vh;
+    color: #5e5e5e;
+}
+
+.license-link {
+    text-decoration:none;
+    color: #5e5e5e;
+}
+
+.license-link:hover {
+    text-decoration:underline;
+    color: #5e5e5e;
+}
+
+.updated-at {
+    margin-top: 1vh;
+    font-size: 2vh;
+    color: #5e5e5e;
+}
+
+#error-message-div {
+    align-content: center;
+    display: block;
+    margin-top: 10vh;
     text-align: center;
+}
+
+.error-message {
+    text-align: center;
+    font-size: 8vh;
+    margin: 5vh;
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#nothing-found-gif {
+    display: inline-block;
+    width: 70vh;
+}
+
+.disclaimer {
+    margin-bottom: 0px;
+    position: fixed; /* Position relative to the viewport */
+    bottom: 0; /* Align at the bottom */
+    left: 0; /* Align to the left edge of the viewport */
+    width: 100%; /* Full width */
+    background-color: #d9d9d9; /* Background color */
+    padding: 3px; /* Padding for better readability */
+    text-align: center; /* Center text horizontally */
+    font-size: 2.2vh;
+    font-style: italic;
 }

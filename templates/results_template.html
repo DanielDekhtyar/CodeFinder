@@ -11,6 +11,12 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
             rel="stylesheet"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Honk&display=swap"
+            rel="stylesheet"
+        />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="static/assets/icon.png" />
@@ -18,54 +24,133 @@
         <title>{% block title %}{{query}}{% endblock %} - GitHub Search</title>
     </head>
     <header>
-            <img
-                id="logo"
-                alt="GitHub Search Logo"
-                src="static/assets/icon.png"
-            />
-            <form id="search-form" action="/search" method="GET">
-                <div
-                    class="input-group mb-3 input-group-prepend"
-                    id="search-div"
+        <img id="logo" alt="GitHub Search Logo" src="static/assets/icon.png" />
+        <form id="search-form" action="/search" method="GET">
+            <div class="input-group mb-3 input-group-prepend" id="search-div">
+                <input
+                    class="form-control"
+                    aria-describedby="basic-addon1"
+                    id="search-bar"
+                    name="q"
+                    type="text"
+                    value="{{query}}"
+                    autocomplete="off"
+                    placeholder="What are you looking for?"
+                />
+                <button
+                    type="submit"
+                    class="btn btn-outline-secondary"
+                    id="search-submit-button"
                 >
-                    <input
-                        class="form-control"
-                        aria-describedby="basic-addon1"
-                        id="search-bar"
-                        name="q"
-                        type="text"
-                        value="{{query}}"
-                        autocomplete="off"
-                        placeholder="What are you looking for?"
-                    />
-                    <button
-                        type="submit"
-                        class="btn btn-outline-secondary"
-                        id="search-submit-button"
-                    >
-                        <!-- Use the search button to call a JavaScript function search() -->
-                        <i
-                            id="search-icon"
-                            class="bi bi-search"
-                            style="height: 6vh"
-                        ></i>
-                    </button>
-                </div>
-            </form>
+                    <!-- Use the search button to call a JavaScript function search() -->
+                    <i
+                        id="search-icon"
+                        class="bi bi-search"
+                        style="height: 6vh"
+                    ></i>
+                </button>
+            </div>
+        </form>
     </header>
     <body>
         <div class="container">
+            <!-- If the search results are not empty, display them -->
+            {% if result_count != 0 %}
             <div id="search-results">
+                <p id="search-results-header">
+                    We found {{result_count}} results in just {{time_it_took}}
+                    seconds!
+                </p>
                 {% for result in search_results %}
                 <div class="search-result">
                     <div class="search-result-content">
-                        <h2>{{ result.title }}</h2>
-                        <p>{{ result.snippet }}</p>
-                        <a href="{{ result.url }}">Read more</a>
+                        <img class="avatar" src="{{ result.avatar_url }}" />
+                        <a
+                            class="title"
+                            href="{{ result.repo_url }}"
+                            target="_blank"
+                            >{{ result.title }}</a
+                        >
+                        {% if result.description %}
+                        <p class="description">{{ result.description }}</p>
+                        {% endif %} {% if result.topics %}
+                        <div id="topics-div">
+                            {% for topic in result.topics%}
+                            <span class="badge topics"
+                                ><a
+                                    class="topic-link"
+                                    href="https://github.com/topics/{{ topic }}"
+                                    target="_blank"
+                                    >{{ topic }}</a
+                                ></span
+                            >
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <div class="languages-licenses-div">
+                            <!-- Display the language icon if it exists-->
+                            {% if result.language %}
+                            <!-- Using Pythons OS library to check if the language icon exists -->
+                            {% if result.language == 'C#' %}
+                            <img
+                                src="./static/assets/languages/C_sharp.png"
+                                class="language-icon"
+                            />
+                            {% elif result.language == 'F#' %}
+                            <img
+                                src="./static/assets/languages/F_sharp.png"
+                                class="language-icon"
+                            />
+                            {% elif os.path.exists('./static/assets/languages/'
+                            + result.language + '.png') %}
+                            <img
+                                src="./static/assets/languages/{{ result.language }}.png"
+                                class="language-icon"
+                            />
+                            {% endif %}
+                            <p class="language">{{ result.language }} ·</p>
+                            {% endif %}
+                            <!-- Display the license if it exists-->
+                            <!-- If there is license and the license is in the list, display the name and make it a link-->
+                            {% set license_list = ['mit', 'agpl-3.0', 'gpl-3.0',
+                            'mpl-2.0', 'apache-2.0', 'bsl-1.0', 'unlicense'] %}
+                            {% if result.license and result.license_key in
+                            license_list %}
+                            <p class="license">
+                                <a
+                                    class="license-link"
+                                    href="https://choosealicense.com/licenses/{{ result.license_key }}/"
+                                    target="_blank"
+                                    >{{ result.license }}</a
+                                >
+                            </p>
+                            <!-- If the license is not in the list, just display the name of the license without a link-->
+                            {% elif result.license %}
+                            <p class="license">{{ result.license }}</p>
+                            <!-- If there is no license, display 'No license' -->
+                            {% else %}
+                            <p class="license">No license</p>
+                            {% endif %}
+                        </div>
+                        <p class="updated-at">
+                            Updated {{ result.pushed_at }}
+                        </p>
                     </div>
                 </div>
                 {% endfor %}
             </div>
+            {% else %}
+            <!-- Display error message if the search results are empty -->
+            <div id="error-message-div">
+                <h1 class="error-message">Oops! No results found</h1>
+                <h1 class="error-message">404</h1>
+                <img
+                    id="nothing-found-gif"
+                    src="static/assets/i-cant-find-anything.gif"
+                />
+            </div>
+            {% endif %}
         </div>
 
         <script src="static/js/results_template.js"></script>
@@ -76,7 +161,7 @@
                 Disclaimer: This website is not affiliated with GitHub and has
                 no connection to it's owner, stakeholder, contributors or any
                 others. For the official GitHub Search website click
-                <a href="https://github.com/search">here</a>
+                <a href="https://github.com/search" target="_blank">here</a>
             </p>
         </div>
     </footer>
