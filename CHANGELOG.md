@@ -2,11 +2,19 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 0.3.0
+> ### Last Version : 0.3.5
 >
-> ### Last Update : 19/04/2024
+> ### Last Update : 20/04/2024
 >
 > _Date format DD-MM-YYYY_
+
+
+### 🗓️ _Version 0.3.5 - 20/04/2024 ([commit 71dadb0](https://github.com/DanielDekhtyar/github-search/commit/71dadb0))_
+
+---
+
+#### 🚀 Added
+- On the results page, I've added pagination functionality to allow to display of information on multiple pages.
 
 
 ### 🗓️ _Version 0.3.0 - 19/04/2024 ([commit 42d6304](https://github.com/DanielDekhtyar/github-search/commit/42d6304))_
