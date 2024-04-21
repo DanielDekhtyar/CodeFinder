@@ -1,0 +1,104 @@
+{% extends "results_template.html" %}
+
+{% block title %}
+{{query}} - GitHub Search
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="static/css/results_template.css" />
+<link rel="stylesheet" href="static/css/repo_results.css" />
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div id="search-results">
+        <p id="search-results-header">
+            We found {{result_count}} results in just {{time_it_took}}
+            seconds!
+        </p>
+        {% for result in search_results %}
+        <div class="search-result">
+            <div class="search-result-content">
+                <div class="title">
+                <a href="{{ result.owners_page }}" target="_blank">
+                <img class="avatar" src="{{ result.avatar_url }}" />
+                </a>
+                <a
+                    class="title"
+                    href="{{ result.repo_url }}"
+                    target="_blank"
+                    >{{ result.title }}</a
+                >
+            </div>
+                {% if result.description %}
+                <p class="description">{{ result.description }}</p>
+                {% endif %} {% if result.topics %}
+                <div id="topics-div">
+                    {% for topic in result.topics%}
+                    <span class="badge topics"
+                        ><a
+                            class="topic-link"
+                            href="https://github.com/topics/{{ topic }}"
+                            target="_blank"
+                            >{{ topic }}</a
+                        ></span
+                    >
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="bottom-div">
+                    <!-- Display the language icon if it exists-->
+                    {% if result.language %}
+                    <!-- Using Pythons OS library to check if the language icon exists -->
+                    <!-- Special logic for C# and F# -->
+                    {% if result.language == 'C#' %}
+                    <img
+                        src="./static/assets/languages/C_sharp.png"
+                        class="language-icon"
+                    />
+                    {% elif result.language == 'F#' %}
+                    <img
+                        src="./static/assets/languages/F_sharp.png"
+                        class="language-icon"
+                    />
+                    {% elif os.path.exists('./static/assets/languages/'
+                    + result.language + '.png') %}
+                    <img
+                        src="./static/assets/languages/{{ result.language }}.png"
+                        class="language-icon"
+                    />
+                    {% endif %}
+                    <p class="language">{{ result.language }} ·</p>
+                    {% endif %}
+                    <!-- Display the license if it exists-->
+                    <!-- If there is license and the license is in the list, display the name and make it a link-->
+                    {% set license_list = ['mit', 'agpl-3.0', 'gpl-3.0',
+                    'mpl-2.0', 'apache-2.0', 'bsl-1.0', 'unlicense'] %}
+                    {% if result.license and result.license_key in
+                    license_list %}
+                    <p class="license">
+                        <a
+                            class="license-link"
+                            href="https://choosealicense.com/licenses/{{ result.license_key }}/"
+                            target="_blank"
+                            >{{ result.license }}</a
+                        >
+                    </p>
+                    <!-- If the license is not in the list, just display the name of the license without a link-->
+                    {% elif result.license %}
+                    <p class="license">{{ result.license }}</p>
+                    <!-- If there is no license, display 'No license' -->
+                    {% else %}
+                    <p class="license">No license</p>
+                    {% endif %}
+                    <p class="updated-at">
+                        Updated {{ result.pushed_at }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

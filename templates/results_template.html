@@ -21,7 +21,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="static/assets/icon.png" />
         <link rel="stylesheet" href="static/css/results_template.css" />
-        <title>{% block title %}{{query}}{% endblock %} - GitHub Search</title>
+        {% block head %}{% endblock %}
+        <title>{% block title %}{% endblock %}</title>
     </head>
     <header>
         <img id="logo" alt="GitHub Search Logo" src="static/assets/icon.png" />
@@ -54,141 +55,42 @@
         </form>
     </header>
     <body>
-        <!-- github-search\templates\results_template.html -->
-        <div class="container">
-            <!-- If the search results are not empty, display them -->
-            {% if result_count != 0 %}
-            <div id="search-results">
-                <p id="search-results-header">
-                    We found {{result_count}} results in just {{time_it_took}}
-                    seconds!
-                </p>
-                {% for result in search_results %}
-                <div class="search-result">
-                    <div class="search-result-content">
-                        <div class="title">
-                        <img class="avatar" src="{{ result.avatar_url }}" />
-                        <a
-                            class="title"
-                            href="{{ result.repo_url }}"
-                            target="_blank"
-                            >{{ result.title }}</a
-                        >
-                    </div>
-                        {% if result.description %}
-                        <p class="description">{{ result.description }}</p>
-                        {% endif %} {% if result.topics %}
-                        <div id="topics-div">
-                            {% for topic in result.topics%}
-                            <span class="badge topics"
-                                ><a
-                                    class="topic-link"
-                                    href="https://github.com/topics/{{ topic }}"
-                                    target="_blank"
-                                    >{{ topic }}</a
-                                ></span
-                            >
-                            {% endfor %}
-                        </div>
-                        {% endif %}
+        {% block main %}
+        {% endblock %}
+        <!-- The pagination section at the bottom of the page -->
+    <div class="pages">
+        <!-- Can't display more than 1000 results due to GitHub's rate limit -->
+        {% if result_count %} <!-- In case there is an error and there are no results -->
+        {% if result_count > 1000 %}
+        {% set result_count = 1000 %}
+        {% endif %}
 
-                        <div class="bottom-div">
-                            <!-- Display the language icon if it exists-->
-                            {% if result.language %}
-                            <!-- Using Pythons OS library to check if the language icon exists -->
-                            {% if result.language == 'C#' %}
-                            <img
-                                src="./static/assets/languages/C_sharp.png"
-                                class="language-icon"
-                            />
-                            {% elif result.language == 'F#' %}
-                            <img
-                                src="./static/assets/languages/F_sharp.png"
-                                class="language-icon"
-                            />
-                            {% elif os.path.exists('./static/assets/languages/'
-                            + result.language + '.png') %}
-                            <img
-                                src="./static/assets/languages/{{ result.language }}.png"
-                                class="language-icon"
-                            />
-                            {% endif %}
-                            <p class="language">{{ result.language }} ·</p>
-                            {% endif %}
-                            <!-- Display the license if it exists-->
-                            <!-- If there is license and the license is in the list, display the name and make it a link-->
-                            {% set license_list = ['mit', 'agpl-3.0', 'gpl-3.0',
-                            'mpl-2.0', 'apache-2.0', 'bsl-1.0', 'unlicense'] %}
-                            {% if result.license and result.license_key in
-                            license_list %}
-                            <p class="license">
-                                <a
-                                    class="license-link"
-                                    href="https://choosealicense.com/licenses/{{ result.license_key }}/"
-                                    target="_blank"
-                                    >{{ result.license }}</a
-                                >
-                            </p>
-                            <!-- If the license is not in the list, just display the name of the license without a link-->
-                            {% elif result.license %}
-                            <p class="license">{{ result.license }}</p>
-                            <!-- If there is no license, display 'No license' -->
-                            {% else %}
-                            <p class="license">No license</p>
-                            {% endif %}
-                            <p class="updated-at">
-                                Updated {{ result.pushed_at }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            <!-- The pagination section at the bottom of the page -->
-            <div class="pages">
-                <!-- Can't display more than 1000 results due to GitHub's rate limit -->
-                {% if result_count > 1000 %}
-                {% set result_count = 1000 %}
-                {% endif %}
-
-                <!-- Calculate the number of pages to display -->
-                {% set number_of_pages = (result_count / 30) | round | int %}
-                <!-- Get the current page -->
-                {% set current_page = request.args.get('page') | default(1, true) | int %}
-                <!-- Render the page numbers -->
-                {% if number_of_pages > 1 %}
-                    {% if current_page != 1 %}
-                    <!-- Back Button -->
-                    <a href="/search?q={{ query }}&page={{ current_page -1 }}"><img src="static/assets/back.png" class="page_button" alt="Back" /></a>
-                    {% endif %}
-                    <!-- Display the pages between the range -->
-                    {% for page in range(1, number_of_pages + 1) %}
-                        {% if page == current_page %}
-                        <a class="page current-page" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a>
-                        {% else %}
-                        <a class="page" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a>
-                        {% endif %}
-                    {% endfor %}
-
-                    {% if current_page != number_of_pages %}
-                    <!-- Forward Button -->
-                    <a href="/search?q={{ query }}&page={{ current_page + 1 }}"><img src="static/assets/forward.png" class="page_button" alt="Forward" /></a>
-                    {% endif %}
-                {% endif %}
-            </div>            
-            {% else %}
-            <!-- Display error message if the search results are empty -->
-            <div id="error-message-div">
-                <h1 class="error-message">Oops! No results found</h1>
-                <h1 class="error-message">404</h1>
-                <img
-                    id="nothing-found-gif"
-                    src="static/assets/i-cant-find-anything.gif"
-                />
-            </div>
+        <!-- Calculate the number of pages to display -->
+        {% set number_of_pages = (result_count / 30) | round | int %}
+        <!-- Get the current page -->
+        {% set current_page = request.args.get('page') | default(1, true) | int %}
+        <!-- Render the page numbers -->
+        {% if number_of_pages > 1 %}
+            {% if current_page != 1 %}
+            <!-- Back Button -->
+            <a href="/search?q={{ query }}&page={{ current_page -1 }}"><img src="static/assets/back.png" class="page_button" alt="Back" /></a>
             {% endif %}
-        </div>
+            <!-- Display the pages between the range -->
+            {% for page in range(1, number_of_pages + 1) %}
+                {% if page == current_page %}
+                <a class="page current-page" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a>
+                {% else %}
+                <a class="page" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a>
+                {% endif %}
+            {% endfor %}
 
+            {% if current_page != number_of_pages %}
+            <!-- Forward Button -->
+            <a href="/search?q={{ query }}&page={{ current_page + 1 }}"><img src="static/assets/forward.png" class="page_button" alt="Forward" /></a>
+            {% endif %}
+        {% endif %}
+        {% endif %}
+    </div>            
         <script src="static/js/results_template.js"></script>
     </body>
     <footer>

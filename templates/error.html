@@ -1,0 +1,21 @@
+{% extends "results_template.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="static/css/error.css" />
+{% endblock %}
+
+{% block main %}
+    <!-- Display error message if the search results are empty -->
+    <div id="error-message-div">
+        <h1 class="error-message">Oops! {{ text }}</h1>
+        <h1 class="error-message">{{ error }}</h1>
+        <img
+            id="nothing-found-gif"
+            src="static/assets/{{ gif }}"
+        />
+    </div>
+{% endblock %}

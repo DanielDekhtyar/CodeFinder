@@ -60,134 +60,10 @@ header {
     color: #636363;
 }
 
-#search-results {
-    margin-top: 10vh; /* Adjust margin to leave space for the fixed header */
-    padding-bottom: 1vh; /* Adjust padding to leave space for the fixed footer */
-}
-
-.search-result {
-    border: solid 0.3vh #d9d9d9;
-    border-radius: 1.5vh;
-    padding-top: 0.6vh;
-    padding-bottom: 0vh;
-    margin: auto;
-    margin-top: 1.5vh;
-    margin-bottom: 1.5vh;
-    width: 50vw;
-}
-
-.search-result-content {
-    margin-top: 0vh;
-    margin-bottom: 0vh;
-    margin-left: 1vw;
-    margin-right: 1vw;
-}
-
-.title {
-    display: inline-block;
-    white-space: nowrap;
-}
-
-.avatar {
-    width: 2vh;
-    height: 2vh;
-    float: left;
-    margin-right: 0.5vw;
-    margin-top: 0.25vh
-}
-
-.title {
-    font-size: 1.5vh;
-}
-
-.description {
-    font-size: 1.35vh;
-    color: black;
-    font-weight: 600;
-    margin-top: 0.5vh;
-    margin-bottom: 0;
-}
-
-#topics-div {
-    display: inline-block;
-    white-space: nowrap;
-}
-
-.topics {
-    margin-top: 1vh;
-    font-size: 1vh;
-    border-radius: 2em;
-    background-color: #86b6ff;
-    white-space: nowrap;
-    transition: background-color 0.3s;
-}
-
-.topics:hover {
-    cursor: pointer;
-    background-color: #316DCA;
-}
-
-.topic-link {
-    color: white;
-    text-decoration:none;
-}
-
-.topic-link:hover {
-    color: white;
-    text-decoration:none;
-}
-
-.bottom-div {
-    position: relative;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    z-index: 1;
-}
-
-.language-icon {
-    height: 1.5vh;
-    margin-right: 0.15vw;
-    margin-bottom: 0.4vh;
-}
-
-.language {
-    display: inline;
-    margin-top: 1vh;
-    font-size: 1.2vh;
-    color: #5e5e5e;
-}
-
-.license {
-    display: inline;
-    margin-right: 1vw;
-    font-size: 1.2vh;
-    color: #5e5e5e;
-}
-
-.license-link {
-    text-decoration:none;
-    color: #5e5e5e;
-}
-
-.license-link:hover {
-    text-decoration:underline;
-    color: #5e5e5e;
-}
-
-.updated-at {
-    display: inline;
-    position: absolute;
-    margin-top: 1vh;
-    font-size: 1.2vh;
-    color: #5e5e5e;
-    right: 0;
-    bottom: -1.5vh;
-}
-
 .pages {
     padding-bottom: 10vh;
     margin: auto;
-    width: 50vw;
+    width: 100%;
     text-align: center;
 }
 
@@ -198,7 +74,7 @@ header {
     border: solid 0.3vh #86b6ff;
     background-color: #86b6ff;
     border-radius: 4px;
-    min-width: 1vw;
+    min-width: 1.1vw;
     color: white;
     transition: background-color 0.3s, border-color 0.3s, border-radius 0.5s;
     margin: 0.1vh;
@@ -222,28 +98,7 @@ header {
     height: 2vh;
     margin-bottom: 0.5vh;
 }
-
-#error-message-div {
-    align-content: center;
-    display: block;
-    margin-top: 10vh;
-    text-align: center;
-}
-
-.error-message {
-    text-align: center;
-    font-size: 8vh;
-    margin: 5vh;
-    font-family: "Honk", system-ui;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
-#nothing-found-gif {
-    display: inline-block;
-    width: 70vh;
-}
+/* https://www.flaticon.com/free-icon/arrow-right_1549454?term=next&page=1&position=16&origin=search&related_id=1549454 */
 
 .disclaimer {
     margin-bottom: 0px;

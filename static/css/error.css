@@ -1,0 +1,21 @@
+#error-message-div {
+    align-content: center;
+    display: block;
+    margin-top: 10vh;
+    text-align: center;
+}
+
+.error-message {
+    text-align: center;
+    font-size: 6vh;
+    margin: 5vh;
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#nothing-found-gif {
+    display: inline-block;
+    width: 70vh;
+}
