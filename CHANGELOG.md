@@ -2,11 +2,28 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 0.3.5
+> ### Last Version : 0.3.6
 >
-> ### Last Update : 20/04/2024
+> ### Last Update : 22/04/2024
 >
 > _Date format DD-MM-YYYY_
+
+
+### 🗓️ _Version 0.3.6 - 22/04/2024 ([commit 46ce1c3](https://github.com/DanielDekhtyar/github-search/commit/46ce1c3))_
+
+---
+
+### 🔥 Enhancements
+- `results_template.html` was divided into multiple templates (`error.html`, `repo_results.html`) and now all the search result pages inherit from `results_template.html` as the parent template.
+- When the input box is not in focus, the placeholder text changes to `Type [/] to search`.
+- If the user types `/` at any point on the screen, the pointer will move to the search screen and the user can type.
+- In `index.html` the search bar will be automatically in focus.
+- In `app.py` error handling was added to work when there were no results, the query was broken or the API limit was reached.
+- In `api_requests.py` error handling was added in case the GitHub API limit was reached.
+
+
+#### 🐞 To-Do
+- When searching for language:C++ or language:C#, the ++ or # part of the query disappears when you change to a different page.
 
 
 ### 🗓️ _Version 0.3.5 - 20/04/2024 ([commit 71dadb0](https://github.com/DanielDekhtyar/github-search/commit/71dadb0))_
