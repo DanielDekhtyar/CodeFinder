@@ -1,0 +1,42 @@
+[
+    {
+        "description": "Find issues with bug in OpenAI's repos",
+        "github_search_query": "issues||bug owner:openai"
+    },
+    {
+        "description": "show me all the issues in the vscode repo",
+        "github_search_query": "issues||repo:microsoft/vscode is:issue"
+    },
+    {
+        "description": "show me all the issues in the llama2 repo",
+        "github_search_query": "issues||repo:meta-llama/llama is:issue"
+    },
+    {
+        "description": "show me all the issues in the typescript repo",
+        "github_search_query": "issues||repo:microsoft/typescript is:issue"
+    },
+    {
+        "description": "show all the issues in react repo",
+        "github_search_query": "issues||repo:facebook/react is:issue"
+    },
+    {
+        "description": "Find issues labeled as security in repositories related to web development",
+        "github_search_query": "issues||security in:label web-development"
+    },
+    {
+        "description": "Show me all the issues in the vscode repository",
+        "github_search_query": "issues||repo:microsoft/vscode is:issue"
+    },
+    {
+        "description": "Find vulnerability issues in repositories related to network security",
+        "github_search_query": "issues||(title:vulnerability OR body:vulnerability) network-security"
+    },
+    {
+        "description": "Show me all the issues in the google api php client repository by google apis",
+        "github_search_query": "issues||repo:googleapis/google-api-php-client"
+    },
+    {
+        "description": "Find all the issues in the libdweb repo by mozilla",
+        "github_search_query": "issues||repo:mozilla/libdweb is:issue"
+    }
+]

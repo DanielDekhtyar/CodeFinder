@@ -1,0 +1,10 @@
+[
+    {
+        "description": "find me epicgames account",
+        "github_search_query": "users||owner:epicgames"
+    },
+    {
+        "description": "Show me NASA's github",
+        "github_search_query": "users||usersowner:nasa"
+    }
+]
