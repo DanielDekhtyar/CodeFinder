@@ -24,6 +24,7 @@
 
 #### 🐞 To-Do
 - When searching for language:C++ or language:C#, the ++ or # part of the query disappears when you change to a different page.
+- If a repo does not have a description, the topics will be inline with the title.
 
 
 ### 🗓️ _Version 0.3.5 - 20/04/2024 ([commit 71dadb0](https://github.com/DanielDekhtyar/github-search/commit/71dadb0))_
