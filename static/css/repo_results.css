@@ -47,11 +47,6 @@
     margin-bottom: 0;
 }
 
-#topics-div {
-    display: inline-block;
-    white-space: nowrap;
-}
-
 .topics {
     margin-top: 1vh;
     font-size: 1vh;

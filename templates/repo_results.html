@@ -17,8 +17,8 @@
             seconds!
         </p>
         {% for result in search_results %}
-        <div class="search-result">
-            <div class="search-result-content">
+        <div class="search-result"> <!-- The outline of the result card -->
+            <div class="search-result-content"> <!-- The content of the result card -->
                 <div class="title">
                 <a href="{{ result.owners_page }}" target="_blank">
                 <img class="avatar" src="{{ result.avatar_url }}" />
@@ -32,7 +32,8 @@
             </div>
                 {% if result.description %}
                 <p class="description">{{ result.description }}</p>
-                {% endif %} {% if result.topics %}
+                {% endif %} 
+                {% if result.topics %}
                 <div id="topics-div">
                     {% for topic in result.topics%}
                     <span class="badge topics"

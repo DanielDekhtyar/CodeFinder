@@ -49,7 +49,7 @@ def repositories(user_query, page):
                 'description': repo['description'] if repo.get('description') else None,  # Check if 'description' exists
                 'pushed_at': helpers.format_date(repo['pushed_at']),
                 'repo_url': repo['html_url'],
-                'topics' : repo['topics'] if len(repo['topics']) < 5 else repo['topics'][:5]
+                'topics' : repo['topics'] if len(repo['topics']) < 10 else repo['topics'][:10]
             })
         
     # Calculate how much time it took to get the results
