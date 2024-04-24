@@ -2,11 +2,21 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 0.3.6
+> ### Last Version : 0.3.6.1
 >
-> ### Last Update : 22/04/2024
+> ### Last Update : 24/04/2024
 >
 > _Date format DD-MM-YYYY_
+
+
+### 🗓️ _Version 0.3.6.1 - 24/04/2024 ([commit 9acae80](https://github.com/DanielDekhtyar/github-search/commit/9acae80))_
+
+---
+
+### 🔥 Enhancements
+- bugfix: Previously, if the topics don't fit into the line, they wrap around.
+- bugfix: Previously, if there were topics but no description, the topics would be in line with the title. Now they are right below the title.
+
 
 
 ### 🗓️ _Version 0.3.6 - 22/04/2024 ([commit 46ce1c3](https://github.com/DanielDekhtyar/github-search/commit/46ce1c3))_
