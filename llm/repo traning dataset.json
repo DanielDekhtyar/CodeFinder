@@ -1,197 +1,45 @@
 [
-    {
-        "text": "<s>[INST] Search for repositories related to machine learning written in Python [/INST] repositories||machine-learning OR deep-learning OR data-science language:python</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories related to artificial intelligence with the apache license [/INST] repositories||topic:artificial-intelligence license:apache-2.0</s>"
-    },
-    {
-        "text": "<s>[INST] Find a python repositories with more than 1000 stars and less than 5000 forks by Google Deepmind [/INST] repositories||stars:>1000 forks:<5000 language:python owner:google-deepmind</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories with more than 500 forks and less than 1000 stars [/INST] repositories||forks:>500 stars:<1000</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories that were last updated between January 1, 2023, and December 31, 2023 [/INST] repositories||pushed:2023-01-01..2023-12-31</s>"
-    },
-    {
-        "text": "<s>[INST] Find a repository of a screenshot tool [/INST] repositories||screenshot OR screenshot tool</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories that have the word 'tutorial' in the README file [/INST] repositories||tutorial in:readme</s>"
-    },
-    {
-        "text": "<s>[INST] tutorial [/INST] repositories||tutorial</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories about data-analysis or data science [/INST] repositories||data-analysis OR data-science</s>"
-    },
-    {
-        "text": "<s>[INST] Documentation for typescript [/INST] repositories||typescript documentation</s>"
-    },
-    {
-        "text": "<s>[INST] documentation for pygame [/INST] repositories||pygame documentation in:input</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories with more than 1000 commits and less than 100 issues [/INST] repositories||commits:>1000 issues:<100</s>"
-    },
-    {
-        "text": "<s>[INST] Search a documentation for the tensorflow library [/INST] repositories||tensorflow documentation</s>"
-    },
-    {
-        "text": "<s>[INST] Find repos natural language processing with at least 500 stars [/INST] repositories||natural-language-processing OR nlp stars:>=500</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories related to natural language processing by Google [/INST] repositories||natural-language-processing OR nlp owner:google</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories with more than 1000 forks and last updated within the last month [/INST] repositories||forks:>1000 pushed:>=2024-03-01</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories related to game development with the MIT License [/INST] repositories||game-development license:mit</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories about machine learning and image recognition [/INST] repositories||machine learning AND image recognition</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories with at least 2000 stars created by the user 'facebook' [/INST] repositories||stars:>=2000 user:facebook</s>"
-    },
-    {
-        "text": "<s>[INST] Find a repository with many contributors [/INST] repositories||contributors:>1000</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories containing cybersecurity tools [/INST] repositories||cybersecurity tools</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories related to penetration testing with the MIT License [/INST] repositories||penetration-testing license:mit</s>"
-    },
-    {
-        "text": "<s>[INST] Find a Python repository with more than 500 stars and less than 1000 forks focusing on cybersecurity [/INST] repositories||stars:>500 forks:<1000 cybersecurity language:python</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories last updated within the last month in the field of cybersecurity [/INST] repositories||pushed:>=2024-03-01 cybersecurity</s>"
-    },
-    {
-        "text": "<s>[INST] Show me repos of kaspersky [/INST] repositories||owner:kasperskylab</s>"
-    },
-    {
-        "text": "<s>[INST] repo that has vulnerability in it [/INST] repositories||vulnerability</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories related to malware analysis written in Python [/INST] repositories||malware-analysis language:Python</s>"
-    },
-    {
-        "text": "<s>[INST] Find repo of a game build with pygame [/INST] repositories||pygame language:python</s>"
-    },
-    {
-        "text": "<s>[INST] Find a clone of the super mario game [/INST] repositories||super mario</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories containing about cybersecurity and education [/INST] repositories||cybersecurity AND education</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories with at least 2000 stars created by rapid7 [/INST] repositories||stars:>=2000 user:rapid7</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories with more than 1000 stars related to cybersecurity written in Go [/INST] repositories||stars:>1000 language:go cybersecurity</s>"
-    },
-    {
-        "text": "<s>[INST] Find a repo of a recepie website [/INST] repositories||recepie</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repos about security assessment [/INST] repositories||security assessment</s>"
-    },
-    {
-        "text": "<s>[INST] Find a repository with a security advisory [/INST] repositories||security-advisory:true</s>"
-    },
-    {
-        "text": "<s>[INST] Security repositories with bug bounty [/INST] repositories||security AND bug bounty</s>"
-    },
-    {
-        "text": "<s>[INST] firewall written in python [/INST] repositories||firewall language:python</s>"
-    },
-    {
-        "text": "<s>[INST] cryptography with Apache License 2.0 [/INST] repositories||cryptography license:apache-2.0</s>"
-    },
-    {
-        "text": "<s>[INST] repositories about secure coding in Java and C++ [/INST] repositories||secure-coding language:java language:C++</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories with more than 500 forks and less than 2000 stars related to cybersecurity [/INST] repositories||forks:>500 stars:<2000 cybersecurity</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories with more than 100 stars related to secure coding practices [/INST] repositories||secure-coding stars:>100</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories with more than 1000 commits and less than 500 issues related to cybersecurity [/INST] repositories||commits:>1 issues:<5 cybersecurity</s>"
-    },
-    {
-        "text": "<s>[INST] security [/INST] repositories||security</s>"
-    },
-    {
-        "text": "<s>[INST] pentesting repo with 100 pull requests [/INST] repositories||pentesting is:pr comments:>100</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories related to cybersecurity that were last updated within the last year [/INST] repositories||cybersecurity pushed:>=2023-04-20</s>"
-    },
-    {
-        "text": "<s>[INST] threat detection [/INST] repositories||threat detection</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories with more than 100 forks and less than 1000 stars focusing on security tools [/INST] repositories||forks:>100 stars:<1000 security-tools</s>"
-    },
-    {
-        "text": "<s>[INST] Find a repo about incident response with at least 50 issues [/INST] repositories||incident response issues:>50</s>"
-    },
-    {
-        "text": "<s>[INST] threat intelligence with the GPL license [/INST] repositories||threat intelligence license:gpl-3.0</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories with more than 20 stars related to cybersecurity written in Rust or C [/INST] repositories||stars:>20 language:rust language:c cybersecurity</s>"
-    },
-    {
-        "text": "<s>[INST] cybersecurity on a website [/INST] repositories||cybersecurity-on-website</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories related to digital forensics with the MIT License [/INST] repositories||digital forensics license:mit</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories about cybersecurity and machine learning [/INST] repositories||cybersecurity OR machine learning</s>"
-    },
-    {
-        "text": "<s>[INST] repositories with more than 1000 stars and less than 100 forks focusing on security best practices [/INST] repositories||stars:>1000 forks:<100 security best practices</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories with the 'crypto' label and at least 500 pull requests [/INST] repositories||label:crypto is:pr comments:>500</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories related to network security with the BSD License [/INST] repositories||network security license:bsd-3-clause</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories about security research [/INST] repositories||security research OR cybersecurity research</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories with 'security assessment' in the name or input and the 'audit' label [/INST] repositories||(name:\"security assessment\" OR input:\"security assessment\") label:audit</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories with more than 200 stars focusing on network security written in Python or Java [/INST] repositories||language:java language:python network security</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories with the 'security-research' label and at least 200 stars [/INST] repositories||label:security-research stars:>200</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories related to threat hunting with the GPL License [/INST] repositories||threat hunting ... license:gpl-3.0</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories with more than 500 forks and less than 2000 stars focusing on security education [/INST] repositories||forks:>500 stars:<2000 topic:\"security education\"</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories with the 'cryptography' label and the 'crypto' topic [/INST] repositories||label:cryptography topic:crypto</s>"
-    },
-    {
-        "text": "<s>[INST] Search for repositories related to cybersecurity and containing the word 'vulnerability' in the README file [/INST] repositories||cybersecurity vulnerability in:readme</s>"
-    },
-    {
-        "text": "<s>[INST] Find repositories with more than 500 issues and less than 1000 stars focusing on cybersecurity [/INST] repositories||issues:>500 stars:<1000 topic:cybersecurity</s>"
-    }
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search for repositories related to machine learning written in Python"}, {"role": "assistant", "content": "repositories||machine-learning OR deep-learning OR data-science language:python"}]}
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search for repositories related to artificial intelligence with the apache license"}, {"role": "assistant", "content": "repositories||topic:artificial-intelligence license:apache-2.0"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find a python repositories with more than 1000 stars and less than 5000 forks by Google Deepmind"}, {"role": "assistant", "content": "repositories||stars:>1000 forks:<5000 language:python owner:google-deepmind"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repositories with more than 500 forks and less than 1000 stars"}, {"role": "assistant", "content": "repositories||forks:>500 stars:<1000"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search for repositories that were last updated between January 1, 2023, and December 31, 2023"}, {"role": "assistant", "content": "repositories||pushed:2023-01-01..2023-12-31"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find a repository of a screenshot tool"}, {"role": "assistant", "content": "repositories||screenshot OR screenshot tool"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search for repositories that have the word 'tutorial' in the README file"}, {"role": "assistant", "content": "repositories||tutorial in:readme"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "tutorial"}, {"role": "assistant", "content": "repositories||tutorial"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repositories about data-analysis or data science"}, {"role": "assistant", "content": "repositories||data-analysis OR data-science"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Documentation for typescript"}, {"role": "assistant", "content": "repositories||typescript documentation"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "documentation for pygame"}, {"role": "assistant", "content": "repositories||pygame documentation in:input"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repositories with more than 1000 commits and less than 100 issues"}, {"role": "assistant", "content": "repositories||commits:>1000 issues:<100"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search a documentation for the tensorflow library"}, {"role": "assistant", "content": "repositories||tensorflow documentation"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repos natural language processing with at least 500 stars"}, {"role": "assistant", "content": "repositories||natural-language-processing OR nlp stars:>=500"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repositories related to natural language processing by Google"}, {"role": "assistant", "content": "repositories||natural-language-processing OR nlp owner:google"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repositories with more than 1000 forks and last updated within the last month"}, {"role": "assistant", "content": "repositories||forks:>1000 pushed:>=2024-03-01"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repositories related to game development with the MIT License"}, {"role": "assistant", "content": "repositories||game-development license:mit"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search for repositories about machine learning and image recognition"}, {"role": "assistant", "content": "repositories||machine learning AND image recognition"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repositories with at least 2000 stars created by the user 'facebook'"}, {"role": "assistant", "content": "repositories||stars:>=2000 user:facebook"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find a repository with many contributors"}, {"role": "assistant", "content": "repositories||contributors:>1000"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search for repositories containing cybersecurity tools"}, {"role": "assistant", "content": "repositories||cybersecurity tools"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search for repositories related to penetration testing with the MIT License"}, {"role": "assistant", "content": "repositories||penetration-testing license:mit"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find a Python repository with more than 500 stars and less than 1000 forks focusing on cybersecurity"}, {"role": "assistant", "content": "repositories||stars:>500 forks:<1000 cybersecurity language:python"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search for repositories last updated within the last month in the field of cybersecurity"}, {"role": "assistant", "content": "repositories||pushed:>=2024-03-01 cybersecurity"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Show me repos of kaspersky"}, {"role": "assistant", "content": "repositories||owner:kasperskylab"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "repo that has vulnerability in it"}, {"role": "assistant", "content": "repositories||vulnerability"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search for repositories related to malware analysis written in Python"}, {"role": "assistant", "content": "repositories||malware-analysis language:Python"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repo of a game build with pygame"}, {"role": "assistant", "content": "repositories||pygame language:python"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find a clone of the super mario game"}, {"role": "assistant", "content": "repositories||super mario"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repositories containing about cybersecurity and education"}, {"role": "assistant", "content": "repositories||cybersecurity AND education"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search for repositories with at least 2000 stars created by rapid7"}, {"role": "assistant", "content": "repositories||stars:>=2000 user:rapid7"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repositories with more than 1000 stars related to cybersecurity written in Go"}, {"role": "assistant", "content": "repositories||stars:>1000 language:go cybersecurity"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find a repo of a recepie website"}, {"role": "assistant", "content": "repositories||recepie"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search for repos about security assessment"}, {"role": "assistant", "content": "repositories||security assessment"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find a repository with a security advisory"}, {"role": "assistant", "content": "repositories||security-advisory:true"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Security repositories with bug bounty"}, {"role": "assistant", "content": "repositories||security AND bug bounty"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "firewall written in python"}, {"role": "assistant", "content": "repositories||firewall language:python"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "cryptography with Apache License 2.0"}, {"role": "assistant", "content": "repositories||cryptography license:apache-2.0"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "repositories about secure coding in Java and C++"}, {"role": "assistant", "content": "repositories||secure-coding language:java language:C++"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Search for repositories with more than 500 forks and less than 2000 stars related to cybersecurity"}, {"role": "assistant", "content": "repositories||forks:>500 stars:<2000 cybersecurity"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repositories with more than 100 stars related to secure coding practices"}, {"role": "assistant", "content": "repositories||secure-coding stars:>100"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "Find repositories with more than 1000 commits and less than 500 issues related to cybersecurity"}, {"role": "assistant", "content": "repositories||commits:>1 issues:<5 cybersecurity"}]},
+{"messages": [{"role": "system", "content": "You are a helpful assistant that takes user request and converts it into a query for GitHub search according to the syntax. Give just the query and nothing else"}, {"role": "user", "content": "security"}, {"role": "assistant", "content": "repositories||security"}]}
 ]
