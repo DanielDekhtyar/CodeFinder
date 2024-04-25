@@ -12,14 +12,16 @@
 {% block main %}
 <div class="container">
     <div id="search-results">
+        <div id="search-results-header-div">
         <p id="search-results-header">
             We found {{result_count}} results in just {{time_it_took}}
             seconds!
         </p>
+        </div>
         {% for result in search_results %}
         <div class="search-result"> <!-- The outline of the result card -->
             <div class="search-result-content"> <!-- The content of the result card -->
-                <div class="title">
+                <div class="title-div">
                 <a href="{{ result.owners_page }}" target="_blank">
                 <img class="avatar" src="{{ result.avatar_url }}" />
                 </a>
@@ -32,18 +34,16 @@
             </div>
                 {% if result.description %}
                 <p class="description">{{ result.description }}</p>
-                {% endif %} 
+                {% endif %}
                 {% if result.topics %}
                 <div id="topics-div">
                     {% for topic in result.topics%}
-                    <span class="badge topics"
-                        ><a
-                            class="topic-link"
+                        <a
+                            class="topics topic-link badge "
                             href="https://github.com/topics/{{ topic }}"
                             target="_blank"
-                            >{{ topic }}</a
-                        ></span
-                    >
+                        >
+                        {{ topic }}</a>
                     {% endfor %}
                 </div>
                 {% endif %}
@@ -86,6 +86,9 @@
                             >{{ result.license }}</a
                         >
                     </p>
+                    {% if result.homepage %}
+                    <p class="homepage">· <a href="{{ result.homepage }}" target="_blank">{{ result.homepage }}</a></p>
+                    {% endif %}
                     <!-- If the license is not in the list, just display the name of the license without a link-->
                     {% elif result.license %}
                     <p class="license">{{ result.license }}</p>
@@ -102,4 +105,10 @@
         {% endfor %}
     </div>
 </div>
+<script type="text/javascript">
+    // Printing the API usage statistics
+    var used = JSON.parse('{{ used | tojson | safe }}');
+    console.log("API usage statistics:");
+    console.log("At present moment the GitHub Search API has been used " + used + " times in the last hour");
+</script>
 {% endblock %}

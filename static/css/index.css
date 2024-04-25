@@ -10,14 +10,8 @@
     margin-top: 20vh;
 }
 
-#title {
-    font-size: 5vw;
-    margin: 0;
-}
-
-#github-logo {
-    width: 6vw;
-    margin-left: 1vw;
+#title-image {
+    height: 10vh;
 }
 
 #search-div {

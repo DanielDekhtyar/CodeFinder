@@ -1,10 +1,21 @@
 #search-results {
-    margin-top: 10vh; /* Adjust margin to leave space for the fixed header */
+    margin-top: 8.5vh; /* Adjust margin to leave space for the fixed header */
     padding-bottom: 1vh; /* Adjust padding to leave space for the fixed footer */
 }
 
+#search-results-header-div {
+    margin: auto;
+    width: 50vw;
+}
+
+#search-results-header {
+    margin-left: 0.5vw;
+    font-size: 1.5vh;
+    color: #636363;
+}
+
 .search-result {
-    border: solid 0.3vh #d9d9d9;
+    border: solid 0.2vh #D0D7DE;
     border-radius: 1.5vh;
     padding-top: 0.6vh;
     padding-bottom: 0vh;
@@ -24,6 +35,13 @@
 .title {
     display: inline-block;
     white-space: nowrap;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.title:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .avatar {
@@ -42,7 +60,7 @@
 .description {
     font-size: 1.35vh;
     color: black;
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 0.5vh;
     margin-bottom: 0;
 }
@@ -50,20 +68,26 @@
 .topics {
     margin-top: 1vh;
     font-size: 1vh;
-    border-radius: 2em;
-    background-color: #86b6ff;
+    border-radius: 3em;
+    line-height: 1.2vh;
+    background-color: #DDF4FF;
+    color: #0969da;
     white-space: nowrap;
-    transition: background-color 0.3s;
+    text-align: center;
+    font-weight: 500;
 }
 
 .topics:hover {
     cursor: pointer;
-    background-color: #316DCA;
+    background-color: #0969DA;
+    color: white;
+    box-shadow: 5px 5px 1px #d9d9d9;
 }
 
 .topic-link {
-    color: white;
+    color: #0969da;
     text-decoration:none;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .topic-link:hover {
@@ -73,7 +97,7 @@
 
 .bottom-div {
     position: relative;
-    margin-top: 1vh;
+    margin-top: 0.8vh;
     margin-bottom: 1vh;
     z-index: 1;
 }
@@ -93,7 +117,6 @@
 
 .license {
     display: inline;
-    margin-right: 1vw;
     font-size: 1.2vh;
     color: #5e5e5e;
 }
@@ -107,6 +130,17 @@
     text-decoration:underline;
     color: #5e5e5e;
 }
+
+.homepage {
+    display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 50ch;
+    font-size: 1.2vh;
+    margin-top: 0.1vh;
+}
+
+/* Homepage link overflow http://127.0.0.1:5000/search?q=openai%20python%20api&page=25 */
 
 .updated-at {
     display: inline;

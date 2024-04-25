@@ -2,12 +2,12 @@
 
 
 // Functions when you hover over the search icon
-function hover() {
+function hoverSearchButton() {
     element = document.getElementById("search-icon");
     element.setAttribute('src', 'static/assets/search_white.png');
 }
 
-function unhover() {
+function unhoverSearchButton() {
     element = document.getElementById("search-icon");
     element.setAttribute('src', 'static/assets/search_black.png');
 }

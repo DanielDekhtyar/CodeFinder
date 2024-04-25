@@ -4,7 +4,7 @@ header {
     top: 0; /* Position the header at the top of the viewport */
     left: 0;
     width: 100%;
-    height: 10vh;
+    height: 7vh;
     border-bottom: 0.3vh solid #d9d9d9;
     background-color: white;
     z-index: 1000;
@@ -15,10 +15,10 @@ header {
 }
 
 #logo {
-    height: 7vh;
+    height: 5vh;
     margin-top: auto;
     margin-bottom: auto;
-    margin-left: 1.2vw;
+    margin-left: 2vw;
 }
 
 #logo:hover {
@@ -26,19 +26,21 @@ header {
 }
 
 #search-form {
+    position: relative;
     margin: auto;
-    margin-top: 2.5vh;
+    margin-top: 1.5vh;
     width: 80vw;
 }
 
 #search-bar {
-    height: 5vh;
+    margin: auto;
+    height: 4vh;
     font-size: 2vh;
 }
 
 #search-submit-button {
     border-color: #CED4DA;
-    height: 5vh;
+    height: 4vh;
 }
 
 #search-submit-button:hover {
@@ -53,50 +55,60 @@ header {
     cursor: pointer;
 }
 
-#search-results-header {
-    margin-top: 12vh;
-    margin-left: 0.5vw;
-    font-size: 1.5vh;
-    color: #636363;
-}
-
 .pages {
-    padding-bottom: 10vh;
+    padding-bottom: 5vh;
     margin: auto;
     width: 100%;
     text-align: center;
+    display: inline-block;
 }
 
 .page {
     display: inline-block;
     cursor: pointer;
     text-decoration: none;
-    border: solid 0.3vh #86b6ff;
-    background-color: #86b6ff;
-    border-radius: 4px;
     min-width: 1.1vw;
-    color: white;
-    transition: background-color 0.3s, border-color 0.3s, border-radius 0.5s;
-    margin: 0.1vh;
+    color: black;
+    margin: 0.1vh; /* Margin between page numbers */
+    position: relative;
+    overflow: hidden; /* Hide overflow to prevent overflow issues */
+}
+
+/* Create the bottom line effect when hovering over a page number */
+.page::before {
+    content: ''; /* Add content to create the pseudo-element */
+    position: absolute; /* Position the pseudo-element */
+    left: 50%; /* Move it to the center */
+    bottom: 0; /* Align it to the bottom */
+    width: 0; /* Initially, the width is 0 */
+    height: 0.15vh; /* Height of the border */
+    background-color: #316DCA; /* Color of the border */
+    transition: width 0.3s ease, left 0.3s ease; /* Transition effect */
+    border-bottom: solid 0.2vh #316DCA;
+}
+
+.page:hover::before {
+    left: 0; /* Move the pseudo-element to the left edge */
+    width: 100%; /* Expand the width to 100% on hover */
 }
 
 .current-page {
-    background-color: #316DCA;
-    border-color: #316DCA;
-    color: white;
-    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    min-width: 1.1vw;
+    color: black;
+    margin: 0.1vh; /* Margin between page numbers */
+    position: relative;
+    overflow: hidden; /* Hide overflow to prevent overflow issues */
+    border-bottom: solid 0.3vh #174AE4;
+    color: #0A58CA;
 }
 
-.page:hover {
-    background-color: #316DCA;
-    border-color: #316DCA;
-    color: white;
-    border-radius: 50%;
-}
-
-.page_button {
-    height: 2vh;
-    margin-bottom: 0.5vh;
+/* Button to change page by one.  <-  -> */
+.turn_page_button {
+    height: 2.2vh;
+    margin-bottom: 1.4vh;
 }
 /* https://www.flaticon.com/free-icon/arrow-right_1549454?term=next&page=1&position=16&origin=search&related_id=1549454 */
 

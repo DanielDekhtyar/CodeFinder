@@ -4,10 +4,9 @@ Code that preforms the API requests to GitHub and returns the relevant data
 
 
 import requests
-import json
 import time
 
-from backend import helpers
+from backend import helpers, config
 
 def repositories(user_query, page):
     start_time = time.time() # Get the current time
@@ -19,7 +18,13 @@ def repositories(user_query, page):
         "page": page # Page number
     }
 
-    response = requests.get(search_url, params=params)
+    # Add the personal access token to the headers
+    headers = {
+        "Authorization": f"Bearer {config.get_github_token()}"
+    }
+
+    # Make the API request and get the response
+    response = requests.get(search_url, params=params, headers=headers)
 
     # Check if the request was successful
     if response.status_code != 200:
@@ -49,7 +54,8 @@ def repositories(user_query, page):
                 'description': repo['description'] if repo.get('description') else None,  # Check if 'description' exists
                 'pushed_at': helpers.format_date(repo['pushed_at']),
                 'repo_url': repo['html_url'],
-                'topics' : repo['topics'] if len(repo['topics']) < 10 else repo['topics'][:10]
+                'topics' : repo['topics'] if len(repo['topics']) < 10 else repo['topics'][:10],
+                'homepage' : repo['homepage']
             })
         
     # Calculate how much time it took to get the results

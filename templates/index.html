@@ -20,8 +20,7 @@
     <body>
         <div class="container">
             <div id="heading">
-                <h1 id="title">GitHub Search</h1>
-                <img id="github-logo" alt="Github Search Logo" src="static/assets/icon.png" />
+                <img id="title-image" alt="Github Search Logo" src="static/assets/title image.png" />
             </div>
             <form id="search-form" action="/search" method="GET">
                 <div class="input-group mb-3 input-group-prepend" id="search-div">
@@ -43,7 +42,7 @@
                         type="submit"
                         class="btn btn-outline-secondary"
                         id="search-submit-button"
-                        onmouseover="hover();" onmouseout="unhover();"
+                        onmouseover="hoverSearchButton();" onmouseout="unhoverSearchButton();"
                     >
                         <!-- Use the search button to call a JavaScript function search() -->
                         <img
@@ -61,7 +60,7 @@
         <div class="disclaimer">
             <p class="disclaimer">
                 Disclaimer: This website is not affiliated with GitHub and has
-                no connection to it's owner, stakeholder, contributors or any
+                no connection to it's owners, stakeholders, contributors or any
                 others. For the official GitHub Search website click
                 <a href="https://github.com/search" target="_blank">here</a>
             </p>

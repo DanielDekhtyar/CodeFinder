@@ -4,14 +4,36 @@ logo.addEventListener("click", () => {
 })
 
 // Functions when you hover over the search icon
-function hover() {
+function hoverSearchButton() {
     element = document.getElementById("search-icon");
     element.setAttribute('src', 'static/assets/search_white.png');
 }
 
-function unhover() {
+function unhoverSearchButton() {
     element = document.getElementById("search-icon");
     element.setAttribute('src', 'static/assets/search_black.png');
+}
+
+// Functions when you hover over the forward button
+function hoverForwardButton() {
+    element = document.getElementById("forward-button");
+    element.setAttribute('src', 'static/assets/forward black.png');
+}
+
+function unhoverForwardButton() {
+    element = document.getElementById("forward-button");
+    element.setAttribute('src', 'static/assets/forward.png');
+}
+
+// Functions when you hover over the forward button
+function hoverBackButton() {
+    element = document.getElementById("back-button");
+    element.setAttribute('src', 'static/assets/back black.png');
+}
+
+function unhoverBackButton() {
+    element = document.getElementById("back-button");
+    element.setAttribute('src', 'static/assets/back.png');
 }
 
 // Get the input element

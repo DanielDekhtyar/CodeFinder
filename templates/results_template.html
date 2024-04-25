@@ -42,7 +42,7 @@
                     type="submit"
                     class="btn btn-outline-secondary"
                     id="search-submit-button"
-                    onmouseover="hover();" onmouseout="unhover();"
+                    onmouseover="hoverSearchButton();" onmouseout="unhoverSearchButton();"
                 >
                     <!-- Use the search button to call a JavaScript function search() -->
                     <img
@@ -73,20 +73,20 @@
         {% if number_of_pages > 1 %}
             {% if current_page != 1 %}
             <!-- Back Button -->
-            <a href="/search?q={{ query }}&page={{ current_page -1 }}"><img src="static/assets/back.png" class="page_button" alt="Back" /></a>
+            <a href="/search?q={{ query }}&page={{ current_page -1 }}"><img src="static/assets/back.png" id="back-button" class="turn_page_button" alt="Back" onmouseover="hoverBackButton();" onmouseout="unhoverBackButton();""/></a>
             {% endif %}
             <!-- Display the pages between the range -->
-            {% for page in range(1, number_of_pages + 1) %}
+            {% for page in range(1, number_of_pages + 2) %}
                 {% if page == current_page %}
-                <a class="page current-page" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a>
+                <a class="current-page" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a>
                 {% else %}
                 <a class="page" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a>
                 {% endif %}
             {% endfor %}
 
-            {% if current_page != number_of_pages %}
+            {% if current_page != number_of_pages + 1 %}
             <!-- Forward Button -->
-            <a href="/search?q={{ query }}&page={{ current_page + 1 }}"><img src="static/assets/forward.png" class="page_button" alt="Forward" /></a>
+            <a href="/search?q={{ query }}&page={{ current_page + 1 }}"><img src="static/assets/forward.png" class="turn_page_button" id="forward-button" alt="Forward" onmouseover="hoverForwardButton();" onmouseout="unhoverForwardButton();"/></a>
             {% endif %}
         {% endif %}
         {% endif %}
@@ -97,7 +97,7 @@
         <div class="disclaimer">
             <p class="disclaimer">
                 Disclaimer: This website is not affiliated with GitHub and has
-                no connection to it's owner, stakeholder, contributors or any
+                no connection to it's owners, stakeholders, contributors or any
                 others. For the official GitHub Search website click
                 <a href="https://github.com/search" target="_blank">here</a>
             </p>
