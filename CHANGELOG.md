@@ -2,11 +2,31 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 0.3.6.1
+> ### Last Version : 0.3.7
 >
-> ### Last Update : 24/04/2024
+> ### Last Update : 26/04/2024
 >
 > _Date format DD-MM-YYYY_
+
+
+
+### 🗓️ _Version 0.3.7 - 26/04/2024 ([commit 2233d08](https://github.com/DanielDekhtyar/github-search/commit/2233d08))_
+
+---
+
+#### 🚀 Added
+- `api_requests.py` uses a GitHub API token instead of just making an API request as an unauthenticated user. Now the API limit is up from 60 to 5000 API calls per hour.  
+The token is stored in `config.py` which is not committed to the repository.
+- `get_rate_limit_info()` is in `helpers.py`. The function checks the current API limit and how many API requests are left.
+- In `app.py`, before doing the API request, the API limit is checked. If the API limit was reached then no request will be made and an error message will appear.
+- The number of API requests that were done in the last hour is printed into the console. Check it in the dev tool in the browser.
+- In `error.html` a `second_line` may be provided. It will be displayed between the `error_message` and `error_code`.
+
+### 🔥 Enhancements
+- In `index.html` the title is now an image (`title image.png`) instead of a text and an icon image.
+- Some style changes in the results card. Particularly the borer, topics and title
+- If a repo has a `homepage` link provided, it will appear but the language and the license.
+- The pagination (page selection) part of `results_template.html` was completely redesigned.
 
 
 ### 🗓️ _Version 0.3.6.1 - 24/04/2024 ([commit 9acae80](https://github.com/DanielDekhtyar/github-search/commit/9acae80))_
@@ -33,8 +53,8 @@
 
 
 #### 🐞 To-Do
-- When searching for language:C++ or language:C#, the ++ or # part of the query disappears when you change to a different page.
-- If a repo does not have a description, the topics will be inline with the title.
+- When searching for language: C++ or language: C#, the ++ or # part of the query disappears when you change to a different page.
+- If a repo does not have a description, the topics will be in line with the title.
 
 
 ### 🗓️ _Version 0.3.5 - 20/04/2024 ([commit 71dadb0](https://github.com/DanielDekhtyar/github-search/commit/71dadb0))_
