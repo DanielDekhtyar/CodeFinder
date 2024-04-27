@@ -6,7 +6,7 @@ header {
     width: 100%;
     height: 7vh;
     min-height: 45px;
-    border-bottom: 0.3vh solid #d9d9d9;
+    border-bottom: 0.2vh solid #d9d9d9;
     background-color: white;
     z-index: 1000;
 }
@@ -35,10 +35,10 @@ header {
 }
 
 .form-control {
-    font: arial,sans-serif;
+    font-family: arial, sans-serif;
     font-size: 1.5vh;
-    border-radius: 1vh;
-    text-indent: 0.1vw;
+    border-radius: 2vh;
+    text-indent: 0.5vw;
     height: 4vh;
     min-height: 4vh;
 }
@@ -57,10 +57,11 @@ header {
 
 #search-submit-button {
     border-color: #CED4DA;
-    border-top-right-radius: 1vh;
-    border-bottom-right-radius: 1vh;
+    border-top-right-radius: 2vh;
+    border-bottom-right-radius: 2vh;
     height: 4vh;
     min-height: 4vh;
+    width: 2vw;
 }
 
 #search-submit-button:hover {
@@ -69,7 +70,7 @@ header {
 
 #search-icon {
     display: block;
-    height: 2vh;
+    height: 1.5vh;
     width: auto;
     max-width: 100%;
     max-height: 100%;
@@ -94,7 +95,7 @@ header {
     font-size: 1.5vh;
     min-width: 1.1vw;
     color: black;
-    margin: 0.1vw; /* Margin between page numbers */
+    margin: 0.15vw; /* Margin between page numbers */
     position: relative;
     overflow: hidden; /* Hide overflow to prevent overflow issues */
 }
@@ -174,6 +175,9 @@ header {
 }
 
 @media screen and (max-width: 1050px) {
+    .page {
+        margin: 0.1vw;
+    }
     .disclaimer {
         font-size: 1.5vh;
     }
