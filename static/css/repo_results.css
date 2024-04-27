@@ -33,9 +33,12 @@
     margin-right: 1vw;
 }
 
+.title-div {
+    display: inline-flex;
+}
+
 .title {
     font-size: 1.5vh;
-    display: inline-block;
     white-space: nowrap;
     font-weight: 600;
     text-decoration: none;
@@ -143,8 +146,6 @@
     margin-top: 0.1vh;
 }
 
-/* Homepage link overflow http://127.0.0.1:5000/search?q=openai%20python%20api&page=25 */
-
 .updated-at {
     display: inline;
     position: absolute;
@@ -152,7 +153,58 @@
     font-size: 1.2vh;
     color: #5e5e5e;
     right: 0;
-    bottom: -1.5vh;
+    bottom: -2vh;
+}
+
+@media screen and (max-width: 1700px) {
+    #search-results-header-div {
+        width: 60vw;
+    }
+
+    #search-results-header {
+        font-size: 2vh;
+    }
+
+    .search-result {
+        width: 60vw;
+    }
+
+    .title {
+        font-size: 2vh;
+    }
+
+    .avatar {
+        width: 2.5vh;
+        height: 2.5vh;
+    }
+
+    .description {
+        font-size: 1.8vh;
+    }
+
+    .topics {
+        font-size: 1.4vh;
+    }
+
+    .language {
+        font-size: 1.8vh;
+    }
+
+    .language-icon {
+        height: 2vh;
+    }
+
+    .license {
+        font-size: 1.6vh;
+    }
+
+    .homepage {
+        font-size: 1.6vh;
+    }
+
+    .updated-at {
+        font-size: 1.5vh;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -193,9 +245,15 @@
     .homepage {
         font-size: 0.75vh;
     }
+}
+
+@media screen and (max-width: 900px) {
+    .topics {
+        font-size: 1.2vh;
+    }
 
     .updated-at {
-        font-size: 0.75vh;
+        visibility: hidden;
     }
 }
 

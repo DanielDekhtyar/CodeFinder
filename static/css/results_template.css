@@ -27,9 +27,10 @@ header {
 }
 
 #search-form {
-    position: relative;
-    margin: auto;
-    margin-top: 1.5vh;
+    position: absolute; /* Change position to absolute */
+    top: 25%; /* Position the form relative to the bottom edge of the header */
+    left: 50%; /* Position the form horizontally centered within the header */
+    transform: translateX(-50%); /*Adjust horizontally to center */
     width: 80vw;
 }
 
@@ -38,7 +39,8 @@ header {
     font-size: 1.5vh;
     border-radius: 1vh;
     text-indent: 0.1vw;
-    height: 2vh;
+    height: 4vh;
+    min-height: 4vh;
 }
 
 .empty-input {
@@ -49,8 +51,8 @@ header {
 
 #search-bar {
     margin: auto;
-    height: 4vh;
     font-size: 2vh;
+    min-height: 4vh;
 }
 
 #search-submit-button {
@@ -58,6 +60,7 @@ header {
     border-top-right-radius: 1vh;
     border-bottom-right-radius: 1vh;
     height: 4vh;
+    min-height: 4vh;
 }
 
 #search-submit-button:hover {
@@ -65,27 +68,12 @@ header {
 }
 
 #search-icon {
-    height: 60%;
+    height: 2vh;
     width: auto;
     max-width: 100%;
     max-height: 100%;
     margin: auto;
-}
-
-@media screen and (max-height: 850px) {
-
-    #search-icon {
-        margin-bottom: 1vh;
-    }
-    
-}
-
-@media screen and (max-height: 700px) {
-
-    #search-icon {
-        margin-bottom: 2vh;
-    }
-
+    margin-bottom: 1.5vh;
 }
 
 #search-icon:hover {
@@ -101,12 +89,12 @@ header {
 }
 
 .page {
-    display: inline-block;
     cursor: pointer;
     text-decoration: none;
+    font-size: 1.5vh;
     min-width: 1.1vw;
     color: black;
-    margin: 0.1vh; /* Margin between page numbers */
+    margin: 0.1vw; /* Margin between page numbers */
     position: relative;
     overflow: hidden; /* Hide overflow to prevent overflow issues */
 }
@@ -130,7 +118,6 @@ header {
 }
 
 .current-page {
-    display: inline-block;
     cursor: pointer;
     text-decoration: none;
     min-width: 1.1vw;
@@ -145,7 +132,7 @@ header {
 /* Button to change page by one.  <-  -> */
 .turn_page_button {
     height: 2.2vh;
-    margin-bottom: 1.4vh;
+    margin-bottom: 0.2vh;
 }
 /* https://www.flaticon.com/free-icon/arrow-right_1549454?term=next&page=1&position=16&origin=search&related_id=1549454 */
 
@@ -163,8 +150,67 @@ header {
     z-index: 1000;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1700px) {
+    #logo {
+        height: 4.5vh;
+    }
+    .page {
+        font-size: 1.8vh;
+    }
+
+    .current-page {
+        font-size: 1.8vh;
+    }
+
     .disclaimer {
-        font-size: 1vh;
+        font-size: 2vh;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .disclaimer {
+        font-size: 1.5vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .page {
+        font-size: 1.2vh;
+    }
+
+    .current-page {
+        font-size: 1.2vh;
+    }
+
+    .turn_page_button {
+        height: 2vh;
+    }
+
+    .disclaimer {
+        font-size: 1.2vh;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .disclaimer {
+        font-size: 0.85vh;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .page {
+        font-size: 0.6vh;
+    }
+
+    .current-page {
+        font-size: 0.6vh;
+    }
+
+    .turn_page_button {
+        visibility: hidden;
+    }
+
+    .disclaimer {
+        font-size: 0.8vh;
     }
 }

@@ -12,9 +12,9 @@ function truncateHomepage() {
         var link = homepage.querySelector("a"); // Find the anchor element inside the paragraph
         if (link) {
             var text = link.textContent; // Get the text content of the anchor element
-            if (text.length > 55) {
+            if (text.length > 50) {
                 // Truncate the text content and set it back
-                link.textContent = text.substring(0, 55) + "...";
+                link.textContent = text.substring(0, 50) + "...";
             }
         }
     }
