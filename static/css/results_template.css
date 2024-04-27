@@ -120,6 +120,7 @@ header {
 .current-page {
     cursor: pointer;
     text-decoration: none;
+    font-size: 1.5vh;
     min-width: 1.1vw;
     color: black;
     margin: 0.1vh; /* Margin between page numbers */
