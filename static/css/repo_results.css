@@ -23,6 +23,7 @@
     margin-top: 1.5vh;
     margin-bottom: 1.5vh;
     width: 50vw;
+    overflow-x: hidden;
 }
 
 .search-result-content {
@@ -33,6 +34,7 @@
 }
 
 .title {
+    font-size: 1.5vh;
     display: inline-block;
     white-space: nowrap;
     font-weight: 600;
@@ -53,16 +55,17 @@
     cursor: pointer;
 }
 
-.title {
-    font-size: 1.5vh;
-}
-
 .description {
     font-size: 1.35vh;
     color: black;
     font-weight: 500;
     margin-top: 0.5vh;
     margin-bottom: 0;
+}
+
+.description .see-more {
+    font-weight: 600;
+    font-style: italic;
 }
 
 .topics {
@@ -150,4 +153,54 @@
     color: #5e5e5e;
     right: 0;
     bottom: -1.5vh;
+}
+
+@media screen and (max-width: 400px) {
+    #search-results-header {
+        font-size: 1.2vh;
+    }
+
+    .title {
+        font-size: 1vh;
+    }
+
+    .avatar {
+        width: 1.5vh;
+        height: 1.5vh;
+    }
+
+    .description {
+        font-size: 0.85vh;
+    }
+
+    .topics {
+        font-size: 0.75vh;
+        margin-top: 0.1vh;
+    }
+
+    .language {
+        font-size: 0.75vh;
+    }
+
+    .language-icon {
+        height: 1vh;
+    }
+
+    .license {
+        font-size: 0.75vh;
+    }
+
+    .homepage {
+        font-size: 0.75vh;
+    }
+
+    .updated-at {
+        font-size: 0.75vh;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .language-icon {
+        margin-bottom: -0.3vh;
+    }
 }

@@ -16,10 +16,34 @@ def index():
 
 @app.route("/search", methods=["GET"])
 def search():
+    """
+    The `search` function in Python retrieves form data, checks API rate limits, makes an API request,
+    handles errors, and renders search results or error messages based on the response.
+    
+    Returns:
+    The `search()` function returns either an error template or the search results template based on
+    various conditions and API responses. If certain conditions are met, it will render an error
+    template with specific error messages. If the API response is successful and there are valid
+    search results, it will render the search results template with the search results, time it took for
+    the search, result count, and other relevant information
+    """
+    
     # Retrieve form data
     user_query = request.args.get("q")
     user_query.strip()
     page = request.args.get("page")
+    
+    # Can have maximum 34 pages. If more pages requested, return an error
+    if page is not None:
+        if int(page) > 34:
+            return render_template(
+                "error.html",
+                query=user_query,
+                error_message="No more pages to display 😱",
+                second_line="Only 34 pages are allowed due to API limitations!",
+                gif="break computer.gif",
+                error_code=422,
+            )
 
     # Before the request is made, get the rate limit information
     rate_limit_info = helpers.get_rate_limit_info()
@@ -85,7 +109,6 @@ def search():
             time_it_took=time_it_took,
             result_count=result_count,
             os=os,
-            used=used,
         )
 
 

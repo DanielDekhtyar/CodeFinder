@@ -20,9 +20,9 @@
     <body>
         <div class="container">
             <div id="heading">
-                <img id="title-image" alt="Github Search Logo" src="static/assets/title image.png" />
+                <img id="title-image" alt="Github Search Logo" src="static/assets/transparent title.png" />
             </div>
-            <form id="search-form" action="/search" method="GET">
+            <form id="search-form" action="/search" method="GET" onsubmit="return validateForm()">
                 <div class="input-group mb-3 input-group-prepend" id="search-div">
                     <!--
                         TODO: Allows to submit empty queries
@@ -33,13 +33,15 @@
                         aria-describedby="basic-addon1"
                         id="search-bar"
                         name="q"
-                        type="text"
+                        type="search"
+                        role="searchbox"
                         autocomplete="off"
                         autofocus
                         placeholder="What are you looking for?"
                     />
                     <button
                         type="submit"
+                        role="search"
                         class="btn btn-outline-secondary"
                         id="search-submit-button"
                         onmouseover="hoverSearchButton();" onmouseout="unhoverSearchButton();"

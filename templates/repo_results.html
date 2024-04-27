@@ -22,12 +22,14 @@
         <div class="search-result"> <!-- The outline of the result card -->
             <div class="search-result-content"> <!-- The content of the result card -->
                 <div class="title-div">
-                <a href="{{ result.owners_page }}" target="_blank">
+                <a href="{{ result.owners_page }}" target="_blank" role="button" title="{{ result.owners_page }}">
                 <img class="avatar" src="{{ result.avatar_url }}" />
                 </a>
                 <a
                     class="title"
+                    title="{{ result.repo_url }}"
                     href="{{ result.repo_url }}"
+                    role="link"
                     target="_blank"
                     >{{ result.title }}</a
                 >
@@ -40,6 +42,8 @@
                     {% for topic in result.topics%}
                         <a
                             class="topics topic-link badge "
+                            role="button"
+                            title="https://github.com/topics/{{ topic }}"
                             href="https://github.com/topics/{{ topic }}"
                             target="_blank"
                         >
@@ -81,13 +85,15 @@
                     <p class="license">
                         <a
                             class="license-link"
+                            role="link"
+                            title="https://choosealicense.com/licenses/{{ result.license_key }}/"
                             href="https://choosealicense.com/licenses/{{ result.license_key }}/"
                             target="_blank"
                             >{{ result.license }}</a
                         >
                     </p>
                     {% if result.homepage %}
-                    <p class="homepage">· <a href="{{ result.homepage }}" target="_blank">{{ result.homepage }}</a></p>
+                    <p class="homepage">· <a href="{{ result.homepage }}" role="link" title="{{ result.homepage }}" target="_blank">{{ result.homepage }}</a></p>
                     {% endif %}
                     <!-- If the license is not in the list, just display the name of the license without a link-->
                     {% elif result.license %}
@@ -105,10 +111,5 @@
         {% endfor %}
     </div>
 </div>
-<script type="text/javascript">
-    // Printing the API usage statistics
-    var used = JSON.parse('{{ used | tojson | safe }}');
-    console.log("API usage statistics:");
-    console.log("At present moment the GitHub Search API has been used " + used + " times in the last hour");
-</script>
+<script src="static/js/repo_results.js"></script>
 {% endblock %}

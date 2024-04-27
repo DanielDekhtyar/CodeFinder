@@ -1,3 +1,4 @@
+// When the user clicks on the logo, go back to the home page
 const logo = document.getElementById("logo")
 logo.addEventListener("click", () => {
     window.location.href = "/";
@@ -9,6 +10,7 @@ function hoverSearchButton() {
     element.setAttribute('src', 'static/assets/search_white.png');
 }
 
+// Functions when you hover over the search icon
 function unhoverSearchButton() {
     element = document.getElementById("search-icon");
     element.setAttribute('src', 'static/assets/search_black.png');
@@ -25,12 +27,13 @@ function unhoverForwardButton() {
     element.setAttribute('src', 'static/assets/forward.png');
 }
 
-// Functions when you hover over the forward button
+// Functions when you hover over the back button
 function hoverBackButton() {
     element = document.getElementById("back-button");
     element.setAttribute('src', 'static/assets/back black.png');
 }
 
+// Functions when you hover over the back button
 function unhoverBackButton() {
     element = document.getElementById("back-button");
     element.setAttribute('src', 'static/assets/back.png');
@@ -43,6 +46,9 @@ var searchBar = document.getElementsByClassName("form-control")[0];
 searchBar.addEventListener("focus", function() {
     // Reset the placeholder text when the input box gains focus
     this.placeholder = "What are you looking for?";
+    // Remove the "empty-input" class from the input element, if it was there
+    var searchInput = document.getElementById("search-bar");
+    searchInput.classList.remove("empty-input");
 });
 
 // Event listener for when the input box loses focus
@@ -70,3 +76,15 @@ document.addEventListener("keydown", function(event) {
         searchBar.setSelectionRange(currentTextLength, currentTextLength);
     }
 });
+
+function validateForm() {
+    var searchInput = document.getElementById("search-bar");
+    var inputValue = searchInput.value.trim();
+    if (inputValue === "") {
+        // Search box borders become red, indicating an error
+        searchInput.classList.add("empty-input");
+        return false; // Prevent the form from submitting
+    } else {
+        return true; // Allow the form to submit
+    }
+}

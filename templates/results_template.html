@@ -26,20 +26,22 @@
     </head>
     <header>
         <img id="logo" alt="GitHub Search Logo" src="static/assets/icon.png" />
-        <form id="search-form" action="/search" method="GET">
+        <form id="search-form" action="/search" method="GET" onsubmit="return validateForm()">
             <div class="input-group mb-3 input-group-prepend" id="search-div">
                 <input
                     class="form-control"
                     aria-describedby="basic-addon1"
                     id="search-bar"
                     name="q"
-                    type="text"
+                    type="search"
+                    role="searchbox"
                     value="{{query}}"
                     autocomplete="off"
                     placeholder="What are you looking for?"
                 />
                 <button
                     type="submit"
+                    role="search"
                     class="btn btn-outline-secondary"
                     id="search-submit-button"
                     onmouseover="hoverSearchButton();" onmouseout="unhoverSearchButton();"
@@ -53,7 +55,7 @@
                 </button>
             </div>
         </form>
-    </header>
+    </header>    
     <body>
         {% block main %}
         {% endblock %}

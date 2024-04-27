@@ -12,6 +12,7 @@
 
 #title-image {
     height: 10vh;
+    max-width: 100%;
 }
 
 #search-div {
@@ -19,20 +20,35 @@
     margin-top: 8vh;
     width: 50vw;
     height: 7vh;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 #search-submit-button {
     border-color: #CED4DA;
+    border-top-right-radius: 1.5vh;
+    border-bottom-right-radius: 1.5vh;
     width: 3vw;
     height: 7vh;
 }
 
 #search-icon {
-    height: 60%;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .form-control {
+    font: arial,sans-serif;
     font-size: 2vh;
+    border-radius: 1.5vh;
+}
+
+.empty-input {
+    border-color: red;
+    box-shadow: 0 0 0 .5rem rgba(255, 0, 0, 0.25);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 

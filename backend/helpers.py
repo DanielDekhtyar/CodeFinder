@@ -2,14 +2,31 @@
 Here are just helper functions to be used in other functions in the backend
 """
 
-import json
 import requests
+import os
 
 from datetime import datetime, timedelta
-from backend import config
+from dotenv import load_dotenv
 
 
 def format_date(date_str):
+    """
+    The `format_date` function takes a date string and returns a formatted representation of the date
+    based on the time difference from the current date and other conditions.
+    
+    Args:
+    date_str: It looks like you have provided the code for formatting a date string into a more
+    human-readable format. However, you have not provided the actual date string that you want to
+    format. If you provide me with the `date_str` parameter, I can help you format it according to the
+    logic in the
+    
+    Returns:
+    The `format_date` function takes a date string in the format "%Y-%m-%dT%H:%M:%SZ" and returns a
+    formatted string indicating how long ago the date occurred or the specific date in a readable
+    format. The specific return value depends on the difference between the given date and the current
+    date and time. The function returns different strings based on the time difference, such as "less
+    """
+    
     # Convert the date string to a datetime object
     date = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ")
 
@@ -49,8 +66,21 @@ def format_date(date_str):
 
 
 def get_rate_limit_info():
+    """
+    The `get_rate_limit_info` function retrieves rate limit information from the GitHub API using a
+    personal access token.
+    
+    Returns:
+    The `get_rate_limit_info` function returns a tuple containing the rate limit, rate used, and rate
+    remaining from the GitHub API. If the API request is unsuccessful (status code other than 200), it
+    returns an error message with the status code and response text.
+    """
+    
+    # Load environment variables from .env file
+    load_dotenv()
+    
     # Set your GitHub personal access token
-    access_token = config.get_github_token()
+    access_token = os.getenv("GITHUB_API_TOKEN")
 
     # Set the API endpoint URL
     rate_limit_url = "https://api.github.com/rate_limit"
@@ -73,4 +103,4 @@ def get_rate_limit_info():
 
         return limit, used, remaining
     else:
-        return f"Error: {response.status_code} - {response.text}"
+        return f"Error: {response.status_code} - {response.text}", None, None

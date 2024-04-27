@@ -19,6 +19,9 @@ var searchBar = document.getElementsByClassName("form-control")[0];
 searchBar.addEventListener("focus", function() {
     // Reset the placeholder text when the input box gains focus
     this.placeholder = "What are you looking for?";
+    // Remove the "empty-input" class from the input element, if it was there
+    var searchInput = document.getElementById("search-bar");
+    searchInput.classList.remove("empty-input");
 });
 
 // Event listener for when the input box loses focus
@@ -46,3 +49,16 @@ document.addEventListener("keydown", function(event) {
         searchBar.setSelectionRange(currentTextLength, currentTextLength);
     }
 });
+
+// Check if the input form is not empty. If it is empty, make the border red.
+function validateForm() {
+    var searchInput = document.getElementById("search-bar");
+    var inputValue = searchInput.value.trim();
+    if (inputValue === "") {
+        // Search box borders become red, indicating an error
+        searchInput.classList.add("empty-input");
+        return false; // Prevent the form from submitting
+    } else {
+        return true; // Allow the form to submit
+    }
+}
