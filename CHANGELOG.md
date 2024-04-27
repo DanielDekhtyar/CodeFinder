@@ -2,12 +2,21 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 0.4.0
+> ### Last Version : 0.4.1
 >
 > ### Last Update : 27/04/2024
 >
 > _Date format DD-MM-YYYY_
 
+
+### 🗓️ _Version 0.4.1 - 27/04/2024 ([commit 2de524b](https://github.com/DanielDekhtyar/github-search/commit/2de524b))_
+
+---
+
+### 🔥 Enhancements
+- CSS was updated to make the website look good on different screen sizes, especially desktops and laptops.
+- `repo_results.js`; homepage link truncation was changed from a max of 55 chars to a max of 50 chars.  
+  If a homepage link is longer than 55 characters it will be truncated to the first 55 characters and end with '...'.
 
 
 ### 🗓️ _Version 0.4.0 - 27/04/2024 ([commit d8d4d5a](https://github.com/DanielDekhtyar/github-search/commit/d8d4d5a))_
@@ -20,8 +29,8 @@
 - In `app.py` an error message is added when a user is trying to get to page 35 and above.  
   A maximum of 34 pages are available due to GitHub's API limitations.
 - If the user attempts to submit an empty search request, no search request will be sent and the search bar borders will become red.
-- If a description is longer than 50 words, it will be truncated to the first 50 words and end with '...'. (Code in `repo_results.js`)
-- If a homepage link is longer than 55 characters it will be truncated to the first 55 characters and end with '...'. (Code in `repo_results.js`)
+- If a description is longer than 50 words, it will be truncated to the first 50 words and end with '...'. (Code in `repo_results.js`)  
+  If a homepage link is longer than 55 characters it will be truncated to the first 55 characters and end with '...'. (Code in `repo_results.js`)
 
 ### 🔥 Enhancements
 - Small style changes were done on `index.html` and `results_template.html`.
