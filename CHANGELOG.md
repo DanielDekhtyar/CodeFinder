@@ -2,11 +2,31 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 0.3.7
+> ### Last Version : 0.4.0
 >
-> ### Last Update : 26/04/2024
+> ### Last Update : 27/04/2024
 >
 > _Date format DD-MM-YYYY_
+
+
+
+### 🗓️ _Version 0.4.0 - 27/04/2024 ([commit d8d4d5a](https://github.com/DanielDekhtyar/github-search/commit/d8d4d5a))_
+
+---
+
+#### 🚀 Added
+- In `api_requests.py`, `openai_api_request()` was implemented to use OpenAI's API to access the fine-tuned model to get the GitHub search queries based on the user's search request.
+- In `api_requests.py`, `repositories()` was changed to take advantage of `openai_api_request()` to get accurate GitHub search queries based on the user's search request.
+- In `app.py` an error message is added when a user is trying to get to page 35 and above.  
+  A maximum of 34 pages are available due to GitHub's API limitations.
+- If the user attempts to submit an empty search request, no search request will be sent and the search bar borders will become red.
+- If a description is longer than 50 words, it will be truncated to the first 50 words and end with '...'. (Code in `repo_results.js`)
+- If a homepage link is longer than 55 characters it will be truncated to the first 55 characters and end with '...'. (Code in `repo_results.js`)
+
+### 🔥 Enhancements
+- Small style changes were done on `index.html` and `results_template.html`.
+- Information about API keys and tokens moved from `config.py` to `.env`. Changes may be seen wherever `config.py` was used.
+- In `index.html` and `results_template.html` the style of the search bar was slightly changed.
 
 
 
