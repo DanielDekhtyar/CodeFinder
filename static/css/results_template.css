@@ -68,6 +68,7 @@ header {
 }
 
 #search-icon {
+    display: block;
     height: 2vh;
     width: auto;
     max-width: 100%;
@@ -154,12 +155,17 @@ header {
     #logo {
         height: 4.5vh;
     }
+
+    .pages {
+        padding-bottom: 6.5vh;
+    }
+    
     .page {
-        font-size: 1.8vh;
+        font-size: 2vh;
     }
 
     .current-page {
-        font-size: 1.8vh;
+        font-size: 2vh;
     }
 
     .disclaimer {
