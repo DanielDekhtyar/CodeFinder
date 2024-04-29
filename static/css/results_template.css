@@ -61,7 +61,6 @@ header {
     border-bottom-right-radius: 2vh;
     height: 4vh;
     min-height: 4vh;
-    width: 2vw;
 }
 
 #search-submit-button:hover {

@@ -1,23 +1,30 @@
 {% extends "results_template.html" %}
 
+<!-- Title -->
 {% block title %}
     Error
 {% endblock %}
 
 {% block head %}
+    <!-- CSS -->
     <link rel="stylesheet" href="static/css/error.css" />
 {% endblock %}
 
 {% block main %}
     <!-- Display error message if the search results are empty -->
     <div id="error-message-div">
+        <!-- Main error message -->
         <h1 class="error-message">Oops! {{ error_message }}</h1>
         {% if second_line %}
+            <!-- If a second line is provided, display it -->
             <h1 class="error-message">{{ second_line }}</h1>
         {% endif %}
+        <!-- Error code -->
         <h1 class="error-message">{{ error_code }}</h1>
+        <!-- Error GIF -->
         <img
-            id="nothing-found-gif"
+            id="error-gif"
+            alt="Error GIF"
             src="static/assets/{{ gif }}"
         />
     </div>
