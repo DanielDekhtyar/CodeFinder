@@ -1,5 +1,4 @@
 from flask import *
-from flask_session import Session
 
 import os
 
