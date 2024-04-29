@@ -2,14 +2,22 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 0.4.1
+> ### Last Version : 0.9.1.1
 >
-> ### Last Update : 27/04/2024
+> ### Last Update : 29/04/2024
 >
 > _Date format DD-MM-YYYY_
 
 
-### 🗓️ _Version 0.4.1 - 27/04/2024 ([commit 2de524b](https://github.com/DanielDekhtyar/github-search/commit/2de524b))_
+### 🗓️ _Version 0.9.1.1 - 29/04/2024 ([commit dec0890](https://github.com/DanielDekhtyar/github-search/commit/dec0890))_
+
+---
+
+### 🔥 Enhancements
+- SEO optimization of the pages 🔍
+
+
+### 🗓️ _Version 0.9.1 - 27/04/2024 ([commit 2de524b](https://github.com/DanielDekhtyar/github-search/commit/2de524b))_
 
 ---
 
@@ -19,7 +27,7 @@
   If a homepage link is longer than 55 characters it will be truncated to the first 55 characters and end with '...'.
 
 
-### 🗓️ _Version 0.4.0 - 27/04/2024 ([commit d8d4d5a](https://github.com/DanielDekhtyar/github-search/commit/d8d4d5a))_
+### 🗓️ _Version 0.9.0 - 27/04/2024 ([commit d8d4d5a](https://github.com/DanielDekhtyar/github-search/commit/d8d4d5a))_
 
 ---
 
