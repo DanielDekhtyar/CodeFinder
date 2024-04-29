@@ -132,7 +132,7 @@ def repositories(user_search_request, page):
     }
 
     # Add the personal access token to the headers
-    headers = {"Authorization": f"Bearer {os.getenv("GITHUB_API_TOKEN")}"}
+    headers = {"Authorization": f"Bearer {os.getenv('GITHUB_API_TOKEN')}"}
 
     # Make the API request and get the response from GitHub API
     response = requests.get(search_url, params=params, headers=headers)
