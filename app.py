@@ -1,15 +1,24 @@
 from flask import *
 
 import os
+import datetime
 
 from backend import api_requests, helpers
 
 # Configure application
 app = Flask(__name__)
 
+SEARCHED = []
+WEBSITE_VISITORS = []
+
 
 @app.route("/")
 def index():
+    global WEBSITE_VISITORS
+    visit = datetime.datetime.now()
+    WEBSITE_VISITORS.append(visit)
+    for date_time in WEBSITE_VISITORS:
+        print(date_time)
     return render_template("index.html")
 
 
@@ -18,7 +27,7 @@ def search():
     """
     The `search` function in Python retrieves form data, checks API rate limits, makes an API request,
     handles errors, and renders search results or error messages based on the response.
-    
+
     Returns:
     The `search()` function returns either an error template or the search results template based on
     various conditions and API responses. If certain conditions are met, it will render an error
@@ -26,12 +35,16 @@ def search():
     search results, it will render the search results template with the search results, time it took for
     the search, result count, and other relevant information
     """
-    
+
     # Retrieve form data
     user_query = request.args.get("q")
     user_query.strip()
     page = request.args.get("page")
-    
+
+    SEARCHED.append(user_query)
+
+    print(SEARCHED)
+
     # Can have maximum 34 pages. If more pages requested, return an error
     if page is not None:
         if int(page) > 34:
