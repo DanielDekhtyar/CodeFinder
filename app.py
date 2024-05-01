@@ -17,8 +17,10 @@ def index():
     global WEBSITE_VISITORS
     visit = datetime.datetime.now()
     WEBSITE_VISITORS.append(visit)
+    print("Website visit times:")
     for date_time in WEBSITE_VISITORS:
         print(date_time)
+    print("--------------------------------------------------------------------------------------")
     return render_template("index.html")
 
 
@@ -41,6 +43,7 @@ def search():
     user_query.strip()
     page = request.args.get("page")
 
+    print("Search request:")
     SEARCHED.append(user_query)
 
     print(SEARCHED)
