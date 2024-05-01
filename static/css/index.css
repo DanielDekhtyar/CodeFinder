@@ -11,7 +11,7 @@
 }
 
 #title-image {
-    height: 7vh;
+    height: 8vh;
     max-width: 100%;
 }
 
@@ -70,7 +70,7 @@
 
 @media screen and (max-width: 1700px) {
     #title-image {
-        height: 10vh;
+        height: 12vh;
     }
 
     #search-div {
