@@ -1,8 +1,8 @@
-# GitHub Search
+# Code
 
-## Making your GitHub search experience better!  
+## Making your code search experience better!  
 
-### Check it out on [github-search.com](github-search.com)
+### Check it out on [codefinder.dev](https://codefinder.dev/)
 
 #### **Not an official GitHub repository!** 
  
@@ -41,4 +41,4 @@ Here is what the results might look like:
 ![GitHub Search results page](<GitHub Search results page.png>)
 
 
-### You can try it yourself on [github-search.com](github-search.com).
+### You can try it yourself on [codefinder.dev](https://codefinder.dev/)
