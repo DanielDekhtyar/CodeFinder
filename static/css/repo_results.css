@@ -1,5 +1,5 @@
 #search-results {
-    margin-top: 8.5vh; /* Adjust margin to leave space for the fixed header */
+    margin-top: 1rem; /* Adjust margin to leave space for the fixed header */
     padding-bottom: 1vh; /* Adjust padding to leave space for the fixed footer */
 }
 
@@ -10,7 +10,7 @@
 
 #search-results-header {
     margin-left: 0.5vw;
-    font-size: 1.5vh;
+    font: 1em sans-serif;
     color: #636363;
 }
 
@@ -54,7 +54,7 @@
     height: 2vh;
     float: left;
     margin-right: 0.5vw;
-    margin-top: 0.25vh;
+    margin-top: 0.2vh;
     cursor: pointer;
 }
 
@@ -161,19 +161,11 @@
         width: 60vw;
     }
 
-    #search-results-header {
-        font-size: 2vh;
-    }
-
     .search-result {
         width: 60vw;
     }
 
-    .title {
-        font-size: 2vh;
-    }
-
-    .avatar {
+    /* .avatar {
         width: 2.5vh;
         height: 2.5vh;
     }
@@ -204,21 +196,40 @@
 
     .updated-at {
         font-size: 1.5vh;
+    } */
+}
+
+@media screen and (max-width: 1200px) {    
+    .homepage {
+        display: none;
     }
 }
 
-@media screen and (max-width: 400px) {
-    #search-results-header {
+@media screen and (max-width: 900px) {
+    .title {
         font-size: 1.2vh;
     }
-
-    .title {
-        font-size: 1vh;
+    .topics {
+        display: none;
     }
 
+    .homepage {
+        display: none;
+    }
+
+    .updated-at {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #search-results-header {
+        font-size: 0.8em;
+    }
     .avatar {
         width: 1.5vh;
         height: 1.5vh;
+        margin-top: 0vh;
     }
 
     .description {
@@ -236,6 +247,7 @@
 
     .language-icon {
         height: 1vh;
+        margin-top: 0.5vh;
     }
 
     .license {
@@ -247,18 +259,24 @@
     }
 }
 
-@media screen and (max-width: 900px) {
-    .topics {
-        font-size: 1.2vh;
+@media screen and (max-height: 750px) {
+    .avatar {
+        margin-right: 1vw;
+    }
+    .description {
+        font-size: 1.1vh;
     }
 
-    .updated-at {
-        visibility: hidden;
+    .language {
+        font-size: 1vh;
     }
-}
 
-@media screen and (max-height: 700px) {
     .language-icon {
-        margin-bottom: -0.3vh;
+        height: 1.2vh;
+        margin-top: 0.5vh;
+    }
+
+    .license {
+        font-size: 1vh;
     }
 }

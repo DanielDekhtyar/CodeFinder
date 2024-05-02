@@ -4,11 +4,15 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: 7vh;
-    min-height: 45px;
+    height: 4.5rem;
+    min-height: 3em;
     border-bottom: 0.2vh solid #d9d9d9;
     background-color: white;
     z-index: 1000;
+}
+
+#buffer-div {
+    height: 4.5rem;
 }
 
 .container {
@@ -16,7 +20,7 @@ header {
 }
 
 #logo {
-    height: 5vh;
+    height: 3em;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 2vw;
@@ -32,15 +36,15 @@ header {
     left: 50%; /* Position the form horizontally centered within the header */
     transform: translateX(-50%); /*Adjust horizontally to center */
     width: 80vw;
+    top: 1rem;
 }
 
 .form-control {
     font-family: arial, sans-serif;
     font-size: 1.5vh;
-    border-radius: 2vh;
+    border-radius: 3rem;
     text-indent: 0.5vw;
-    height: 4vh;
-    min-height: 4vh;
+    height: 2rem;
 }
 
 .empty-input {
@@ -51,16 +55,17 @@ header {
 
 #search-bar {
     margin: auto;
-    font-size: 2vh;
-    min-height: 4vh;
+    font-size: 1rem;
+    height: 2.5rem;
 }
 
 #search-submit-button {
     border-color: #CED4DA;
-    border-top-right-radius: 2vh;
-    border-bottom-right-radius: 2vh;
-    height: 4vh;
-    min-height: 4vh;
+    border-top-right-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    width: 3rem;
+    min-width: 2rem;
+    height: 2.5rem;
 }
 
 #search-submit-button:hover {
@@ -69,11 +74,10 @@ header {
 
 #search-icon {
     display: block;
-    height: 1.5vh;
+    height:1.5rem;
     width: auto;
-    max-width: 100%;
-    max-height: 100%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #search-icon:hover {
@@ -132,7 +136,7 @@ header {
 
 /* Button to change page by one.  <-  -> */
 .turn_page_button {
-    height: 2.2vh;
+    height: 2rem;
     margin-bottom: 0.4vh;
 }
 /* https://www.flaticon.com/free-icon/arrow-right_1549454?term=next&page=1&position=16&origin=search&related_id=1549454 */
@@ -153,7 +157,7 @@ header {
 
 @media screen and (max-width: 1700px) {
     #logo {
-        height: 4.5vh;
+        height: 2rem;
     }
 
     .pages {
@@ -169,7 +173,7 @@ header {
     }
 
     .disclaimer {
-        font-size: 2vh;
+        font-size: 1.8vh;
     }
 }
 
@@ -177,12 +181,46 @@ header {
     .page {
         margin: 0.1vw;
     }
+
     .disclaimer {
         font-size: 1.5vh;
+    }
+
+    #logo {
+        height: 1.5rem;
     }
 }
 
 @media screen and (max-width: 800px) {
+    header {
+        height: 3rem;
+    }
+
+    #buffer-div {
+        height: 3rem;
+    }
+
+    #search-bar {
+        height: 2rem;
+    }
+
+    #search-submit-button {
+        height: 2rem;
+    }
+
+    #search-icon {
+        height: 1rem;
+    }
+
+    #search-form {
+        top: 0.5rem;
+    }
+
+    #logo {
+        height: 1.5rem;
+        visibility: hidden;
+    }
+
     .page {
         font-size: 1.2vh;
     }
@@ -192,7 +230,7 @@ header {
     }
 
     .turn_page_button {
-        height: 2vh;
+        height: 1.5rem;
     }
 
     .disclaimer {
@@ -216,10 +254,37 @@ header {
     }
 
     .turn_page_button {
-        visibility: hidden;
+        display: none;
     }
 
     .disclaimer {
         font-size: 0.8vh;
     }
+}
+
+@media screen and (max-height: 750px) {
+    header {
+        height: 3rem;
+    }
+
+    #buffer-div {
+        height: 3rem;
+    }
+
+    #search-bar {
+        height: 2rem;
+    }
+
+    #search-submit-button {
+        height: 2rem;
+    }
+
+    #search-icon {
+        height: 1rem;
+    }
+
+    #search-form {
+        top: 0.5rem;
+    }
+    
 }
