@@ -23,11 +23,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="title" content="Code Finder" />
-        <meta name="description" content="Code Finder! Making your code search experience better!" />
+        <meta name="description" content="Code Finder! A search engine for everything on GitHub!" />
         <!-- Open Graph protocol tags (https://ogp.me/) -->
         <meta property="og:title" content="Code Finder" />
         <meta property="og:site_name" content="Code Finder" />
-        <meta property="og:description" content="Code Finder! Making your code search experience better!" />
+        <meta property="og:description" content="Code Finder! A search engine for everything on GitHub!" />
         <meta property="og:image" itemprop="image" content="https://codefinder.dev/static/assets/icon.png" />
         <meta property="og:logo" content="https://codefinder.dev/static/assets/icon.png" />
         <meta property="og:type" content="website" />
@@ -41,7 +41,7 @@
         <div class="container">
             <div id="heading">
                 <!-- Title image -->
-                <img id="title-image" alt="Code Finder Logo" src="static/assets/transparent title.png" />
+                <img id="title-image" alt="Code Finder Logo" src="static/assets/transparent title with description.png" />
             </div>
             <!-- Search form -->
             <form id="search-form" action="/search" method="GET" role="form" onsubmit="return validateForm()">
@@ -78,12 +78,15 @@
                         src="static/assets/search_black.png"
                     ></img>
                     </button>
+                    <div id="about-div">
+                        <a href="/about" id="about-link">About the website</a>
+                    </div>
                 </div>
             </form>
         </div>
         <script src="static/js/index.js"></script>
     </body>
-    <footer>
+    <footer></footer>
         <div class="disclaimer">
             <p class="disclaimer">
                 Disclaimer: This website is not affiliated with GitHub and has

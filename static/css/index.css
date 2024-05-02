@@ -11,15 +11,15 @@
 }
 
 #title-image {
-    width: 25rem;
+    width: 26rem;
     max-width: 100%;
     object-fit: contain;
 }
 
 #search-div {
     margin: auto;
-    margin-top: 5vh;
-    width: 70%;
+    margin-top: 3vh;
+    width: 50rem;
     height: 7vh;
     max-height: 100%;
     max-width: 100%;
@@ -59,8 +59,8 @@
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-
 .disclaimer {
+    display: none;
     margin-bottom: 0px;
     position: fixed; /* Position relative to the viewport */
     bottom: 0; /* Align at the bottom */
@@ -75,7 +75,7 @@
 
 @media screen and (max-width: 1700px) {
     #title-image {
-        width: 25rem;
+        width: 24rem;
     }
 
     #search-div {
@@ -93,13 +93,13 @@
 
 @media screen and (max-width: 1200px) {
     #title-image {
-        width: 22rem;
+        width: 23rem;
     }
 }
 
 @media screen and (max-width: 600px) {
     #title-image {
-        width: 12rem;
+        width: 14rem;
     }
 
     .disclaimer {
