@@ -264,11 +264,16 @@
 }
 
 @media screen and (max-height: 750px) and ( max-width: 500px) {
+    .title {
+        font-size: 1.3vh;
+    }
+
     .avatar {
         margin-right: 1vw;
     }
+
     .description {
-        font-size: 1.1vh;
+        font-size: 1.2vh;
     }
 
     .language {
