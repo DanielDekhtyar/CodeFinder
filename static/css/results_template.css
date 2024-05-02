@@ -136,7 +136,7 @@ header {
 
 /* Button to change page by one.  <-  -> */
 .turn_page_button {
-    height: 2rem;
+    height: 1.6rem;
     margin-bottom: 0.4vh;
 }
 /* https://www.flaticon.com/free-icon/arrow-right_1549454?term=next&page=1&position=16&origin=search&related_id=1549454 */
@@ -157,7 +157,7 @@ header {
 
 @media screen and (max-width: 1700px) {
     #logo {
-        height: 2rem;
+        height: 2.8rem;
     }
 
     .pages {
@@ -170,6 +170,10 @@ header {
 
     .current-page {
         font-size: 2vh;
+    }
+
+    .turn_page_button {
+        height: 1.3rem;
     }
 
     .disclaimer {
@@ -262,7 +266,7 @@ header {
     }
 }
 
-@media screen and (max-height: 750px) {
+@media screen and (max-height: 750px) and ( max-width: 500px) {
     header {
         height: 3rem;
     }

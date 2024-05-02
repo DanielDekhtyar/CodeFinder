@@ -164,14 +164,18 @@
     .search-result {
         width: 60vw;
     }
+    
+    .title {
+        font-size: 2vh;
+    }
 
-    /* .avatar {
+    .avatar {
         width: 2.5vh;
         height: 2.5vh;
     }
 
     .description {
-        font-size: 1.8vh;
+        font-size: 2vh;
     }
 
     .topics {
@@ -196,7 +200,7 @@
 
     .updated-at {
         font-size: 1.5vh;
-    } */
+    }
 }
 
 @media screen and (max-width: 1200px) {    
@@ -259,7 +263,7 @@
     }
 }
 
-@media screen and (max-height: 750px) {
+@media screen and (max-height: 750px) and ( max-width: 500px) {
     .avatar {
         margin-right: 1vw;
     }
