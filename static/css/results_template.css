@@ -84,6 +84,56 @@ header {
     cursor: pointer;
 }
 
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: transparent;
+    transition: background-color .5s ease;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.loader-wrapper-hover:hover{
+    background-color: #242f3f;
+    transition: background-color .5s ease;
+}
+
+.loader {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 4px solid #Fff;
+    display: none;
+}
+
+.loader-inner {
+    vertical-align: top;
+    width: 100%;
+    background-color: #fff;
+    display: none;
+}
+
+@keyframes loader {
+    0% { transform: rotate(0deg);}
+    25% { transform: rotate(180deg);}
+    50% { transform: rotate(180deg);}
+    75% { transform: rotate(360deg);}
+    100% { transform: rotate(360deg);}
+}
+
+@keyframes loader-inner {
+    0% { height: 0%;}
+    25% { height: 0%;}
+    50% { height: 100%;}
+    75% { height: 100%;}
+    100% { height: 0%;}
+}
+
 .pages {
     padding-bottom: 5vh;
     margin: auto;

@@ -85,6 +85,9 @@
     <body>
         <div id="buffer-div"></div>
         <!-- Main Content -->
+        <div id="loader-wrapper" class="loader-wrapper">
+            <span class="loader"><span class="loader-inner"></span></span>
+        </div>
         {% block main %}
         {% endblock %}
 
@@ -104,20 +107,20 @@
             {% if number_of_pages > 1 %}
                 {% if current_page != 1 %}
                 <!-- Back Button -->
-                <a href="/search?q={{ query }}&page={{ current_page -1 }}"><img src="static/assets/back.png" id="back-button" class="turn_page_button" role="link" alt="Back" onmouseover="hoverBackButton();" onmouseout="unhoverBackButton();""/></a>
+                <a href="/search?q={{ query }}&page={{ current_page -1 }}"><img src="static/assets/back.png" id="back-button" class="turn_page_button" role="link" alt="Back" onmouseover="hoverBackButton();" onmouseout="unhoverBackButton();" onclick="page_turn();""/></a>
                 {% endif %}
                 <!-- Display the pages between the range -->
                 {% for page in range(1, number_of_pages + 2) %}
                     {% if page == current_page %}
-                    <a class="current-page" role="link" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a>
+                    <a class="current-page" role="link" href="/search?q={{ query }}&page={{ page }}" onclick="page_turn();">{{ page }}</a>
                     {% else %}
-                    <a class="page" role="link" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a>
+                    <a class="page" role="link" href="/search?q={{ query }}&page={{ page }}" onclick="page_turn();">{{ page }}</a>
                     {% endif %}
                 {% endfor %}
 
                 {% if current_page != number_of_pages + 1 %}
                 <!-- Forward Button -->
-                <a href="/search?q={{ query }}&page={{ current_page + 1 }}"><img src="static/assets/forward.png" class="turn_page_button" id="forward-button" alt="Forward" role="button" onmouseover="hoverForwardButton();" onmouseout="unhoverForwardButton();"/></a>
+                <a href="/search?q={{ query }}&page={{ current_page + 1 }}"><img src="static/assets/forward.png" class="turn_page_button" id="forward-button" alt="Forward" role="button" onmouseover="hoverForwardButton();" onmouseout="unhoverForwardButton();" onclick="page_turn();"/></a>
                 {% endif %}
             {% endif %}
             {% endif %}

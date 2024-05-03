@@ -59,6 +59,23 @@ function validateForm() {
         searchInput.classList.add("empty-input");
         return false; // Prevent the form from submitting
     } else {
+        searchInput.classList.remove("empty-input");
+        loading_screen();
         return true; // Allow the form to submit
     }
+}
+
+function loading_screen() {
+    // Make all the elements of the loading screen visible
+    // Change the CSS for load-wrapper (div)
+    document.getElementsByClassName('loader-wrapper')[0].style.display = 'flex';
+    document.getElementById('loader-wrapper').classList.add('loader-wrapper-hover');
+
+    // Change the CSS for loader
+    document.getElementsByClassName('loader')[0].style.animation = 'loader 2s infinite ease';
+    document.getElementsByClassName('loader')[0].style.display = 'inline-block';
+
+    // Change the CSS for loader-inner
+    document.getElementsByClassName('loader-inner')[0].style.animation = 'loader-inner 2s infinite ease-in';
+    document.getElementsByClassName('loader-inner')[0].style.display = 'inline-block';
 }
