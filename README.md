@@ -30,7 +30,7 @@ At the heart of the system lies a sophisticated algorithmic pipeline. User reque
 I have many plans to make this website as good as passable to give developers an easy way to search through GitHub. My future efforts will focus on enhancing the AI model's capabilities, refining its ability to generate precise queries and delivering even more relevant search results. Additionally, addressing the shortcomings of GitHub's default ranking algorithm is a priority. Plans include developing a bespoke ranking system to prioritize results based on user preferences and relevance, ensuring an unparalleled search experience.
 
 ## The main page of the website is just a search bar :
-![GitHub Search main page](<GitHub Search main page.png>)
+![Code Finder main page](<Code Finder main page.png>)
 
 <br>
 
@@ -38,7 +38,7 @@ I have many plans to make this website as good as passable to give developers an
 We are trying to look for ***machine learning data analytics and visualization script with Matplotlib***.  
 Here is what the results might look like:
 
-![GitHub Search results page](<GitHub Search results page.png>)
+![Code Finder results page](<Code Finder results page.png>)
 
 
 ### You can try it yourself on [codefinder.dev](https://codefinder.dev/)
