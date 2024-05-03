@@ -98,9 +98,20 @@ header {
     display: none;
 }
 
-.loader-wrapper-hover:hover{
-    background-color: #242f3f;
-    transition: background-color .5s ease;
+/* Loading screen background color for non-touchscreen devices */
+@media (hover: hover) and (pointer: fine) {
+    .loader-wrapper-hover:hover{
+        background-color: #242f3f;
+        transition: background-color .5s ease;
+    }
+}
+
+/* Loading screen background color for touchscreen devices */
+@media (hover: none) and (pointer: coarse) {
+    .loader-wrapper-hover{
+        background-color: #242f3f;
+        transition: background-color .5s ease;
+    }
 }
 
 .loader {
