@@ -1,12 +1,27 @@
-# GitHub Search
+# Code Finder
 
 ## 📝 Changelog:
 
-> ### Last Version : 0.9.1.1
+> ### Last Version : 0.9.1.2
 >
-> ### Last Update : 29/04/2024
+> ### Last Update : 03/05/2024
 >
 > _Date format DD-MM-YYYY_
+
+<br>
+
+### 🗓️ _Version 0.9.1.2 - 03/05/2024 ([commit e6bbbd9](https://github.com/DanielDekhtyar/github-search/commit/e6bbbd9))_
+
+---
+
+#### 🚀 Added
+- When a new search request is submitted or a new result page is requested, a loading animation appears.
+
+<br>
+
+### 🗓️ On 1.5.2024 the website was published to the World Wide Web under the domain name [codefinder.dev](https://codefinder.dev) 🌐 !
+
+<br>
 
 
 ### 🗓️ _Version 0.9.1.1 - 29/04/2024 ([commit dec0890](https://github.com/DanielDekhtyar/github-search/commit/dec0890))_
