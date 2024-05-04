@@ -149,11 +149,21 @@ def repositories(user_search_request, page):
     if data.get("incomplete_results", 0) == True:
         search_results = "API limit reached"
     else:
+        
+        time_start = time.time()
+        # Get the list of repositories from the response
+        api_request_results = data.get("items", [])
+        
+        # Call the ranking algorithm to rank the results based on relevance
+        ranked_results = helpers.repo_results_ranking_algorithm(api_request_results)
+        
+        print(f"It took {time.time() - time_start} seconds to rank the results")
+        
         # Create an empty list to store the search results
         search_results = []
 
         # Get all the relevant data from the JSON and append it to the search_results list
-        for repo in data.get("items", []):  # Iterate over each item in the 'items' list
+        for repo in ranked_results:  # Iterate over each item in the 'items' list
 
             search_results.append(
                 {
