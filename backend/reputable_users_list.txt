@@ -82,6 +82,12 @@ microsofthackathons
 SharePoint
 PowerShell
 microsoft-search
+github
+githubnext
+actions
+skills
+desktop
+githubtraining
 
 // Apple
 apple
@@ -100,12 +106,16 @@ NVIDIA-Genomics-Research
 // Amazon
 amzn
 amazon-science
-aws
 amazon-archives
 awslabs
 awsdocs
 amazon-connect
 amazonlinux
+
+// Amazon Web Services
+aws
+awslabs
+awsdocs
 
 // Meta (Facebook)
 facebook
@@ -152,6 +162,32 @@ cerner
 mysql
 oracle-actions
 
+// JetBrains
+JetBrains
+JetBrains-Research
+jetbrains-academy
+
+// Eclipse Foundation
+eclipse
+eclipse-ee4j
+eclipse-platform
+
+// Signal
+signalapp
+
+// Atlassian
+atlassian
+atlassian-labs
+atlassian-forks
+atlassian-archive
+asecurityteam
+
+// Pluralsight
+pluralsight
+pluralsight-cloud
+ps-interactive
+
+
 // Salesforce
 salesforce
 SalesforceCommerceCloud
@@ -166,6 +202,8 @@ SalesforceSFDC
 salesforce-experiencecloud
 salesforceidentity
 SalesforceAIResearch
+heroku
+heroku-examples
 
 // Netflix
 Netflix
@@ -196,3 +234,420 @@ matplotlib
 pygame
 pygame-community
 pygame-web
+
+// Docker
+docker
+docker-library
+dockersamples
+docker-archive
+docker-android-sdk
+
+// United States of America
+nsacyber
+NationalSecurityAgency
+USArmyResearchLab
+deptofdefense
+erdc
+USACE
+airmencoders
+usnavy
+USNavalResearchLaboratory
+marinecoders
+nasa
+nasa-jpl
+NASA-AMMOS
+spacetelescope
+NASA-PDS
+NASA-DEVELOP
+nasa-nccs-cds
+NASA-SW-VnV
+NASADatanauts
+NASAWorldWind
+nasa-gcn
+nasa-petal
+fbicyber
+FBI-DB
+cisagov
+
+// SAP
+SAP
+SAP-samples
+SAP-archive
+SAP-docs
+sap-tutorials
+sap-contributions
+sap-linuxlabsapcc
+
+// Qualcomm
+Qualcomm-AI-research
+quic
+
+// Cisco
+cisco
+CiscoDevNet
+cisco-open
+Cisco-Talos
+CiscoCXSecurity
+CiscoSE
+CiscoSE
+CiscoSecurity
+cisco-system-traffic-generator
+
+// Intuit
+intuit
+IntuitDeveloper
+
+// Texas Instruments
+TexasInstruments
+
+// IBM
+IBM
+ibm-developer-skills-network
+IBM-Cloud
+ibm-cloud-architecture
+ibm-messaging
+IBMPredictiveAnalytics
+watson-developer-cloud
+IBM-Security
+IBMDecisionOptimization
+ibm-apiconnect
+ibmruntimes
+IBMDataScience
+ibm-ecm
+IBM-Watson
+ibm-datapower
+
+// ServiceNow
+ServiceNow
+ServiceNowDevProgram
+ServiceNowEvents
+ElementAI
+
+// Uber
+uber
+uber-go
+uber-archive
+uber-common
+uber-research
+uber-web
+
+// Intel
+intel
+IntelLabs
+IntelSoftware
+IntelAI
+IntelRealSense
+IntelPython
+Intel-BMC
+
+// Booking.com
+bookingcom
+
+// Sony
+sony
+sonyxperiadev
+SonySemiconductorSolutions
+SonyResearch
+SonyCSLParis
+
+// Airbnb
+airbnb
+
+// Analog Devices
+analogdevicesinc
+
+// Shopify
+Shopify
+
+// Palo Alto Networks
+PaloAltoNetworks
+
+// Meituan
+meituan
+Meituan-Dianping
+
+// Dell
+dell
+
+// Fiserv
+Fiserv
+
+// Arista Networks
+aristanetworks
+arista-eosplus
+arista-eosext
+
+// Synopsys
+synopsys-sig
+synopsys-sig-community
+Synopsys-SIG-RnD
+
+// CrowdStrike
+CrowdStrike
+
+// PayPal
+paypal
+paypal-examples
+paypaldev
+krakenjs
+
+// Udemy
+udemy
+
+// Redgate
+red-gate
+
+// Codecademy
+Codecademy
+codecademy-engineering
+CodecademyCommunity
+
+// CS50
+cs50
+dmalan
+
+// Replit
+replit
+
+// Yandex
+yandex
+yandexdataschool
+yandex-cloud
+Yandex-Practicum
+yandex-cloud-examples
+yandex-research
+terraform-yc-modules
+
+// Project Jupyter
+jupyter
+jupyterlab
+jupyter-server
+jupytercloud-project
+
+// DigitalOcean
+digitalocean
+do-community
+
+// LinkedIn
+linkedin
+LinkedInLearning
+linkedin-developers
+LinkedInLearn
+
+// Web 3
+w3c
+w3f
+w3c-ccg
+w3ctag
+w3schools
+
+// Stanford
+stanford
+StanfordASL
+stanford-oval
+stanford-crfm
+StanfordVL
+stanford-futuredata
+stanfordmlgroup
+stanfordroboticsclub
+StanfordHCI
+stanford-ssi
+Stanford-NavLab
+stanfordnmbl
+stanford-rc
+
+// MIT
+mit-pdos
+mit-han-lab
+mitmedialab
+mitre
+
+// Oxford
+ori-drs
+nanoporetech
+oxfordcontrol
+OxfordIonTrapGroup
+OxfordIHTM
+OxfordRSE
+ssloxford
+OxfordML
+
+// Harvard
+harvard
+harvard-lil
+Harvard-IACS
+harvardinformatics
+broadinstitute
+harvard-edge
+harvard-lts
+HarvardOpenData
+
+// Spotify
+spotify
+spotify-research
+
+// Coinbase
+coinbase
+CoinbaseWallet
+coinbase-samples
+
+// Snowflake Labs
+Snowflake-Labs
+snowflakedb
+snowflakelinux
+SnowflakePowered
+
+// Palantir Technologies
+palantir
+
+// DoorDash
+doordash
+doordash-oss
+
+// Baidu
+baidu
+ecomfe
+baidu-research
+fex-team
+
+// Electronic Arts
+electronicarts
+SEED-EA
+
+// Garmin International
+garmin
+
+// HubSpot
+HubSpot
+HubSpotContentOffers
+hubspotdevops
+HubSpotWebTeam
+HubSpot-Academy
+hubspotdev
+
+// Snap
+Snapchat
+snap-research
+
+// MongoDB
+mongodb
+mongodb-developer
+mongodb-js
+mongodb-labs
+mongodb-university
+mongodb-partners
+mongodb-industry-solutions
+mongodb-ps
+
+// Cloudflare
+cloudflare
+cloudflare-apps
+cloudflarearchive
+
+// eBay
+eBay
+
+// Zoom
+zoom
+
+// Tauri
+tauri-apps
+
+
+// GoDaddy
+godaddy
+godaddy-wordpress
+
+// Check Point
+CheckPointSW
+CheckPointSW-Community
+checkpointsw-devsec
+cpdevsecopsapac
+
+// Lenovo
+lenovo
+
+// Instacart
+instacart
+
+// Unity Technologies
+Unity-Technologies
+UnityTechnologies
+unity3d-jp
+Unity3D-Projects
+UnityTech
+unity-cn
+
+// Zillow
+zillow
+
+// monday.com
+mondaycom
+
+// Dropbox
+dropbox
+hellosign
+
+// Reddit
+reddit
+reddit-archive
+
+// Etsy
+etsy
+
+// Lyft
+lyft
+
+// Wix
+wix
+wix-incubator
+wix-playground
+wix-academy
+
+// HashiCorp
+hashicorp
+hashicorp-education
+hashicorp-forge
+hashicorp-modules
+hashicorp-dev-advocates
+cdktf
+hashicorp-demoapp
+terraform-google-modules
+hashicorp-services
+
+// Asana
+Asana
+
+// Ubisoft
+ubisoft
+
+// BlackBerry
+blackberry
+
+// Payoneer
+payoneer
+optile
+
+// Qt Group
+qt
+qtproject
+rust-qt
+qt-creator
+qt-labs
+
+// Getty Images
+gettyimages
+
+// Coursera
+coursera
+webedx-spark
+
+// Shutterstock
+shutterstock
+
+// Couchbase
+couchbase
+couchbaselabs
+couchbasecloud
+couchbase-examples
+couchbasedeps
