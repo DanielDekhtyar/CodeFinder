@@ -1,0 +1,198 @@
+DanielDekhtyar
+
+// Google
+google
+GoogleCloudPlatform
+GoogleChrome
+GoogleChromeLabs
+google-research
+googleapis
+googlesamples
+google-research
+googlemaps
+google-marketing-solutions
+google-github-actions
+googlecodelabs
+googlefonts
+google-developer-training
+googlecreativelab
+googleprojectzero
+GoogleContainerTools
+googleanalytics
+googlecolab
+googleads
+googleinterns
+google-github-actions
+google-coral
+google-ar
+googleforgames
+google-marketing-solutions
+google-pay
+GoogleCloudPlatformTraining
+google-gemini
+GoogleTrends
+googlecast
+googlevr
+googledatastudio
+Google-Developer-Student-Club-MBU
+GoogleWebComponents
+Google-Developers-Sohag
+GoogleCloudBuild
+actions-on-google
+google-wallet
+GoogleCloudDataproc
+googlegenomics
+googlemaps-samples
+google-home
+gee-community
+terraform-google-modules
+google-cloud-japan
+googleartsculture
+chronicle
+google-business-communications
+googlearchive
+googlesamples
+googleworkspace
+google-research-datasets
+googlecreativelab
+google-deepmind
+deepmind
+tensorflow
+firebase
+
+// OpenAI
+openai
+
+// Microsoft
+microsoft
+MicrosoftLearning
+Azure
+AzureAD
+Azure-Samples
+MicrosoftDocs
+MicrosoftEdge
+OfficeDev
+microsoftgraph
+dotnet
+microsoftarchive
+MicrosoftTranslator
+msintuneappsdk
+MicrosoftResearch
+microsofthackathons
+SharePoint
+PowerShell
+microsoft-search
+
+// Apple
+apple
+apple-oss-distributions
+
+// NVIDIA
+NVIDIA
+NVIDIAGameWorks
+NVIDIA-AI-IOT
+NVIDIA-Omniverse
+NVIDIA-ISAAC-ROS
+NVlabs
+nvpro-samples
+NVIDIA-Genomics-Research
+
+// Amazon
+amzn
+amazon-science
+aws
+amazon-archives
+awslabs
+awsdocs
+amazon-connect
+amazonlinux
+
+// Meta (Facebook)
+facebook
+facebookresearch
+facebookarchive
+facebookincubator
+facebookexperimental
+meta-llama
+fbsamples
+pytorch
+pytorch-labs
+
+// Broadcom
+Broadcom
+
+// Tesla
+teslamotors
+
+// Tencent
+Tencent
+tencentyun
+TencentARC
+TencentCloud
+TencentYoutuResearch
+
+// Samsung
+Samsung
+SamsungLabs
+SamsungInternet
+SAMSUNG-Mobile-App-Resources
+SamsungDForum
+samsung-cnct
+
+// ASML
+ASML-Labs
+
+// Oracle
+oracle
+oracle-devrel
+oracle-samples
+oracle-quickstart
+oracle-terraform-modules
+cerner
+mysql
+oracle-actions
+
+// Salesforce
+salesforce
+SalesforceCommerceCloud
+forcedotcom
+SalesforceLabs
+salesforce-marketingcloud
+salesforce-ux
+SalesforceFoundation
+developerforce
+salesforcecli
+SalesforceSFDC
+salesforce-experiencecloud
+salesforceidentity
+SalesforceAIResearch
+
+// Netflix
+Netflix
+
+// AMD
+amd
+ROCm
+
+// Adobe
+adobe
+AdobeDocs
+Adobe-Marketing-Cloud
+Adobe-CEP
+adobecom
+adobe-research
+adobe-photoshop
+adobe-webplatform
+AdobeXD
+adobe-rnd
+Adobe-Consulting-Services
+adobe-extension-tools
+typekit
+
+// Matplotlib
+matplotlib
+
+// pygame
+pygame
+pygame-community
+pygame-web
