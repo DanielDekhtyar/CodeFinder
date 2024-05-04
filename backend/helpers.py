@@ -13,20 +13,20 @@ def format_date(date_str):
     """
     The `format_date` function takes a date string and returns a formatted representation of the date
     based on the time difference from the current date and other conditions.
-    
+
     Args:
     date_str: It looks like you have provided the code for formatting a date string into a more
     human-readable format. However, you have not provided the actual date string that you want to
     format. If you provide me with the `date_str` parameter, I can help you format it according to the
     logic in the
-    
+
     Returns:
     The `format_date` function takes a date string in the format "%Y-%m-%dT%H:%M:%SZ" and returns a
     formatted string indicating how long ago the date occurred or the specific date in a readable
     format. The specific return value depends on the difference between the given date and the current
     date and time. The function returns different strings based on the time difference, such as "less
     """
-    
+
     # Convert the date string to a datetime object
     date = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ")
 
@@ -69,16 +69,16 @@ def get_rate_limit_info():
     """
     The `get_rate_limit_info` function retrieves rate limit information from the GitHub API using a
     personal access token.
-    
+
     Returns:
     The `get_rate_limit_info` function returns a tuple containing the rate limit, rate used, and rate
     remaining from the GitHub API. If the API request is unsuccessful (status code other than 200), it
     returns an error message with the status code and response text.
     """
-    
+
     # Load environment variables from .env file
     load_dotenv()
-    
+
     # Set your GitHub personal access token
     access_token = os.getenv("GITHUB_API_TOKEN")
 
@@ -108,53 +108,56 @@ def get_rate_limit_info():
 
 def repo_results_ranking_algorithm(search_results):
     # Give a score to each result
-    
+
     # If the owner of the repo is in the list of reputable users, add 50 points
     for result in search_results:
         score = 0
         owner = result["owner"]["login"]
         if is_owner_is_in_list(owner):
             score += 500
-        
+
         # Add points based on the amount of stars. Give 1 point for every 100 stars
         stars = result["stargazers_count"]
         score += round(stars / 100)
-        
+
         # Add points based on the amount of forks. Give 1 point for every 80 forks
         forks = result["forks_count"]
         score += round(forks / 80)
-        
+
         # Add points based on the amount of watchers. Give 1 point for every 30 watchers
         watchers = result["watchers_count"]
         score += round(watchers / 30)
-        
+
         # Set the score in the result["score"] key
         result["score"] = score
-    
+
     # Sort the results based on the score
-    sorted_results = sorted(search_results, key=lambda repo: repo["score"], reverse=True)
-    
+    sorted_results = sorted(
+        search_results, key=lambda repo: repo["score"], reverse=True
+    )
+
     return sorted_results
+
 
 def is_owner_is_in_list(owner_name):
     """
     The function checks if a given owner name is in a list of reputable users stored in a file.
-    
+
     Args:
     owner_name: The function `is_owner_is_in_list(owner_name)` reads a file named
     "reputable_users_list.txt" and checks if the `owner_name` provided as an argument is present in the
     list. If the `owner_name` is found in the list, it prints a message and returns `
-    
+
     Returns:
     The function `is_owner_is_in_list(owner_name)` returns a boolean value. It returns `True` if the
     `owner_name` is found in the "reputable_users_list.txt" file, and `False` if the `owner_name` is not
     found in the list.
     """
-    with open("backend/reputable_users_list.txt", 'r') as file:
+    with open("backend/reputable_users_list.txt", "r") as file:
         # Iterate through each line in the file
         for line in file:
             line.strip()
-            
+
             if line.startswith("//"):
                 # Skip the comment lines
                 continue
@@ -163,6 +166,6 @@ def is_owner_is_in_list(owner_name):
                 if owner_name in line:
                     # If the repo owner is in the list, return True
                     return True
-        
+
     # If the repo owner is not in the list, return False
     return False

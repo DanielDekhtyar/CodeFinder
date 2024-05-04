@@ -21,9 +21,13 @@ def list_and_delete_file():
             print("No files found.")
             return
         for i, file in enumerate(files, start=1):
-            created_date = datetime.datetime.utcfromtimestamp(file.created_at).strftime('%Y-%m-%d')
+            created_date = datetime.datetime.utcfromtimestamp(file.created_at).strftime(
+                "%Y-%m-%d"
+            )
             print(f"[{i}] {file.filename} [{file.id}], Created: {created_date}")
-        choice = input("Enter a file number to delete, or any other input to return to menu: ")
+        choice = input(
+            "Enter a file number to delete, or any other input to return to menu: "
+        )
         if not choice.isdigit() or int(choice) < 1 or int(choice) > len(files):
             return
         selected_file = files[int(choice) - 1]

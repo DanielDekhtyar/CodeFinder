@@ -20,7 +20,9 @@ def index():
     print("Website visit times:")
     for date_time in WEBSITE_VISITORS:
         print(date_time)
-    print("--------------------------------------------------------------------------------------")
+    print(
+        "--------------------------------------------------------------------------------------"
+    )
     return render_template("index.html")
 
 
