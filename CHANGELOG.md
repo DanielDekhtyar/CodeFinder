@@ -2,13 +2,23 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 0.9.1.2
+> ### Last Version : 1.0.0
 >
-> ### Last Update : 03/05/2024
+> ### Last Update : 04/05/2024
 >
 > _Date format DD-MM-YYYY_
 
 <br>
+
+### 🗓️ _Version 1.0.0 - 04/05/2024 ([commit bcaba50](https://github.com/DanielDekhtyar/github-search/commit/bcaba50))_
+
+---
+
+#### The main parts of the search engine were implemented successfully
+
+#### 🚀 Added
+- In `helpers.py` a basic search results ranking algorithm was implemented to rank the results based on what would probably be the most relevant to the search request.
+
 
 ### 🗓️ _Version 0.9.1.2 - 03/05/2024 ([commit e6bbbd9](https://github.com/DanielDekhtyar/github-search/commit/e6bbbd9))_
 
