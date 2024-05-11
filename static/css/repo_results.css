@@ -3,17 +3,6 @@
     padding-bottom: 1vh; /* Adjust padding to leave space for the fixed footer */
 }
 
-#search-results-header-div {
-    margin: auto;
-    width: 50vw;
-}
-
-#search-results-header {
-    margin-left: 0.5vw;
-    font: 1em sans-serif;
-    color: #636363;
-}
-
 .search-result {
     border: solid 0.2vh #D0D7DE;
     border-radius: 1.5vh;

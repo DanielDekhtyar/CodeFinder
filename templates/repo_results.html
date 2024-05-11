@@ -11,12 +11,6 @@
 <article>
 <div class="container">
     <div id="search-results">
-        <div id="search-results-header-div">
-            <p id="search-results-header" role="text">
-                We found {{result_count}} results in just {{time_it_took}}
-                seconds!
-            </p>
-        </div>
         {% for result in search_results %}
         <div class="search-result">
             <!-- The outline of the result card -->

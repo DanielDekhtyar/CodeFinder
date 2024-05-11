@@ -88,6 +88,27 @@
         <div id="loader-wrapper" class="loader-wrapper">
             <span class="loader"><span class="loader-inner"></span></span>
         </div>
+        <!-- Display search results -->
+        <div id="search-results-header-div">
+            {% if result_count == 1 %}
+            <p id="search-results-header" role="text">
+                We found one result in just {{time_it_took}} seconds!
+            </p>
+            {% elif result_count == 2 %}
+            <p id="search-results-header" role="text">
+                We found two results in just {{time_it_took}} seconds!
+            </p>
+            {% elif result_count == 3 %}
+            <p id="search-results-header" role="text">
+                We found three results in just {{time_it_took}} seconds!
+            </p>
+            {% else %}
+            <p id="search-results-header" role="text">
+                We found {{result_count}} results in just {{time_it_took}}
+                seconds!
+            </p>
+            {% endif %}
+        </div>
         {% block main %}
         {% endblock %}
 
