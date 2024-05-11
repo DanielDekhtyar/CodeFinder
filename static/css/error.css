@@ -7,7 +7,7 @@
 
 .error-message {
     text-align: center;
-    font-size: 6vh;
+    font-size: 3rem;
     margin: 5vh;
     font-family: "Honk", system-ui;
     font-optical-sizing: auto;
@@ -16,6 +16,24 @@
 }
 
 #error-gif {
+    align-items: center;
     display: inline-block;
-    width: 70vh;
+    width: 30rem;
+}
+
+/* Hide things that should not be displayed in the error page */
+#search-results-header-div {
+    display: none;
+}
+
+@media screen and (max-width: 1700px) {
+    #error-message-div {
+        margin-top: 2vh;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #error-gif {
+        width: 100%
+    }
 }
