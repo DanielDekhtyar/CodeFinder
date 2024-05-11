@@ -135,6 +135,10 @@
 }
 
 @media screen and (max-width: 1700px) {
+    .form-control {
+        font-size: 2vh;
+    }
+    
     #title-image {
         width: 24rem;
     }
