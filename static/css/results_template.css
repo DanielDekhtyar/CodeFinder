@@ -84,6 +84,25 @@ header {
     cursor: pointer;
 }
 
+#about-link-div {
+    display: flex;
+}
+
+#about-link {
+    text-align: center;
+    margin-left: auto;
+    font-size: 2vh;
+    margin-top: 1vh;
+    margin-right: 3.5vh;
+    margin-bottom: -3.7vh;
+    text-decoration: none;
+}
+
+#about-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .loader-wrapper {
     width: 100%;
     height: 100%;
@@ -284,7 +303,11 @@ header {
 
     #logo {
         height: 1.5rem;
-        visibility: hidden;
+        display: none;
+    }
+
+    #about-modal {
+        display: none;
     }
 
     .page {

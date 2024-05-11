@@ -19,3 +19,7 @@
     display: inline-block;
     width: 70vh;
 }
+
+#about-link-div {
+    display: none;
+}
