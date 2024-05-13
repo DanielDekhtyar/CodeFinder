@@ -59,6 +59,9 @@ google-deepmind
 deepmind
 tensorflow
 firebase
+android
+androidx
+flutter
 
 // OpenAI
 openai
@@ -227,13 +230,108 @@ Adobe-Consulting-Services
 adobe-extension-tools
 typekit
 
-// Matplotlib
-matplotlib
-
 // pygame
 pygame
 pygame-community
 pygame-web
+
+// Vue
+vuejs
+vuejs-translations
+
+// React
+reactjs
+react-component
+
+// Angular
+angular
+
+// Vite
+vitejs
+
+// Node.js
+nodejs
+nodejs-mobile
+
+// Nuxt
+nuxt
+nuxt-community
+nuxtlabs
+nuxt-modules
+nuxt-themes
+nuxt-hub
+nuxt-ui-pro
+
+// Vercel
+vercel
+NextJSTemplates
+
+// Svelte
+sveltejs
+
+// Bootstrap
+twbs
+StartBootstrap
+
+// jQuery
+jquery
+JQueryCollection
+
+// JavaScript
+javascriptit
+
+// npm
+npm
+
+// Tailwind CSS
+tailwindlabs
+
+// Django
+django
+
+// Express.js
+expressjs
+
+// Electron
+electron
+
+// NumPy
+numpy
+
+// Keras
+keras-team
+
+// SciPy
+scipy
+
+// Seaborn
+seaborn
+
+// Scikit-learn
+scikit-learn
+
+// Plotly
+plotly
+
+// Matplotlib
+matplotlib
+
+// PyTorch
+pytorch
+pytorch-labs
+
+// Theano
+Theano
+
+// Pandas
+pandas-dev
+geopandas
+
+// OpenCV
+opencv
+
+// Hugging Face
+huggingface
 
 // Docker
 docker
@@ -281,6 +379,9 @@ sap-linuxlabsapcc
 // Qualcomm
 Qualcomm-AI-research
 quic
+
+// Disney
+disney
 
 // Cisco
 cisco
