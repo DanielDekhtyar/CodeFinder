@@ -91,6 +91,12 @@ actions
 skills
 desktop
 githubtraining
+actions
+skills
+githubtraining
+
+// Git
+git
 
 // Apple
 apple
@@ -323,6 +329,12 @@ pytorch-labs
 // Theano
 Theano
 
+// MathWorks
+mathworks
+MathWorks-Teaching-Resources
+mathworks-robotics
+mathworks-ref-arch
+
 // Pandas
 pandas-dev
 geopandas
@@ -339,6 +351,15 @@ docker-library
 dockersamples
 docker-archive
 docker-android-sdk
+
+// Arduino
+arduino
+arduino-libraries
+vidor-libraries
+
+// LEGO
+LEGO
+LEGO-Robotics
 
 // United States of America
 nsacyber
@@ -654,6 +675,17 @@ zoom
 // Tauri
 tauri-apps
 
+// Twilio
+twilio
+twilio-labs
+twilio-professional-services
+sendgrid
+TwilioQuest
+TwilioDevEd
+
+// Canva
+Canva
+canva-public
 
 // GoDaddy
 godaddy
@@ -689,6 +721,24 @@ mondaycom
 dropbox
 hellosign
 
+// Databricks
+databricks
+databricks-academy
+databrickslabs
+databricks-industry-solutions
+databricks-demos
+mosaicml
+
+// Slack
+slackhq
+slackapi
+slack-samples
+
+// Apify
+apify
+apify-projects
+
+
 // Reddit
 reddit
 reddit-archive
@@ -719,6 +769,13 @@ hashicorp-services
 // Asana
 Asana
 
+// Notion
+makenotion
+notionblog
+
+// ClickUp
+clickup
+
 // Ubisoft
 ubisoft
 
@@ -739,6 +796,10 @@ qt-labs
 // Getty Images
 gettyimages
 
+// Grammarly
+grammarly
+
+
 // Coursera
 coursera
 webedx-spark
@@ -752,3 +813,26 @@ couchbaselabs
 couchbasecloud
 couchbase-examples
 couchbasedeps
+
+// SerpApi
+serpapi
+
+// Smartsheet
+smartsheet
+smartsheet-samples
+smartsheet-platform
+
+// Sage
+Sage
+
+// Gusto
+Gusto
+
+// LogRocket
+LogRocket
+
+// Docusign Inc.
+docusign
+
+// Intercom
+intercom
