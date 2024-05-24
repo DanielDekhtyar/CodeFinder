@@ -10,6 +10,15 @@
 
 <br>
 
+### 🗓️ _Version 1.0.1 - 04/05/2024 ([commit e099bb5](https://github.com/DanielDekhtyar/github-search/commit/e099bb5))_
+
+---
+
+### 🔥 Enhancements
+- In `results_template.js`, When a search request is made, the page scrolls up and hides all the search result cards to prevent scrolling down. (The loading animation is only at the top part of the page)
+
+
+
 ### 🗓️ _Version 1.0.0 - 04/05/2024 ([commit bcaba50](https://github.com/DanielDekhtyar/github-search/commit/bcaba50))_
 
 ---
