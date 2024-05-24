@@ -77,6 +77,7 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
+// Check if the search for is not empty. If it is empty, make the border red. Else send the request
 function validateForm() {
     var searchInput = document.getElementById("search-bar");
     var inputValue = searchInput.value.trim();
@@ -91,7 +92,12 @@ function validateForm() {
     }
 }
 
+// Start the loading screen effect
 function loading_screen() {
+    // Scroll to the top of the page and hide to prevent scrolling behind the loading screen
+    // Scroll to top
+    window.scrollTo(0, 0);
+
     // Make all the elements of the loading screen visible
 
     // Change the CSS for load-wrapper (div)
@@ -105,15 +111,7 @@ function loading_screen() {
     // Change the CSS for loader-inner
     document.getElementsByClassName('loader-inner')[0].style.animation = 'loader-inner 2s infinite ease-in';
     document.getElementsByClassName('loader-inner')[0].style.display = 'inline-block';
-}
 
-function page_turn() {
-    // Scroll to top
-    window.scrollTo(0, 0);
-
-    // Hide all the search results to make the page smaller and un-scrollable
+    // Hide all the search results to make the page un-scrollable by fitting it in to the viewport
     document.getElementById("search-results").style.display = "none";
-
-    // Show the loading screen
-    loading_screen();
 }
