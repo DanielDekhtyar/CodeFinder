@@ -10,7 +10,19 @@
 
 <br>
 
-### 🗓️ _Version 1.0.1 - 04/05/2024 ([commit e099bb5](https://github.com/DanielDekhtyar/github-search/commit/e099bb5))_
+### 🗓️ _Version 1.1.0 - 25/05/2024 ([commit d7ddbcf](https://github.com/DanielDekhtyar/github-search/commit/d7ddbcf))_
+
+---
+
+#### 🚀 Added
+- When clicking on the `I'm Feeling Lucky` button, a random search query is chosen for the array and it is searched.
+- At `index.html` the `Search` button and the `I'm Feeling Lucky` button are located right below the input box.
+- The style of the buttons changed. No background color when hovering. The Border appears only when hovering over the button.
+- In `index.js`, `randomSearch()` was implemented to randomly choose a search query.
+- `searchQueries[]` is an array containing all the search queries from which a random one is chosen.
+
+
+### 🗓️ _Version 1.0.1 - 24/05/2024 ([commit e099bb5](https://github.com/DanielDekhtyar/github-search/commit/e099bb5))_
 
 ---
 
