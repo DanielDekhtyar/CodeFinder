@@ -171,6 +171,10 @@ cerner
 mysql
 oracle-actions
 
+// Arm Software
+ARM-software
+ARMmbed
+
 // JetBrains
 JetBrains
 JetBrains-Research
