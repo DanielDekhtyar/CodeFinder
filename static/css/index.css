@@ -20,19 +20,57 @@
     margin: auto;
     margin-top: 3vh;
     width: 50rem;
-    height: 7vh;
     max-height: 100%;
     max-width: 100%;
 }
 
-#search-submit-button {
+#search-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Center the buttons vertically */
+}
+
+.btn {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 1rem;
+    transition: border-color 0.1s ease;
+}
+
+.btn:hover {
+    color: black;
+    background-color: transparent;
     border-color: #CED4DA;
-    border-top-right-radius: 3vh;
-    border-bottom-right-radius: 3vh;
-    width: 3rem;
+}
+
+#search-submit-button {
+    border-radius: 3vh;
     min-width: 2rem;
     height: 3em;
     min-height: 2.5rem;
+    display: inline;
+    margin-right: 1rem;
+}
+
+#random-search-button {
+    border-radius: 3vh;
+    min-width: 2rem;
+    height: 3em;
+    min-height: 2.5rem;
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+/* Container for the button content */
+.button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-button-text {
+    margin-right: 0.7em;
 }
 
 #search-icon {
