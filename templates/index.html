@@ -73,21 +73,39 @@
                         autofocus
                         placeholder="What are you looking for?"
                     />
+                </div>
+
+                <!-- Buttons -->
+                <div id="search-buttons"">
+                    <!-- Random search button -->
+                    <button
+                        type="button"
+                        role="button"
+                        class="btn btn-outline-secondary"
+                        id="random-search-button"
+                        onclick="randomSearch();"
+                    >
+                        <span class=button-content">
+                            <span class="button-text">I'm feeling lucky</span>
+                        </span>
+                    </button>
+                    
                     <!-- Search button -->
                     <button
                         type="submit"
                         role="button"
                         class="btn btn-outline-secondary"
                         id="search-submit-button"
-                        onmouseover="hoverSearchButton();" onmouseout="unhoverSearchButton();"
+                        onmousedown="clickSearchButton();" onmouseup="unclickSearchButton();" onmouseout="unclickSearchButton();"
                     >
-                        <!-- Magnifying glass icon -->
-                        <!-- Use the search button to call a JavaScript function search() -->
+                    <span class="button-content">
+                        <span class="button-text" id="search-button-text">Search</span>
                         <img
-                        id="search-icon"
-                        alt="Search button"
-                        src="static/assets/search_black.png"
-                    ></img>
+                            id="search-icon"
+                            alt="Search"
+                            src="static/assets/search_black.png"
+                        >
+                    </span>
                     </button>
                 </div>
             </form>
