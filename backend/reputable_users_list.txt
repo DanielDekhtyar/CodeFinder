@@ -836,3 +836,27 @@ docusign
 
 // Intercom
 intercom
+
+// The OWASP Foundation
+OWASP
+owaspsamm
+WebGoat
+owasp-modsecurity
+owasp-dep-scan
+
+// CrowdStrike
+CrowdStrike
+
+// Arctic Wolf
+rtkwlf
+
+// Check Point Software Technologies Ltd.
+CheckPointSW
+
+// Fortinet
+fortinet
+fortinet-fortisoar
+FortinetCloudCSE
+FortinetSecDevOps
+40net-cloud
+
