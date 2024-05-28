@@ -92,6 +92,9 @@ function validateForm() {
 }
 
 function loading_screen() {
+    // Hide the footer
+    document.getElementById('footer').style.display = 'none';
+    
     // Make all the elements of the loading screen visible
 
     // Change the CSS for load-wrapper (div)

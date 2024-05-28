@@ -202,6 +202,29 @@ header {
 }
 /* https://www.flaticon.com/free-icon/arrow-right_1549454?term=next&page=1&position=16&origin=search&related_id=1549454 */
 
+#about-link {
+    font-size: 2vh;
+    color: black;
+    text-decoration: none;
+    margin: 1vw;
+    height: inline;
+}
+
+#about-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#trademark {
+    font-size: 2vh;
+    color: black;
+    text-decoration: none;
+    margin: 1vw;
+    display: inline;
+    position: absolute;
+    right: 0;
+}
+
 footer {
     margin-bottom: 0px;
     bottom: 0;
@@ -217,19 +240,6 @@ footer {
     display: flex; /* Use flexbox */
     justify-content: left; /* horizontally */
     align-items: center; /* vertically */
-}
-
-#about-link {
-    font-size: 2vh;
-    color: black;
-    text-decoration: none;
-    margin: 1vw;
-    height: inline;
-}
-
-#about-link:hover {
-    cursor: pointer;
-    text-decoration: underline;
 }
 
 @media screen and (max-width: 1700px) {

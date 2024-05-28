@@ -11,12 +11,13 @@ header {
     z-index: 1000;
 }
 
-#buffer-div {
-    height: 4.5rem;
+#header-buffer-div {
+    height: 6rem;
 }
 
 .container {
     margin: auto;
+    width: 70%;
 }
 
 #logo {
@@ -30,10 +31,72 @@ header {
     cursor: pointer;
 }
 
-#title {
+#page-header {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 1vw;
     font: 1.5em sans-serif;
     color: #636363;
+}
+
+.title {
+    margin-top: 1vh;
+    font: 2em sans-serif;
+}
+
+.paragraph {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    font: 1em;
+}
+
+#search-link {
+    font-size: 2vh;
+    color: black;
+    text-decoration: none;
+    margin: 1vw;
+    height: inline;
+}
+
+#search-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#footer-buffer-div {
+    height: 3rem;
+}
+
+#trademark {
+    font-size: 2vh;
+    color: black;
+    text-decoration: none;
+    margin: 1vw;
+    display: inline;
+    position: absolute;
+    right: 0;
+}
+
+footer {
+    position: fixed;
+    margin-bottom: 0px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #F2F2F2;
+    padding: 3px;
+    text-align: left;
+    font-size: 1.5vh;
+    font-style: italic;
+    z-index: 1000;
+    height: 5vh;
+    display: flex; /* Use flexbox */
+    justify-content: left; /* horizontally */
+    align-items: center; /* vertically */
+}
+
+@media screen and (max-width: 550px) {
+    .container {
+        width: 90%;
+    }
 }

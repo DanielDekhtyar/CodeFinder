@@ -26,14 +26,14 @@
         <!-- Meta Tags -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="title" content="About - Code Finder" />
+        <meta name="title" content="About Code Finder" />
         <meta
             name="description"
             content="A search engine for effortless search for everything on GitHub! Discover the code and repositories you are looking for on GitHub with ease, thanks to our powerful and easy-to-use search engine."
         />
         <!-- Open Graph protocol tags (https://ogp.me/) -->
-        <meta property="og:title" content="Code Finder" />
-        <meta property="og:site_name" content="Code Finder" />
+        <meta property="og:title" content="About Code Finder" />
+        <meta property="og:site_name" content="About Code Finder" />
         <meta
             property="og:description"
             content="A search engine for effortless search for everything on GitHub! Discover the code and repositories you are looking for on GitHub with ease, thanks to our powerful and easy-to-use search engine."
@@ -53,7 +53,7 @@
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Daniel_Dekhtyar" />
         <meta name="twitter:creator" content="@Daniel_Dekhtyar" />
-        <meta name="twitter:title" content="Code Finder" />
+        <meta name="twitter:title" content="About Code Finder" />
         <meta
             name="twitter:description"
             content="A search engine for effortless search for everything on GitHub! Discover the code and repositories you are looking for on GitHub with ease, thanks to our powerful and easy-to-use search engine."
@@ -66,7 +66,7 @@
         <!-- Favicon -->
         <link rel="icon" href="static/assets/icon.png" />
         <!-- Title -->
-        <title>About - Code Finder</title>
+        <title>About Code Finder</title>
     </head>
     <header>
         <!-- Code Finder Logo -->
@@ -76,12 +76,72 @@
             title="Code Finder home page"
             src="static/assets/icon.png"
         />
-        <h1 id="title">About Code Finder</h1>
+        <h1 id="page-header">About Code Finder</h1>
     </header>
     <body>
-        <div id="buffer-div"></div>
+        <div id="header-buffer-div"></div>
         <div class="container">
-            <h1>Hello World</h1>
+            <h3 class="title" id="the-idea">The Idea</h2>
+            <p class="paragraph" id="the-idea-paragraph">
+                The idea for this project arose from a personal frustration: the lack of an efficient way to easily find small scripts for my various personal projects. <br>
+                Despite searching extensively, no satisfactory solution was found. <br>
+                Faced with this problem, my initial idea was to create a website where people could present their scripts, and give a link to the respective GitHub repositories, 
+                so those looking for a script could find whatever they were looking for and then go to GitHub to get the code they needed.
+            </p>
+
+            <br>
+
+            <h3 class="title" id="the-problem">The Problem</h3>
+            <p class="paragraph" id="the-problem-paragraph">
+                After giving a second thought to the idea of a dedicated website for script sharing, I understood that there was no need to reinvent the wheel and I could just use GitHub to search for the repositories that I needed. <br>
+                That's it! Problem solved! Or is it? <br>
+                It turned out that GitHub's native search engine, while powerful, demanded users to navigate complex syntax and special keywords, akin to deciphering code in a challenging programming language, leaving you with only the basic functionality, while making it hard to get the full power and potential of the search engine. <br>
+                This realization prompted a rethink of the approach, recognizing the potential for a more streamlined solution. <br>
+            </p>
+
+            <br>
+
+            <h3 class="title" id="the-solution">The Solution</h3>
+            <p class="paragraph" id="the-solution-paragraph">
+                As we are going full steam ahead into the AI age, it would be foolish not to utilize its magical power to help me solve this problem. <br>
+                By fine-tuning OpenAI's GPT-3.5-Turbo LLM model, I taught it to receive user requests in plain English, interpret and translate them into precise GitHub search queries utilizing all the tricks and keywords to get the best results that the user is looking for! <br>
+                This novel approach eliminates the need for users to grapple with arcane syntax, offering a seamless and intuitive search process. <br>
+                By using the power of an LLM model, you could get the full power of the GitHub search engine, while using a simple human language search queries. <br>
+            </p>
+
+            <br>
+
+            <h3 class="title" id="technical-details">Technical Details</h3>
+            <p class="paragraph" id="technical-details-paragraph">
+                At the heart of the system lies a sophisticated algorithmic pipeline. <br>
+                When a user makes a search request, this request is passed on to a custom fine-tuned LLM via the OpenAI API. <br>
+                The model was fine-tuned to get the user query in plane English, understand the request, and construct a GitHub search query using all the special syntax and the keywords required to get the desired response for the GitHub search engine. <br>
+                After receiving the search query created by the AI model, the algorithm makes a request to the GitHub Search API and gets all the related repositories in a JSON format. <br>
+                Upon receiving the JSON data, the algorithm analyzes the data and ranks the search results based on their relevance to the user's search query. <br>
+                These results are then meticulously presented through a user-friendly interface, ensuring accessibility and clarity. <br>
+            </p>
+
+            <br>
+
+            <h3 class="title" id="contact">Contact</h3>
+            <p class="paragraph" id="contact-paragraph">
+            Code Finder is a work of a single developer. <br>
+            Hi, My name is Daniel and I'm an aspiring AI research engineer wanting to contribute to research in the field. <br>
+            Code Finder is just a side project I did for the reasons stated above and also for the fun and the challenge of it. <br>
+            Feel free to contact me on <a href="https://www.linkedin.com/in/daniel-dekhtyar/" target="_blank">LinkedIn</a>, <a href="https://twitter.com/Daniel_Dekhtyar" target="_blank">Twitter</a> or via email at denik2707@gmail.com</a> . LinkedIn or Email is preferred. <br>
+            You can also take a look at my <a href="https://github.com/DanielDekhtyar" target="_blank">GitHub</a> profile.
+            </p>
+
+            <br>
+
+            <div id="footer-buffer-div"></div>
+
+            <footer>
+                <p id="search-link">
+                    <a id="search-link" href="/">Search</a>
+                </p>
+                <p id="trademark">Code Finder&trade;</p>
+            </footer>
         </div>
         <script src="static/js/about.js"></script>
     </body>
