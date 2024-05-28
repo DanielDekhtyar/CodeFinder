@@ -2,9 +2,9 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 1.0.0
+> ### Last Version : 1.1.5
 >
-> ### Last Update : 04/05/2024
+> ### Last Update : 25/05/2024
 >
 > _Date format DD-MM-YYYY_
 
