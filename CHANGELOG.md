@@ -10,6 +10,16 @@
 
 <br>
 
+### 🗓️ _Version 1.1.5 - 25/05/2024 ([commit 8932c4e](https://github.com/DanielDekhtyar/github-search/commit/8932c4e))_
+
+---
+
+#### 🚀 Added
+- `About` page was added
+- All the pages have a footer allowing the user to navigate to the `About` page, and later to other pages.
+- The footer includes a TM symbol.
+  
+
 ### 🗓️ _Version 1.1.0 - 25/05/2024 ([commit d7ddbcf](https://github.com/DanielDekhtyar/github-search/commit/d7ddbcf))_
 
 ---
