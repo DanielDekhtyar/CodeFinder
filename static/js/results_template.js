@@ -98,6 +98,9 @@ function loading_screen() {
     // Scroll to top
     window.scrollTo(0, 0);
 
+    // Hide the footer
+    document.getElementById('footer').style.display = 'none';
+    
     // Make all the elements of the loading screen visible
 
     // Change the CSS for load-wrapper (div)

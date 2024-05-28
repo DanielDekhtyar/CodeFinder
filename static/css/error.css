@@ -37,3 +37,7 @@
         width: 100%
     }
 }
+
+#about-link-div {
+    display: none;
+}
