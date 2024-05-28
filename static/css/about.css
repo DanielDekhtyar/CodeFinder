@@ -1,0 +1,39 @@
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4.5rem;
+    min-height: 3em;
+    border-bottom: 0.2vh solid #d9d9d9;
+    background-color: white;
+    z-index: 1000;
+}
+
+#buffer-div {
+    height: 4.5rem;
+}
+
+.container {
+    margin: auto;
+}
+
+#logo {
+    height: 3em;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 2vw;
+}
+
+#logo:hover {
+    cursor: pointer;
+}
+
+#title {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 1vw;
+    font: 1.5em sans-serif;
+    color: #636363;
+}
