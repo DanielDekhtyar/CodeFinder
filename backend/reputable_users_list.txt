@@ -361,6 +361,11 @@ arduino
 arduino-libraries
 vidor-libraries
 
+// Raspberry Pi
+raspberrypi
+raspberrypilearning
+RaspberryPiFoundation
+
 // LEGO
 LEGO
 LEGO-Robotics
