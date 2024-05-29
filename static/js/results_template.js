@@ -77,6 +77,23 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
+// Make the header disappear when you scroll
+document.addEventListener("DOMContentLoaded", function() {
+    var header = document.getElementById("header");
+    var lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > lastScrollY) {
+            // Scrolling down
+            header.style.top = "-4.5rem"; // Hide the header
+        } else {
+            // Scrolling up
+            header.style.top = "0";
+        }
+        lastScrollY = window.scrollY;
+    });
+});
+
 // Check if the search for is not empty. If it is empty, make the border red. Else send the request
 function validateForm() {
     var searchInput = document.getElementById("search-bar");
