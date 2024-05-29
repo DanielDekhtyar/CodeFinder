@@ -51,11 +51,10 @@ header {
 }
 
 #search-link {
-    font-size: 2vh;
     color: black;
     text-decoration: none;
     margin: 1vw;
-    height: inline;
+    display: inline;
 }
 
 #search-link:hover {
@@ -68,7 +67,7 @@ header {
 }
 
 #trademark {
-    font-size: 2vh;
+    font-size: 1.2vh;
     color: black;
     text-decoration: none;
     margin: 1vw;
@@ -83,16 +82,23 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
+    border-top: 0.1vh solid #DADCE0;
     background-color: #F2F2F2;
     padding: 3px;
     text-align: left;
-    font-size: 1.5vh;
+    font-size: 1.3vh;
     font-style: italic;
     z-index: 1000;
-    height: 5vh;
+    height: 3.5vh;
     display: flex; /* Use flexbox */
     justify-content: left; /* horizontally */
     align-items: center; /* vertically */
+}
+
+@media screen and (max-width: 1700px) {
+    footer {
+        font-size: 1.8vh;
+    }
 }
 
 @media screen and (max-width: 550px) {
