@@ -215,11 +215,10 @@ header {
 /* https://www.flaticon.com/free-icon/arrow-right_1549454?term=next&page=1&position=16&origin=search&related_id=1549454 */
 
 #about-link {
-    font-size: 2vh;
     color: black;
     text-decoration: none;
     margin: 1vw;
-    height: inline;
+    display: inline;
 }
 
 #about-link:hover {
@@ -228,7 +227,7 @@ header {
 }
 
 #trademark {
-    font-size: 2vh;
+    font-size: 1.2vh;
     color: black;
     text-decoration: none;
     margin: 1vw;
@@ -242,13 +241,14 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
+    border-top: 0.1vh solid #DADCE0;
     background-color: #F2F2F2;
     padding: 3px;
     text-align: left;
-    font-size: 1.5vh;
+    font-size: 1.3vh;
     font-style: italic;
     z-index: 1000;
-    height: 5vh;
+    height: 3.5vh;
     display: flex; /* Use flexbox */
     justify-content: left; /* horizontally */
     align-items: center; /* vertically */
@@ -271,8 +271,13 @@ footer {
         height: 1.3rem;
     }
 
-    .disclaimer {
+    #trademark {
+        font-size: 1.5vh;
+    }
+
+    footer {
         font-size: 1.8vh;
+        height: 4vh;
     }
 }
 
@@ -335,16 +340,6 @@ footer {
     .turn_page_button {
         height: 1.5rem;
     }
-
-    .disclaimer {
-        font-size: 1.2vh;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .disclaimer {
-        font-size: 0.85vh;
-    }
 }
 
 @media screen and (max-width: 400px) {
@@ -358,10 +353,6 @@ footer {
 
     .turn_page_button {
         display: none;
-    }
-
-    .disclaimer {
-        font-size: 0.8vh;
     }
 }
 
@@ -389,5 +380,4 @@ footer {
     #search-form {
         top: 0.5rem;
     }
-    
 }
