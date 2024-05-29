@@ -2,13 +2,21 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 1.1.5
+> ### Last Version : 1.1.6
 >
-> ### Last Update : 25/05/2024
+> ### Last Update : 29/05/2024
 >
 > _Date format DD-MM-YYYY_
 
 <br>
+
+### 🗓️ _Version 1.1.6 - 29/05/2024 ([commit 9552c52](https://github.com/DanielDekhtyar/github-search/commit/9552c52))_
+
+---
+
+#### 🚀 Added
+- In `results_template.html`, when scrolling down, the header disappears, and when scrolling up, the header appears again.
+
 
 ### 🗓️ _Version 1.1.5 - 25/05/2024 ([commit 8932c4e](https://github.com/DanielDekhtyar/github-search/commit/8932c4e))_
 
