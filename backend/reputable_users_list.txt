@@ -426,6 +426,14 @@ IntuitDeveloper
 // Texas Instruments
 TexasInstruments
 
+// The Apache Software Foundation
+apache
+
+// Alibaba
+alibaba
+aliyun
+AlibabaResearch
+
 // IBM
 IBM
 ibm-developer-skills-network
@@ -672,6 +680,10 @@ cloudflarearchive
 
 // eBay
 eBay
+
+// Pivotal
+pivotal
+pivotal-cf
 
 // Zoom
 zoom
