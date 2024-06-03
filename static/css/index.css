@@ -15,6 +15,7 @@
     max-width: 100%;
     object-fit: contain;
 }
+/* Icon link : https://www.flaticon.com/free-icon/code_1157109 */
 
 #search-div {
     margin: auto;
@@ -159,14 +160,15 @@
 }
 
 
-#about-link {
+.footer-link {
     color: black;
     text-decoration: none;
     margin: 1vw;
+    margin-right: 0;
     display: inline;
 }
 
-#about-link:hover {
+.footer-link:hover {
     cursor: pointer;
     text-decoration: underline;
 }
@@ -179,6 +181,17 @@
     display: inline;
     position: absolute;
     right: 0;
+}
+
+#made-with-love-link {
+    color: black;
+    text-decoration: none;
+}
+
+#made-with-love-link:hover {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
 }
 
 footer {

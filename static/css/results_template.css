@@ -27,6 +27,8 @@ header {
     margin-left: 2vw;
 }
 
+/* Icon link : https://www.flaticon.com/free-icon/code_1157109 */
+
 #logo:hover {
     cursor: pointer;
 }
@@ -215,14 +217,15 @@ header {
 }
 /* https://www.flaticon.com/free-icon/arrow-right_1549454?term=next&page=1&position=16&origin=search&related_id=1549454 */
 
-#about-link {
+.footer-link {
     color: black;
     text-decoration: none;
     margin: 1vw;
+    margin-right: 0;
     display: inline;
 }
 
-#about-link:hover {
+.footer-link:hover {
     cursor: pointer;
     text-decoration: underline;
 }
@@ -235,6 +238,17 @@ header {
     display: inline;
     position: absolute;
     right: 0;
+}
+
+#made-with-love-link {
+    color: black;
+    text-decoration: none;
+}
+
+#made-with-love-link:hover {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
 }
 
 footer {
