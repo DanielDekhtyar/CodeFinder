@@ -3,7 +3,11 @@ Here are just helper functions to be used in other functions in the backend
 """
 
 import requests
+import markdown
 import os
+import aiohttp
+import asyncio
+import re
 
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
@@ -107,7 +111,7 @@ def get_rate_limit_info():
 
 
 def repo_results_ranking_algorithm(search_results):
-    # Give a score to each result
+    # Used in `api_requests.py`
 
     # If the owner of the repo is in the list of reputable users, add 50 points
     for result in search_results:
@@ -169,3 +173,81 @@ def is_owner_is_in_list(owner_name):
 
     # If the repo owner is not in the list, return False
     return False
+
+
+"""
+Make an async function to fetch the README.md file for each repo. It is done asynchronously to speed up the process.
+"""
+
+async def fetch_readme(session, repo: tuple) -> tuple:
+    """
+    This Python async function fetches the README content of a GitHub repository using its user and repo
+    name along with the default branch, and returns the plain text version of the README.
+    
+    Args:
+    session: The `session` parameter in the `fetch_readme` function is an aiohttp ClientSession object
+    that is used to make HTTP requests asynchronously. It allows you to send HTTP requests to a
+    specified URL and handle the responses asynchronously.
+    repo (tuple): The `repo` parameter is a tuple containing two elements:
+    
+    Returns:
+    The function `fetch_readme` returns a tuple containing the user/repo name and the plain text
+    content of the README file (either in Markdown or reStructuredText format). If the README file is
+    not found in Markdown format, it tries to fetch the README file in reStructuredText format. If both
+    attempts fail, it prints a message indicating the failure and returns a tuple with the user/repo
+    """
+    # Get the user and repo name and default branch. e.g. user_and_repo_name = 'UserName/RepoName' and default_branch = 'main'
+    user_and_repo_name, default_branch = repo
+    readme_url: str = f"https://raw.githubusercontent.com/{user_and_repo_name}/{default_branch}/README.md"
+
+    async with session.get(readme_url) as response:
+        if response.status == 200:
+            readme_text = await response.text()
+            html = markdown.markdown(readme_text)
+            plain_text: str = re.sub(r'<[^>]+>', '', html)
+            return user_and_repo_name, plain_text
+        
+        # If the README.md file is not found, try the README.rst file
+        else:
+            readme_url: str = f"https://raw.githubusercontent.com/{user_and_repo_name}/{default_branch}/README.rst"
+            async with session.get(readme_url) as response:
+                if response.status == 200:
+                    readme_text = await response.text()
+                    return user_and_repo_name, readme_text
+                else:
+                    print(f"Failed to fetch README. Repos: {user_and_repo_name}. Status code: {response.status}")
+                    return user_and_repo_name, None
+
+
+async def get_readme_texts_async(repos) -> dict:
+    """
+    This Python function uses aiohttp to asynchronously fetch readme texts for a list of repositories.
+    
+    Args:
+    repos: A list of repository names for which you want to fetch the README texts asynchronously.
+    
+    Returns:
+    The function `get_readme_texts_async` returns a dictionary where the keys are the repository names
+    and the values are the readme texts fetched asynchronously for each repository in the input list
+    `repos`.
+    """
+    async with aiohttp.ClientSession() as session:
+        tasks = [fetch_readme(session, repo) for repo in repos]
+        readme_texts = await asyncio.gather(*tasks)
+        return dict(readme_texts)
+
+def get_readme_texts(search_results) -> dict:
+    """
+    The function `get_readme_texts` takes a list of search results, extracts the full name and default
+    branch of each repository, and then asynchronously retrieves the readme texts for those
+    repositories. It is done asynchronously to speed up the process.
+    
+    Args:
+    search_results: A list of dictionaries containing search results for repositories. Each dictionary
+    should have keys "full_name" and "default_branch" to identify the repository and its default branch.
+    
+    Returns:
+    A dictionary containing the readme texts of repositories specified in the search results.
+    """
+    repos = [[result["full_name"], result["default_branch"]] for result in search_results]
+    return asyncio.run(get_readme_texts_async(repos))
