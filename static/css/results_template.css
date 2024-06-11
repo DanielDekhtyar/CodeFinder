@@ -113,7 +113,7 @@ header {
 
 /* Loading screen background color for non-touchscreen devices */
 @media (hover: hover) and (pointer: fine) {
-    .loader-wrapper-hover:hover{
+    .loader-wrapper-hover{
         background-color: #242f3f;
         transition: background-color .5s ease;
     }
