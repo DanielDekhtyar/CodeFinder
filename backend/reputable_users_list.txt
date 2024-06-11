@@ -218,6 +218,24 @@ SalesforceAIResearch
 heroku
 heroku-examples
 
+// Mozilla
+mozilla
+mozilla-mobile
+Mozilla-Ocho
+mozilla-services
+mozdevs
+thunderbird
+MozillaReality
+mdn
+MozillaFoundation
+mozilla-b2g
+mozillascience
+mozilla-extensions
+mozilla-releng
+mozilla-l10n
+mozilla-iam
+mozilla-ai
+
 // Netflix
 Netflix
 
