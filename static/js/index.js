@@ -120,4 +120,5 @@ const searchQueries = [
     "Find repositories related to web development with React",
     "data science using Pandas library",
     "facial recognition in python",
+    "Android development with Kotlin",
 ];
