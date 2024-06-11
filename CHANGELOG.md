@@ -2,13 +2,24 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 1.2.0
+> ### Last Version : 1.2.1
 >
-> ### Last Update : 11/06/2024
+> ### Last Update : 12/06/2024
 >
 > _Date format DD-MM-YYYY_
 
 <br>
+
+### 🗓️ _Version 1.2.1 - 11/06/2024 ([commit e930f1e](https://github.com/DanielDekhtyar/github-search/commit/e930f1e))_
+
+---
+
+### 🔥 Enhancements
+- In `rank_repo.py` the repository scoring algorithm was adjusted to get better results.  
+  The main change is the weight that is given to each parameter in the total score.
+- In `fetch_readme()` some error handling was added in case the README can't be encoded using UTF-8.
+- In `keyword_counter()` error handling was added to check that the README is indeed a `string` and not something else.
+
 
 ### 🗓️ _Version 1.2.0 - 11/06/2024 ([commit e93d2e6](https://github.com/DanielDekhtyar/github-search/commit/e93d2e6))_
 
