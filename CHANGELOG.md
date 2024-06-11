@@ -2,13 +2,25 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 1.1.6
+> ### Last Version : 1.2.0
 >
-> ### Last Update : 29/05/2024
+> ### Last Update : 11/06/2024
 >
 > _Date format DD-MM-YYYY_
 
 <br>
+
+### 🗓️ _Version 1.2.0 - 11/06/2024 ([commit e93d2e6](https://github.com/DanielDekhtyar/github-search/commit/e93d2e6))_
+
+---
+
+#### 🚀 Added
+- `rank_repo.py` was created. In this file, you can find all the functions used to rank repositories.
+- In `rank_repo.py` 3 functions are responsible for asynchronously fetching the README files for GitHub.  
+  Those functions are `get_readme_texts()`, `get_readme_texts_async()` and `fetch_readme()`.
+- In `rank_repo.py`, `keyword_counter()` takes the search request and the readme of a repository and counts how many times words from the search request appear in the readme file.
+- In `rank_repo.py`, `repo_results_ranking_algorithm()` was adjusted to take advantage of the readme analysis functions mentioned above.
+
 
 ### 🗓️ _Version 1.1.6 - 29/05/2024 ([commit 9552c52](https://github.com/DanielDekhtyar/github-search/commit/9552c52))_
 
