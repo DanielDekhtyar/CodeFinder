@@ -37,25 +37,27 @@ def repo_results_ranking_algorithm(search_query, search_results, readme_texts):
     # If the owner of the repo is in the list of reputable users, add 50 points
     for repo in search_results:
         score = 0
+        print(f"Ranking for {repo['full_name']}...")
         owner = repo["owner"]["login"]
         if is_owner_is_in_list(owner):
-            score += 500
+            # Add 300 points if the owner is in the list of reputable users
+            score += 300
 
-        # Add points based on the amount of stars. Give 1 point for every 100 stars
+        # Add points based on the amount of stars. Give 40% weight to stars
         stars = repo["stargazers_count"]
-        score += round(stars / 100)
+        score += stars * 0.4
 
-        # Add points based on the amount of forks. Give 1 point for every 80 forks
+        # Add points based on the amount of forks. Give 25% weight to forks
         forks = repo["forks_count"]
-        score += round(forks / 80)
+        score += forks * 0.25
 
-        # Add points based on the amount of watchers. Give 1 point for every 30 watchers
+        # Add points based on the amount of watchers. Give 15% weight to watchers
         watchers = repo["watchers_count"]
-        score += round(watchers / 30)
+        score += watchers * 0.15
         
+        # Add points based on the presence of words from the search query in the readme. Give 20% weight to readme
         keyword_number = keyword_counter(search_query, readme_texts, repo)
-        
-        score += keyword_number * 5
+        score += keyword_number * 0.2
 
         # Set the score in the result["score"] key
         repo["score"] = score
@@ -138,8 +140,20 @@ async def fetch_readme(session: aiohttp.ClientSession, repo: tuple) -> tuple:
         async with session.get(readme_url) as response:
             # Check if the request was successful
             if response.status == 200:
-                # Read the response as text
-                readme_text = await response.text()
+                try:
+                    # Read the response as text
+                    readme_text = await response.text()
+                
+                # Exception if the encoding in UTF-8 fails
+                except UnicodeDecodeError:
+                    try:
+                        # Retry with a different encoding if UnicodeDecodeError occurs
+                        readme_text = await response.text(encoding='latin1')
+                    # If the encoding fails, print an error message and return None
+                    except UnicodeDecodeError:
+                        print(f"Failed to decode README. Repo: {user_and_repo_name}. Status code: {response.status}")
+                        return user_and_repo_name, None
+
                 # If the file is in the markdown format, convert it to plain text
                 if readme_format.endswith('.md'):
                     # Convert the markdown to plain text
@@ -148,6 +162,7 @@ async def fetch_readme(session: aiohttp.ClientSession, repo: tuple) -> tuple:
                     plain_text = re.sub(r'<[^>]+>', '', html)
                     # Set the readme_text to the plain text
                     readme_text = plain_text
+
                 # Return the repo name and the readme text
                 return user_and_repo_name, readme_text
 
@@ -221,17 +236,19 @@ def keyword_counter(search_query, readme_texts, repo):
     
     # If readme was successfully fetched
     if readme:
-        # Make the readme lowercase
-        readme = readme.lower()
-        
-        # Count the number of times the search query words appears in the readme
-        for word in search_query.split():
-            # Make the word lowercase
-            word = word.lower()
+        # Make sure readme is a string
+        if type(readme) == str:
+            # Make the readme lowercase
+            readme = readme.lower()
             
-            # Check if the word is in the readme
-            if word in readme:
-                keyword_count += readme.count(word)
+            # Count the number of times the search query words appears in the readme
+            for word in search_query.split():
+                # Make the word lowercase
+                word = word.lower()
+                
+                # Check if the word is in the readme
+                if word in readme:
+                    keyword_count += readme.count(word)
     
     # Return the number of times the search query words appears in the readme. If not readme was fetched, return 0
     return keyword_count
