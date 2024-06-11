@@ -91,10 +91,32 @@
         <!-- Give buffer space that is occupied by the header, so the main content doesn't appear under the header -->
         <div id="buffer-div"></div>
         <!-- Main Content -->
+        <!-- Donation Button -->
+        <!-- <div id="donation-button-div">
+            <p class="donate-text">I pay from my own money to run this website</p>
+            <p class="donate-text">If you enjoyed it please consider donating</p>
+            <p class="donate-text">Thank you for any contributions!</p>
+            <div id="donate-button-container">
+                <div id="donate-button"></div>
+                <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+                <script>
+                PayPal.Donation.Button({
+                    env: 'production',
+                    hosted_button_id: '48CYXM9E6F8W8',
+                    image: {
+                        src: 'https://www.paypalobjects.com/en_US/IL/i/btn/btn_donateCC_LG.gif',
+                        alt: 'Donate with PayPal button',
+                        title: 'PayPal - The safer, easier way to pay online!',
+                    }
+                }).render('#donate-button');
+                </script>
+            </div>
+        </div> -->
+
         <div id="loader-wrapper" class="loader-wrapper">
             <span class="loader"><span class="loader-inner"></span></span>
         </div>
-        <!-- Display search results -->
+
         <div id="search-results-header-div">
             {% if result_count == 1 %}
             <p id="search-results-header" role="text">
@@ -110,45 +132,40 @@
             </p>
             {% else %}
             <p id="search-results-header" role="text">
-                We found {{result_count}} results in just {{time_it_took}}
-                seconds!
+                We found {{result_count}} results in just {{time_it_took}} seconds!
             </p>
             {% endif %}
         </div>
         {% block main %}
         {% endblock %}
 
-        <!-- The pagination section at the bottom of the page -->
         <div class="pages" role="navigation">
-            <!-- Can't display more than 1000 results due to GitHub's rate limit -->
-            {% if result_count %} <!-- In case there is an error and there are no results -->
+            {% if result_count %}
             {% if result_count > 1000 %}
             {% set result_count = 1000 %}
             {% endif %}
 
-            <!-- Calculate the number of pages to display -->
             {% set number_of_pages = (result_count / 30) | round | int %}
-            <!-- Get the current page -->
             {% set current_page = request.args.get('page') | default(1, true) | int %}
-            <!-- Render the page numbers -->
             {% if number_of_pages > 1 %}
-                {% if current_page != 1 %}
-                <!-- Back Button -->
-                <a href="/search?q={{ query }}&page={{ current_page -1 }}"><img src="static/assets/back.png" id="back-button" class="turn_page_button" role="link" alt="Back" onmouseover="hoverBackButton();" onmouseout="unhoverBackButton();" onclick="page_turn();""/></a>
-                {% endif %}
-                <!-- Display the pages between the range -->
-                {% for page in range(1, number_of_pages + 2) %}
-                    {% if page == current_page %}
-                    <a class="current-page" role="link" href="/search?q={{ query }}&page={{ page }}" onclick="page_turn();">{{ page }}</a>
-                    {% else %}
-                    <a class="page" role="link" href="/search?q={{ query }}&page={{ page }}" onclick="page_turn();">{{ page }}</a>
-                    {% endif %}
-                {% endfor %}
+            {% if current_page != 1 %}
+            <a href="/search?q={{ query }}&page={{ current_page - 1 }}">
+                <img src="static/assets/back.png" id="back-button" class="turn_page_button" role="link" alt="Back" onmouseover="hoverBackButton();" onmouseout="unhoverBackButton();" onclick="page_turn();"/>
+            </a>
+            {% endif %}
+            {% for page in range(1, number_of_pages + 2) %}
+            {% if page == current_page %}
+            <a class="current-page" role="link" href="/search?q={{ query }}&page={{ page }}" onclick="page_turn();">{{ page }}</a>
+            {% else %}
+            <a class="page" role="link" href="/search?q={{ query }}&page={{ page }}" onclick="page_turn();">{{ page }}</a>
+            {% endif %}
+            {% endfor %}
 
-                {% if current_page != number_of_pages + 1 %}
-                <!-- Forward Button -->
-                <a href="/search?q={{ query }}&page={{ current_page + 1 }}"><img src="static/assets/forward.png" class="turn_page_button" id="forward-button" alt="Forward" role="button" onmouseover="hoverForwardButton();" onmouseout="unhoverForwardButton();" onclick="page_turn();"/></a>
-                {% endif %}
+            {% if current_page != number_of_pages + 1 %}
+            <a href="/search?q={{ query }}&page={{ current_page + 1 }}">
+                <img src="static/assets/forward.png" class="turn_page_button" id="forward-button" alt="Forward" role="button" onmouseover="hoverForwardButton();" onmouseout="unhoverForwardButton();" onclick="page_turn();"/>
+            </a>
+            {% endif %}
             {% endif %}
             {% endif %}
         </div>            
@@ -161,6 +178,9 @@
         </p>
         <p class="footer-link">
             <a class="footer-link" href="/about">About this website</a>
+        </p>
+        <p class="footer-link">
+            <a class="footer-link" href="https://www.paypal.com/donate/?hosted_button_id=48CYXM9E6F8W8" target="_blank">Donate</a>
         </p>
         <p id="trademark">Made with ❤️ by <a id="made-with-love-link" role="link" title="My LinkedIn" href="https://www.linkedin.com/in/daniel-dekhtyar/" target="_blank">Daniel</a>&emsp;|&emsp;Code Finder&trade;</p>
     </footer>

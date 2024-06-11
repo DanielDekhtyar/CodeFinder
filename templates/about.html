@@ -81,6 +81,34 @@
     <body>
         <div id="header-buffer-div"></div>
         <div class="container">
+            <h2 class="title" id="about-us">What is Code Finder?</h2>
+            <p class="paragraph" id="about-us-paragraph">
+                Explore, and navigate the vast world of GitHub with ease using Code Finder. <br>
+                Whether you’re a developer looking for code snippets, a researcher seeking specific projects, or a curious mind wanting to explore open-source contributions, you will find it here!
+            </p>
+
+            <p class="paragraph" id="about-us-paragraph-2">
+                Here’s how Code Finder works: <br>
+                📌 Enter your search query and let our advanced algorithm and AI do the rest. <br>
+                🚀 Browse through a clean, intuitive, and easy-to-use interface. <br>
+                🌟 Find the best repositories that match your search request quickly and effortlessly. <br>
+                💻 Access comprehensive and relevant search results quickly. <br>
+
+                <br>
+
+                Why Code Finder? <br>
+                Code Finder simplifies GitHub searches, making it easier to find the exact repositories or code snippets you need with ease and efficiency. Our AI-powered algorithm ensures precise and relevant results without the hassle of complex search syntax. <br>
+                
+                <br>
+
+                While a lot of the core functionality is available: <br>
+                🔍 Perform advanced searches with our AI-powered algorithm to pinpoint exactly what you need. <br>
+                💬 Navigate Code Finder with an easy-to-use interface. <br>
+                ⏱ Access comprehensive and relevant search results quickly. <br>
+            </p>
+
+            <br>
+
             <h3 class="title" id="the-idea">The Idea</h2>
             <p class="paragraph" id="the-idea-paragraph">
                 The idea for this project arose from a personal frustration: the lack of an efficient way to easily find small scripts for my various personal projects. <br>
@@ -132,6 +160,23 @@
             You can also take a look at my <a href="https://github.com/DanielDekhtyar" target="_blank">GitHub</a> profile.
             </p>
 
+            <p class="paragraph" id="donate-paragraph">You are also more then welcome to support me by donating.</p>
+            <div id="donate-button-container">
+                <div id="donate-button"></div>
+                <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+                <script>
+                PayPal.Donation.Button({
+                    env: 'production',
+                    hosted_button_id: '48CYXM9E6F8W8',
+                    image: {
+                        src: 'https://www.paypalobjects.com/en_US/IL/i/btn/btn_donateCC_LG.gif',
+                        alt: 'Donate with PayPal button',
+                        title: 'PayPal - The safer, easier way to pay online!',
+                    }
+                }).render('#donate-button');
+                </script>
+            </div></p>
+
             <br>
 
             <div id="footer-buffer-div"></div>
@@ -140,6 +185,9 @@
                 <!-- Footer links -->
                 <p class="footer-link">
                     <a class="footer-link" href="/">Search</a>
+                </p>
+                <p class="footer-link">
+                    <a class="footer-link" href="https://www.paypal.com/donate/?hosted_button_id=48CYXM9E6F8W8" target="_blank">Donate</a>
                 </p>
                 <p id="trademark">Made with ❤️ by <a id="made-with-love-link" role="link" title="My LinkedIn" href="https://www.linkedin.com/in/daniel-dekhtyar/" target="_blank">Daniel</a>&emsp;|&emsp;Code Finder&trade;</p>
             </footer>

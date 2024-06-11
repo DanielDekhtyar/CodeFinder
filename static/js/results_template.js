@@ -77,18 +77,21 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
-// Make the header disappear when you scroll
+// Make the header disappear and donation button move when you scroll
 document.addEventListener("DOMContentLoaded", function() {
     var header = document.getElementById("header");
+    var donationButton = document.getElementById("donation-button-div");
     var lastScrollY = window.scrollY;
 
     window.addEventListener("scroll", function() {
         if (window.scrollY > lastScrollY) {
             // Scrolling down
             header.style.top = "-4.5rem"; // Hide the header
+            donationButton.style.top = "1rem"; // Move the donation button up
         } else {
             // Scrolling up
-            header.style.top = "0";
+            header.style.top = "0"; // Show the header
+            donationButton.style.top = "5.5rem"; // Move the donation button back down
         }
         lastScrollY = window.scrollY;
     });
