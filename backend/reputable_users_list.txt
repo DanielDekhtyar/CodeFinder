@@ -62,6 +62,7 @@ firebase
 android
 androidx
 flutter
+Kotlin
 
 // OpenAI
 openai
@@ -866,6 +867,12 @@ Sage
 
 // Gusto
 Gusto
+
+// D3
+d3
+
+// Tech with Tim
+techwithtim
 
 // LogRocket
 LogRocket
