@@ -6,7 +6,7 @@ import requests
 import time
 import os
 
-from backend import helpers
+from backend import helpers, rank_repo
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -154,10 +154,10 @@ def repositories(user_search_request, page):
         api_request_results = data.get("items", [])
         
         # Get the README texts for each repository
-        readme_texts = helpers.get_readme_texts(api_request_results)
+        readme_texts = rank_repo.get_readme_texts(api_request_results)
 
         # Call the ranking algorithm to rank the results based on relevance
-        ranked_results = helpers.repo_results_ranking_algorithm(api_request_results)
+        ranked_results = rank_repo.repo_results_ranking_algorithm(user_search_request, api_request_results, readme_texts)
 
         # Create an empty list to store the search results
         search_results = []
