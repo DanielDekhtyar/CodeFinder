@@ -132,8 +132,8 @@
 .star-attribute {
     border: none;
     background-color: transparent;
-    cursor: none;
     text-decoration: none;
+    cursor: default;
 }
 
 .star-img {
