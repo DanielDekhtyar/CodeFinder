@@ -98,6 +98,17 @@
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
+#product-hunt-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+#product-hunt-badge {
+    text-align: center;
+}
+
 .loader-wrapper {
     width: 100%;
     height: 100%;
