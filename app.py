@@ -8,21 +8,9 @@ from backend import api_requests, helpers
 # Configure application
 app = Flask(__name__)
 
-SEARCHED = []
-WEBSITE_VISITORS = []
-
 
 @app.route("/")
 def index():
-    global WEBSITE_VISITORS
-    visit = datetime.datetime.now()
-    WEBSITE_VISITORS.append(visit)
-    print("Website visit times:")
-    for date_time in WEBSITE_VISITORS:
-        print(date_time)
-    print(
-        "--------------------------------------------------------------------------------------"
-    )
     return render_template("index.html")
 
 
@@ -44,12 +32,7 @@ def search():
     user_query = request.args.get("q")
     user_query.strip()
     page = request.args.get("page")
-
-    print("Search request:")
-    SEARCHED.append(user_query)
-
-    print(SEARCHED)
-
+    
     # Can have maximum 34 pages. If more pages requested, return an error
     if page is not None:
         if int(page) > 34:

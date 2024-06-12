@@ -37,7 +37,6 @@ def repo_results_ranking_algorithm(search_query, search_results, readme_texts):
     # If the owner of the repo is in the list of reputable users, add 50 points
     for repo in search_results:
         score = 0
-        print(f"Ranking for {repo['full_name']}...")
         owner = repo["owner"]["login"]
         if is_owner_is_in_list(owner):
             # Add 300 points if the owner is in the list of reputable users
