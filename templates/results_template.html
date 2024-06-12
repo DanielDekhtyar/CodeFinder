@@ -129,20 +129,20 @@
             {% if number_of_pages > 1 %}
             {% if current_page != 1 %}
             <a class="turn_page_button" href="/search?q={{ query }}&page={{ current_page - 1 }}">
-                <img src="static/assets/back.png" class="turn_page_button" id="back-button" role="link" alt="Back" onmouseover="hoverBackButton();" onmouseout="unhoverBackButton();" onclick="page_turn();"/>
+                <img src="static/assets/back.png" class="turn_page_button" id="back-button" role="link" alt="Back" onmouseover="hoverBackButton();" onmouseout="unhoverBackButton();" onclick="loading_screen();"/>
             </a>
             {% endif %}
             {% for page in range(1, number_of_pages + 2) %}
             {% if page == current_page %}
-            <a class="current-page" role="link" href="/search?q={{ query }}&page={{ page }}" onclick="page_turn();">{{ page }}</a>
+            <a class="current-page" role="link" href="/search?q={{ query }}&page={{ page }}" onclick="loading_screen();">{{ page }}</a>
             {% else %}
-            <a class="page" role="link" href="/search?q={{ query }}&page={{ page }}" onclick="page_turn();">{{ page }}</a>
+            <a class="page" role="link" href="/search?q={{ query }}&page={{ page }}" onclick="loading_screen();">{{ page }}</a>
             {% endif %}
             {% endfor %}
 
             {% if current_page != number_of_pages + 1 %}
             <a class="turn_page_button" href="/search?q={{ query }}&page={{ current_page + 1 }}">
-                <img src="static/assets/forward.png" class="turn_page_button" id="forward-button" alt="Forward" role="button" onmouseover="hoverForwardButton();" onmouseout="unhoverForwardButton();" onclick="page_turn();"/>
+                <img src="static/assets/forward.png" class="turn_page_button" id="forward-button" alt="Forward" role="button" onmouseover="hoverForwardButton();" onmouseout="unhoverForwardButton();" onclick="loading_screen();"/>
             </a>
             {% endif %}
             {% endif %}
