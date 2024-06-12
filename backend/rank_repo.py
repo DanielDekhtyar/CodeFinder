@@ -39,8 +39,8 @@ def repo_results_ranking_algorithm(search_query, search_results, readme_texts):
         score = 0
         owner = repo["owner"]["login"]
         if is_owner_is_in_list(owner):
-            # Add 300 points if the owner is in the list of reputable users
-            score += 300
+            # Add 500 points if the owner is in the list of reputable users
+            score += 500
 
         # Add points based on the amount of stars. Give 40% weight to stars
         stars = repo["stargazers_count"]
