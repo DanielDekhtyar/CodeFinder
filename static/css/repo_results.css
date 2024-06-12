@@ -3,6 +3,36 @@
     padding-bottom: 1vh; /* Adjust padding to leave space for the fixed footer */
 }
 
+/* Donation button styling */
+#donation-button-div {
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: solid 0.2vh #D0D7DE;
+    border-radius: 1.5vh;
+    padding-top: 0.6vh;
+    padding-bottom: 0vh;
+    margin: auto;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+    width: 50vw;
+    overflow-x: hidden;
+}
+
+#donate-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8vh;
+}
+
+.donate-text {
+    font-size: 0.7rem;
+    text-align: center;
+    color: black;
+}
+
 .search-result {
     border: solid 0.2vh #D0D7DE;
     border-radius: 1.5vh;

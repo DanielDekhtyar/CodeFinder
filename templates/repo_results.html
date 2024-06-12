@@ -1,134 +1,163 @@
-{% extends "results_template.html" %} 
+{% extends "results_template.html" %}
 <!-- Title -->
-{% block title %}
-{{query}} - Code Finder {% endblock %}
-{% block head %}
+{% block title %} {{query}} - Code Finder {% endblock %} {% block head %}
 <!-- Custom CSS -->
 <link rel="stylesheet" href="static/css/results_template.css" />
 <link rel="stylesheet" href="static/css/repo_results.css" />
 {% endblock %} {% block main %}
 <!-- Display search results -->
 <article>
-<div class="container">
-    <div id="search-results">
-        {% for result in search_results %}
-        <div class="search-result">
-            <!-- The outline of the result card -->
-            <div class="search-result-content">
-                <!-- The content of the result card -->
-                <div class="title-div">
-                    <!-- Display the avatar and link to the owners page-->
-                    <a
-                        href="{{ result.owners_page }}"
-                        target="_blank"
-                        role="link"
-                        title="{{ result.owners_page }}"
-                    >
-                        <img
-                            class="avatar"
-                            alt="User avatar"
-                            role="img"
-                            src="{{ result.avatar_url }}"
-                        />
-                    </a>
-                    <!-- Display the title and link to the repository-->
-                    <a
-                        class="title"
-                        title="{{ result.repo_url }}"
-                        href="{{ result.repo_url }}"
-                        role="link"
-                        target="_blank"
-                        >{{ result.title }}</a
-                    >
-                </div>
-                {% if result.description %}
-                <!-- Display the description if it exists-->
-                <p class="description" role="article">{{ result.description }}</p>
-                {% endif %} {% if result.topics %}
-                <!-- Display the topics if it exists-->
-                <div class="topics-div">
-                    {% for topic in result.topics%}
-                    <a
-                        class="topics topic-link badge"
-                        role="link"
-                        title="https://github.com/topics/{{ topic }}"
-                        href="https://github.com/topics/{{ topic }}"
-                        target="_blank"
-                    >
-                        {{ topic }}</a
-                    >
-                    {% endfor %}
-                </div>
-                {% endif %}
-
-                <div class="bottom-div">
-                    <!-- Display the language icon if it exists-->
-                    {% if result.language %}
-                    <!-- Using Pythons OS library to check if the language icon exists -->
-                    <!-- Special logic for C# and F# -->
-                    {% if result.language == 'C#' %}
-                    <img
-                        src="./static/assets/languages/C_sharp.png"
-                        alt="C# programming language logo"
-                        class="language-icon"
-                    />
-                    {% elif result.language == 'F#' %}
-                    <img
-                        src="./static/assets/languages/F_sharp.png"
-                        alt="F# programming language logo"
-                        class="language-icon"
-                    />
-                    {% elif os.path.exists('./static/assets/languages/' +
-                    result.language + '.png') %}
-                    <img
-                        src="./static/assets/languages/{{ result.language }}.png"
-                        alt="{{ result.language }} programming language logo"
-                        class="language-icon"
-                    />
-                    {% endif %}
-                    <p class="language">{{ result.language }} ·</p>
-                    {% endif %}
-                    <!-- Display the license if it exists-->
-                    <!-- If there is license and the license is in the list, display the name and make it a link-->
-                    {% set license_list = ['mit', 'agpl-3.0', 'gpl-3.0',
-                    'mpl-2.0', 'apache-2.0', 'bsl-1.0', 'unlicense'] %} {% if
-                    result.license and result.license_key in license_list %}
-                    <p class="license">
-                        <a
-                            class="license-link"
-                            role="link"
-                            title="https://choosealicense.com/licenses/{{ result.license_key }}/"
-                            href="https://choosealicense.com/licenses/{{ result.license_key }}/"
-                            target="_blank"
-                            >{{ result.license }}</a
-                        >
-                    </p>
-                    {% if result.homepage %}
-                    <p class="homepage" role="note">
-                        ·
-                        <a
-                            href="{{ result.homepage }}"
-                            role="link"
-                            title="{{ result.homepage }}"
-                            target="_blank"
-                            >{{ result.homepage }}</a
-                        >
-                    </p>
-                    {% endif %}
-                    <!-- If the license is not in the list, just display the name of the license without a link-->
-                    {% elif result.license %}
-                    <p class="license" role="note">{{ result.license }}</p>
-                    <!-- If there is no license, display 'No license' -->
-                    {% else %}
-                    <p class="license" role="note">No license</p>
-                    {% endif %}
-                    <p class="updated-at" role="note">Updated {{ result.pushed_at }}</p>
+    <div class="container">
+        <div id="search-results">
+            {% for result in search_results %}
+            <!-- Display the donation button if more than 10 results -->
+            {% set current_page = request.args.get('page') | default(1, true) |int %}
+            {% if search_results|length > 10 and loop.index0 == 5 and current_page < 2 %}
+            <div id="donation-button-div">
+                <p>Consider donating</p>
+                <p>It will help me offset the cost for the website</p>
+                <div id="donate-button-container">
+                    <div id="donate-button"></div>
+                    <script
+                        src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"
+                        charset="UTF-8"
+                    ></script>
+                    <script>
+                        PayPal.Donation.Button({
+                            env: "production",
+                            hosted_button_id: "48CYXM9E6F8W8",
+                            image: {
+                                src: "https://www.paypalobjects.com/en_US/IL/i/btn/btn_donateCC_LG.gif",
+                                alt: "Donate with PayPal button",
+                                title: "PayPal - The safer, easier way to pay online!",
+                            },
+                        }).render("#donate-button");
+                    </script>
                 </div>
             </div>
+            {% endif %}
+            <div class="search-result">
+                <!-- The outline of the result card -->
+                <div class="search-result-content">
+                    <!-- The content of the result card -->
+                    <div class="title-div">
+                        <!-- Display the avatar and link to the owners page-->
+                        <a
+                            href="{{ result.owners_page }}"
+                            target="_blank"
+                            role="link"
+                            title="{{ result.owners_page }}"
+                        >
+                            <img
+                                class="avatar"
+                                alt="User avatar"
+                                role="img"
+                                src="{{ result.avatar_url }}"
+                            />
+                        </a>
+                        <!-- Display the title and link to the repository-->
+                        <a
+                            class="title"
+                            title="{{ result.repo_url }}"
+                            href="{{ result.repo_url }}"
+                            role="link"
+                            target="_blank"
+                            >{{ result.title }}</a
+                        >
+                    </div>
+                    {% if result.description %}
+                    <!-- Display the description if it exists-->
+                    <p class="description" role="article">
+                        {{ result.description }}
+                    </p>
+                    {% endif %} {% if result.topics %}
+                    <!-- Display the topics if it exists-->
+                    <div class="topics-div">
+                        {% for topic in result.topics%}
+                        <a
+                            class="topics topic-link badge"
+                            role="link"
+                            title="https://github.com/topics/{{ topic }}"
+                            href="https://github.com/topics/{{ topic }}"
+                            target="_blank"
+                        >
+                            {{ topic }}</a
+                        >
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <div class="bottom-div">
+                        <!-- Display the language icon if it exists-->
+                        {% if result.language %}
+                        <!-- Using Pythons OS library to check if the language icon exists -->
+                        <!-- Special logic for C# and F# -->
+                        {% if result.language == 'C#' %}
+                        <img
+                            src="./static/assets/languages/C_sharp.png"
+                            alt="C# programming language logo"
+                            class="language-icon"
+                        />
+                        {% elif result.language == 'F#' %}
+                        <img
+                            src="./static/assets/languages/F_sharp.png"
+                            alt="F# programming language logo"
+                            class="language-icon"
+                        />
+                        {% elif os.path.exists('./static/assets/languages/' +
+                        result.language + '.png') %}
+                        <img
+                            src="./static/assets/languages/{{ result.language }}.png"
+                            alt="{{ result.language }} programming language logo"
+                            class="language-icon"
+                        />
+                        {% endif %}
+                        <p class="language">{{ result.language }} ·</p>
+                        {% endif %}
+                        <!-- Display the license if it exists-->
+                        <!-- If there is license and the license is in the list, display the name and make it a link-->
+                        {% set license_list = ['mit', 'agpl-3.0', 'gpl-3.0',
+                        'mpl-2.0', 'apache-2.0', 'bsl-1.0', 'unlicense'] %} {%
+                        if result.license and result.license_key in license_list
+                        %}
+                        <p class="license">
+                            <a
+                                class="license-link"
+                                role="link"
+                                title="https://choosealicense.com/licenses/{{ result.license_key }}/"
+                                href="https://choosealicense.com/licenses/{{ result.license_key }}/"
+                                target="_blank"
+                                >{{ result.license }}</a
+                            >
+                        </p>
+                        {% if result.homepage %}
+                        <p class="homepage" role="note">
+                            ·
+                            <a
+                                href="{{ result.homepage }}"
+                                role="link"
+                                title="{{ result.homepage }}"
+                                target="_blank"
+                                >{{ result.homepage }}</a
+                            >
+                        </p>
+                        {% endif %}
+                        <!-- If the license is not in the list, just display the name of the license without a link-->
+                        {% elif result.license %}
+                        <p class="license" role="note">{{ result.license }}</p>
+                        <!-- If there is no license, display 'No license' -->
+                        {% else %}
+                        <p class="license" role="note">No license</p>
+                        {% endif %}
+                        <p class="updated-at" role="note">
+                            Updated {{ result.pushed_at }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</div>
 </article>
 <script src="static/js/repo_results.js"></script>
 {% endblock %}
