@@ -120,4 +120,8 @@ footer {
     .container {
         width: 90%;
     }
+
+    #trademark {
+        display: none;
+    }
 }

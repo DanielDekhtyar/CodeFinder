@@ -166,3 +166,9 @@ footer {
     justify-content: left; /* horizontally */
     align-items: center; /* vertically */
 }
+
+@media screen and (max-width: 600px) {
+    #trademark {
+        display: none;
+    }
+}

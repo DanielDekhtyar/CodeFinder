@@ -241,6 +241,10 @@ footer {
         width: auto;
     }
 
+    #product-hunt-container {
+        height: 15vh;
+    }
+
     #trademark {
         font-size: 1.5vh;
     }
@@ -260,5 +264,9 @@ footer {
 @media screen and (max-width: 600px) {
     #title-image {
         width: 14rem;
+    }
+
+    #trademark {
+        display: none;
     }
 }
