@@ -188,6 +188,7 @@ def repositories(user_search_request, page):
                         else repo["topics"][:8]
                     ),
                     "homepage": repo["homepage"],
+                    "stars": repo["stargazers_count"],
                 }
             )
 

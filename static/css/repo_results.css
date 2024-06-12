@@ -120,6 +120,36 @@
     text-decoration:none;
 }
 
+.star-div {
+    position: relative;
+    float: right;
+    z-index: 1;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.star-attribute {
+    border: none;
+    background-color: transparent;
+    cursor: none;
+    text-decoration: none;
+}
+
+.star-img {
+    display: inline;
+    width: 1.25vh;
+    height: 1.25vh;
+    cursor: pointer;
+    transition: none;
+}
+
+.star-count {
+    display: inline;
+    font-size: 1vh;
+    color: #5e5e5e;
+}
+
 .bottom-div {
     position: relative;
     margin-top: 0.8vh;
@@ -193,6 +223,15 @@
         height: 2.5vh;
     }
 
+    .star-img {
+        width: 2vh;
+        height: 2vh;
+    }
+
+    .star-count {
+        font-size: 1.5vh;
+    }
+
     .description {
         font-size: 2vh;
     }
@@ -232,6 +271,16 @@
     .title {
         font-size: 1.2vh;
     }
+
+    .star-img {
+        width: 1.15vh;
+        height: 1.15vh;
+    }
+
+    .star-count {
+        font-size: 1.15vh;
+    }
+
     .topics {
         display: none;
     }

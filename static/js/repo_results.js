@@ -33,6 +33,7 @@ function truncateDescription() {
     }
 }
 
+// Returns the number of words and characters in a string
 function descriptionLength(inputString) {
     // Split the input string into words
     var words = inputString.split(/\s+/);
@@ -56,3 +57,21 @@ function descriptionLength(inputString) {
 
     return { characterCount: characterCount, wordCount: wordCount };
 }
+
+// Get all star image elements
+const starImages = document.querySelectorAll('.star-img');
+
+// Loop through each star image
+starImages.forEach(img => {
+    // Add event listener for mouseenter (hover)
+    img.addEventListener('mouseenter', function() {
+        // Change the image source to star_hover.png
+        this.src = './static/assets/star_hover.png';
+    });
+
+    // Add event listener for mouseleave (unhover)
+    img.addEventListener('mouseleave', function() {
+        // Change the image source back to star.png
+        this.src = './static/assets/star.png';
+    });
+});

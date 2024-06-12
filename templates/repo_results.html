@@ -65,6 +65,12 @@
                             >{{ result.title }}</a
                         >
                     </div>
+                    <div class="star-div">
+                        <a class="star-attribute" role="button" href="{{ result.repo_url }}/stargazers" target="_blank" title="Stars" >
+                            <img src="./static/assets/star.png" class="star-img" alt="Star" />
+                        </a>
+                        <p class="star-count">{{ result.stars }}</p>
+                    </div>                                  
                     {% if result.description %}
                     <!-- Display the description if it exists-->
                     <p class="description" role="article">
