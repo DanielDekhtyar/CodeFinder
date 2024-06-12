@@ -2,7 +2,7 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 1.2.1
+> ### Last Version : 1.3.0
 >
 > ### Last Update : 12/06/2024
 >
@@ -10,7 +10,15 @@
 
 <br>
 
-### 🗓️ _Version 1.2.1 - 11/06/2024 ([commit e930f1e](https://github.com/DanielDekhtyar/github-search/commit/e930f1e))_
+### 🗓️ _Version 1.3.0 - 12/06/2024 ([commit ea3c3ef](https://github.com/DanielDekhtyar/github-search/commit/ea3c3ef))_
+
+---
+
+#### 🚀 Added
+- In `repo_results.html`, star count added to each repository ⭐
+
+
+### 🗓️ _Version 1.2.1 - 12/06/2024 ([commit e930f1e](https://github.com/DanielDekhtyar/github-search/commit/e930f1e))_
 
 ---
 
