@@ -42,13 +42,13 @@ def repo_results_ranking_algorithm(search_query, search_results, readme_texts):
             # Add 500 points if the owner is in the list of reputable users
             score += 500
 
-        # Add points based on the amount of stars. Give 40% weight to stars
+        # Add points based on the amount of stars. Give 35% weight to stars
         stars = repo["stargazers_count"]
-        score += stars * 0.4
+        score += stars * 0.35
 
-        # Add points based on the amount of forks. Give 25% weight to forks
+        # Add points based on the amount of forks. Give 30% weight to forks
         forks = repo["forks_count"]
-        score += forks * 0.25
+        score += forks * 0.3
 
         # Add points based on the amount of watchers. Give 15% weight to watchers
         watchers = repo["watchers_count"]
