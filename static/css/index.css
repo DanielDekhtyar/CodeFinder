@@ -270,3 +270,9 @@ footer {
         display: none;
     }
 }
+
+@media screen and (max-height: 400px) {
+    #product-hunt-container {
+        display: none;
+    }
+}
