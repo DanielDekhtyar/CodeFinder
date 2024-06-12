@@ -28,7 +28,7 @@
 }
 
 .donate-text {
-    font-size: 0.7rem;
+    font-size: 1.2vh;
     text-align: center;
     color: black;
 }
@@ -223,6 +223,20 @@
         height: 2.5vh;
     }
 
+    #donation-button-div {
+        width: 60vw;
+        height: 15vh;
+    }
+    
+    .donate-text {
+        font-size: 2vh;
+        margin-bottom: 0.5vh;
+    }
+
+    #donate-button {
+        height: 5vh;
+    }
+
     .star-img {
         width: 2vh;
         height: 2vh;
@@ -270,6 +284,23 @@
 @media screen and (max-width: 900px) {
     .title {
         font-size: 1.2vh;
+    }
+
+    #donation-button-div {
+        height: 12vh;
+    }
+    
+    .donate-text {
+        font-size: 1.2vh;
+        margin-bottom: 0.5vh;
+    }
+
+    #donate-button {
+        height: 3.5vh;
+    }
+
+    #donate-button-container {
+        margin-bottom: 1vh;
     }
 
     .star-img {

@@ -14,8 +14,8 @@
             {% set current_page = request.args.get('page') | default(1, true) |int %}
             {% if search_results|length > 10 and loop.index0 == 5 and current_page < 2 %}
             <div id="donation-button-div">
-                <p>Consider donating</p>
-                <p>It will help me offset the cost for the website</p>
+                <p class="donate-text">Consider donating</p>
+                <p class="donate-text">It will help me offset the cost for the website</p>
                 <div id="donate-button-container">
                     <div id="donate-button"></div>
                     <script
