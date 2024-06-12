@@ -132,5 +132,9 @@ def search():
 def about():
     return render_template("about.html")
 
+@app.route("/contact-me")
+def contact_me():
+    return render_template("contact_me.html")
+
 if __name__ == "__main__":
     app.run()
