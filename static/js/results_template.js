@@ -138,3 +138,13 @@ function loading_screen() {
     // Hide all the search results to make the page un-scrollable by fitting it in to the viewport
     document.getElementById("search-results").style.display = "none";
 }
+
+window.addEventListener('DOMContentLoaded', function() {
+    var contentHeight = document.body.clientHeight;
+    var viewportHeight = window.innerHeight;
+    var footer = document.getElementById('footer');
+
+    if (contentHeight < viewportHeight) {
+        footer.style.position = 'absolute';
+    }
+});
