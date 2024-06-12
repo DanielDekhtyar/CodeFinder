@@ -277,6 +277,10 @@ body {
     text-decoration: underline;
 }
 
+#footer-buffer-div {
+    height: 3rem;
+}
+
 footer {
     position: fixed;
     margin-bottom: 0px;
