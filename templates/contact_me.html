@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="static/css/contact_me.css" />
+        <!-- Favicon -->
+        <link rel="icon" href="static/assets/icon.png" />
+        <!-- Title -->
+        <title>Contact Code Finder</title>
+    </head>
+    <header>
+        <!-- Code Finder Logo -->
+        <img
+            id="logo"
+            alt="Code Finder Logo"
+            title="Code Finder home page"
+            src="static/assets/icon.png"
+        />
+        <h1 id="page-header">Contact Code Finder</h1>
+    </header>
+    <body>
+        <div id="header-buffer-div"></div>
+        <div class="container">
+            <h1>Contact Me</h1>
+            <form id="contact-form" class="contact-form">
+                <label for="Name">Name:</label>
+                <input type="text" id="name" name="Name" required>
+                <label for="Email">Email:</label>
+                <input type="email" id="email" name="Email" required>
+                <label for="Message">Message:</label>
+                <textarea id="message" name="Message" rows="10" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <div id="popup" class="popup"></div>
+        </div>
+    
+        <!-- Popup Modal -->
+        <div id="popup-modal" class="popup-modal">
+            <div class="popup-content">
+                <span class="close-btn">&times;</span>
+                <p id="popup-message"></p>
+            </div>
+        </div>
+
+        <script src="static/js/contact_me.js"></script>
+    </body>
+    <footer id="footer">
+        <!-- Footer links -->
+        <p class="footer-link">
+            <a class="footer-link" href="/">Search</a>
+        </p>
+        <p class="footer-link">
+            <a class="footer-link" href="/about">About this website</a>
+        </p>
+        <p class="footer-link">
+            <a class="footer-link" href="https://www.paypal.com/donate/?hosted_button_id=48CYXM9E6F8W8" target="_blank">Donate</a>
+        </p>
+        <p id="trademark">Made with ❤️ by <a id="made-with-love-link" role="link" title="My LinkedIn" href="https://www.linkedin.com/in/daniel-dekhtyar/" target="_blank">Daniel</a>&emsp;|&emsp;Code Finder&trade;</p>
+    </footer>
+</html>

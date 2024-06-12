@@ -377,6 +377,10 @@ footer {
     .turn_page_button {
         height: 1.5rem;
     }
+
+    #trademark {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 400px) {
