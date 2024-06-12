@@ -16,6 +16,10 @@ header {
     height: 4.5rem;
 }
 
+body {
+    min-height: 100vh;
+}
+
 .container {
     margin: auto;
 }
@@ -274,6 +278,7 @@ header {
 }
 
 footer {
+    position: absolute;
     margin-bottom: 0px;
     bottom: 0;
     left: 0;
