@@ -214,6 +214,7 @@ body {
 .turn_page_button {
     height: 1.6rem;
     margin-bottom: 0.4vh;
+    text-decoration: none;
 }
 /* https://www.flaticon.com/free-icon/arrow-right_1549454?term=next&page=1&position=16&origin=search&related_id=1549454 */
 
