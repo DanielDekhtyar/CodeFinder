@@ -124,4 +124,8 @@ footer {
     #trademark {
         display: none;
     }
+
+    footer {
+        justify-content: center; /* Center horizontally */
+    }
 }

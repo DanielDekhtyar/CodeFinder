@@ -365,6 +365,10 @@ footer {
     #trademark {
         display: none;
     }
+
+    footer {
+        justify-content: center; /* Center horizontally */
+    }
 }
 
 @media screen and (max-width: 400px) {

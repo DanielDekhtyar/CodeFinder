@@ -207,21 +207,18 @@
 
 footer {
     position: fixed;
-    margin-bottom: 0px;
     bottom: 0;
     left: 0;
     width: 100%;
     border-top: 0.1vh solid #DADCE0;
     background-color: #F2F2F2;
     padding: 3px;
-    text-align: left;
     font-size: 1.3vh;
     font-style: italic;
     z-index: 1000;
     height: 3.5vh;
     display: flex; /* Use flexbox */
-    justify-content: left; /* horizontally */
-    align-items: center; /* vertically */
+    align-items: center; /* Center vertically */
 }
 
 @media screen and (max-width: 1700px) {
@@ -268,6 +265,10 @@ footer {
 
     #trademark {
         display: none;
+    }
+
+    footer {
+        justify-content: center; /* Center horizontally */
     }
 }
 
