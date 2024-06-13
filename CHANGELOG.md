@@ -10,6 +10,15 @@
 
 <br>
 
+### 🗓️ _Version 1.3.5 - 12/06/2024 ([commit d23a59a](https://github.com/DanielDekhtyar/github-search/commit/d23a59a))_
+
+---
+
+#### 🚀 Added
+- In `results_template.html` a fork icon is added.  
+  When clicked, it opens GitHub and allows you to for the repository to your account
+
+
 ### 🗓️ _Version 1.3.0 - 12/06/2024 ([commit ea3c3ef](https://github.com/DanielDekhtyar/github-search/commit/ea3c3ef))_
 
 ---
