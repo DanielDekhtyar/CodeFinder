@@ -120,6 +120,7 @@ button[type="submit"]:hover {
     margin: 1vw;
     margin-right: 0;
     display: inline;
+    font-size: 1.75vh;
 }
 
 .footer-link:hover {
