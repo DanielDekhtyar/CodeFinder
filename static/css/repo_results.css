@@ -54,6 +54,7 @@
 
 .title-div {
     display: inline-flex;
+    align-items: center; /* Center vertically */
 }
 
 .title {
@@ -148,6 +149,23 @@
     display: inline;
     font-size: 1vh;
     color: #5e5e5e;
+}
+
+.fork-attribute {
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: default;
+    display: flex;
+    align-items: center; /* Center vertically */
+}
+
+.fork-img {
+    margin-left: 0.5vw;
+    width: 1.8vh;
+    height: 1.8vh;
+    cursor: pointer;
+    transition: none;
 }
 
 .bottom-div {
@@ -312,6 +330,11 @@
         font-size: 1.15vh;
     }
 
+    .fork-img{
+        width: 1.5vh;
+        height: 1.5vh;
+    }
+
     .topics {
         display: none;
     }
@@ -333,6 +356,11 @@
         width: 1.5vh;
         height: 1.5vh;
         margin-top: 0vh;
+    }
+
+    .fork-img {
+        width: 1.35vh;
+        height: 1.35vh;
     }
 
     .description {

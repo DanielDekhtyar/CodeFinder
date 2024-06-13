@@ -64,13 +64,16 @@
                             target="_blank"
                             >{{ result.title }}</a
                         >
+                        <a class="fork-attribute" role="button" href="{{ result.repo_url }}/fork" target="_blank" title="Fork" >
+                            <img src="./static/assets/fork.png" class="fork-img" alt="Fork" />
+                        </a>
                     </div>
                     <div class="star-div">
                         <a class="star-attribute" role="button" href="{{ result.repo_url }}/stargazers" target="_blank" title="Stars" >
                             <img src="./static/assets/star.png" class="star-img" alt="Star" />
                         </a>
                         <p class="star-count">{{ result.stars }}</p>
-                    </div>                                  
+                    </div>                               
                     {% if result.description %}
                     <!-- Display the description if it exists-->
                     <p class="description" role="article">

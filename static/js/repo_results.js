@@ -61,7 +61,7 @@ function descriptionLength(inputString) {
 // Get all star image elements
 const starImages = document.querySelectorAll('.star-img');
 
-// Loop through each star image
+// Change the star image when hovering over it
 starImages.forEach(img => {
     // Add event listener for mouseenter (hover)
     img.addEventListener('mouseenter', function() {
@@ -73,5 +73,23 @@ starImages.forEach(img => {
     img.addEventListener('mouseleave', function() {
         // Change the image source back to star.png
         this.src = './static/assets/star.png';
+    });
+});
+
+// Get all fork image elements
+const forkImages = document.querySelectorAll('.fork-img');
+
+// Change the fork image when hovering over it
+forkImages.forEach(img => {
+    // Add event listener for mouseenter (hover)
+    img.addEventListener('mouseenter', function() {
+        // Change the image source to star_hover.png
+        this.src = './static/assets/fork_hover.png';
+    });
+
+    // Add event listener for mouseleave (unhover)
+    img.addEventListener('mouseleave', function() {
+        // Change the image source back to star.png
+        this.src = './static/assets/fork.png';
     });
 });
