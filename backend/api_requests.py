@@ -14,10 +14,8 @@ from openai import OpenAI
 # Load environment variables from .env file
 load_dotenv()
 
-# Store the last user search request in memory. eg. "Websites with flask"
-LAST_USER_SEARCH_REQUEST = None
-# Store the last GitHub search query in memory eg. "websites AND flask"
-LAST_SEARCH_QUERY = None
+# Store the last user search requests in memory. eg. "[[Websites with flask][Websites with flask]]"
+LAST_USER_SEARCH_REQUESTS: list = [["",""]]
 
 
 def openai_api_request(user_search_request, context_message):
@@ -43,23 +41,34 @@ def openai_api_request(user_search_request, context_message):
     search query. If the user search request is the same as the last user search request, the
     """
     # Get the global variables
-    global LAST_USER_SEARCH_REQUEST
-    global LAST_SEARCH_QUERY
+    global LAST_USER_SEARCH_REQUESTS
 
-    # Print the last user query
-    print(f"Last user request: {LAST_USER_SEARCH_REQUEST}")
     # Print the user search query
     print(f"User request: {user_search_request}")
+    
+    # Stores the index of the array that contains the user search query, if it was found in the for loop later
+    search_request_index: int = 0
+    
+    # Boolean stores if the user query is the same as the last query
+    is_found_matching_user_request: bool = False
+    
+    # Check if the user query is the same as the last query
+    for index, sub_array in enumerate(LAST_USER_SEARCH_REQUESTS):
+        # If the user query is the same as the last query, no need to make a new request
+        # Eg. [["Android development with Kotlin", "android-development AND kotlin"]
+        if sub_array[0] == user_search_request:
+            # Stores the index of the array where a matching user query was found
+            search_request_index = index
+            # Indicates that a matching user query was found
+            is_found_matching_user_request = True
 
     # Check if the user query is the same as the last query, if so, no need to make a new request
-    if user_search_request == LAST_USER_SEARCH_REQUEST:
+    if is_found_matching_user_request:
         # If the user query is the same as the last query, no need to make a new request
         print("Not making new request to OpenAI")
-        return LAST_SEARCH_QUERY
+        return LAST_USER_SEARCH_REQUESTS[search_request_index][1]
 
     else:  # Make a new request to OpenAI's API
-        # Set the LAST_USER_SEARCH_REQUEST to the new user request, so next time we can compare
-        LAST_USER_SEARCH_REQUEST = user_search_request
         print("Making new request to OpenAI")
 
         """ Use OpenAI API to get the GitHub search query using the fine-tuned model """
@@ -82,8 +91,9 @@ def openai_api_request(user_search_request, context_message):
         )
 
         # Set the response as the user query
-        search_query = completion.choices[0].message.content
-        LAST_SEARCH_QUERY = search_query
+        search_query: str = completion.choices[0].message.content
+        # Set the LAST_USER_SEARCH_REQUEST to the new user request, so next time we can compare
+        LAST_USER_SEARCH_REQUESTS.append([user_search_request, search_query])  # Add the new user request
         return search_query
 
 
