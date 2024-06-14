@@ -42,6 +42,7 @@
                     <!-- The content of the result card -->
                     <div class="title-div">
                         <!-- Display the avatar and link to the owners page-->
+                        {% if result.owners_page and result.avatar_url %}
                         <a
                             href="{{ result.owners_page }}"
                             target="_blank"
@@ -55,7 +56,9 @@
                                 src="{{ result.avatar_url }}"
                             />
                         </a>
+                        {% endif %}
                         <!-- Display the title and link to the repository-->
+                        {% if result.repo_url %}
                         <a
                             class="title"
                             title="{{ result.repo_url }}"
@@ -67,20 +70,26 @@
                         <a class="fork-attribute" role="button" href="{{ result.repo_url }}/fork" target="_blank" title="Fork" >
                             <img src="./static/assets/fork.png" class="fork-img" alt="Fork" />
                         </a>
+                        {% endif %}
                     </div>
+
+                    <!-- Display the star count and link to the stargazers page-->
+                    {% if result.stars %}
                     <div class="star-div">
                         <a class="star-attribute" role="button" href="{{ result.repo_url }}/stargazers" target="_blank" title="Stars" >
                             <img src="./static/assets/star.png" class="star-img" alt="Star" />
                         </a>
                         <p class="star-count">{{ result.stars }}</p>
-                    </div>                               
+                    </div>    
+                    {% endif %}                           
                     {% if result.description %}
                     <!-- Display the description if it exists-->
                     <p class="description" role="article">
                         {{ result.description }}
                     </p>
-                    {% endif %} {% if result.topics %}
+                    {% endif %}
                     <!-- Display the topics if it exists-->
+                    {% if result.topics %}
                     <div class="topics-div">
                         {% for topic in result.topics%}
                         <a
@@ -158,9 +167,11 @@
                         {% else %}
                         <p class="license" role="note">No license</p>
                         {% endif %}
+                        {% if result.pushed_at %}
                         <p class="updated-at" role="note">
                             Updated {{ result.pushed_at }}
                         </p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
