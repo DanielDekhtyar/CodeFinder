@@ -15,7 +15,29 @@ from openai import OpenAI
 load_dotenv()
 
 # Store the last user search requests in memory. eg. "[[Websites with flask][Websites with flask]]"
-LAST_USER_SEARCH_REQUESTS: list = [["",""]]
+# All the 'I feel lucky' requests are stored in this dictionary, because we know what the API response will be
+LAST_USER_SEARCH_REQUESTS: dict = {
+    "speech recognition using DeepSpeech": "speech-recognition AND deepspeech",
+    "data analysis with Pandas in Jupyter Notebook": "data-analysis AND pandas language:python language:Jupyter-Notebook",
+    "Find repositories related to chatbot development with Rasa": "chatbot-development AND rasa",
+    "serverless computing AWS Lambda": "serverless AND aws-lambda",
+    "data visualization with D3.js": "data-visualization AND d3",
+    "snake game using pygame": "snake-game AND pygame",
+    "web application using the Flask framework": "web-application AND flask",
+    "Capture the flag (CTF)": "capture-the-flag OR ctf",
+    "all the repos by microsoft": "user:microsoft",
+    "IoT using Arduino": "iot AND arduino",
+    "cryptography with the apache license": "cryptography license:apache-2.0",
+    "clones of the super mario game": "super-mario",
+    "microservices architecture with Spring Boot": "microservices AND spring-boot",
+    "virtual reality development with Unity3D": "virtual-reality AND unity3d",
+    "QA tools": "qa-tools",
+    "calculator app with tkinter": "calculator AND tkinter",
+    "Find repositories related to web development with React": "web-development AND react",
+    "data science using Pandas library": "data-science AND pandas",
+    "facial recognition in python": "facial-recognition language:python",
+    "Android development with Kotlin": "android-development language:kotlin",
+}
 
 
 def openai_api_request(user_search_request, context_message):
@@ -45,34 +67,21 @@ def openai_api_request(user_search_request, context_message):
 
     # Print the user search query
     print(f"User request: {user_search_request}")
-    
-    # Stores the index of the array that contains the user search query, if it was found in the for loop later
-    search_request_index: int = 0
-    
-    # Boolean stores if the user query is the same as the last query
-    is_found_matching_user_request: bool = False
-    
-    # Check if the user query is the same as the last query
-    for index, sub_array in enumerate(LAST_USER_SEARCH_REQUESTS):
-        # If the user query is the same as the last query, no need to make a new request
-        # Eg. [["Android development with Kotlin", "android-development AND kotlin"]
-        if sub_array[0] == user_search_request:
-            # Stores the index of the array where a matching user query was found
-            search_request_index = index
-            # Indicates that a matching user query was found
-            is_found_matching_user_request = True
 
     # Check if the user query is the same as the last query, if so, no need to make a new request
-    if is_found_matching_user_request:
+    if user_search_request in LAST_USER_SEARCH_REQUESTS.keys():
         # If the user query is the same as the last query, no need to make a new request
         print("Not making new request to OpenAI")
-        return LAST_USER_SEARCH_REQUESTS[search_request_index][1]
+        return LAST_USER_SEARCH_REQUESTS.get(user_search_request)
 
     else:  # Make a new request to OpenAI's API
         print("Making new request to OpenAI")
 
         """ Use OpenAI API to get the GitHub search query using the fine-tuned model """
-
+        
+        # Check how long it takes for OpenAI API request
+        openAI_time = time.time()
+        
         # Get the OpenAI API key
         api_key = os.getenv("OPENAI_API_KEY")
 
@@ -92,8 +101,11 @@ def openai_api_request(user_search_request, context_message):
 
         # Set the response as the user query
         search_query: str = completion.choices[0].message.content
+        
+        print(f"OpenAI API request time: {time.time() - openAI_time}")
+        
         # Set the LAST_USER_SEARCH_REQUEST to the new user request, so next time we can compare
-        LAST_USER_SEARCH_REQUESTS.append([user_search_request, search_query])  # Add the new user request
+        LAST_USER_SEARCH_REQUESTS[user_search_request] = search_query  # Add the new user request
         return search_query
 
 
@@ -132,6 +144,9 @@ def repositories(user_search_request, page):
 
     print(f"The GitHub search query is: {search_query}")
 
+    # Check how long it takes for GitHub API request
+    
+    github_time = time.time()
     # Set the search URL for the GitHub API
     search_url = "https://api.github.com/search/repositories"
 
@@ -163,11 +178,14 @@ def repositories(user_search_request, page):
         # Get the list of repositories from the response
         api_request_results = data.get("items", [])
         
+        print(f"GitHub API request time: {time.time() - github_time}")
+
         # Get the README texts for each repository
         readme_texts = rank_repo.get_readme_texts(api_request_results)
 
         # Call the ranking algorithm to rank the results based on relevance
-        ranked_results = rank_repo.repo_results_ranking_algorithm(user_search_request, api_request_results, readme_texts)
+        ranked_results = rank_repo.repo_results_ranking_algorithm(
+            user_search_request, api_request_results, readme_texts)
 
         # Create an empty list to store the search results
         search_results = []
@@ -182,13 +200,15 @@ def repositories(user_search_request, page):
                     "avatar_url": repo["owner"]["avatar_url"],
                     "language": repo["language"],
                     "license": (
-                        repo["license"]["name"] if repo.get("license") else None
+                        repo["license"]["name"] if repo.get(
+                            "license") else None
                     ),  # Check if 'license' exists
                     "license_key": (
                         repo["license"]["key"] if repo.get("license") else None
                     ),
                     "description": (
-                        repo["description"] if repo.get("description") else None
+                        repo["description"] if repo.get(
+                            "description") else None
                     ),  # Check if 'description' exists
                     "pushed_at": helpers.format_date(repo["pushed_at"]),
                     "repo_url": repo["html_url"],
