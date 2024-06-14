@@ -10,13 +10,13 @@
 
 <br>
 
-### 🗓️ _Version 1.3.6 - 13/06/2024 ([commit a1fb544](https://github.com/DanielDekhtyar/github-search/commit/a1fb544))_
+### 🗓️ _Version 1.3.6 - 13/06/2024 ([commit c102c4f](https://github.com/DanielDekhtyar/github-search/commit/c102c4f))_
 
 ---
 
 #### 🚀 Added
 - In `api_requests.py`, `openai_api_request()` was modified to prevent unnecessary API requests to OpenAI API.  
-  It was achieved by adding a 2D array that keeps all the user search requests and the respective search queries.  
+  It was achieved by adding a `dictionary` that keeps all the user search requests and the respective search queries.  
   If a user search request is repeated, the old search query is used, instead of reporting OpenAI API again.
 
 
