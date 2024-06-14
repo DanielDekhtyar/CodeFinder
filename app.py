@@ -101,6 +101,7 @@ def search():
             error_code=404,
         )
     else:
+        print(f"Time it took: {time_it_took}")
         # Render the search results
         return render_template(
             "repo_results.html",
