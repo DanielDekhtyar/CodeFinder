@@ -107,7 +107,7 @@ const searchQueries = [
     "Find repositories related to chatbot development with Rasa",
     "data visualization with D3.js",
     "snake game using pygame",
-    "web application using the Flask framework",,
+    "web application using the Flask framework",
     "Capture the flag (CTF)",
     "all the repos by microsoft",
     "IoT using Arduino",
