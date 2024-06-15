@@ -155,7 +155,29 @@
             {% endif %}
             {% endif %}
             {% endif %}
-        </div>            
+        </div>
+
+        <!-- Pagination UI for small screens -->
+        <nav id="mobile-pagination" aria-label="Page navigation example">
+            <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="/search?q={{ query }}&page={{ current_page - 1 }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% set current_page = request.args.get('page') | default(1, true) | int %}
+            {% for page in range(1, number_of_pages + 2) %}
+            {% if current_page - 2 <= page <= current_page + 2 %}
+            <li class="page-item"><a class="page-link" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a></li>
+            {% endif %}
+            {% endfor %}
+            <li class="page-item">
+                <a class="page-link" href="/search?q={{ query }}&page={{ current_page + 1 }}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            </ul>
+        </nav>
     </body>
     <div id="footer-buffer-div"></div>
     <footer id="footer">
