@@ -2,13 +2,22 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 1.3.6
+> ### Last Version : 1.3.7
 >
-> ### Last Update : 13/06/2024
+> ### Last Update : 15/06/2024
 >
 > _Date format DD-MM-YYYY_
 
 <br>
+
+### 🗓️ _Version 1.3.7 - 13/06/2024 ([commit 447e8f6](https://github.com/DanielDekhtyar/github-search/commit/447e8f6))_
+
+---
+
+#### 🚀 Added
+- In `results_template.html`, in the pagination part, a new pagination style was added, to be only used for mobile devices.
+- `results_template.css` adjusted accordingly to make the mobile pagination visible only on mobile devices.
+
 
 ### 🗓️ _Version 1.3.6 - 13/06/2024 ([commit c102c4f](https://github.com/DanielDekhtyar/github-search/commit/c102c4f))_
 
