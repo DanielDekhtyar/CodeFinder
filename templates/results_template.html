@@ -135,7 +135,7 @@
             {% set number_of_pages = (result_count / 30) | round | int %}
             {% set current_page = request.args.get('page') | default(1, true) | int %}
             {% if number_of_pages > 1 %}
-            {% if current_page != 1 %}
+            {% if current_page > 1 %}
             <a class="turn_page_button" href="/search?q={{ query }}&page={{ current_page - 1 }}">
                 <img src="static/assets/back.png" class="turn_page_button" id="back-button" role="link" alt="Back" onmouseover="hoverBackButton();" onmouseout="unhoverBackButton();" onclick="loading_screen();"/>
             </a>
@@ -147,37 +147,46 @@
             <a class="page" role="link" href="/search?q={{ query }}&page={{ page }}" onclick="loading_screen();">{{ page }}</a>
             {% endif %}
             {% endfor %}
-
-            {% if current_page != number_of_pages + 1 %}
+            {% if current_page < number_of_pages + 1 %}
             <a class="turn_page_button" href="/search?q={{ query }}&page={{ current_page + 1 }}">
                 <img src="static/assets/forward.png" class="turn_page_button" id="forward-button" alt="Forward" role="button" onmouseover="hoverForwardButton();" onmouseout="unhoverForwardButton();" onclick="loading_screen();"/>
             </a>
             {% endif %}
             {% endif %}
             {% endif %}
-        </div>
 
-        <!-- Pagination UI for small screens -->
+            <!-- Pagination UI for small screens -->
         <nav id="mobile-pagination" aria-label="Page navigation example">
             <ul class="pagination">
+            {% if result_count %}
+            {% if number_of_pages > 1 %}
+            {% if current_page > 1 %}
             <li class="page-item">
-                <a class="page-link" href="/search?q={{ query }}&page={{ current_page - 1 }}" aria-label="Previous">
+                <a class="page-link" href="/search?q={{ query }}&page={{ current_page - 1 }}" aria-label="Previous" onclick="loading_screen();">
                 <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
+            <p>...</p>
+            {% endif %}
             {% set current_page = request.args.get('page') | default(1, true) | int %}
             {% for page in range(1, number_of_pages + 2) %}
             {% if current_page - 2 <= page <= current_page + 2 %}
-            <li class="page-item"><a class="page-link" href="/search?q={{ query }}&page={{ page }}">{{ page }}</a></li>
+            <li class="page-item"><a class="page-link" href="/search?q={{ query }}&page={{ page }}" onclick="loading_screen();">{{ page }}</a></li>
             {% endif %}
             {% endfor %}
+            {% if current_page < number_of_pages %}
+            <p>...</p>
             <li class="page-item">
-                <a class="page-link" href="/search?q={{ query }}&page={{ current_page + 1 }}" aria-label="Next">
+                <a class="page-link" href="/search?q={{ query }}&page={{ current_page + 1 }}" aria-label="Next" onclick="loading_screen();">
                 <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
+            {% endif %}
+            {% endif %}
+            {% endif %}
             </ul>
         </nav>
+        </div>
     </body>
     <div id="footer-buffer-div"></div>
     <footer id="footer">
