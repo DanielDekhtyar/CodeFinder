@@ -30,6 +30,16 @@ def search():
 
     # Retrieve form data
     user_query = request.args.get("q")
+    
+    if type(user_query) != str:
+        render_template(
+            "error.html",
+            query=user_query,
+            error_message="You encountered an error!",
+            second_line="Could you please contact me via the Contact Me page? Thanks!",
+            gif="break computer.gif",
+            error_code=422,
+        )
     user_query.strip()
     page = request.args.get("page")
     
