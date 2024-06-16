@@ -75,11 +75,6 @@
                     </div>
 
                     <!-- Display the star count and link to the stargazers page-->
-                    {% if result.stars %}
-                        {% set start_count = result.stars | int %}
-                    {% else %}
-                        {% set start_count = 0 %}
-                    {% endif %}
                     <div class="star-div">
                         <a class="star-attribute" role="button" href="{{ result.repo_url }}/stargazers" target="_blank" title="Stars" >
                             <img src="./static/assets/star.png" class="star-img" alt="Star" />
