@@ -41,6 +41,17 @@ header {
     color: #636363;
 }
 
+#product-hunt-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+#product-hunt-badge {
+    text-align: center;
+}
+
 .title {
     margin-top: 1vh;
     font: 2em sans-serif;
@@ -110,6 +121,10 @@ footer {
 }
 
 @media screen and (max-width: 1700px) {
+    #product-hunt-container {
+        height: 15vh;
+    }
+
     footer {
         font-size: 1.8vh;
         height: 4vh;
@@ -127,5 +142,11 @@ footer {
 
     footer {
         justify-content: center; /* Center horizontally */
+    }
+}
+
+@media screen and (max-height: 400px) {
+    #product-hunt-container {
+        display: none;
     }
 }

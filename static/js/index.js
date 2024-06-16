@@ -65,6 +65,7 @@ function validateForm() {
     }
 }
 
+// Function to show the loading screen animation
 function loading_screen() {
     // Hide the footer
     document.getElementById('footer').style.display = 'none';
@@ -123,6 +124,7 @@ const searchQueries = [
     "Android development with Kotlin",
 ];
 
+// Functions when you hover over the Product Hunt badge
 document.addEventListener("DOMContentLoaded", function() {
     var productHuntImg = document.getElementById("product-hunt-img");
 
