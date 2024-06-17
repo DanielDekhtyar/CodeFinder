@@ -1,9 +1,3 @@
-// When the user clicks on the logo, go back to the home page
-const logo = document.getElementById("logo")
-logo.addEventListener("click", () => {
-    window.location.href = "/";
-})
-
 // Functions when you hover over the Product Hunt badge
 document.addEventListener("DOMContentLoaded", function() {
     var productHuntImg = document.getElementById("product-hunt-img");

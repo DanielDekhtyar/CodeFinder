@@ -24,14 +24,14 @@ body {
     margin: auto;
 }
 
-#logo {
+.logo {
     height: 3em;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 2vw;
 }
 
-#logo:hover {
+.logo:hover {
     cursor: pointer;
 }
 
@@ -304,7 +304,7 @@ footer {
 }
 
 @media screen and (max-width: 1700px) {
-    #logo {
+    .logo {
         height: 2.8rem;
     }
     
@@ -339,7 +339,7 @@ footer {
         font-size: 1.5vh;
     }
 
-    #logo {
+    .logo {
         height: 1.5rem;
     }
 }
@@ -369,7 +369,7 @@ footer {
         top: 0.5rem;
     }
 
-    #logo {
+    .logo {
         height: 1.5rem;
         display: none;
     }

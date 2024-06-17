@@ -24,7 +24,7 @@ header {
 
 /* Icon link : https://www.flaticon.com/free-icon/code_1157109 */
 
-#logo:hover {
+.logo:hover {
     cursor: pointer;
 }
 

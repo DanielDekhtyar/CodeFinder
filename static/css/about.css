@@ -20,7 +20,7 @@ header {
     width: 70%;
 }
 
-#logo {
+.logo {
     height: 3em;
     margin-top: auto;
     margin-bottom: auto;
@@ -29,7 +29,7 @@ header {
 
 /* Icon link : https://www.flaticon.com/free-icon/code_1157109 */
 
-#logo:hover {
+.logo:hover {
     cursor: pointer;
 }
 

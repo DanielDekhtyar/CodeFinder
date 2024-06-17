@@ -1,9 +1,3 @@
-// When the user clicks on the logo, go back to the home page
-const logo = document.getElementById("logo")
-logo.addEventListener("click", () => {
-    window.location.href = "/";
-})
-
 // Functions when you hover over the search icon
 function hoverSearchButton() {
     element = document.getElementById("search-icon");
