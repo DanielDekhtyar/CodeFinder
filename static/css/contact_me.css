@@ -15,7 +15,7 @@ header {
     height: 6rem;
 }
 
-#logo {
+.logo {
     height: 3em;
     margin-top: auto;
     margin-bottom: auto;
@@ -50,8 +50,9 @@ body {
 .container {
     max-width: 600px; /* Set a maximum width */
     width: 100%; /* Ensure it takes full width within its parent */
-    margin: 50px auto;
-    padding: 20px;
+    margin: 10vh;
+    margin-top: 15vh;
+    padding: 5vh;
     background-color: #fff; /* White background */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
@@ -99,6 +100,19 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #0056b3; /* Darker blue on hover */
+}
+
+#powered-by-formspree-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.formspree-img {
+    margin-left: 0.5vw;
+    height: 5vh;
+    cursor: pointer;
 }
 
 .popup {
