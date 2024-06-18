@@ -13,27 +13,25 @@
             <!-- Display the donation button if more than 10 results -->
             {% set current_page = request.args.get('page') | default(1, true) |int %}
             {% if search_results|length > 10 and loop.index0 == 5 and current_page < 2 %}
-            <div id="donation-button-div">
-                <p class="donate-text">Consider donating</p>
-                <p class="donate-text">It will help me offset the cost for the website</p>
-                <div id="donate-button-container">
-                    <div id="donate-button"></div>
-                    <script
-                        src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"
-                        charset="UTF-8"
-                    ></script>
-                    <script>
-                        PayPal.Donation.Button({
-                            env: "production",
-                            hosted_button_id: "48CYXM9E6F8W8",
-                            image: {
-                                src: "https://www.paypalobjects.com/en_US/IL/i/btn/btn_donateCC_LG.gif",
-                                alt: "Donate with PayPal button",
-                                title: "PayPal - The safer, easier way to pay online!",
-                            },
-                        }).render("#donate-button");
-                    </script>
+            <div class="poll-container">
+                <p>Did you find what you were looking for?</p>
+                <div class="thumbs">
+                    <form action="https://formspree.io/f/xbjnnvrj" method="POST" class="thumb-form">
+                        <input type="hidden" name="Feedback" value="Thumbs Up">
+                        <input type="hidden" name="User search request" value="{{ query }}">
+                        <button type="submit" id="thumb-up" class="thumb-button">
+                            <img src="static/assets/thumb-up.png" alt="Thumbs Up">
+                        </button>
+                    </form>
+                    <form action="https://formspree.io/f/xbjnnvrj" method="POST" class="thumb-form">
+                        <input type="hidden" name="Feedback" value="Thumbs Down">
+                        <input type="hidden" name="User search request" value="{{ query }}">
+                        <button type="submit" id="thumb-down" class="thumb-button">
+                            <img src="static/assets/thumb-down.png" alt="Thumbs Down">
+                        </button>
+                    </form>
                 </div>
+                <p class="feedback-text">I would like to hear more from you. <a href="/contact-me">Write me!</a></p>
             </div>
             {% endif %}
             <div class="search-result">

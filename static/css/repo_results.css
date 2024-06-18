@@ -3,35 +3,55 @@
     padding-bottom: 1vh; /* Adjust padding to leave space for the fixed footer */
 }
 
-/* Donation button styling */
-#donation-button-div {
-    display: flexbox;
+.poll-container {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     border: solid 0.2vh #D0D7DE;
     border-radius: 1.5vh;
-    padding-top: 0.6vh;
-    padding-bottom: 0vh;
+    padding: 2vh;
     margin: auto;
     margin-top: 1.5vh;
     margin-bottom: 1.5vh;
-    width: 50vw;
+    width: 60vw;  /* Changed to 60vw */
     overflow-x: hidden;
+    background-color: #f9f9f9;
 }
 
-#donate-button-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.8vh;
+.poll-container p {
+    margin: 1vh 0; /* Adjusted margin for better spacing */
 }
 
-.donate-text {
-    font-size: 1.2vh;
-    text-align: center;
-    color: black;
+.thumbs {
+display: flex;
+justify-content: center;
+margin: 1vh 0;
 }
+
+.thumb-button {
+background: none;
+border: none;
+cursor: pointer;
+margin: 0 1vh;
+}
+
+.thumb-button img {
+width: 3vh;
+height: 3vh;
+transition: transform 0.3s ease;
+}
+
+.thumb-button
+img {
+transform: scale(1.1);
+}
+
+.feedback-text {
+margin: 1vh 0;
+font-size: 1.7vh;
+}    
 
 .search-result {
     border: solid 0.2vh #D0D7DE;
