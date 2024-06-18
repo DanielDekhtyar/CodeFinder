@@ -15,7 +15,7 @@
     margin: auto;
     margin-top: 1.5vh;
     margin-bottom: 1.5vh;
-    width: 60vw;  /* Changed to 60vw */
+    width: 50vw;  /* Changed to 60vw */
     overflow-x: hidden;
     background-color: #f9f9f9;
 }
@@ -247,6 +247,10 @@ font-size: 1.7vh;
         width: 60vw;
     }
 
+    .poll-container {
+        width: 60vw;
+    }
+
     .search-result {
         width: 60vw;
     }
@@ -258,20 +262,6 @@ font-size: 1.7vh;
     .avatar {
         width: 2.5vh;
         height: 2.5vh;
-    }
-
-    #donation-button-div {
-        width: 60vw;
-        height: 15vh;
-    }
-    
-    .donate-text {
-        font-size: 2vh;
-        margin-bottom: 0.5vh;
-    }
-
-    #donate-button {
-        height: 5vh;
     }
 
     .star-img {
@@ -319,25 +309,11 @@ font-size: 1.7vh;
 }
 
 @media screen and (max-width: 900px) {
+    #feedback-title {
+        font-size: 2.3vh;
+    }
     .title {
         font-size: 1.2vh;
-    }
-
-    #donation-button-div {
-        height: 12vh;
-    }
-    
-    .donate-text {
-        font-size: 1.2vh;
-        margin-bottom: 0.5vh;
-    }
-
-    #donate-button {
-        height: 3.5vh;
-    }
-
-    #donate-button-container {
-        margin-bottom: 1vh;
     }
 
     .star-img {
@@ -371,6 +347,15 @@ font-size: 1.7vh;
     #search-results-header {
         font-size: 0.8em;
     }
+
+    #feedback-title {
+        font-size: 1.25vh;
+    }
+
+    .feedback-text {
+        font-size: 1vh;
+    }
+
     .avatar {
         width: 1.5vh;
         height: 1.5vh;
