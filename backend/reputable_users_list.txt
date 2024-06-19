@@ -906,3 +906,62 @@ FortinetCloudCSE
 FortinetSecDevOps
 40net-cloud
 
+// Python
+python
+
+// Golang
+golang
+
+// Rust
+rust-lang
+
+// PHP
+php
+
+// Julia
+JuliaLang
+
+// Ruby
+ruby
+
+// CoffeeScript
+jashkenas
+
+// Elixir
+elixir-lang
+
+// Crystal
+crystal-lang
+
+// Scala
+scala
+
+// Clojure
+clojure
+
+// MicroPython
+micropython
+
+// Erlang
+erlang
+
+// Nim
+nim-lang
+
+// AssemblyScript
+AssemblyScript
+
+// PureScript
+purescript
+
+// Elm
+elm
+
+// Red
+red
+
+// Pony
+ponylang
+
+// oCamel
+ocaml
