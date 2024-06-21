@@ -17,110 +17,65 @@ def index():
 @app.route("/search", methods=["GET"])
 def search():
     """
-    The `search` function in Python retrieves form data, checks API rate limits, makes an API request,
-    handles errors, and renders search results or error messages based on the response.
-
+    The `search` function retrieves user input, performs error handling before and after
+    making a GitHub API request, and then, if no errors occurred, renders search results on a webpage.
+    
     Returns:
-    The `search()` function returns either an error template or the search results template based on
-    various conditions and API responses. If certain conditions are met, it will render an error
-    template with specific error messages. If the API response is successful and there are valid
-    search results, it will render the search results template with the search results, time it took for
-    the search, result count, and other relevant information
+    The `search()` function returns the search results rendered in the "repo_results.html" template
+    along with some additional information such as the user query, search results, time it took to
+    retrieve the results, and the result count.
     """
-
-    # Retrieve form data
+    
+    
+    # Retrieve data from the search form on the website
     user_query = request.args.get("q")
     
-    if type(user_query) != str:
-        render_template(
-            "error.html",
-            query=user_query,
-            error_message="You encountered an error!",
-            second_line="Could you please contact me via the Contact Me page? Thanks!",
-            gif="break computer.gif",
-            error_code=422,
-        )
     user_query.strip()
     page = request.args.get("page")
     
-    # Can have maximum 34 pages. If more pages requested, return an error
-    if page is not None:
-        if int(page) > 34:
-            return render_template(
-                "error.html",
-                query=user_query,
-                error_message="No more pages to display 😱",
-                second_line="Only 34 pages are allowed due to API limitations!",
-                gif="break computer.gif",
-                error_code=422,
-            )
+    """
+    Error handling before making GitHub API request
+    Checking:
+    - If the user query is a string
+    - If GitHub API limit is set to 5000 and that it was not yet reached
+    If the tests fail, an error page is displayed. See error.html
+    """
+    before_api_request_error_handling_results = helpers.error_handling_before_API_request(user_query, page)
+    if before_api_request_error_handling_results is not None:
+        return helpers.render_error_page(user_query, before_api_request_error_handling_results)
 
-    # Before the request is made, get the rate limit information
-    rate_limit_info = helpers.get_rate_limit_info()
 
-    # Unpack the rate limit information
-    limit, used, remaining = rate_limit_info
-
-    print(f"Rate limit: {limit}, Used: {used}, Remaining: {remaining}")
-
-    # Error handling
-    if limit != 5000:
-        return render_template(
-            "error.html",
-            query=user_query,
-            error_message="GitHub API limit is not 5000 😰",
-            second_line="Check the rate limit!",
-            gif="break computer.gif",
-            error_code=422,
-        )
-    elif (
-        remaining <= 150
-    ):  # Set to 150 because it takes time till the info is refreshed, so a margin of error is given
-        return render_template(
-            "error.html",
-            query=user_query,
-            error_message="GitHub's API limit has been reached 😲",
-            second_line="Try again soon!",
-            gif="break computer.gif",
-            error_code=422,
-        )
-
-    # Make the API request and get the response
+    # Make GitHub API request and get the response
     api_response = api_requests.repositories(user_query, page)
-
-    # Error handling
-    if len(api_response) != 3:
-        return render_template(
-            "error.html",
-            query=user_query,
-            error_message="You broke the search engine 💥",
-            gif="break computer.gif",
-            error_code=422,
-        )
-
-    # Unpack the API response
+    
+    
+    """
+    Error handling after making GitHub API request
+    Checking:
+    - A tuple with 3 elements is returned: search_results, time_it_took, result_count
+    - The number of results returned by the API is not 0
+    If the tests fail, an error page is displayed. See error.html
+    """
+    after_api_request_error_handling_results = helpers.error_handling_after_API_request(user_query, api_response)
+    if after_api_request_error_handling_results is not None:
+        # Render the error page
+        return helpers.render_error_page(user_query, after_api_request_error_handling_results)
+    
+    # Unpack the API response tuple in to variables
     search_results, time_it_took, result_count = api_response
 
-    # If there are no results display error message
-    if result_count == 0:
-        return render_template(
-            "error.html",
-            query=user_query,
-            error_message="No results found 🔍",
-            gif="i-cant-find-anything.gif",
-            error_code=404,
-        )
-    else:
-        print(f"Time it took: {time_it_took}")
-        # Render the search results
-        return render_template(
-            "repo_results.html",
-            query=user_query,
-            search_results=search_results,
-            time_it_took=time_it_took,
-            result_count=result_count,
-            os=os,
-        )
+    # Print the time it took to make the API request to the console
+    print(f"Time it took: {time_it_took}")
+    
+    # Render the search results
+    return render_template(
+        "repo_results.html",
+        query=user_query,
+        search_results=search_results,
+        time_it_took=time_it_took,
+        result_count=result_count,
+        os=os,
+    )
 
 @app.route("/about")
 def about():
