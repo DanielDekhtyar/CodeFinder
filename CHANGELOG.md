@@ -10,7 +10,7 @@
 
 <br>
 
-### 🗓️ _Version 1.3.8 - 13/06/2024 ([commit 02c354d](https://github.com/DanielDekhtyar/github-search/commit/02c354d))_
+### 🗓️ _Version 1.3.8 - 22/06/2024 ([commit 02c354d](https://github.com/DanielDekhtyar/github-search/commit/02c354d))_
 
 ---
 
