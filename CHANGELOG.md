@@ -2,13 +2,21 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 1.3.7
+> ### Last Version : 1.3.8
 >
-> ### Last Update : 15/06/2024
+> ### Last Update : 22/06/2024
 >
 > _Date format DD-MM-YYYY_
 
 <br>
+
+### 🗓️ _Version 1.3.8 - 13/06/2024 ([commit 02c354d](https://github.com/DanielDekhtyar/github-search/commit/02c354d))_
+
+---
+
+### 🔥 Enhancements
+- Code Refactoring. Search error handling functionality moved from `app.py` to `helpers.py`.
+
 
 ### 🗓️ _Version 1.3.7 - 13/06/2024 ([commit 447e8f6](https://github.com/DanielDekhtyar/github-search/commit/447e8f6))_
 
