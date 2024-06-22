@@ -56,7 +56,7 @@ def search():
     - The number of results returned by the API is not 0
     If the tests fail, an error page is displayed. See error.html
     """
-    after_api_request_error_handling_results = helpers.error_handling_after_API_request(user_query, api_response)
+    after_api_request_error_handling_results = helpers.error_handling_after_API_request(api_response)
     if after_api_request_error_handling_results is not None:
         # Render the error page
         return helpers.render_error_page(user_query, after_api_request_error_handling_results)
