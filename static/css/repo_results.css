@@ -47,13 +47,9 @@ transition: transform 0.3s ease;
     transform: scale(1.1);
 }
 
-#feedback-title {
-    font-size: 1.55vh;
-}
-
 .feedback-text {
 margin: 1vh 0;
-font-size: 1.15vh;
+font-size: 1.7vh;
 }    
 
 .search-result {
