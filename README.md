@@ -1,4 +1,4 @@
-# Code
+# Code Finder
 
 ## Making your code search experience better!  
 
