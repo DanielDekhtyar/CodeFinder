@@ -85,5 +85,10 @@ def about():
 def contact_me():
     return render_template("contact_me.html")
 
+# Serve the sitemap.xml file
+@app.route('/sitemap.xml', methods=['GET'])
+def sitemap():
+    return send_from_directory('backend', 'sitemap.xml')
+
 if __name__ == "__main__":
     app.run()
