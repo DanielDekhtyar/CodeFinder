@@ -31,6 +31,12 @@
     align-items: center; /* Center the buttons vertically */
 }
 
+#search-bar-explanation {
+    margin-top: -0.5rem;
+    font-size: 1vh;
+    text-align: center;
+}
+
 .btn {
     color: black;
     background-color: transparent;
@@ -261,6 +267,10 @@ footer {
 @media screen and (max-width: 600px) {
     #title-image {
         width: 14rem;
+    }
+
+    #search-bar-explanation {
+        font-size: 0.8vh;
     }
 
     #trademark {
