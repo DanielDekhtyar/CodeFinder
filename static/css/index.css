@@ -244,6 +244,10 @@ footer {
         width: auto;
     }
 
+    #search-bar-explanation {
+        font-size: 1.5vh;
+    }
+
     #product-hunt-container {
         height: 15vh;
     }
@@ -270,7 +274,7 @@ footer {
     }
 
     #search-bar-explanation {
-        font-size: 0.8vh;
+        font-size: 1vh;
     }
 
     #trademark {
