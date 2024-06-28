@@ -86,6 +86,11 @@ microsofthackathons
 SharePoint
 PowerShell
 microsoft-search
+
+// Git
+git
+
+// GitHub
 github
 githubnext
 actions
@@ -95,9 +100,6 @@ githubtraining
 actions
 skills
 githubtraining
-
-// Git
-git
 
 // Apple
 apple
@@ -453,6 +455,15 @@ TexasInstruments
 // The Apache Software Foundation
 apache
 
+// V8 (JavaScript and WebAssembly engine)
+v8
+
+// SQL
+mysql
+postgres
+sqlite
+libsql
+
 // Alibaba
 alibaba
 aliyun
@@ -526,6 +537,9 @@ Meituan-Dianping
 
 // Dell
 dell
+
+// OpenSSL
+openssl
 
 // Fiserv
 Fiserv
@@ -839,7 +853,6 @@ gettyimages
 // Grammarly
 grammarly
 
-
 // Coursera
 coursera
 webedx-spark
@@ -853,6 +866,12 @@ couchbaselabs
 couchbasecloud
 couchbase-examples
 couchbasedeps
+
+// Bitcoin
+bitcoin
+
+// Linus Torvalds
+torvalds
 
 // SerpApi
 serpapi
@@ -883,6 +902,14 @@ docusign
 // Intercom
 intercom
 
+// CodeCrafters
+codecrafters-io
+
+// Stripe
+stripe
+stripe-samples
+stripe-archive
+
 // The OWASP Foundation
 OWASP
 owaspsamm
@@ -898,6 +925,9 @@ rtkwlf
 
 // Check Point Software Technologies Ltd.
 CheckPointSW
+
+// Internet Archive
+internetarchive
 
 // Fortinet
 fortinet
@@ -923,6 +953,7 @@ JuliaLang
 
 // Ruby
 ruby
+rails
 
 // CoffeeScript
 jashkenas
@@ -965,3 +996,29 @@ ponylang
 
 // oCamel
 ocaml
+
+// Gatsby
+gatsbyjs
+
+// fast.ai
+fastai
+
+// libgit2
+libgit2
+
+// GraphQL
+graphql
+graphql-community
+apollographql
+graphql-python
+graphql-java
+graphql-java-kickstart
+graphql-dotnet
+graphql-editor
+graphql-rust
+graphql-go
+strawberry-graphql
+GraphQLSwift
+
+// jQuery
+jquery
