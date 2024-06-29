@@ -113,6 +113,11 @@
 
 #product-hunt-badge {
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+#product-hunt-badge:hover {
+    transform: scale(1.1);
 }
 
 .loader-wrapper {

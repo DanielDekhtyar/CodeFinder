@@ -29,10 +29,12 @@ body {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 2vw;
+    transition: transform 0.3s ease;
 }
 
 .logo:hover {
     cursor: pointer;
+    transform: scale(1.07);
 }
 
 #search-form {

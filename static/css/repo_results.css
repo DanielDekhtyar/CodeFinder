@@ -66,6 +66,11 @@ font-size: 1.15vh;
     margin-bottom: 1.5vh;
     width: 50vw;
     overflow-x: hidden;
+    transition: transform 0.3s ease;
+}
+
+.search-result:hover {
+    transform: scale(1.03);
 }
 
 .search-result-content {
@@ -250,6 +255,14 @@ font-size: 1.15vh;
     #search-results-header-div {
         width: 60vw;
     }
+
+    #feedback-title {
+        font-size: 2vh;
+    }
+    
+    #feedback-text {
+    font-size: 1.55vh;
+    } 
 
     .poll-container {
         width: 60vw;

@@ -20,12 +20,14 @@ header {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 2vw;
+    transition: transform 0.2s ease;
 }
 
 /* Icon link : https://www.flaticon.com/free-icon/code_1157109 */
 
 .logo:hover {
     cursor: pointer;
+    transform: scale(1.07);
 }
 
 #page-header {
