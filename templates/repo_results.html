@@ -10,7 +10,7 @@
     <div class="container">
         <div id="search-results">
             {% for result in search_results %}
-            <!-- Display the donation button if more than 10 results -->
+            <!-- Display the feedback card if more than 10 results -->
             {% set current_page = request.args.get('page') | default(1, true) |int %}
             {% if search_results|length > 10 and loop.index0 == 5 and current_page < 2 %}
             <!-- Feedback form -->
