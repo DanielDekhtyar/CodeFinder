@@ -37,7 +37,7 @@ def search():
     else:
         page = int(page)
 
-    # If the user query is empty, render an error page
+    # Error handling checking that there is no errors in the data received from the webpage
     get_variables_from_web_page_error_handling_results = (
         helpers.get_variables_from_web_page_error_handling(user_query, page)
     )
