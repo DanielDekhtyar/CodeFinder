@@ -147,8 +147,8 @@ def get_variables_from_web_page_error_handling(user_query: str, page: int):
     # Check if the page is not Integer
     if type(page) is not int:
         return (
-            "You are looking for a non existing page",
-            "If you think there is a bug, please use the Contact Me form and write to me",
+            "You encountered an error and I have no idea how you got here 😱",
+            "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
             "break computer.gif",
             422,
         )
