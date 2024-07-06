@@ -2,16 +2,16 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 1.3.8
+> ### Last Version : 1.3.9
 >
-> ### Last Update : 22/06/2024
+> ### Last Update : 06/07/2024
 >
 > _Date format DD-MM-YYYY_
 
 <br>
 
 
-### 🗓️ _Version 1.3.8 - 22/06/2024 ([commit d11cca3](https://github.com/DanielDekhtyar/github-search/commit/d11cca3))_
+### 🗓️ _Version 1.3.9 - 06/07/2024 ([commit d11cca3](https://github.com/DanielDekhtyar/github-search/commit/d11cca3))_
 
 ---
 
