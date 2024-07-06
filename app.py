@@ -29,20 +29,24 @@ def search():
     
     # Retrieve data from the search form on the website
     user_query = request.args.get("q")
-    
-    user_query.strip()
     page = request.args.get("page")
     
-    """
-    Error handling before making GitHub API request
-    Checking:
-    - If the user query is a string
-    - If GitHub API limit is set to 5000 and that it was not yet reached
-    If the tests fail, an error page is displayed. See error.html
-    """
-    before_api_request_error_handling_results = helpers.error_handling_before_API_request(user_query, page)
-    if before_api_request_error_handling_results is not None:
-        return helpers.render_error_page(user_query, before_api_request_error_handling_results)
+    # If page is None, set it to '1'
+    # Usually happens if we are on the first '1' page of the results page
+    if page == None:
+        page = 1
+    
+    # If the user query is empty, render an error page
+    get_variables_from_web_page_error_handling_results = helpers.get_variables_from_web_page_error_handling(user_query, page)
+    if get_variables_from_web_page_error_handling_results is not None:
+        return helpers.render_error_page(user_query, get_variables_from_web_page_error_handling_results)
+    
+    # Strip all the trailing and preceding white spaces from the search query
+    user_query.strip()
+    
+    GitHub_API_rate_limit_error_handling_results = helpers.GitHub_API_rate_limit_error_handling()
+    if GitHub_API_rate_limit_error_handling_results is not None:
+        return helpers.render_error_page(user_query, GitHub_API_rate_limit_error_handling_results)
 
 
     # Make GitHub API request and get the response

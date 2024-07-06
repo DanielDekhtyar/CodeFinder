@@ -111,7 +111,42 @@ def get_rate_limit_info():
         return f"Error: {response.status_code} - {response.text}", None, None
 
 
-def error_handling_before_API_request(user_query: str, page: int):
+def get_variables_from_web_page_error_handling(user_query: str, page: int):
+    # Check if the user query is not empty or None
+    if not user_query or user_query == None:
+        return "You didn't search for anything! Try to put something in to the search bar! 🔍", "If you think there is a bug, please use the Contact Me form and write to me", "break computer.gif", 422
+    
+    # Check if the user query is a string
+    elif type(user_query) != str:
+        # return a 422 error code
+        # Main error message, second line error message, gif, error code
+        return "You encountered an error and I have no idea how you got here 😱", "Could you please contact me via the Contact Me page to help me fix it? Thanks!", "break computer.gif", 422
+    
+    # Strip all the trailing and preceding white spaces from the search query
+    user_query.strip()
+    
+    # Check if all the characters in the string are whitespaces
+    if user_query.isspace():
+        return "You didn't search for anything! Try to put something in to the search bar! 🔍", "If you think there is a bug, please use the Contact Me form and write to me", "break computer.gif", 422
+    
+    # Check if the page is not Integer
+    if type(page) is not int:
+        return "You are looking for a non existing page", "If you think there is a bug, please use the Contact Me form and write to me", "break computer.gif", 422
+    
+    # Check that the page requested is between 1 and 34
+    elif page < 1:
+        return "You are looking for a non existing page", "If you think there is a bug, please use the Contact Me form and write to me", "break computer.gif", 422
+    
+    # Can have maximum 34 pages. If more pages requested, return an error
+    elif int(page) > 34:
+        # return a 422 error code
+        # Main error message, second line error message, gif, error code
+        return "No more pages to display 😱", "Only 34 pages are allowed due to API limitations! Stop hacking my website! 🔨", "break computer.gif", 422
+
+    return None
+
+
+def GitHub_API_rate_limit_error_handling():
     """
     The function performs error handling before making the GitHub API request, checking for various conditions
     and returning appropriate error messages if necessary.
@@ -135,11 +170,6 @@ def error_handling_before_API_request(user_query: str, page: int):
     Here we catch an error when the user request is not a string
     I don't know how this error happens and I don't yet know how to fix it
     """
-    if type(user_query) != str:
-        # return a 422 error code
-        # Main error message, second line error message, gif, error code
-        return "You encountered an error and I have no idea how you got here 😱", "Could you please contact me via the Contact Me page to help me fix it? Thanks!", "break computer.gif", 422
-    
     
     # Before the request is made, get the GitHub API rate limit information
     rate_limit_info = get_rate_limit_info()
@@ -150,19 +180,11 @@ def error_handling_before_API_request(user_query: str, page: int):
     # Print the rate limit information to the console
     print(f"Rate limit: {limit}, Used: {used}, Remaining: {remaining}")
     
-    
-    # Can have maximum 34 pages. If more pages requested, return an error
-    if page is not None:
-        if int(page) > 34:
-            # return a 422 error code
-            # Main error message, second line error message, gif, error code
-            return "No more pages to display 😱", "Only 34 pages are allowed due to API limitations! Stop hacking my website!", "break computer.gif", 422
-
     # If for some reason the limit of GitHub API is not 5000, return an error. aka I will be very sad, mad and confused
     if limit != 5000:
         # return a 422 error code
         # Main error message, second line error message, gif, error code
-        return "GitHub API limit is not 5000 😰", "Check the rate limit!", "break computer.gif", 422
+        return "GitHub API limit is not 5000 😰!!! There is a bug 🐞!", "Use the Contact Me form to write to me and I will fix it ASAP!!!", "break computer.gif", 422
     
     # If the remaining is less than 150, return an error
     # Set to 150 because it takes time till the info is refreshed, so a margin of error is given
