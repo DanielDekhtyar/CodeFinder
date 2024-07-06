@@ -148,90 +148,62 @@ def test_user_query_is_str_type():
     Testing get_variables_from_web_page_error_handling()
     Check that an error accrues if the search request is not a string
     """
+    
+    error_message = (
+        "You encountered an error and I have no idea how you got here 😱",
+        "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
+        "break computer.gif",
+        422,
+    )
 
     # Check error handling for Integer variables.
     user_query = 1234567890
 
     result = helpers.get_variables_from_web_page_error_handling(user_query, 1)
 
-    assert result == (
-        "You encountered an error and I have no idea how you got here 😱",
-        "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check error handling for Float variables.
     user_query = 123.456
 
     result = helpers.get_variables_from_web_page_error_handling(user_query, 1)
 
-    assert result == (
-        "You encountered an error and I have no idea how you got here 😱",
-        "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check error handling for Dict variables.
     user_query = {"hello": "world", "GitHub": "GitLab", "www": "https"}
 
     result = helpers.get_variables_from_web_page_error_handling(user_query, 1)
 
-    assert result == (
-        "You encountered an error and I have no idea how you got here 😱",
-        "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check error handling for Boolean variables.
     user_query = True
 
     result = helpers.get_variables_from_web_page_error_handling(user_query, 1)
 
-    assert result == (
-        "You encountered an error and I have no idea how you got here 😱",
-        "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check error handling for List variables.
     user_query = ["Captain America", "Hulk", "Thor", "Spider-Man", "Storm"]
 
     result = helpers.get_variables_from_web_page_error_handling(user_query, 1)
 
-    assert result == (
-        "You encountered an error and I have no idea how you got here 😱",
-        "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check error handling for Set variables.
     user_query = {"Captain America", "Hulk", "Thor", "Spider-Man", "Storm"}
 
     result = helpers.get_variables_from_web_page_error_handling(user_query, 1)
 
-    assert result == (
-        "You encountered an error and I have no idea how you got here 😱",
-        "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check error handling for Tuple variables.
     user_query = ("Captain America", "Hulk", "Thor", "Spider-Man", "Storm")
 
     result = helpers.get_variables_from_web_page_error_handling(user_query, 1)
 
-    assert result == (
-        "You encountered an error and I have no idea how you got here 😱",
-        "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check error handling for String variables.
     user_query = "Hello World"
@@ -284,102 +256,69 @@ def test_page_is_not_int():
     Testing get_variables_from_web_page_error_handling()
     Check that an error accrues if the 'page' is None
     """
+    
+    error_message = (
+        "You encountered an error and I have no idea how you got here 😱",
+        "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
+        "break computer.gif",
+        422,
+    )
 
     # Check if page is None.
     page = None
 
     result = helpers.get_variables_from_web_page_error_handling("Hello World", page)
 
-    assert result == (
-        "You are looking for a non existing page",
-        "If you think there is a bug, please use the Contact Me form and write to me",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check if page is a Float.
     page = 123.456
 
     result = helpers.get_variables_from_web_page_error_handling("Hello World", page)
 
-    assert result == (
-        "You are looking for a non existing page",
-        "If you think there is a bug, please use the Contact Me form and write to me",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check if page is a String.
     page = "Hello World"
 
     result = helpers.get_variables_from_web_page_error_handling("Hello World", page)
 
-    assert result == (
-        "You are looking for a non existing page",
-        "If you think there is a bug, please use the Contact Me form and write to me",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check if page is a Dictionary.
     page = {"hello": "world", "GitHub": "GitLab", "www": "https"}
 
     result = helpers.get_variables_from_web_page_error_handling("Hello World", page)
 
-    assert result == (
-        "You are looking for a non existing page",
-        "If you think there is a bug, please use the Contact Me form and write to me",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check if page is a Boolean.
     page = True
 
     result = helpers.get_variables_from_web_page_error_handling("Hello World", page)
 
-    assert result == (
-        "You are looking for a non existing page",
-        "If you think there is a bug, please use the Contact Me form and write to me",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check if page is a List.
     page = ["Captain America", "Hulk", "Thor", "Spider-Man", "Storm"]
 
     result = helpers.get_variables_from_web_page_error_handling("Hello World", page)
 
-    assert result == (
-        "You are looking for a non existing page",
-        "If you think there is a bug, please use the Contact Me form and write to me",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check if page is a Set.
     page = {"Captain America", "Hulk", "Thor", "Spider-Man", "Storm"}
 
     result = helpers.get_variables_from_web_page_error_handling("Hello World", page)
 
-    assert result == (
-        "You are looking for a non existing page",
-        "If you think there is a bug, please use the Contact Me form and write to me",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check if page is a Tuple.
     page = ("Captain America", "Hulk", "Thor", "Spider-Man", "Storm")
 
     result = helpers.get_variables_from_web_page_error_handling("Hello World", page)
 
-    assert result == (
-        "You are looking for a non existing page",
-        "If you think there is a bug, please use the Contact Me form and write to me",
-        "break computer.gif",
-        422,
-    )
+    assert result == error_message
 
     # Check if the page is in the correct range.
     page = 1
@@ -394,54 +333,48 @@ def test_page_is_in_range():
     Testing get_variables_from_web_page_error_handling()
     Check that an error accrues if the 'page' is not in the range 1-34
     """
+    
+    non_existing_page_error = (
+        "You are looking for a non existing page",
+        "If you think there is a bug, please use the Contact Me form and write to me",
+        "break computer.gif",
+        422,
+    )
+    
+    no_more_pages_error = (
+        "No more pages to display 😱",
+        "Only 34 pages are allowed due to API limitations! Stop hacking my website! 🔨",
+        "break computer.gif",
+        422,
+    )
 
     # Check for page '0'
     page = 0
 
     result = helpers.get_variables_from_web_page_error_handling("Hello World", page)
 
-    assert result == (
-        "You are looking for a non existing page",
-        "If you think there is a bug, please use the Contact Me form and write to me",
-        "break computer.gif",
-        422,
-    )
+    assert result == non_existing_page_error
 
     # Check for page '-1'
     page = -1
 
     result = helpers.get_variables_from_web_page_error_handling("Hello World", page)
 
-    assert result == (
-        "You are looking for a non existing page",
-        "If you think there is a bug, please use the Contact Me form and write to me",
-        "break computer.gif",
-        422,
-    )
+    assert result == non_existing_page_error
 
     # Check for page '35'
     page = 35
 
     result = helpers.get_variables_from_web_page_error_handling("Hello World", page)
 
-    assert result == (
-        "No more pages to display 😱",
-        "Only 34 pages are allowed due to API limitations! Stop hacking my website! 🔨",
-        "break computer.gif",
-        422,
-    )
+    assert result == no_more_pages_error
 
     # Check for page '100'
     page = 100
 
     result = helpers.get_variables_from_web_page_error_handling("Hello World", page)
 
-    assert result == (
-        "No more pages to display 😱",
-        "Only 34 pages are allowed due to API limitations! Stop hacking my website! 🔨",
-        "break computer.gif",
-        422,
-    )
+    assert result == no_more_pages_error
 
     # Check for page '3'
     page = 3
