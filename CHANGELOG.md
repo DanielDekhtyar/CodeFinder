@@ -10,6 +10,22 @@
 
 <br>
 
+
+### 🗓️ _Version 1.3.8 - 22/06/2024 ([commit d11cca3](https://github.com/DanielDekhtyar/github-search/commit/d11cca3))_
+
+---
+
+### 🔥 Added
+- In `app.py`, error handling was added to check if the information that was retrieved from the search page was valid.
+  Otherwise, if not valid, show an appropriate error page.
+  The code was implemented in `helpers.py` as `get_variables_from_web_page_error_handling()` and is imported into `app.py`.
+
+### 🔥 Enhancements
+- Some of the code from `error_handling_before_API_request()` moved to `get_variables_from_web_page_error_handling()`.
+- `GitHub_API_rate_limit_error_handling()` checks if the API limit is not excited, and if it is, shows an error page
+
+
+
 ### 🗓️ _Version 1.3.8 - 22/06/2024 ([commit 02c354d](https://github.com/DanielDekhtyar/github-search/commit/02c354d))_
 
 ---
