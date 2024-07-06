@@ -316,3 +316,49 @@ def render_error_page(user_query, error_page_components):
         gif=gif,
         error_code=error_code,
     )
+
+
+def need_to_make_request_to_openai_api(user_search_request, LAST_USER_SEARCH_REQUESTS):
+    """
+    The function checks if a user search request needs to be made to the OpenAI API based on previous
+    requests and keyword matches in a file.
+    
+    Args:
+    user_search_request: The `user_search_request` parameter in the function
+    `need_to_make_request_to_openai_api` represents the search query input by the user. The function
+    checks if this search query is the same as the last query made by the user. If it is the same, there
+    is no need to make
+    LAST_USER_SEARCH_REQUESTS: `LAST_USER_SEARCH_REQUESTS` is a dictionary that contains the last user
+    search requests made. The keys in this dictionary are the user search requests, and the values are
+    the corresponding responses or results of those requests. The function
+    `need_to_make_request_to_openai_api` checks if the current user
+    
+    Returns:
+    The function `need_to_make_request_to_openai_api` returns different values based on certain
+    conditions:
+    """
+    # Check if the user query is the same as the last query, if so, no need to make a new request
+    if user_search_request in LAST_USER_SEARCH_REQUESTS.keys():
+        # If the user query is the same as the last query, no need to make a new request
+        return LAST_USER_SEARCH_REQUESTS.get(user_search_request)
+
+    # If the length of the search query is just one word, no need to do a request to OpenAI
+    elif len(user_search_request.split()) == 1:
+        return user_search_request
+
+    # Make the user request all lowercase. Done for simplicity
+    user_search_request = user_search_request.lower()
+
+    try:
+        with open("backend/search_keywords.txt", "r") as file:
+            content = file.read().split()  # Read file content and split into words
+
+            for word in user_search_request.split():
+                if word in content:
+                    return True
+
+            return user_search_request  # None of the words found in the file
+
+    except FileNotFoundError:
+        print(f"Error: File 'backend/search_keywords.txt' not found.")
+        return user_search_request

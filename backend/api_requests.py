@@ -42,73 +42,77 @@ LAST_USER_SEARCH_REQUESTS: dict = {
 
 def openai_api_request(user_search_request, context_message):
     """
-    The `openai_api_request` function takes a user search request and a context message, checks if it is
-    different from the last query, and if the request is different from the last request,
-    it makes a new request to OpenAI API to get a GitHub search query using a fine-tuned model.
-
+    The `openai_api_request` function processes user search requests, checks if an API request is
+    needed, and makes a request to OpenAI's API to get search queries using a fine-tuned model.
+    
     Args:
     user_search_request: The `user_search_request` parameter in the `openai_api_request` function
-    represents the search query input by the user. This query is used to make a request to the OpenAI
-    API to retrieve relevant information based on the user's input. The function checks if the new user
-    query is different from
+    represents the search query inputted by the user. This query is used to determine if an API request
+    to OpenAI is needed to retrieve relevant information based on the user's input.
     context_message: The `context_message` parameter in the `openai_api_request` function is used to
     provide additional context or information to the OpenAI API when making a request. This context
-    message helps the API better understand the user's query and provide more accurate responses. It can
-    include relevant information or details that can
-
+    message helps the API better understand the user's search request and generate a more accurate
+    response. It can include relevant details or previous
+    
     Returns:
-    The function `openai_api_request` returns the search query obtained from the OpenAI API response.
-    If the user search request is different from the last user search request, a new request is made to
-    the OpenAI API to get the search query using a fine-tuned model. The function then returns this
-    search query. If the user search request is the same as the last user search request, the
+    The function `openai_api_request` returns the search query obtained from the OpenAI API after
+    processing the user's search request. If a new request to the OpenAI API is not needed, it returns
+    the existing search query directly without making a new API request.
     """
-    # Get the global variables
+
     global LAST_USER_SEARCH_REQUESTS
 
     # Print the user search query
     print(f"User request: {user_search_request}")
 
-    # Check if the user query is the same as the last query, if so, no need to make a new request
-    if user_search_request in LAST_USER_SEARCH_REQUESTS.keys():
-        # If the user query is the same as the last query, no need to make a new request
+    # Check if an API request is needed. Returns 'str' if not needed, and 'bool' if needed.
+    need_api_request_check = helpers.need_to_make_request_to_openai_api(
+        user_search_request, LAST_USER_SEARCH_REQUESTS
+    )
+
+    # If a string, return the string as it is and don't make the API request
+    if isinstance(need_api_request_check, str):
         print("Not making new request to OpenAI")
-        return LAST_USER_SEARCH_REQUESTS.get(user_search_request)
+        return need_api_request_check
+    # If a bool, make the OpenAI API request
+    elif isinstance(need_api_request_check, bool):
+        pass
 
-    else:  # Make a new request to OpenAI's API
-        print("Making new request to OpenAI")
+    # Make a new request to OpenAI's API
+    print("Making new request to OpenAI")
 
-        """ Use OpenAI API to get the GitHub search query using the fine-tuned model """
+    """ Use OpenAI API to get the GitHub search query using the fine-tuned model """
 
-        # Check how long it takes for OpenAI API request
-        openAI_time = time.time()
+    # Check how long it takes for OpenAI API request
+    openAI_time = time.time()
 
-        # Get the OpenAI API key
-        api_key = os.getenv("OPENAI_API_KEY")
+    # Get the OpenAI API key
+    api_key = os.getenv("OPENAI_API_KEY")
 
-        # Initialize OpenAI client
-        client = OpenAI(api_key=api_key)
+    # Initialize OpenAI client
+    client = OpenAI(api_key=api_key)
 
-        # Make OpenAI API request
-        completion = client.chat.completions.create(
-            # Set the fine-tuned model name
-            model=os.getenv("OPENAI_REPO_MODEL"),
-            # Set the messages
-            messages=[
-                {"role": "system", "content": f"{context_message}"},
-                {"role": "user", "content": f"{user_search_request}"},
-            ],
-        )
+    # Make OpenAI API request
+    completion = client.chat.completions.create(
+        # Set the fine-tuned model name
+        model=os.getenv("OPENAI_REPO_MODEL"),
+        # Set the messages
+        messages=[
+            {"role": "system", "content": f"{context_message}"},
+            {"role": "user", "content": f"{user_search_request}"},
+        ],
+    )
 
-        # Set the response as the user query
-        search_query: str = completion.choices[0].message.content
+    # Set the response as the user query
+    search_query: str = completion.choices[0].message.content
 
-        print(f"OpenAI API request time: {time.time() - openAI_time}")
+    print(f"OpenAI API request time: {time.time() - openAI_time}")
 
-        # Set the LAST_USER_SEARCH_REQUEST to the new user request, so next time we can compare
-        LAST_USER_SEARCH_REQUESTS[user_search_request] = (
-            search_query  # Add the new user request
-        )
-        return search_query
+    # Set the LAST_USER_SEARCH_REQUEST to the new user request, so next time we can compare
+    LAST_USER_SEARCH_REQUESTS[user_search_request] = (
+        search_query  # Add the new user request
+    )
+    return search_query
 
 
 def repositories(user_search_request, page):
