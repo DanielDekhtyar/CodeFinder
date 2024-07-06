@@ -35,6 +35,8 @@ def search():
     # Usually happens if we are on the first '1' page of the results page
     if page == None:
         page = 1
+    else:
+        page = int(page)
     
     # If the user query is empty, render an error page
     get_variables_from_web_page_error_handling_results = helpers.get_variables_from_web_page_error_handling(user_query, page)
