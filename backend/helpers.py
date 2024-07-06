@@ -27,7 +27,7 @@ def format_date(date_str):
     format. The specific return value depends on the difference between the given date and the current
     date and time. The function returns different strings based on the time difference, such as "less
     """
-    
+
     try:
         # Convert the date string to a datetime object
         date = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ")
@@ -114,34 +114,64 @@ def get_rate_limit_info():
 def get_variables_from_web_page_error_handling(user_query: str, page: int):
     # Check if the user query is not empty or None
     if not user_query or user_query == None:
-        return "You didn't search for anything! Try to put something in to the search bar! 🔍", "If you think there is a bug, please use the Contact Me form and write to me", "break computer.gif", 422
-    
+        return (
+            "You didn't search for anything! Try to put something in to the search bar! 🔍",
+            "If you think there is a bug, please use the Contact Me form and write to me",
+            "break computer.gif",
+            422,
+        )
+
     # Check if the user query is a string
     elif type(user_query) != str:
         # return a 422 error code
         # Main error message, second line error message, gif, error code
-        return "You encountered an error and I have no idea how you got here 😱", "Could you please contact me via the Contact Me page to help me fix it? Thanks!", "break computer.gif", 422
-    
+        return (
+            "You encountered an error and I have no idea how you got here 😱",
+            "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
+            "break computer.gif",
+            422,
+        )
+
     # Strip all the trailing and preceding white spaces from the search query
     user_query.strip()
-    
+
     # Check if all the characters in the string are whitespaces
     if user_query.isspace():
-        return "You didn't search for anything! Try to put something in to the search bar! 🔍", "If you think there is a bug, please use the Contact Me form and write to me", "break computer.gif", 422
-    
+        return (
+            "You didn't search for anything! Try to put something in to the search bar! 🔍",
+            "If you think there is a bug, please use the Contact Me form and write to me",
+            "break computer.gif",
+            422,
+        )
+
     # Check if the page is not Integer
     if type(page) is not int:
-        return "You are looking for a non existing page", "If you think there is a bug, please use the Contact Me form and write to me", "break computer.gif", 422
-    
+        return (
+            "You are looking for a non existing page",
+            "If you think there is a bug, please use the Contact Me form and write to me",
+            "break computer.gif",
+            422,
+        )
+
     # Check that the page requested is between 1 and 34
     elif page < 1:
-        return "You are looking for a non existing page", "If you think there is a bug, please use the Contact Me form and write to me", "break computer.gif", 422
-    
+        return (
+            "You are looking for a non existing page",
+            "If you think there is a bug, please use the Contact Me form and write to me",
+            "break computer.gif",
+            422,
+        )
+
     # Can have maximum 34 pages. If more pages requested, return an error
     elif int(page) > 34:
         # return a 422 error code
         # Main error message, second line error message, gif, error code
-        return "No more pages to display 😱", "Only 34 pages are allowed due to API limitations! Stop hacking my website! 🔨", "break computer.gif", 422
+        return (
+            "No more pages to display 😱",
+            "Only 34 pages are allowed due to API limitations! Stop hacking my website! 🔨",
+            "break computer.gif",
+            422,
+        )
 
     return None
 
@@ -150,7 +180,7 @@ def GitHub_API_rate_limit_error_handling():
     """
     The function performs error handling before making the GitHub API request, checking for various conditions
     and returning appropriate error messages if necessary.
-    
+
     Args:
     user_query (str): The `user_query` parameter is expected to be a string representing the user's
     query for the API request. If the `user_query` is not a string, the function will return an error
@@ -159,18 +189,18 @@ def GitHub_API_rate_limit_error_handling():
     specify the page number for the API request. The function includes error handling logic to check if
     the page number exceeds the maximum allowed value of 34. If the page number is greater than 34, it
     returns
-    
+
     Returns:
     The function `error_handling_before_API_request` returns a tuple containing the main error
     message, second line error message, gif, and error code if a specific error condition is met. If no
     error is found, it returns `None`.
     """
-    
+
     """
     Here we catch an error when the user request is not a string
     I don't know how this error happens and I don't yet know how to fix it
     """
-    
+
     # Before the request is made, get the GitHub API rate limit information
     rate_limit_info = get_rate_limit_info()
 
@@ -179,19 +209,29 @@ def GitHub_API_rate_limit_error_handling():
 
     # Print the rate limit information to the console
     print(f"Rate limit: {limit}, Used: {used}, Remaining: {remaining}")
-    
+
     # If for some reason the limit of GitHub API is not 5000, return an error. aka I will be very sad, mad and confused
     if limit != 5000:
         # return a 422 error code
         # Main error message, second line error message, gif, error code
-        return "GitHub API limit is not 5000 😰!!! There is a bug 🐞!", "Use the Contact Me form to write to me and I will fix it ASAP!!!", "break computer.gif", 422
-    
+        return (
+            "GitHub API limit is not 5000 😰!!! There is a bug 🐞!",
+            "Use the Contact Me form to write to me and I will fix it ASAP!!!",
+            "break computer.gif",
+            422,
+        )
+
     # If the remaining is less than 150, return an error
     # Set to 150 because it takes time till the info is refreshed, so a margin of error is given
-    elif (remaining <= 150):
+    elif remaining <= 150:
         # return a 422 error code
         # Main error message, second line error message, gif, error code
-        return "GitHub's API limit has been reached 😲", "Try again soon!", "break computer.gif", 422
+        return (
+            "GitHub's API limit has been reached 😲",
+            "Try again soon!",
+            "break computer.gif",
+            422,
+        )
     else:
         # If no error was found, return None
         return None
@@ -201,7 +241,7 @@ def error_handling_after_API_request(api_response):
     """
     The function `error_handling_after_API_request` checks the API response for errors and returns
     appropriate messages based on the response.
-    
+
     Args:
     user_query (str): The function `error_handling_after_API_request` takes two parameters:
     `user_query`, which is a string representing the user's query, and `api_response`, which is a tuple
@@ -210,7 +250,7 @@ def error_handling_after_API_request(api_response):
     `search_results`, `time_it_took`, and `result_count`. The function
     `error_handling_after_API_request` checks the length of the `api_response` tuple and the number of
     results returned by the API to
-    
+
     Returns:
     If the length of the `api_response` tuple is not 3, an error message along with an error code is
     returned. If there are no search results (result count is 0), an error message is returned.
@@ -227,7 +267,7 @@ def error_handling_after_API_request(api_response):
     # If there are no results display error message
     if result_count == 0:
         return "No results found 🔍", "i-cant-find-anything.gif", 404
-    
+
     else:
         return None
 
@@ -236,7 +276,7 @@ def render_error_page(user_query, error_page_components):
     """
     The function `render_error_page` renders an error page with specified components based on the input
     error page components.
-    
+
     Args:
     user_query: The `user_query` parameter in the `render_error_page` function represents the query or
     input provided by the user that led to the error page being rendered. This could be any information
@@ -245,21 +285,28 @@ def render_error_page(user_query, error_page_components):
     components needed to render an error page. The components include the error message, second line
     error message (optional), gif image for the error page, and the error code. The function
     `render_error_page` unpacks these components from the
-    
+
     Returns:
     The function `render_error_page` returns a rendered error page template with the provided user
     query, error message, second line error message, gif, and error code.
     """
     # Unpack the error page components
     if len(error_page_components) == 4:
-        error_message, second_line_error_message, gif, error_code = error_page_components
+        error_message, second_line_error_message, gif, error_code = (
+            error_page_components
+        )
     elif len(error_page_components) == 3:
         error_message, gif, error_code = error_page_components
         # If there is no second line error message, set it to None
         second_line_error_message = None
     else:
-        error_message = "Can't get the error messages 😱", "Screenshot the whole page and write me using the Contact Me page please! Thanks!", "break computer.gif", 422
-    
+        error_message = (
+            "Can't get the error messages 😱",
+            "Screenshot the whole page and write me using the Contact Me page please! Thanks!",
+            "break computer.gif",
+            422,
+        )
+
     # Render the error page
     return render_template(
         "error.html",
@@ -267,5 +314,5 @@ def render_error_page(user_query, error_page_components):
         error_message=error_message,
         second_line=second_line_error_message,
         gif=gif,
-        error_code=error_code
+        error_code=error_code,
     )

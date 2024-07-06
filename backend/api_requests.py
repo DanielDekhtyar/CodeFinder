@@ -78,10 +78,10 @@ def openai_api_request(user_search_request, context_message):
         print("Making new request to OpenAI")
 
         """ Use OpenAI API to get the GitHub search query using the fine-tuned model """
-        
+
         # Check how long it takes for OpenAI API request
         openAI_time = time.time()
-        
+
         # Get the OpenAI API key
         api_key = os.getenv("OPENAI_API_KEY")
 
@@ -101,11 +101,13 @@ def openai_api_request(user_search_request, context_message):
 
         # Set the response as the user query
         search_query: str = completion.choices[0].message.content
-        
+
         print(f"OpenAI API request time: {time.time() - openAI_time}")
-        
+
         # Set the LAST_USER_SEARCH_REQUEST to the new user request, so next time we can compare
-        LAST_USER_SEARCH_REQUESTS[user_search_request] = search_query  # Add the new user request
+        LAST_USER_SEARCH_REQUESTS[user_search_request] = (
+            search_query  # Add the new user request
+        )
         return search_query
 
 
@@ -145,7 +147,7 @@ def repositories(user_search_request, page):
     print(f"The GitHub search query is: {search_query}")
 
     # Check how long it takes for GitHub API request
-    
+
     github_time = time.time()
     # Set the search URL for the GitHub API
     search_url = "https://api.github.com/search/repositories"
@@ -177,7 +179,7 @@ def repositories(user_search_request, page):
     else:
         # Get the list of repositories from the response
         api_request_results = data.get("items", [])
-        
+
         print(f"GitHub API request time: {time.time() - github_time}")
 
         # Get the README texts for each repository
@@ -185,7 +187,8 @@ def repositories(user_search_request, page):
 
         # Call the ranking algorithm to rank the results based on relevance
         ranked_results = rank_repo.repo_results_ranking_algorithm(
-            user_search_request, api_request_results, readme_texts)
+            user_search_request, api_request_results, readme_texts
+        )
 
         # Create an empty list to store the search results
         search_results = []
@@ -200,15 +203,13 @@ def repositories(user_search_request, page):
                     "avatar_url": repo["owner"]["avatar_url"],
                     "language": repo["language"],
                     "license": (
-                        repo["license"]["name"] if repo.get(
-                            "license") else None
+                        repo["license"]["name"] if repo.get("license") else None
                     ),  # Check if 'license' exists
                     "license_key": (
                         repo["license"]["key"] if repo.get("license") else None
                     ),
                     "description": (
-                        repo["description"] if repo.get(
-                            "description") else None
+                        repo["description"] if repo.get("description") else None
                     ),  # Check if 'description' exists
                     "pushed_at": helpers.format_date(repo["pushed_at"]),
                     "repo_url": repo["html_url"],

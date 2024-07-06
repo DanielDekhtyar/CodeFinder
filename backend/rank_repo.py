@@ -16,7 +16,7 @@ def repo_results_ranking_algorithm(search_query, search_results, readme_texts):
     """
     The function `repo_results_ranking_algorithm` ranks search results based on various criteria
     including owner reputation, stars, forks, watchers, and keyword matches in readme texts.
-    
+
     Args:
     search_query: The `search_query` parameter is the query string used to search for repositories. It
     could be keywords or phrases that the user is looking for in repositories.
@@ -26,7 +26,7 @@ def repo_results_ranking_algorithm(search_query, search_results, readme_texts):
     readme_texts: A list of readme texts corresponding to the search results. This parameter is used
     in the `repo_results_ranking_algorithm` function to analyze the readme content and calculate a score
     for each search result based on the presence of keywords from the search query in the readme texts.
-    
+
     Returns:
     The function `repo_results_ranking_algorithm` returns a sorted list of search results based on a
     ranking algorithm that assigns scores to each search result. The search results are sorted in
@@ -53,7 +53,7 @@ def repo_results_ranking_algorithm(search_query, search_results, readme_texts):
         # Add points based on the amount of watchers. Give 15% weight to watchers
         watchers = repo["watchers_count"]
         score += watchers * 0.15
-        
+
         # Add points based on the presence of words from the search query in the readme. Give 20% weight to readme
         keyword_number = keyword_counter(search_query, readme_texts, repo)
         score += keyword_number * 0.2
@@ -105,36 +105,44 @@ def is_owner_is_in_list(owner_name):
 Make an async function to fetch the README.md file for each repo. It is done asynchronously to speed up the process.
 """
 
+
 async def fetch_readme(session: aiohttp.ClientSession, repo: tuple) -> tuple:
     """
     The function fetches the README file of a GitHub repository in various formats and converts it to
     plain text if it's in markdown format.
-    
+
     Args:
     session (aiohttp.ClientSession): The `session` parameter in the `fetch_readme` function is an
     instance of `aiohttp.ClientSession`, which is used to make asynchronous HTTP requests. It allows you
     to communicate with web servers and retrieve data from URLs. In this function, the `session` is used
     to make GET
     repo (tuple): ('UserName/RepoName', 'main')
-    
+
     Returns:
     The function `fetch_readme` returns a tuple containing the repo name and the readme text. If the
     README file is successfully fetched and processed, it returns the repo name and the plain text
     content of the README file. If the README file is not found or there is an issue with fetching it,
     it returns the repo name and `None`.
     """
-    
+
     # Get the repo name and default branch from the tuple. eg. "owner/repo_name", "main"
     user_and_repo_name, default_branch = repo
-    
+
     # List of possible README file formats
-    readme_formats = ['README.md', 'readme.md', 'README.rst', 'readme.rst', 'README.txt', 'readme.txt']
+    readme_formats = [
+        "README.md",
+        "readme.md",
+        "README.rst",
+        "readme.rst",
+        "README.txt",
+        "readme.txt",
+    ]
 
     # Iterate through the list of possible README file formats and try to fetch the file
     for readme_format in readme_formats:
         # Create the URL for the README file
         readme_url = f"https://raw.githubusercontent.com/{user_and_repo_name}/{default_branch}/{readme_format}"
-        
+
         # Make the request and get the response
         async with session.get(readme_url) as response:
             # Check if the request was successful
@@ -142,23 +150,25 @@ async def fetch_readme(session: aiohttp.ClientSession, repo: tuple) -> tuple:
                 try:
                     # Read the response as text
                     readme_text = await response.text()
-                
+
                 # Exception if the encoding in UTF-8 fails
                 except UnicodeDecodeError:
                     try:
                         # Retry with a different encoding if UnicodeDecodeError occurs
-                        readme_text = await response.text(encoding='latin1')
+                        readme_text = await response.text(encoding="latin1")
                     # If the encoding fails, print an error message and return None
                     except UnicodeDecodeError:
-                        print(f"Failed to decode README. Repo: {user_and_repo_name}. Status code: {response.status}")
+                        print(
+                            f"Failed to decode README. Repo: {user_and_repo_name}. Status code: {response.status}"
+                        )
                         return user_and_repo_name, None
 
                 # If the file is in the markdown format, convert it to plain text
-                if readme_format.endswith('.md'):
+                if readme_format.endswith(".md"):
                     # Convert the markdown to plain text
                     html = markdown.markdown(readme_text)
                     # Remove HTML tags
-                    plain_text = re.sub(r'<[^>]+>', '', html)
+                    plain_text = re.sub(r"<[^>]+>", "", html)
                     # Set the readme_text to the plain text
                     readme_text = plain_text
 
@@ -166,17 +176,19 @@ async def fetch_readme(session: aiohttp.ClientSession, repo: tuple) -> tuple:
                 return user_and_repo_name, readme_text
 
     # If the file is not found, return None
-    print(f"Failed to fetch README. Repo: {user_and_repo_name}. Status code: {response.status}")
+    print(
+        f"Failed to fetch README. Repo: {user_and_repo_name}. Status code: {response.status}"
+    )
     return user_and_repo_name, None
 
 
 async def get_readme_texts_async(repos) -> dict:
     """
     This Python function uses aiohttp to asynchronously fetch readme texts for a list of repositories.
-    
+
     Args:
     repos: A list of repository names for which you want to fetch the README texts asynchronously.
-    
+
     Returns:
     The function `get_readme_texts_async` returns a dictionary where the keys are the repository names
     and the values are the readme texts fetched asynchronously for each repository in the input list
@@ -187,20 +199,23 @@ async def get_readme_texts_async(repos) -> dict:
         readme_texts = await asyncio.gather(*tasks)
         return dict(readme_texts)
 
+
 def get_readme_texts(search_results) -> dict:
     """
     The function `get_readme_texts` takes a list of search results, extracts the full name and default
     branch of each repository, and then asynchronously retrieves the readme texts for those
     repositories. It is done asynchronously to speed up the process.
-    
+
     Args:
     search_results: A list of dictionaries containing search results for repositories. Each dictionary
     should have keys "full_name" and "default_branch" to identify the repository and its default branch.
-    
+
     Returns:
     A dictionary containing the readme texts of repositories specified in the search results.
     """
-    repos = [[result["full_name"], result["default_branch"]] for result in search_results]
+    repos = [
+        [result["full_name"], result["default_branch"]] for result in search_results
+    ]
     return asyncio.run(get_readme_texts_async(repos))
 
 
@@ -209,7 +224,7 @@ def keyword_counter(search_query, readme_texts, repo):
     The function `keyword_counter` takes a search query, a dictionary of readme texts, and a repository,
     and counts the number of times the search query words appear in the readme of the specified
     repository.
-    
+
     Args:
     search_query: The `search_query` parameter is a string containing the words that you want to
     search for in the readme text of a repository. It can consist of one or more words separated by
@@ -220,34 +235,34 @@ def keyword_counter(search_query, readme_texts, repo):
     repo: The `repo` parameter in the `keyword_counter` function is expected to be a dictionary
     representing a repository. It likely contains information about the repository such as its full
     name.
-    
+
     Returns:
     The function `keyword_counter` returns the number of times the search query words appear in the
     readme of a specific repository. If the readme for the repository is not found or fetched
     successfully, it returns 0.
     """
-    
+
     # Get the readme for the respective repo from the dictionary of all the readmes
     readme = readme_texts[repo["full_name"]]
-    
+
     # Count the number of times the search query words appears in the readme
     keyword_count = 0
-    
+
     # If readme was successfully fetched
     if readme:
         # Make sure readme is a string
         if type(readme) == str:
             # Make the readme lowercase
             readme = readme.lower()
-            
+
             # Count the number of times the search query words appears in the readme
             for word in search_query.split():
                 # Make the word lowercase
                 word = word.lower()
-                
+
                 # Check if the word is in the readme
                 if word in readme:
                     keyword_count += readme.count(word)
-    
+
     # Return the number of times the search query words appears in the readme. If not readme was fetched, return 0
     return keyword_count
