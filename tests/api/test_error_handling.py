@@ -148,7 +148,7 @@ def test_user_query_is_str_type():
     Testing get_variables_from_web_page_error_handling()
     Check that an error accrues if the search request is not a string
     """
-    
+
     error_message = (
         "You encountered an error and I have no idea how you got here 😱",
         "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
@@ -256,7 +256,7 @@ def test_page_is_not_int():
     Testing get_variables_from_web_page_error_handling()
     Check that an error accrues if the 'page' is None
     """
-    
+
     error_message = (
         "You encountered an error and I have no idea how you got here 😱",
         "Could you please contact me via the Contact Me page to help me fix it? Thanks!",
@@ -333,14 +333,14 @@ def test_page_is_in_range():
     Testing get_variables_from_web_page_error_handling()
     Check that an error accrues if the 'page' is not in the range 1-34
     """
-    
+
     non_existing_page_error = (
         "You are looking for a non existing page",
         "If you think there is a bug, please use the Contact Me form and write to me",
         "break computer.gif",
         422,
     )
-    
+
     no_more_pages_error = (
         "No more pages to display 😱",
         "Only 34 pages are allowed due to API limitations! Stop hacking my website! 🔨",
