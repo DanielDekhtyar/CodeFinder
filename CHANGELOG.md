@@ -2,7 +2,7 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 1.3.9
+> ### Last Version : 1.3.10
 >
 > ### Last Update : 06/07/2024
 >
@@ -11,17 +11,28 @@
 <br>
 
 
+### 🗓️ _Version 1.3.10 - 06/07/2024 ([commit 3e90c16](https://github.com/DanielDekhtyar/github-search/commit/3e90c16))_
+
+---
+
+### 🔥 Added
+- In `helpers.py`, the function `need_to_make_request_to_openai_api()` was added.  
+  The purpose of the function is to determine if there is a need to make an API request to OpenAI. Done to save $$ and time. (Time is money!)  
+  If there is no need, the user request will be passed to GitHub API as it is.  
+- The function `openai_api_request()` from `api_requests.py` calls `need_to_make_request_to_openai_api()`.
+
+
 ### 🗓️ _Version 1.3.9 - 06/07/2024 ([commit d11cca3](https://github.com/DanielDekhtyar/github-search/commit/d11cca3))_
 
 ---
 
 ### 🔥 Added
-- In `app.py`, error handling was added to check if the information that was retrieved from the search page was valid.
-  Otherwise, if not valid, show an appropriate error page.
-  The code was implemented in `helpers.py` as `get_variables_from_web_page_error_handling()` and is imported into `app.py`.
+- In `app.py`, error handling was added to check if the information that was retrieved from the search page was valid.  
+  Otherwise, if not valid, show an appropriate error page.  
+  The code was implemented in `helpers.py` as `get_variables_from_web_page_error_handling()` and is imported into `app.py`.  
 
 ### 🔥 Enhancements
-- Some of the code from `error_handling_before_API_request()` moved to `get_variables_from_web_page_error_handling()`.
+- Some of the code from `error_handling_before_API_request()` moved to `get_variables_from_web_page_error_handling()`.  
 - `GitHub_API_rate_limit_error_handling()` checks if the API limit is not excited, and if it is, shows an error page
 
 
@@ -39,7 +50,7 @@
 ---
 
 #### 🚀 Added
-- In `results_template.html`, in the pagination part, a new pagination style was added, to be only used for mobile devices.
+- In `results_template.html`, in the pagination part, a new pagination style was added, to be only used for mobile devices.  
 - `results_template.css` adjusted accordingly to make the mobile pagination visible only on mobile devices.
 
 
@@ -50,7 +61,7 @@
 #### 🚀 Added
 - In `api_requests.py`, `openai_api_request()` was modified to prevent unnecessary API requests to OpenAI API.  
   It was achieved by adding a `dictionary` that keeps all the user search requests and the respective search queries.  
-  If a user search request is repeated, the old search query is used, instead of reporting OpenAI API again.
+  If a user search request is repeated, the old search query is used, instead of reporting OpenAI API again.  
 
 
 ### 🗓️ _Version 1.3.5 - 12/06/2024 ([commit d23a59a](https://github.com/DanielDekhtyar/github-search/commit/d23a59a))_
@@ -131,7 +142,6 @@
 - In `results_template.js`, When a search request is made, the page scrolls up and hides all the search result cards to prevent scrolling down. (The loading animation is only at the top part of the page)
 
 
-
 ### 🗓️ _Version 1.0.0 - 04/05/2024 ([commit bcaba50](https://github.com/DanielDekhtyar/github-search/commit/bcaba50))_
 
 ---
@@ -151,7 +161,7 @@
 
 <br>
 
-### 🗓️ On 1.5.2024 the website was published to the World Wide Web under the domain name [codefinder.dev](https://codefinder.dev) 🌐 !
+### 🗓️ On 1.5.2024 the website was published to the World Wide Web under the domain name [codefinder.dev](https://codefinder.dev) 🌐  🕺💃🎉🌟✨ !
 
 <br>
 
