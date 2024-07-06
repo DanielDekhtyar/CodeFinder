@@ -176,9 +176,6 @@ async def fetch_readme(session: aiohttp.ClientSession, repo: tuple) -> tuple:
                 return user_and_repo_name, readme_text
 
     # If the file is not found, return None
-    print(
-        f"Failed to fetch README. Repo: {user_and_repo_name}. Status code: {response.status}"
-    )
     return user_and_repo_name, None
 
 
