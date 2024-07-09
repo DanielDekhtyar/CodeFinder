@@ -65,6 +65,18 @@ function validateForm() {
     }
 }
 
+// Functions when you hover over the search icon
+function hoverFilterButton() {
+    element = document.getElementById("filter-icon");
+    element.setAttribute('src', 'static/assets/filter_hover.png');
+}
+
+// Functions when you hover over the search icon
+function unhoverFilterButton() {
+    element = document.getElementById("filter-icon");
+    element.setAttribute('src', 'static/assets/filter.png');
+}
+
 // Function to show the loading screen animation
 function loading_screen() {
     // Hide the footer

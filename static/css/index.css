@@ -89,6 +89,24 @@
     object-fit: contain;
 }
 
+#filter-button {
+    border-radius: 3vh;
+    min-width: 2rem;
+    height: 3em;
+    min-height: 2.5rem;
+    display: inline;
+    margin-right: 1rem;
+}
+
+#filter-icon {
+    display: block;
+    height:1.5rem;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+}
+
 .form-control {
     font-family: arial, sans-serif;
     font-size: 1.5vh;
