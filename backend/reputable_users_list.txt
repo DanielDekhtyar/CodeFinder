@@ -284,6 +284,10 @@ vitejs
 nodejs
 nodejs-mobile
 
+// Redux
+reduxjs
+reduxkotlin
+
 // Nuxt
 nuxt
 nuxt-community
