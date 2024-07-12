@@ -44,7 +44,7 @@ def openai_api_request(user_search_request, context_message):
     """
     The `openai_api_request` function processes user search requests, checks if an API request is
     needed, and makes a request to OpenAI's API to get search queries using a fine-tuned model.
-    
+
     Args:
     user_search_request: The `user_search_request` parameter in the `openai_api_request` function
     represents the search query inputted by the user. This query is used to determine if an API request
@@ -53,7 +53,7 @@ def openai_api_request(user_search_request, context_message):
     provide additional context or information to the OpenAI API when making a request. This context
     message helps the API better understand the user's search request and generate a more accurate
     response. It can include relevant details or previous
-    
+
     Returns:
     The function `openai_api_request` returns the search query obtained from the OpenAI API after
     processing the user's search request. If a new request to the OpenAI API is not needed, it returns
@@ -186,13 +186,24 @@ def repositories(user_search_request, page):
 
         print(f"GitHub API request time: {time.time() - github_time}")
 
+        rank_algorithm_time = time.time()
+
         # Get the README texts for each repository
         readme_texts = rank_repo.get_readme_texts(api_request_results)
+
+        print(
+            f"It took {time.time() - rank_algorithm_time} seconds to get the README texts"
+        )
+
+        time_to_rank_after_readme = time.time()
 
         # Call the ranking algorithm to rank the results based on relevance
         ranked_results = rank_repo.repo_results_ranking_algorithm(
             user_search_request, api_request_results, readme_texts
         )
+
+        print(f"Ranking algorithm time: {time.time() - rank_algorithm_time}")
+        print(f"Time to rank after README: {time.time() - time_to_rank_after_readme}")
 
         # Create an empty list to store the search results
         search_results = []
