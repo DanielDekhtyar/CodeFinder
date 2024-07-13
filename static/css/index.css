@@ -31,12 +31,6 @@
     align-items: center; /* Center the buttons vertically */
 }
 
-#search-bar-explanation {
-    margin-top: -0.5rem;
-    font-size: 1vh;
-    text-align: center;
-}
-
 .btn {
     color: black;
     background-color: transparent;
