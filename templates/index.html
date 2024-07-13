@@ -102,6 +102,7 @@
                     <span class="button-content">
                         <span class="button-text" id="search-button-text">Filter</span>
                         <img
+                            type="image"
                             id="filter-icon"
                             alt="Filter"
                             src="static/assets/filter.png"
@@ -154,49 +155,40 @@
         <div class="modal" id="filter-modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Filters</h5>
+                    <h5 class="modal-title" role="text" type="text">Filters</h5>
                     <button type="button" class="close-modal-button" id="close-modal-button" data-dismiss="modal" aria-label="Close" onclick="closeFilterModal();">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p class="modal-text">Filter by language:</p>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-all" value="all" checked>
-                        <label class="form-check-label" for="language-filter-all">All</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-python" value="python">
-                        <label class="form-check-label" for="language-filter-python">Python</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-java" value="java">
-                        <label class="form-check-label" for="language-filter-java">Java</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-c" value="c">
-                        <label class="form-check-label" for="language-filter-c">C</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-cpp" value="cpp">
-                        <label class="form-check-label" for="language-filter-cpp">C++</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-go" value="go">
-                        <label class="form-check-label" for="language-filter-go">Go</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-rust" value="rust">
-                        <label class="form-check-label" for="language-filter-rust">Rust</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-javascript" value="javascript">
-                        <label class="form-check-label" for="language-filter-javascript">Javascript</label>
-                    </div>
+                    <div class="dropdown">
+                        <p class="option-title" type="text">Language</p>
+                        <div class="select" id="dropdownMenuButton">
+                            <span>Select Language</span>
+                            <div class="caret"></div>
+                        </div>
+                        <div class="menu" aria-labelledby="dropdownMenuButton">
+                            <input type="search" id="search-input" placeholder="Search..." class="search-input" role="searchbox" autocomplete="off">
+                            <ul id="option-list" class="option-list" role="options list" type="list">
+                                    {% for language in languages %}
+                                        <li class="dropdown-item language-option" data-value="{{ language.name }}" role="option">
+                                            {% if language.name == 'C#' %}
+                                                {% set icon_name = 'C_sharp' %}
+                                            {% elif language.name == 'F#' %}
+                                                {% set icon_name = 'F_sharp' %}
+                                            {% else %}
+                                                {% set icon_name = language.name %}
+                                            {% endif %}
+                                            <img src="static/assets/languages/{{ icon_name }}.png" alt="{{ language.name }}" type="image" class="language-icon">
+                                            {{ language.name }}
+                                        </li>
+                                    {% endfor %}
+                            </ul>
+                        </div>
+                    </div>    
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary close-modal-button" data-dismiss="modal" onclick="closeFilterModal();">Apply</button>
+                    <button type="button" class="btn btn-secondary close-modal-button" id="modal-apply-button" data-dismiss="modal" onclick="closeFilterModal();">Apply</button>
                 </div>
             </div>
         </div>

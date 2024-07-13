@@ -135,6 +135,64 @@ function closeFilterModal() {
     modal.classList.remove("active");
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownButton = document.getElementById('dropdownMenuButton');
+    const dropdownMenu = document.querySelector('.menu');
+    const searchInput = document.getElementById('search-input');
+    const optionList = document.getElementById('option-list');
+    const items = optionList.querySelectorAll('.dropdown-item');
+
+    let selectedItems = [];
+
+    dropdownButton.addEventListener('click', function() {
+        dropdownMenu.classList.toggle('menu-open');
+        dropdownButton.classList.toggle('select-clicked');
+        document.querySelector('.caret').classList.toggle('caret-rotate');
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove('menu-open');
+            dropdownButton.classList.remove('select-clicked');
+            document.querySelector('.caret').classList.remove('caret-rotate');
+        }
+    });
+
+    searchInput.addEventListener('input', function() {
+        const filter = this.value.toLowerCase();
+        items.forEach(function(item) {
+            const text = item.textContent || item.innerText;
+            item.style.display = text.toLowerCase().indexOf(filter) > -1 ? 'flex' : 'none';
+        });
+    });
+
+    items.forEach(function(item) {
+        item.addEventListener('click', function() {
+            const value = item.getAttribute('data-value');
+            const name = item.textContent || item.innerText; // Get the language name
+            if (selectedItems.includes(value)) {
+                selectedItems = selectedItems.filter(i => i !== value);
+                item.classList.remove('selected');
+            } else {
+                selectedItems.push(value);
+                item.classList.add('selected');
+            }
+            updateDropdownText();
+            console.log('Selected items:', selectedItems);
+        });
+    });
+
+    function updateDropdownText() {
+        if (selectedItems.length > 0) {
+            const selectedNames = Array.from(items).filter(item => selectedItems.includes(item.getAttribute('data-value')))
+                .map(item => item.textContent || item.innerText);
+            dropdownButton.querySelector('span').textContent = selectedNames.join(', ');
+        } else {
+            dropdownButton.querySelector('span').textContent = 'Select Language';
+        }
+    }
+});
+
 // Array of random search queries
 const searchQueries = [
     "speech recognition using DeepSpeech",

@@ -11,7 +11,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    # Get language filter options
+    languages = helpers.get_language_filter_options()
+    
+    # Render index.html template
+    return render_template("index.html", languages=languages, os=os)
 
 
 @app.route("/search", methods=["GET"])
