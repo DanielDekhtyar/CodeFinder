@@ -65,6 +65,7 @@
                 <!-- Title image -->
                 <img id="title-image" alt="Code Finder Logo" src="static/assets/transparent title with description.png" />
             </div>
+
             <!-- Search form -->
             <form id="search-form" action="/search" method="GET" role="form" onsubmit="return validateForm()">
                 <div class="input-group mb-3 input-group-prepend" id="search-div">
@@ -96,7 +97,7 @@
                         role="button"
                         class="btn btn-outline-secondary"
                         id="filter-button"
-                        onmouseover="hoverFilterButton();" onmouseout="unhoverFilterButton();"
+                        onmouseover="hoverFilterButton();" onmouseout="unhoverFilterButton();" onclick="openFilterModal();"
                     >
                     <span class="button-content">
                         <span class="button-text" id="search-button-text">Filter</span>
@@ -147,7 +148,59 @@
             <a id="product-hunt-badge" href="https://www.producthunt.com/posts/code-finder?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-code&#0045;finder" target="_blank">
                 <img id="product-hunt-img" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=462813&theme=neutral" alt="Code&#0032;Finder - The&#0032;Ultimate&#0032;Search&#0032;Engine&#0032;for&#0032;GitHub&#0032;Repositories | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
             </a>
-        </div>        
+        </div>
+
+        <!-- Filter modal -->
+        <div class="modal" id="filter-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Filters</h5>
+                    <button type="button" class="close-modal-button" id="close-modal-button" data-dismiss="modal" aria-label="Close" onclick="closeFilterModal();">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text">Filter by language:</p>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-all" value="all" checked>
+                        <label class="form-check-label" for="language-filter-all">All</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-python" value="python">
+                        <label class="form-check-label" for="language-filter-python">Python</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-java" value="java">
+                        <label class="form-check-label" for="language-filter-java">Java</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-c" value="c">
+                        <label class="form-check-label" for="language-filter-c">C</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-cpp" value="cpp">
+                        <label class="form-check-label" for="language-filter-cpp">C++</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-go" value="go">
+                        <label class="form-check-label" for="language-filter-go">Go</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-rust" value="rust">
+                        <label class="form-check-label" for="language-filter-rust">Rust</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="language-filter" id="language-filter-javascript" value="javascript">
+                        <label class="form-check-label" for="language-filter-javascript">Javascript</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-modal-button" data-dismiss="modal" onclick="closeFilterModal();">Apply</button>
+                </div>
+            </div>
+        </div>
+        <div id="modal-overlay" class="" onclick="closeFilterModal();"></div>
         
         <script src="static/js/index.js"></script>
     </body>

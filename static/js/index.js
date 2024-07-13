@@ -113,6 +113,28 @@ function randomSearch() {
     document.getElementById("search-form").submit();
 }
 
+
+// Filter Modal opening and closing functions
+const openFilterModalButton = document.getElementById("filter-button");
+const closeFilterModalButton = document.getElementsByClassName("close-modal-button")[0];
+
+// Show the filter modal on the screen
+function openFilterModal() {
+    const modalOverlay = document.getElementById("modal-overlay");
+    const modal = document.getElementById("filter-modal");
+
+    modalOverlay.classList.add("active");
+    modal.classList.add("active");
+}
+
+function closeFilterModal() {
+    const modalOverlay = document.getElementById("modal-overlay");
+    const modal = document.getElementById("filter-modal");
+
+    modalOverlay.classList.remove("active");
+    modal.classList.remove("active");
+}
+
 // Array of random search queries
 const searchQueries = [
     "speech recognition using DeepSpeech",
