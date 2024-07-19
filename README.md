@@ -3,11 +3,21 @@
 ## Making your code search experience better!  
 
 ### Check it out on [codefinder.dev](https://codefinder.dev/)
-
-#### **Not an official GitHub repository!** 
  
 > Disclaimer: This website is not affiliated with GitHub and has no connection to its owner, stakeholder, contributors, or any others.  
 > For the official GitHub Search website click [here](https://github.com/search)
+
+<br>
+
+
+[![Latest release](https://badgen.net/github/release/DanielDekhtyar/CodeFinder)](https://github.com/DanielDekhtyar/CodeFinder/releases)
+![Python badge](https://img.shields.io/badge/python-3.12-blue)
+![Monthly users badge](https://img.shields.io/badge/users-4.9K/month-blue)
+[![GitHub commits](https://badgen.net/github/commits/DanielDekhtyar/CodeFinder)](https://GitHub.com/DanielDekhtyar/CodeFinder/commit/)
+[![GitHub latest commit](https://badgen.net/github/last-commit/DanielDekhtyar/CodeFinder)](https://GitHub.com/DanielDekhtyar/CodeFinder/commit/)
+[![Website status badge](https://img.shields.io/website-up-down-green-red/http/codefinder.dev)](https://codefinder.dev/)
+[![Website badge](https://img.shields.io/badge/URL-codefinder.dev-blue)](https://codefinder.dev/)
+
 
 <br>
 
