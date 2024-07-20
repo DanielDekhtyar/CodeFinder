@@ -2,13 +2,21 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 1.3.10
+> ### Last Version : 1.3.10.1
 >
-> ### Last Update : 06/07/2024
+> ### Last Update : 20/07/2024
 >
 > _Date format DD-MM-YYYY_
 
 <br>
+
+
+### 🗓️ _Version 1.3.10.1 - 20/07/2024 ([commit de7122d](https://github.com/DanielDekhtyar/github-search/commit/de7122d))_
+
+---
+
+### 🐞 Bugfix
+- Fixed not showing the homepage link for some repos on the result card
 
 
 ### 🗓️ _Version 1.3.10 - 06/07/2024 ([commit 3e90c16](https://github.com/DanielDekhtyar/github-search/commit/3e90c16))_
@@ -227,7 +235,7 @@ The token is stored in `config.py` which is not committed to the repository.
 
 ---
 
-### 🔥 Enhancements
+### 🐞 Bugfix
 - bugfix: Previously, if the topics don't fit into the line, they wrap around.
 - bugfix: Previously, if there were topics but no description, the topics would be in line with the title. Now they are right below the title.
 
