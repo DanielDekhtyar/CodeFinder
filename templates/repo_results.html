@@ -130,12 +130,12 @@
                         {% endif %}
                         <p class="language">{{ result.language }} ·</p>
                         {% endif %}
+
                         <!-- Display the license if it exists-->
                         <!-- If there is license and the license is in the list, display the name and make it a link-->
-                        {% set license_list = ['mit', 'agpl-3.0', 'gpl-3.0',
-                        'mpl-2.0', 'apache-2.0', 'bsl-1.0', 'unlicense'] %} {%
-                        if result.license and result.license_key in license_list
-                        %}
+                        {% set license_list = ['mit', 'agpl-3.0', 'gpl-3.0', 'mpl-2.0', 'apache-2.0', 'bsl-1.0', 'unlicense'] %} 
+
+                        {% if result.license and result.license_key in license_list %}
                         <p class="license">
                             <a
                                 class="license-link"
@@ -146,6 +146,15 @@
                                 >{{ result.license }}</a
                             >
                         </p>
+                        <!-- If the license is not in the list, just display the name of the license without a link-->
+                        {% elif result.license %}
+                        <p class="license" role="note">{{ result.license }}</p>
+                        <!-- If there is no license, display 'No license' -->
+                        {% else %}
+                        <p class="license" role="note">No license</p>
+                        {% endif %}
+
+                        <!-- If there is a homepage, display the name and make it a link-->
                         {% if result.homepage %}
                         <p class="homepage" role="note">
                             ·
@@ -158,13 +167,7 @@
                             >
                         </p>
                         {% endif %}
-                        <!-- If the license is not in the list, just display the name of the license without a link-->
-                        {% elif result.license %}
-                        <p class="license" role="note">{{ result.license }}</p>
-                        <!-- If there is no license, display 'No license' -->
-                        {% else %}
-                        <p class="license" role="note">No license</p>
-                        {% endif %}
+
                         {% if result.pushed_at %}
                         <p class="updated-at" role="note">
                             Updated {{ result.pushed_at }}
