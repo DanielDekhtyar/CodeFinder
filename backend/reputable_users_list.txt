@@ -921,8 +921,14 @@ WebGoat
 owasp-modsecurity
 owasp-dep-scan
 
-// CrowdStrike
-CrowdStrike
+// Kubernetes
+kubernetes
+kubernetes-sigs
+kubernetes-client
+kubernetes-csi
+k8s-at-home
+charmed-kubernetes
+helm
 
 // Arctic Wolf
 rtkwlf
