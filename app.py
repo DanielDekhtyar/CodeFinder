@@ -60,9 +60,17 @@ def search():
         return helpers.render_error_page(
             user_query, GitHub_API_rate_limit_error_handling_results
         )
+    
+    # Retrieve the filter values from the form submission
+    selected_languages = request.args.get('language')
+    author = request.args.get('author')
+    last_update = request.args.get('last_update')
+    stars = request.args.get('stars')
+    
+    filters = (selected_languages, author, last_update, stars)
 
     # Make GitHub API request and get the response
-    api_response = api_requests.repositories(user_query, page)
+    api_response = api_requests.repositories(user_query, page, filters)
 
     """
     Error handling after making GitHub API request
