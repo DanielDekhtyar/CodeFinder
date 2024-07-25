@@ -69,10 +69,6 @@
             <!-- Search form -->
             <form id="search-form" action="/search" method="GET" role="form" onsubmit="return validateForm()">
                 <div class="input-group mb-3 input-group-prepend" id="search-div">
-                    <!--
-                        TODO: When searching for language:C++ or language:C#, the ++ or # part of the query disappears when you change to a different page.
-                    -->
-
                     <!-- Search bar -->
                     <input
                         class="form-control"
@@ -87,8 +83,14 @@
                     />
                 </div>
 
+                <!-- Hidden inputs to store filter values -->
+                <input type="hidden" name="language" id="selected-languages">
+                <input type="hidden" name="author" id="selected-author">
+                <input type="hidden" name="last_update" id="selected-last-update">
+                <input type="hidden" name="stars" id="selected-stars">
+
                 <!-- Buttons -->
-                <div id="search-buttons"">
+                <div id="search-buttons">
                     <!-- Filter button -->
                     <button
                         type="button"
@@ -116,11 +118,11 @@
                         id="random-search-button"
                         onclick="randomSearch();"
                     >
-                        <span class=button-content">
+                        <span class="button-content">
                             <span class="button-text">I'm feeling lucky</span>
                         </span>
                     </button>
-                    
+
                     <!-- Search button -->
                     <button
                         type="submit"
@@ -159,7 +161,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="dropdown">
+                    <div class="filter-option">
                         <p class="option-title" type="text">Language</p>
                         <div class="select" id="dropdownMenuButton">
                             <span>Select Language</span>
@@ -168,25 +170,49 @@
                         <div class="menu" aria-labelledby="dropdownMenuButton">
                             <input type="search" id="search-input" placeholder="Search..." class="search-input" role="searchbox" autocomplete="off">
                             <ul id="option-list" class="option-list" role="options list" type="list">
-                                    {% for language in languages %}
-                                        <li class="dropdown-item language-option" data-value="{{ language.name }}" role="option">
-                                            {% if language.name == 'C#' %}
-                                                {% set icon_name = 'C_sharp' %}
-                                            {% elif language.name == 'F#' %}
-                                                {% set icon_name = 'F_sharp' %}
-                                            {% else %}
-                                                {% set icon_name = language.name %}
-                                            {% endif %}
-                                            <img src="static/assets/languages/{{ icon_name }}.png" alt="{{ language.name }}" type="image" class="language-icon">
-                                            {{ language.name }}
-                                        </li>
-                                    {% endfor %}
+                                {% for language in languages %}
+                                    <li class="dropdown-item language-option" data-value="{{ language.name }}" role="option">
+                                        {% if language.name == 'C#' %}
+                                            {% set icon_name = 'C_sharp' %}
+                                        {% elif language.name == 'F#' %}
+                                            {% set icon_name = 'F_sharp' %}
+                                        {% else %}
+                                            {% set icon_name = language.name %}
+                                        {% endif %}
+                                        <img src="static/assets/languages/{{ icon_name }}.png" alt="{{ language.name }}" type="image" class="language-icon">
+                                        {{ language.name }}
+                                    </li>
+                                {% endfor %}
                             </ul>
                         </div>
-                    </div>    
+                    </div>
+                
+                    <!-- By Author -->
+                    <div class="filter-option">
+                        <p class="option-title" type="text">Repository Author</p>
+                        <div>
+                            <input type="text" class="input-field" id="author-input" placeholder="Repository Author">
+                        </div>
+                    </div>
+                
+                    <!-- Last updated after -->
+                    <div class="filter-option">
+                        <p class="option-title" type="text">Last Update</p>
+                        <div>
+                            <input type="date" id="last-pushed-date" class="input-field" placeholder="Select Date">
+                        </div>
+                    </div>
+                
+                    <!-- Stars -->
+                    <div class="filter-option">
+                        <p class="option-title" type="text">Stars ⭐</p>
+                        <div>
+                            <input type="number" class="input-field" id="stars-input" placeholder="Minimum Stars">
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary close-modal-button" id="modal-apply-button" data-dismiss="modal" onclick="closeFilterModal();">Apply</button>
+                    <button type="button" class="btn btn-secondary close-modal-button" id="modal-apply-button" data-dismiss="modal" onclick="applyFilters();">Apply</button>
                 </div>
             </div>
         </div>

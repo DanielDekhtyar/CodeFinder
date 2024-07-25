@@ -141,6 +141,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
     const optionList = document.getElementById('option-list');
     const items = optionList.querySelectorAll('.dropdown-item');
+    const selectedLanguagesInput = document.getElementById('selected-languages');
+    const selectedAuthorInput = document.getElementById('selected-author');
+    const selectedLastUpdateInput = document.getElementById('selected-last-update');
+    const selectedStarsInput = document.getElementById('selected-stars');
+    const lastPushedDateInput = document.getElementById('last-pushed-date');
+    const authorInput = document.getElementById('author-input');
+    const starsInput = document.getElementById('stars-input');
 
     let selectedItems = [];
 
@@ -169,7 +176,6 @@ document.addEventListener('DOMContentLoaded', function() {
     items.forEach(function(item) {
         item.addEventListener('click', function() {
             const value = item.getAttribute('data-value');
-            const name = item.textContent || item.innerText; // Get the language name
             if (selectedItems.includes(value)) {
                 selectedItems = selectedItems.filter(i => i !== value);
                 item.classList.remove('selected');
@@ -178,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.classList.add('selected');
             }
             updateDropdownText();
+            updateSelectedLanguagesInput();
             console.log('Selected items:', selectedItems);
         });
     });
@@ -191,6 +198,17 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdownButton.querySelector('span').textContent = 'Select Language';
         }
     }
+
+    function updateSelectedLanguagesInput() {
+        selectedLanguagesInput.value = selectedItems.join(',');
+    }
+
+    window.applyFilters = function() {
+        selectedAuthorInput.value = authorInput.value;
+        selectedLastUpdateInput.value = lastPushedDateInput.value;
+        selectedStarsInput.value = starsInput.value;
+        closeFilterModal();
+    };
 });
 
 // Array of random search queries
