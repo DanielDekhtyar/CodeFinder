@@ -31,7 +31,19 @@
     align-items: center; /* Center the buttons vertically */
 }
 
+#olympic {
+    margin: 1.5vh;
+    height: 4vh;
+    transition: transform 0.3s ease;
+}
+
+#olympic:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
 #search-bar-explanation {
+    display: none;
     margin-top: 2vh;
     font-size: 1.25vh;
     text-align: center;
