@@ -33,13 +33,13 @@
 
 #olympic {
     margin: 1.5vh;
-    height: 4vh;
+    height: 6.5vh;
     transition: transform 0.3s ease;
 }
 
 #olympic:hover {
     cursor: pointer;
-    transform: scale(1.15);
+    transform: scale(1.2);
 }
 
 #search-bar-explanation {
