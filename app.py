@@ -68,6 +68,9 @@ def search():
     stars = request.args.get('stars')
     
     filters = (selected_languages, author, last_update, stars)
+    
+    # Make selected_languages in the needed format with the space before and after a coma. eg. lang1 , lang2
+    selected_languages = selected_languages.replace(',', ' , ')
 
     # Make GitHub API request and get the response
     api_response = api_requests.repositories(user_query, page, filters)
@@ -90,6 +93,9 @@ def search():
 
     # Unpack the API response tuple in to variables
     search_results, time_it_took, result_count = api_response
+    
+    # Get language filter options
+    languages = helpers.get_language_filter_options()
 
     # Print the time it took to make the API request to the console
     print(f"Time it took: {time_it_took}")
@@ -101,6 +107,11 @@ def search():
         search_results=search_results,
         time_it_took=time_it_took,
         result_count=result_count,
+        languages=languages,
+        filter_language=selected_languages,
+        filter_author=author,
+        filter_last_update=last_update,
+        filter_stars=stars,
         os=os,
     )
 
