@@ -61,7 +61,7 @@
     <header id="header">
         <!-- Code Finder Logo -->
         <a class="logo" href="/">
-        <img class="logo" alt="Code Finder Logo" title="Code Finder home page" src="static/assets/icon.png" />
+            <img class="logo" alt="Code Finder Logo" title="Code Finder home page" src="static/assets/icon.png" />
         </a>
         <!-- Search Form -->
         <form id="search-form" role="form" action="/search" method="GET" onsubmit="return validateForm()">
@@ -87,14 +87,31 @@
                     onmouseover="hoverSearchButton();" onmouseout="unhoverSearchButton();"
                 >
                     <!-- Magnifying glass icon -->
-                    <!-- Use the search button to call a JavaScript function search() -->
                     <img
                         id="search-icon"
                         alt="Search"
                         src="static/assets/search_black.png"
                     ></img>
                 </button>
-
+    
+                <!-- Filter button -->
+                <button
+                    type="button"
+                    role="button"
+                    class="btn btn-outline-secondary"
+                    id="filter-button"
+                    onmouseover="hoverFilterButton();" onmouseout="unhoverFilterButton();" onclick="openFilterModal();"
+                >
+                    <span class="button-content">
+                        <img
+                            type="image"
+                            id="filter-icon"
+                            alt="Filter"
+                            src="static/assets/filter.png"
+                        >
+                    </span>
+                </button>
+    
                 <!-- Hidden inputs to store filter values -->
                 <input type="hidden" name="language" id="selected-languages">
                 <input type="hidden" name="author" id="selected-author">
@@ -102,27 +119,7 @@
                 <input type="hidden" name="stars" id="selected-stars">
             </div>
         </form>
-        <div class="filter-container">
-            <!-- Filter button -->
-            <button
-            type="button"
-            role="button"
-            class="btn btn-outline-secondary"
-            id="filter-button"
-            onmouseover="hoverFilterButton();" onmouseout="unhoverFilterButton();" onclick="openFilterModal();"
-            >
-            <span class="button-content">
-                <span class="button-text" id="search-button-text">Filter</span>
-                <img
-                    type="image"
-                    id="filter-icon"
-                    alt="Filter"
-                    src="static/assets/filter.png"
-                >
-            </span>
-            </button>
-        </div>
-    </header>
+    </header>    
 
     <body>
 
