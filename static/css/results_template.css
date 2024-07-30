@@ -642,6 +642,10 @@ footer {
         display: none;
     }
 
+    #filter-button {
+        display: none;
+    }
+
     #about-modal {
         display: none;
     }

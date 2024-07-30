@@ -137,7 +137,7 @@
                         <p class="option-title" type="text">Language</p>
                         <div class="select" id="dropdownMenuButton">
                             {% if filter_language %}
-                                <span>{{filter_language}}</span>
+                                <span>{{ filter_language }}</span>
                             {% else %}
                                 <span>Select Language</span>
                             {% endif %}
@@ -167,7 +167,11 @@
                     <div class="filter-option">
                         <p class="option-title" type="text">Repository Author</p>
                         <div>
-                            <input type="text" class="input-field" id="author-input" placeholder="Repository Author">
+                            {% if filter_author %}
+                                <input type="text" class="input-field" id="author-input" value="{{ filter_author }}" placeholder="Repository Author">
+                            {% else %}
+                                <input type="text" class="input-field" id="author-input" placeholder="Repository Author">
+                            {% endif %}
                         </div>
                     </div>
                 
@@ -175,7 +179,11 @@
                     <div class="filter-option">
                         <p class="option-title" type="text">Last Update</p>
                         <div>
-                            <input type="date" id="last-pushed-date" class="input-field" placeholder="Select Date">
+                            {% if filter_last_update %}
+                                <input type="date" id="last-pushed-date" class="input-field" value="{{ filter_last_update }}" placeholder="Select Date">
+                            {% else %}
+                                <input type="date" id="last-pushed-date" class="input-field" placeholder="Select Date">
+                            {% endif %}
                         </div>
                     </div>
                 
@@ -183,7 +191,11 @@
                     <div class="filter-option">
                         <p class="option-title" type="text">Stars ⭐</p>
                         <div>
-                            <input type="number" class="input-field" id="stars-input" placeholder="Minimum Stars">
+                            {% if filter_stars %}
+                                <input type="number" class="input-field" id="stars-input" value="{{ filter_stars }}" placeholder="Minimum Stars">
+                            {% else %}
+                                <input type="number" class="input-field" id="stars-input" placeholder="Minimum Stars">
+                            {% endif %}
                         </div>
                     </div>
                 </div>
