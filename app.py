@@ -40,6 +40,9 @@ def search():
         page = 1
     else:
         page = int(page)
+    
+    # Get language filter options
+    languages = helpers.get_language_filter_options()
 
     # Error handling checking that there is no errors in the data received from the webpage
     get_variables_from_web_page_error_handling_results = (
@@ -58,7 +61,7 @@ def search():
     )
     if GitHub_API_rate_limit_error_handling_results is not None:
         return helpers.render_error_page(
-            user_query, GitHub_API_rate_limit_error_handling_results
+            user_query, GitHub_API_rate_limit_error_handling_results, languages
         )
     
     # Retrieve the filter values from the form submission
@@ -88,14 +91,11 @@ def search():
     if after_api_request_error_handling_results is not None:
         # Render the error page
         return helpers.render_error_page(
-            user_query, after_api_request_error_handling_results
+            user_query, after_api_request_error_handling_results, languages
         )
 
     # Unpack the API response tuple in to variables
     search_results, time_it_took, result_count = api_response
-    
-    # Get language filter options
-    languages = helpers.get_language_filter_options()
 
     # Print the time it took to make the API request to the console
     print(f"Time it took: {time_it_took}")

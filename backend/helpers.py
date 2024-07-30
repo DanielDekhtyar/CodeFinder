@@ -272,7 +272,7 @@ def error_handling_after_API_request(api_response):
         return None
 
 
-def render_error_page(user_query, error_page_components):
+def render_error_page(user_query, error_page_components , languages):
     """
     The function `render_error_page` renders an error page with specified components based on the input
     error page components.
@@ -315,6 +315,7 @@ def render_error_page(user_query, error_page_components):
         second_line=second_line_error_message,
         gif=gif,
         error_code=error_code,
+        languages=languages
     )
 
 
