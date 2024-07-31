@@ -491,6 +491,14 @@ footer {
         height: 15vh;
     }
 
+    .modal {
+        min-height: 85%;
+    }
+
+    .menu {
+        min-height: 35vh;
+    }
+
     #trademark {
         font-size: 1.5vh;
     }
@@ -516,8 +524,13 @@ footer {
         font-size: 1vh;
     }
 
-    #filter-button {
-        display: none;
+    .modal {
+        min-width: 95%;
+        min-height: 90%;
+    }
+
+    .menu {
+        min-height: 30vh;
     }
 
     #trademark {
