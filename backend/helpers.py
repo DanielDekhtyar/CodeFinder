@@ -490,6 +490,7 @@ def get_language_filter_options():
         {"name": "DM"},
         {"name": "Nunjucks"},
         {"name": "Puppet"},
+        {"name": "GDScript"},
         {"name": "HCL"},
         {"name": "Mustache"},
         {"name": "Pug"},
