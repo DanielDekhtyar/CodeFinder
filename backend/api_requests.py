@@ -91,7 +91,7 @@ def openai_api_request(user_search_request):
 
     # Initialize OpenAI client
     client = OpenAI(api_key=api_key)
-    
+
     # Set the context message for the OpenAI API request
     context_message = "You are a helpful assistant that takes user requests and converts them into queries for GitHub search according to the syntax. If the topic is related to AI, Machine Learning, Deep Learning or Data Science and the requested language is Python, add Jupyter Notebook as a language to the query. Respond with just the query and nothing else."
 
@@ -150,20 +150,22 @@ def repositories(user_search_request, page, filters):
 
     # Check how long it takes for GitHub API request
     github_time = time.time()
-    
+
     # Unpack the filters from the tuple 'filters'
     selected_languages, author, last_update, stars = filters
-    
+
     # Get the string with all the filters formatted as required
-    filter_string = helpers.add_filters_to_search_query(selected_languages, author, last_update, stars)
-    
+    filter_string = helpers.add_filters_to_search_query(
+        selected_languages, author, last_update, stars
+    )
+
     # Only add the filters if there is any filters to start with
     if filter_string:
         # Add the search filters to the search request before it is submitted to GitHub API
         search_query += filter_string
-    
+
     print(f"The GitHub search query is: {search_query}")
-    
+
     # Set the search URL for the GitHub API
     search_url = "https://api.github.com/search/repositories"
 

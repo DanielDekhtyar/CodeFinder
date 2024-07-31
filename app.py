@@ -13,7 +13,7 @@ app = Flask(__name__)
 def index():
     # Get language filter options
     languages = helpers.get_language_filter_options()
-    
+
     # Render index.html template
     return render_template("index.html", languages=languages, os=os)
 
@@ -40,7 +40,7 @@ def search():
         page = 1
     else:
         page = int(page)
-    
+
     # Get language filter options
     languages = helpers.get_language_filter_options()
 
@@ -63,17 +63,17 @@ def search():
         return helpers.render_error_page(
             user_query, GitHub_API_rate_limit_error_handling_results, languages
         )
-    
+
     # Retrieve the filter values from the form submission
-    selected_languages = request.args.get('language')
-    author = request.args.get('author')
-    last_update = request.args.get('last_update')
-    stars = request.args.get('stars')
-    
+    selected_languages = request.args.get("language")
+    author = request.args.get("author")
+    last_update = request.args.get("last_update")
+    stars = request.args.get("stars")
+
     filters = (selected_languages, author, last_update, stars)
-    
+
     # Make selected_languages in the needed format with the space before and after a coma. eg. lang1 , lang2
-    selected_languages = selected_languages.replace(',', ' , ')
+    selected_languages = selected_languages.replace(",", " , ")
 
     # Make GitHub API request and get the response
     api_response = api_requests.repositories(user_query, page, filters)

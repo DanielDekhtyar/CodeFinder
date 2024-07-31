@@ -272,7 +272,7 @@ def error_handling_after_API_request(api_response):
         return None
 
 
-def render_error_page(user_query, error_page_components , languages):
+def render_error_page(user_query, error_page_components, languages):
     """
     The function `render_error_page` renders an error page with specified components based on the input
     error page components.
@@ -315,7 +315,7 @@ def render_error_page(user_query, error_page_components , languages):
         second_line=second_line_error_message,
         gif=gif,
         error_code=error_code,
-        languages=languages
+        languages=languages,
     )
 
 
@@ -323,7 +323,7 @@ def need_to_make_request_to_openai_api(user_search_request, LAST_USER_SEARCH_REQ
     """
     The function checks if a user search request needs to be made to the OpenAI API based on previous
     requests and keyword matches in a file.
-    
+
     Args:
     user_search_request: The `user_search_request` parameter in the function
     `need_to_make_request_to_openai_api` represents the search query input by the user. The function
@@ -333,7 +333,7 @@ def need_to_make_request_to_openai_api(user_search_request, LAST_USER_SEARCH_REQ
     search requests made. The keys in this dictionary are the user search requests, and the values are
     the corresponding responses or results of those requests. The function
     `need_to_make_request_to_openai_api` checks if the current user
-    
+
     Returns:
     The function `need_to_make_request_to_openai_api` returns different values based on certain
     conditions:
@@ -365,27 +365,29 @@ def need_to_make_request_to_openai_api(user_search_request, LAST_USER_SEARCH_REQ
         return user_search_request
 
 
-def add_filters_to_search_query(selected_languages: str, author: str, last_update: str, stars: int) -> str:
+def add_filters_to_search_query(
+    selected_languages: str, author: str, last_update: str, stars: int
+) -> str:
     filter_str: str = ""
-    
+
     # Check if there is any language filter
     if selected_languages:
         # Get all the languages in the correct format
         lang_filter: str = filter_languages(selected_languages)
         filter_str += lang_filter
-    
+
     # Check if there is any author filter
     if author:
         filter_str += f" owner:{author}"
-    
+
     # Check if there is any last update filter
     if last_update:
         filter_str += f" pushed:>={last_update}"
-    
+
     # Check if there is any star filter
     if stars:
         filter_str += f" stars:>={stars}"
-    
+
     return filter_str
 
 
@@ -394,24 +396,24 @@ def filter_languages(selected_languages: str) -> str:
     if type(selected_languages) is not str:
         print("Error : selected_languages not a str")
         return "Error : selected_languages not a str"
-    
+
     # Split 'selected_languages' in the 'languages' tuple
     languages = selected_languages.split(",")
-    
+
     # Store the result. eg. language:"Python" language:"C++"
     lang_filter: str = ""
-    
+
     # Go over each language and add it to 'lang_filter'
     for lang in languages:
         if type(lang) is not str:
             print(f"Error : lang '{lang}' is not a str")
-            return (f"Error : lang '{lang}' is not a str")
-        
+            return f"Error : lang '{lang}' is not a str"
+
         # Remove any white-spaces
         lang.strip()
         # Add the language to the string of languages according to the format that GitHub requires
         lang_filter += f' language:"{lang}"'
-    
+
     # Return the result
     return lang_filter
 
@@ -500,6 +502,6 @@ def get_language_filter_options():
         {"name": "Markdown"},
         {"name": "Dockerfile"},
     ]
-    
+
     # Return the list of the languages to later be used to generate the filter options
     return languages
