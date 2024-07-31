@@ -61,7 +61,7 @@
     <header id="header">
         <!-- Code Finder Logo -->
         <a class="logo" href="/">
-        <img class="logo" alt="Code Finder Logo" title="Code Finder home page" src="static/assets/icon.png" />
+            <img class="logo" alt="Code Finder Logo" title="Code Finder home page" src="static/assets/icon.png" />
         </a>
         <!-- Search Form -->
         <form id="search-form" role="form" action="/search" method="GET" onsubmit="return validateForm()">
@@ -87,17 +87,127 @@
                     onmouseover="hoverSearchButton();" onmouseout="unhoverSearchButton();"
                 >
                     <!-- Magnifying glass icon -->
-                    <!-- Use the search button to call a JavaScript function search() -->
                     <img
                         id="search-icon"
                         alt="Search"
                         src="static/assets/search_black.png"
                     ></img>
                 </button>
+    
+                <!-- Filter button -->
+                <button
+                    type="button"
+                    role="button"
+                    class="btn btn-outline-secondary"
+                    id="filter-button"
+                    onmouseover="hoverFilterButton();" onmouseout="unhoverFilterButton();" onclick="openFilterModal();"
+                >
+                    <span class="button-content">
+                        <img
+                            type="image"
+                            id="filter-icon"
+                            alt="Filter"
+                            src="static/assets/filter.png"
+                        >
+                    </span>
+                </button>
+    
+                <!-- Hidden inputs to store filter values -->
+                <input type="hidden" name="language" id="selected-languages">
+                <input type="hidden" name="author" id="selected-author">
+                <input type="hidden" name="last_update" id="selected-last-update">
+                <input type="hidden" name="stars" id="selected-stars">
             </div>
         </form>
     </header>    
+
     <body>
+
+        <!-- Filter modal -->
+        <div class="modal" id="filter-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" role="text" type="text">Filters</h5>
+                    <button type="button" class="close-modal-button" id="close-modal-button" data-dismiss="modal" aria-label="Close" onclick="closeFilterModal();">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <p id="filter-disclaimer">*The filter functionality is in beta</p>
+                <div class="modal-body">
+                    <div class="filter-option">
+                        <p class="option-title" type="text">Language</p>
+                        <div class="select" id="dropdownMenuButton">
+                            {% if filter_language %}
+                                <span>{{ filter_language }}</span>
+                            {% else %}
+                                <span>Select Language</span>
+                            {% endif %}
+                            <div class="caret"></div>
+                        </div>
+                        <div class="menu" aria-labelledby="dropdownMenuButton">
+                            <input type="search" id="search-input" placeholder="Search..." class="search-input" role="searchbox" autocomplete="off">
+                            <ul id="option-list" class="option-list" role="options list" type="list">
+                                {% for language in languages %}
+                                    <li class="dropdown-item language-option" data-value="{{ language.name }}" role="option">
+                                        {% if language.name == 'C#' %}
+                                            {% set icon_name = 'C_sharp' %}
+                                        {% elif language.name == 'F#' %}
+                                            {% set icon_name = 'F_sharp' %}
+                                        {% else %}
+                                            {% set icon_name = language.name %}
+                                        {% endif %}
+                                        <img src="static/assets/languages/{{ icon_name }}.png" alt="{{ language.name }}" type="image" class="language-icon">
+                                        {{ language.name }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                
+                    <!-- By Author -->
+                    <div class="filter-option">
+                        <p class="option-title" type="text">Repository Author</p>
+                        <div>
+                            {% if filter_author %}
+                                <input type="text" class="input-field" id="author-input" value="{{ filter_author }}" placeholder="Repository Author">
+                            {% else %}
+                                <input type="text" class="input-field" id="author-input" placeholder="Repository Author">
+                            {% endif %}
+                        </div>
+                    </div>
+                
+                    <!-- Last updated after -->
+                    <div class="filter-option">
+                        <p class="option-title" type="text">Last Update</p>
+                        <div>
+                            {% if filter_last_update %}
+                                <input type="date" id="last-pushed-date" class="input-field" value="{{ filter_last_update }}" placeholder="Select Date">
+                            {% else %}
+                                <input type="date" id="last-pushed-date" class="input-field" placeholder="Select Date">
+                            {% endif %}
+                        </div>
+                    </div>
+                
+                    <!-- Stars -->
+                    <div class="filter-option">
+                        <p class="option-title" type="text">Stars ⭐</p>
+                        <div>
+                            {% if filter_stars %}
+                                <input type="number" class="input-field" id="stars-input" value="{{ filter_stars }}" placeholder="Minimum Stars">
+                            {% else %}
+                                <input type="number" class="input-field" id="stars-input" placeholder="Minimum Stars">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-modal-button" id="modal-apply-button" data-dismiss="modal" onclick="applyFilters();">Apply</button>
+                </div>
+            </div>
+        </div>
+        <div id="modal-overlay" class="" onclick="closeFilterModal();"></div>
+
+
         <!-- Give buffer space that is occupied by the header, so the main content doesn't appear under the header -->
         <div id="buffer-div"></div>
         

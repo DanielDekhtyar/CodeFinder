@@ -65,6 +65,18 @@ function validateForm() {
     }
 }
 
+// Functions when you hover over the search icon
+function hoverFilterButton() {
+    element = document.getElementById("filter-icon");
+    element.setAttribute('src', 'static/assets/filter_hover.png');
+}
+
+// Functions when you hover over the search icon
+function unhoverFilterButton() {
+    element = document.getElementById("filter-icon");
+    element.setAttribute('src', 'static/assets/filter.png');
+}
+
 // Function to show the loading screen animation
 function loading_screen() {
     // Hide the footer
@@ -100,6 +112,104 @@ function randomSearch() {
     // Submit the form
     document.getElementById("search-form").submit();
 }
+
+
+// Filter Modal opening and closing functions
+const openFilterModalButton = document.getElementById("filter-button");
+const closeFilterModalButton = document.getElementsByClassName("close-modal-button")[0];
+
+// Show the filter modal on the screen
+function openFilterModal() {
+    const modalOverlay = document.getElementById("modal-overlay");
+    const modal = document.getElementById("filter-modal");
+
+    modalOverlay.classList.add("active");
+    modal.classList.add("active");
+}
+
+function closeFilterModal() {
+    const modalOverlay = document.getElementById("modal-overlay");
+    const modal = document.getElementById("filter-modal");
+
+    modalOverlay.classList.remove("active");
+    modal.classList.remove("active");
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownButton = document.getElementById('dropdownMenuButton');
+    const dropdownMenu = document.querySelector('.menu');
+    const searchInput = document.getElementById('search-input');
+    const optionList = document.getElementById('option-list');
+    const items = optionList.querySelectorAll('.dropdown-item');
+    const selectedLanguagesInput = document.getElementById('selected-languages');
+    const selectedAuthorInput = document.getElementById('selected-author');
+    const selectedLastUpdateInput = document.getElementById('selected-last-update');
+    const selectedStarsInput = document.getElementById('selected-stars');
+    const lastPushedDateInput = document.getElementById('last-pushed-date');
+    const authorInput = document.getElementById('author-input');
+    const starsInput = document.getElementById('stars-input');
+
+    let selectedItems = [];
+
+    dropdownButton.addEventListener('click', function() {
+        dropdownMenu.classList.toggle('menu-open');
+        dropdownButton.classList.toggle('select-clicked');
+        document.querySelector('.caret').classList.toggle('caret-rotate');
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove('menu-open');
+            dropdownButton.classList.remove('select-clicked');
+            document.querySelector('.caret').classList.remove('caret-rotate');
+        }
+    });
+
+    searchInput.addEventListener('input', function() {
+        const filter = this.value.toLowerCase();
+        items.forEach(function(item) {
+            const text = item.textContent || item.innerText;
+            item.style.display = text.toLowerCase().indexOf(filter) > -1 ? 'flex' : 'none';
+        });
+    });
+
+    items.forEach(function(item) {
+        item.addEventListener('click', function() {
+            const value = item.getAttribute('data-value');
+            if (selectedItems.includes(value)) {
+                selectedItems = selectedItems.filter(i => i !== value);
+                item.classList.remove('selected');
+            } else {
+                selectedItems.push(value);
+                item.classList.add('selected');
+            }
+            updateDropdownText();
+            updateSelectedLanguagesInput();
+            console.log('Selected items:', selectedItems);
+        });
+    });
+
+    function updateDropdownText() {
+        if (selectedItems.length > 0) {
+            const selectedNames = Array.from(items).filter(item => selectedItems.includes(item.getAttribute('data-value')))
+                .map(item => item.textContent || item.innerText);
+            dropdownButton.querySelector('span').textContent = selectedNames.join(', ');
+        } else {
+            dropdownButton.querySelector('span').textContent = 'Select Language';
+        }
+    }
+
+    function updateSelectedLanguagesInput() {
+        selectedLanguagesInput.value = selectedItems.join(',');
+    }
+
+    window.applyFilters = function() {
+        selectedAuthorInput.value = authorInput.value;
+        selectedLastUpdateInput.value = lastPushedDateInput.value;
+        selectedStarsInput.value = starsInput.value;
+        closeFilterModal();
+    };
+});
 
 // Array of random search queries
 const searchQueries = [

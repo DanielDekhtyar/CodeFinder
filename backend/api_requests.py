@@ -40,7 +40,7 @@ LAST_USER_SEARCH_REQUESTS: dict = {
 }
 
 
-def openai_api_request(user_search_request, context_message):
+def openai_api_request(user_search_request):
     """
     The `openai_api_request` function processes user search requests, checks if an API request is
     needed, and makes a request to OpenAI's API to get search queries using a fine-tuned model.
@@ -91,6 +91,9 @@ def openai_api_request(user_search_request, context_message):
 
     # Initialize OpenAI client
     client = OpenAI(api_key=api_key)
+    
+    # Set the context message for the OpenAI API request
+    context_message = "You are a helpful assistant that takes user requests and converts them into queries for GitHub search according to the syntax. If the topic is related to AI, Machine Learning, Deep Learning or Data Science and the requested language is Python, add Jupyter Notebook as a language to the query. Respond with just the query and nothing else."
 
     # Make OpenAI API request
     completion = client.chat.completions.create(
@@ -115,7 +118,7 @@ def openai_api_request(user_search_request, context_message):
     return search_query
 
 
-def repositories(user_search_request, page):
+def repositories(user_search_request, page, filters):
     """
     The function `repositories` takes a user search request, formats it for GitHub search query using the OpenAI API,
     makes API requests to GitHub, processes the results, and returns search results along with time
@@ -141,18 +144,26 @@ def repositories(user_search_request, page):
     # Get the current time
     start_time = time.time()
 
-    # Set the context message for the OpenAI API request
-    context_message = "You are a helpful assistant that takes user requests and converts them into queries for GitHub search according to the syntax. If the topic is related to AI, Machine Learning, Deep Learning or Data Science and the requested language is Python, add Jupyter Notebook as a language to the query. Respond with just the query and nothing else."
-
     # Make an OpenAI API request
     # search_query is the request that will be sent to GitHub. It is formatted in a specific syntax to get the best results from GitHub
-    search_query = openai_api_request(user_search_request, context_message)
-
-    print(f"The GitHub search query is: {search_query}")
+    search_query = openai_api_request(user_search_request)
 
     # Check how long it takes for GitHub API request
-
     github_time = time.time()
+    
+    # Unpack the filters from the tuple 'filters'
+    selected_languages, author, last_update, stars = filters
+    
+    # Get the string with all the filters formatted as required
+    filter_string = helpers.add_filters_to_search_query(selected_languages, author, last_update, stars)
+    
+    # Only add the filters if there is any filters to start with
+    if filter_string:
+        # Add the search filters to the search request before it is submitted to GitHub API
+        search_query += filter_string
+    
+    print(f"The GitHub search query is: {search_query}")
+    
     # Set the search URL for the GitHub API
     search_url = "https://api.github.com/search/repositories"
 
