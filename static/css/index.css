@@ -116,6 +116,14 @@
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
+#filter-disclaimer {
+    font-style: italic;
+    font-size: 2vh;
+    margin-top: 1vh;
+    margin-bottom: -1vh;
+    margin-left: 0.5rem;
+}
+
 .modal {
     z-index: 2000;
     position: fixed;
