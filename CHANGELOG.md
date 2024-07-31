@@ -2,13 +2,26 @@
 
 ## 📝 Changelog:
 
-> ### Last Version : 1.3.10.1
+> ### Last Version : 1.9.0
 >
-> ### Last Update : 20/07/2024
+> ### Last Update : 31/07/2024
 >
 > _Date format DD-MM-YYYY_
 
 <br>
+
+### 🗓️ _Version 1.9.0 - 31/07/2024 ([commit 01f2554](https://github.com/DanielDekhtyar/github-search/commit/01f2554))_
+
+---
+
+### 🔥 Added
+- A filter functionality was added to the search and the results page.  
+  The search results can be filtered by the main language, the author of the repo, the date of the last update and the minimum amount of stars the repo has.
+- A popup modal appears when you click on the filter button.
+- In `helpers.py` a list of all the languages was added. The list is passed to the webpage and then a UI list of all the languages is generated using Jinja.
+- In `api_requests.py` the filter information is processed and a search query is contracted to match the request.  
+  The search query is then passed to GitHub API to get the results according to the request.
+
 
 
 ### 🗓️ _Version 1.3.10.1 - 20/07/2024 ([commit de7122d](https://github.com/DanielDekhtyar/github-search/commit/de7122d))_
