@@ -1032,3 +1032,31 @@ GraphQLSwift
 
 // jQuery
 jquery
+
+// Symantec
+Symantec
+
+// Avast
+avast
+
+// Bitdefender
+bitdefender
+bit-ml
+
+// Kaspersky
+KasperskyLab
+
+// ESET
+eset
+
+// Discord
+discord
+discordjs
+python-discord
+DiscordPP
+Discord4J
+
+// PayPal
+paypal
+paypal-examples
+paypaldev
