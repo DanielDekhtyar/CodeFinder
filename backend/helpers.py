@@ -443,6 +443,7 @@ def get_language_filter_options():
         {"name": "Swift"},
         {"name": "R"},
         {"name": "Visual Basic .NET"},
+        {"name": "BASIC"},
         {"name": "Shell"},
         {"name": "Bash"},
         {"name": "MATLAB"},
