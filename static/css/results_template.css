@@ -149,8 +149,7 @@ body {
 
 #filter-disclaimer {
     font-style: italic;
-    font-size: 2vh;
-    margin-top: 1vh;
+    font-size: 1.25vh;
     margin-bottom: -1vh;
     margin-left: 0.5rem;
 }
@@ -582,6 +581,10 @@ footer {
 @media screen and (max-width: 1700px) {
     .logo {
         height: 2.8rem;
+    }
+
+    #filter-disclaimer {
+        font-size: 2vh;
     }
     
     .page {

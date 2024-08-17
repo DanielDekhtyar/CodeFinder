@@ -124,7 +124,7 @@
 
 #filter-disclaimer {
     font-style: italic;
-    font-size: 2vh;
+    font-size: 1.2vh;
     margin-top: 1vh;
     margin-bottom: -1vh;
     margin-left: 0.5rem;
@@ -507,6 +507,10 @@ footer {
 
     .modal {
         min-height: 90%;
+    }
+
+    #filter-disclaimer {
+        font-size: 2vh;
     }
 
     .menu {
