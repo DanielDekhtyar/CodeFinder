@@ -73,7 +73,7 @@ def search():
     filters = (selected_languages, author, last_update, stars)
 
     # Make selected_languages in the needed format with the space before and after a coma. eg. lang1 , lang2
-    if selected_languages:
+    if type(selected_languages) is str:
         selected_languages = selected_languages.replace(",", " , ")
 
     # Make GitHub API request and get the response
