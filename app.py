@@ -73,7 +73,8 @@ def search():
     filters = (selected_languages, author, last_update, stars)
 
     # Make selected_languages in the needed format with the space before and after a coma. eg. lang1 , lang2
-    selected_languages = selected_languages.replace(",", " , ")
+    if selected_languages:
+        selected_languages = selected_languages.replace(",", " , ")
 
     # Make GitHub API request and get the response
     api_response = api_requests.repositories(user_query, page, filters)
