@@ -27,14 +27,9 @@
 
 #search-buttons {
     display: flex;
+    margin-top: 1.5vh;
     justify-content: center; /* Center the buttons horizontally */
     align-items: center; /* Center the buttons vertically */
-}
-
-#text-bellow-search {
-    display: inline-flex;
-    font-size: 0.9rem;
-    font-style: italic;
 }
 
 .btn {
