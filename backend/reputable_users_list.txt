@@ -421,6 +421,8 @@ nasa-petal
 fbicyber
 FBI-DB
 cisagov
+GSA
+uswds
 
 // SAP
 SAP
@@ -1060,3 +1062,9 @@ Discord4J
 paypal
 paypal-examples
 paypaldev
+
+// Swiss Government
+swiss
+
+// BBC
+bbc
