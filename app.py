@@ -50,7 +50,7 @@ def search():
     )
     if get_variables_from_web_page_error_handling_results is not None:
         return helpers.render_error_page(
-            user_query, get_variables_from_web_page_error_handling_results
+            user_query, get_variables_from_web_page_error_handling_results, languages
         )
 
     # Strip all the trailing and preceding white spaces from the search query
