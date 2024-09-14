@@ -136,7 +136,6 @@ button[type="submit"]:hover {
     margin: 1vw;
     margin-right: 0;
     display: inline;
-    font-size: 1.75vh;
 }
 
 .footer-link:hover {
@@ -182,6 +181,13 @@ footer {
     display: flex; /* Use flexbox */
     justify-content: left; /* horizontally */
     align-items: center; /* vertically */
+}
+
+@media screen and (max-width: 1700px) {
+    footer {
+        font-size: 1.8vh;
+        height: 4vh;
+    }
 }
 
 @media screen and (max-width: 600px) {
