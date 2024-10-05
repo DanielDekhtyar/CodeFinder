@@ -88,7 +88,7 @@ header {
 }
 
 #trademark {
-    font-size: 1.5vh;
+    font-size: 1.2vh;
     color: black;
     text-decoration: none;
     margin: 1vw;
@@ -130,6 +130,10 @@ footer {
 @media screen and (max-width: 1700px) {
     #product-hunt-container {
         height: 15vh;
+    }
+
+    #trademark {
+        font-size: 1.5vh;
     }
 
     footer {
