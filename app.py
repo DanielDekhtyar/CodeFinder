@@ -17,6 +17,14 @@ def index():
     # Render index.html template
     return render_template("index.html", languages=languages, os=os)
 
+# Route that returns the modal HTML
+@app.route('/load-modal')
+def load_modal():
+    # Get language filter options
+    languages = helpers.get_language_filter_options()
+    
+    return render_template('filter_modal.html', languages=languages)
+
 
 @app.route("/search", methods=["GET"])
 def search():

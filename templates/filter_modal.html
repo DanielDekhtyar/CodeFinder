@@ -1,0 +1,63 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" role="text" type="text">Filters</h5>
+        <button type="button" class="close-modal-button" id="close-modal-button" data-dismiss="modal" aria-label="Close" onclick="closeFilterModal();">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <p id="filter-disclaimer">*The filter functionality is in beta</p>
+    <div class="modal-body">
+        <div class="filter-option">
+            <p class="option-title" type="text">Language</p>
+            <div class="select" id="dropdownMenuButton">
+                <span>Select Language</span>
+                <div class="caret"></div>
+            </div>
+            <div class="menu" aria-labelledby="dropdownMenuButton">
+                <input type="search" id="search-input" placeholder="Search..." class="search-input" role="searchbox" autocomplete="off">
+                <ul id="option-list" class="option-list" role="options list" type="list">
+                    {% for language in languages %}
+                        <li class="dropdown-item language-option" data-value="{{ language.name }}" role="option">
+                            {% if language.name == 'C#' %}
+                                {% set icon_name = 'C_sharp' %}
+                            {% elif language.name == 'F#' %}
+                                {% set icon_name = 'F_sharp' %}
+                            {% else %}
+                                {% set icon_name = language.name %}
+                            {% endif %}
+                            <img src="static/assets/languages/{{ icon_name }}.png" alt="{{ language.name }}" type="image" class="language-icon">
+                            {{ language.name }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    
+        <!-- By Author -->
+        <div class="filter-option">
+            <p class="option-title" type="text">Repository Author</p>
+            <div>
+                <input type="text" class="input-field" id="author-input" placeholder="Repository Author">
+            </div>
+        </div>
+    
+        <!-- Last updated after -->
+        <div class="filter-option">
+            <p class="option-title" type="text">Last Update</p>
+            <div>
+                <input type="date" id="last-pushed-date" class="input-field" placeholder="Select Date">
+            </div>
+        </div>
+    
+        <!-- Stars -->
+        <div class="filter-option">
+            <p class="option-title" type="text">Stars ⭐</p>
+            <div>
+                <input type="number" class="input-field" id="stars-input" placeholder="Minimum Stars">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary close-modal-button" id="modal-apply-button" data-dismiss="modal" onclick="applyFilters();">Apply</button>
+    </div>
+</div>

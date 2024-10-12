@@ -136,79 +136,85 @@ function closeFilterModal() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const dropdownButton = document.getElementById('dropdownMenuButton');
-    const dropdownMenu = document.querySelector('.menu');
-    const searchInput = document.getElementById('search-input');
-    const optionList = document.getElementById('option-list');
-    const items = optionList.querySelectorAll('.dropdown-item');
-    const selectedLanguagesInput = document.getElementById('selected-languages');
-    const selectedAuthorInput = document.getElementById('selected-author');
-    const selectedLastUpdateInput = document.getElementById('selected-last-update');
-    const selectedStarsInput = document.getElementById('selected-stars');
-    const lastPushedDateInput = document.getElementById('last-pushed-date');
-    const authorInput = document.getElementById('author-input');
-    const starsInput = document.getElementById('stars-input');
+    const modalDiv = document.getElementById('filter-modal');
 
-    let selectedItems = [];
+    // Activating modal functionality only when hovering over the modal to prevent the function running before the modal was loaded
+    function activeWhenHoveringOverModal() {
+        const dropdownButton = document.getElementById('dropdownMenuButton');
+        const dropdownMenu = document.querySelector('.menu');
+        const searchInput = document.getElementById('search-input');
+        const optionList = document.getElementById('option-list');
+        const items = optionList.querySelectorAll('.dropdown-item');
+        const selectedLanguagesInput = document.getElementById('selected-languages');
+        const selectedAuthorInput = document.getElementById('selected-author');
+        const selectedLastUpdateInput = document.getElementById('selected-last-update');
+        const selectedStarsInput = document.getElementById('selected-stars');
+        const lastPushedDateInput = document.getElementById('last-pushed-date');
+        const authorInput = document.getElementById('author-input');
+        const starsInput = document.getElementById('stars-input');
 
-    dropdownButton.addEventListener('click', function() {
-        dropdownMenu.classList.toggle('menu-open');
-        dropdownButton.classList.toggle('select-clicked');
-        document.querySelector('.caret').classList.toggle('caret-rotate');
-    });
+        let selectedItems = [];
 
-    document.addEventListener('click', function(event) {
-        if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.classList.remove('menu-open');
-            dropdownButton.classList.remove('select-clicked');
-            document.querySelector('.caret').classList.remove('caret-rotate');
-        }
-    });
-
-    searchInput.addEventListener('input', function() {
-        const filter = this.value.toLowerCase();
-        items.forEach(function(item) {
-            const text = item.textContent || item.innerText;
-            item.style.display = text.toLowerCase().indexOf(filter) > -1 ? 'flex' : 'none';
+        dropdownButton.addEventListener('click', function() {
+            dropdownMenu.classList.toggle('menu-open');
+            dropdownButton.classList.toggle('select-clicked');
+            document.querySelector('.caret').classList.toggle('caret-rotate');
         });
-    });
 
-    items.forEach(function(item) {
-        item.addEventListener('click', function() {
-            const value = item.getAttribute('data-value');
-            if (selectedItems.includes(value)) {
-                selectedItems = selectedItems.filter(i => i !== value);
-                item.classList.remove('selected');
-            } else {
-                selectedItems.push(value);
-                item.classList.add('selected');
+        document.addEventListener('click', function(event) {
+            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove('menu-open');
+                dropdownButton.classList.remove('select-clicked');
+                document.querySelector('.caret').classList.remove('caret-rotate');
             }
-            updateDropdownText();
-            updateSelectedLanguagesInput();
-            console.log('Selected items:', selectedItems);
         });
-    });
 
-    function updateDropdownText() {
-        if (selectedItems.length > 0) {
-            const selectedNames = Array.from(items).filter(item => selectedItems.includes(item.getAttribute('data-value')))
-                .map(item => item.textContent || item.innerText);
-            dropdownButton.querySelector('span').textContent = selectedNames.join(', ');
-        } else {
-            dropdownButton.querySelector('span').textContent = 'Select Language';
+        searchInput.addEventListener('input', function() {
+            const filter = this.value.toLowerCase();
+            items.forEach(function(item) {
+                const text = item.textContent || item.innerText;
+                item.style.display = text.toLowerCase().indexOf(filter) > -1 ? 'flex' : 'none';
+            });
+        });
+
+        items.forEach(function(item) {
+            item.addEventListener('click', function() {
+                const value = item.getAttribute('data-value');
+                if (selectedItems.includes(value)) {
+                    selectedItems = selectedItems.filter(i => i !== value);
+                    item.classList.remove('selected');
+                } else {
+                    selectedItems.push(value);
+                    item.classList.add('selected');
+                }
+                updateDropdownText();
+                updateSelectedLanguagesInput();
+                console.log('Selected items:', selectedItems);
+            });
+        });
+
+        function updateDropdownText() {
+            if (selectedItems.length > 0) {
+                const selectedNames = Array.from(items).filter(item => selectedItems.includes(item.getAttribute('data-value')))
+                    .map(item => item.textContent || item.innerText);
+                dropdownButton.querySelector('span').textContent = selectedNames.join(', ');
+            } else {
+                dropdownButton.querySelector('span').textContent = 'Select Language';
+            }
         }
-    }
 
-    function updateSelectedLanguagesInput() {
-        selectedLanguagesInput.value = selectedItems.join(',');
-    }
+        function updateSelectedLanguagesInput() {
+            selectedLanguagesInput.value = selectedItems.join(',');
+        }
 
-    window.applyFilters = function() {
-        selectedAuthorInput.value = authorInput.value;
-        selectedLastUpdateInput.value = lastPushedDateInput.value;
-        selectedStarsInput.value = starsInput.value;
-        closeFilterModal();
-    };
+        window.applyFilters = function() {
+            selectedAuthorInput.value = authorInput.value;
+            selectedLastUpdateInput.value = lastPushedDateInput.value;
+            selectedStarsInput.value = starsInput.value;
+            closeFilterModal();
+        };
+    }
+    modalDiv.addEventListener('mouseover', activeWhenHoveringOverModal);
 });
 
 // Array of random search queries
@@ -246,3 +252,12 @@ document.addEventListener("DOMContentLoaded", function() {
         productHuntImg.src = "https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=462813&theme=neutral";
     });
 });
+
+function loadModal() {
+    fetch('/load-modal')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('filter-modal').innerHTML = data;
+        })
+        .catch(error => console.error('Error:', error));
+}
