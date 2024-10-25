@@ -156,6 +156,21 @@
             </a>
         </div>
 
+        <!-- Hostage Counter -->
+        <div id="bthn" lang="en" style="bottom: 7vh; left: 5vw;"></div><script>
+            (function () {
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "https://bringthemhomenow.net/1.1.0/hostages-ticker.js";
+                script.setAttribute(
+                    "integrity",
+                    "sha384-DHuakkmS4DXvIW79Ttuqjvl95NepBRwfVGx6bmqBJVVwqsosq8hROrydHItKdsne"
+                );
+                script.setAttribute("crossorigin", "anonymous");
+                document.getElementsByTagName("head")[0].appendChild(script);
+            })();
+        </script>
+
         <!-- Filter modal -->
         <div class="modal" id="filter-modal">
             <div class="modal-content">
