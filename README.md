@@ -11,7 +11,7 @@
 
 
 [![Latest release](https://badgen.net/github/release/DanielDekhtyar/CodeFinder)](https://github.com/DanielDekhtyar/CodeFinder/releases)
-![Python badge](https://img.shields.io/badge/python-3.12-blue)
+![Python badge](https://img.shields.io/badge/python-3.13-blue)
 ![Monthly users badge](https://img.shields.io/badge/users-4.9K/month-blue)
 [![GitHub commits](https://badgen.net/github/commits/DanielDekhtyar/CodeFinder)](https://GitHub.com/DanielDekhtyar/CodeFinder/commit/)
 [![GitHub latest commit](https://badgen.net/github/last-commit/DanielDekhtyar/CodeFinder)](https://GitHub.com/DanielDekhtyar/CodeFinder/commit/)
