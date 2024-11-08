@@ -172,7 +172,7 @@ def repositories(user_search_request, page, filters):
     # Prepare the parameters for the GitHub API request
     params = {
         "q": search_query,  # Search query
-        "per_page": 30,  # Number of results per page
+        "per_page": 100,  # Number of results per page
         "page": page,  # Page number
     }
 
