@@ -132,6 +132,10 @@ def contact_me():
 def sitemap():
     return send_from_directory("backend", "sitemap.xml")
 
+@app.route('/ads.txt')
+def ads_txt():
+    return send_from_directory('static', 'ads.txt')
+
 
 if __name__ == "__main__":
     app.run()
