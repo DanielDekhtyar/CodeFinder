@@ -28,7 +28,7 @@ body {
     height: 3em;
     margin-top: auto;
     margin-bottom: auto;
-    margin-left: 2vw;
+    margin-left: 0.8vw;
     transition: transform 0.3s ease;
 }
 
@@ -580,7 +580,7 @@ footer {
 
 @media screen and (max-width: 1700px) {
     .logo {
-        height: 2.8rem;
+        height: 2.35rem;
     }
 
     #filter-disclaimer {

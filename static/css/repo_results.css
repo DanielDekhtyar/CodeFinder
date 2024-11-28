@@ -59,7 +59,15 @@ transition: transform 0.3s ease;
 #feedback-text {
 margin: 1vh 0;
 font-size: 1.15vh;
-}    
+}
+
+#turkey-img {
+    height: 30vh;
+    position: fixed;
+    right: 0;
+    top: 30%;
+    transform: translateY(-50%);
+}
 
 .search-result {
     border: solid 0.2vh #D0D7DE;
@@ -95,11 +103,14 @@ font-size: 1.15vh;
     white-space: nowrap;
     font-weight: 600;
     text-decoration: none;
+    color: #ffbd4b;
+    transition: color 0.1s, text-decoration 0.1s;
 }
 
 .title:hover {
     cursor: pointer;
     text-decoration: underline;
+    color: #e99300;
 }
 
 .avatar {
@@ -129,7 +140,7 @@ font-size: 1.15vh;
     font-size: 1vh;
     border-radius: 3em;
     line-height: 1.2vh;
-    background-color: #DDF4FF;
+    background-color: #FBAB24;
     color: #0969da;
     white-space: nowrap;
     text-align: center;
@@ -138,13 +149,13 @@ font-size: 1.15vh;
 
 .topics:hover {
     cursor: pointer;
-    background-color: #0969DA;
+    background-color: #EF7103;
     color: white;
     box-shadow: 5px 5px 1px #d9d9d9;
 }
 
 .topic-link {
-    color: #0969da;
+    color: white;
     text-decoration:none;
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
