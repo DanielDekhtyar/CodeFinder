@@ -25,16 +25,16 @@ body {
 }
 
 .logo {
-    height: 3em;
+    height: 3.85em;
     margin-top: auto;
     margin-bottom: auto;
-    margin-left: 2vw;
+    margin-left: 1.75vw;
     transition: transform 0.3s ease;
 }
 
 .logo:hover {
     cursor: pointer;
-    transform: scale(1.07);
+    transform: scale(1.05);
 }
 
 #search-form {
@@ -580,7 +580,7 @@ footer {
 
 @media screen and (max-width: 1700px) {
     .logo {
-        height: 2.8rem;
+        height: 3.8rem;
     }
 
     #filter-disclaimer {
@@ -619,7 +619,7 @@ footer {
     }
 
     .logo {
-        height: 1.5rem;
+        height: 3.5rem;
     }
 }
 
