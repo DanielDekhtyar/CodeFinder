@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (window.scrollY > lastScrollY) {
             // Scrolling down
             header.style.top = "-4.5rem"; // Hide the header
-            stockings.style.top = "-0.3rem"; // Raise the stockings image
+            stockings.style.top = "-0.5rem"; // Raise the stockings image
         } else {
             // Scrolling up
             header.style.top = "0"; // Show the header

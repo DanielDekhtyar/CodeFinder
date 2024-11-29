@@ -412,6 +412,7 @@ body {
     position: fixed;
     top: 4rem;
     right: 1.5vw;
+    rotate: 1deg;
     z-index: 100000;
     transition: top 0.5s ease;
 }
