@@ -93,10 +93,6 @@ function loading_screen() {
     // Change the CSS for loader
     document.getElementsByClassName('loader')[0].style.animation = 'loader 2s infinite ease';
     document.getElementsByClassName('loader')[0].style.display = 'inline-block';
-
-    // Change the CSS for loader-inner
-    document.getElementsByClassName('loader-inner')[0].style.animation = 'loader-inner 2s infinite ease-in';
-    document.getElementsByClassName('loader-inner')[0].style.display = 'inline-block';
 }
 
 // Function to get a random search query from the array

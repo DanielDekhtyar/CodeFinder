@@ -74,15 +74,18 @@ document.addEventListener("keydown", function(event) {
 // Make the header appear and disappear when you scroll up or down responsively
 document.addEventListener("DOMContentLoaded", function() {
     var header = document.getElementById("header");
+    var stockings = document.getElementById("stockings-img");
     var lastScrollY = window.scrollY;
 
     window.addEventListener("scroll", function() {
         if (window.scrollY > lastScrollY) {
             // Scrolling down
             header.style.top = "-4.5rem"; // Hide the header
+            stockings.style.top = "-0.3rem"; // Raise the stockings image
         } else {
             // Scrolling up
             header.style.top = "0"; // Show the header
+            stockings.style.top = "4rem"; // Lower the stockings image
         }
         lastScrollY = window.scrollY;
     });
@@ -121,10 +124,6 @@ function loading_screen() {
     // Change the CSS for loader
     document.getElementsByClassName('loader')[0].style.animation = 'loader 2s infinite ease';
     document.getElementsByClassName('loader')[0].style.display = 'inline-block';
-
-    // Change the CSS for loader-inner
-    document.getElementsByClassName('loader-inner')[0].style.animation = 'loader-inner 2s infinite ease-in';
-    document.getElementsByClassName('loader-inner')[0].style.display = 'inline-block';
 
     // Hide all the search results to make the page un-scrollable by fitting it in to the viewport
     document.getElementById("search-results").style.display = "none";
