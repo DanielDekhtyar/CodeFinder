@@ -529,6 +529,10 @@ footer {
         width: 14rem;
     }
 
+    #happy-holidays-gif img {
+        height: 15vh;
+    }
+
     #search-bar-explanation {
         font-size: 1.5vh;
     }
