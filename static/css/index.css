@@ -476,6 +476,10 @@ footer {
         width: 24rem;
     }
 
+    #happy-holidays-gif img {
+        height: 24vh;
+    }
+
     #search-div {
         width: 50rem;
     }
