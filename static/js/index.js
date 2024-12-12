@@ -84,6 +84,9 @@ function loading_screen() {
 
     // Hide hostage timer
     document.getElementById('bthn').style.display = 'none';
+
+    // Hide 'Happy Holidays' gif
+    document.getElementById('happy-holidays-gif').style.display = 'none';
     
     // Make all the elements of the loading screen visible
     // Change the CSS for load-wrapper (div)

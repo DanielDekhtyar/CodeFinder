@@ -17,6 +17,18 @@
 }
 /* Icon link : https://www.flaticon.com/free-icon/code_1157109 */
 
+#happy-holidays-gif {
+    position: fixed;
+    top: 0vh; 
+    left: 5vw;
+    z-index: 1000
+}
+
+#happy-holidays-gif img {
+    width: auto;
+    height: 20vh;
+}
+
 #search-div {
     margin: auto;
     margin-top: 3vh;
