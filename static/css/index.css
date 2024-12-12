@@ -1,6 +1,6 @@
 .container {
     text-align: center;
-    align-items: center; /* Vertically align items */
+    padding-top: 1.5vh;
 }
 
 #heading {
