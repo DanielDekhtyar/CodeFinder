@@ -525,6 +525,10 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
+    .container {
+        padding-top: 0;
+    }
+    
     #title-image {
         width: 14rem;
     }
