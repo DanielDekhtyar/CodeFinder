@@ -84,9 +84,6 @@ function loading_screen() {
 
     // Hide hostage timer
     document.getElementById('bthn').style.display = 'none';
-
-    // Hide 'Happy Holidays' gif
-    document.getElementById('happy-holidays-gif').style.display = 'none';
     
     // Make all the elements of the loading screen visible
     // Change the CSS for load-wrapper (div)
@@ -96,6 +93,10 @@ function loading_screen() {
     // Change the CSS for loader
     document.getElementsByClassName('loader')[0].style.animation = 'loader 2s infinite ease';
     document.getElementsByClassName('loader')[0].style.display = 'inline-block';
+
+    // Change the CSS for loader-inner
+    document.getElementsByClassName('loader-inner')[0].style.animation = 'loader-inner 2s infinite ease-in';
+    document.getElementsByClassName('loader-inner')[0].style.display = 'inline-block';
 }
 
 // Function to get a random search query from the array
