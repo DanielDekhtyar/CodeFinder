@@ -18,7 +18,14 @@ var searchBar = document.getElementsByClassName("form-control")[0];
 // Event listener for when the input box gains focus
 searchBar.addEventListener("focus", function() {
     // Reset the placeholder text when the input box gains focus
-    this.placeholder = "What are you looking for?";
+    // Check if the screen width is less than or equal to 850px (small screens)
+    const isSmallScreen = window.matchMedia("(max-width: 850px)").matches;
+    if (isSmallScreen) {
+        this.placeholder = "Find any repository on GitHub!";
+    } else {
+        this.placeholder = "Find any repository on GitHub! Just type and hit enter...";
+    }
+    
     // Remove the "empty-input" class from the input element, if it was there
     var searchInput = document.getElementById("search-bar");
     searchInput.classList.remove("empty-input");
@@ -30,7 +37,6 @@ searchBar.addEventListener("blur", function() {
     if (!this.value.trim()) {
         // Change the placeholder text
         this.placeholder = "Type [/] to search";
-        console.log("placeholder changed");
     }
 });
 
