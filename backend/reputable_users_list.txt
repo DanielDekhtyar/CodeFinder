@@ -261,6 +261,21 @@ Adobe-Consulting-Services
 adobe-extension-tools
 typekit
 
+// DeepSeek
+deepseek-ai
+
+// Ollama
+ollama
+
+// LM Studio
+lmstudio-ai
+
+// Anthropic
+anthropics
+
+// Palantir Technologies
+palantir
+
 // pygame
 pygame
 pygame-community
@@ -735,6 +750,10 @@ zoom
 // Tauri
 tauri-apps
 
+// X (fka Twitter)
+twitter
+twitter-archive
+
 // Twilio
 twilio
 twilio-labs
@@ -1051,12 +1070,18 @@ KasperskyLab
 // ESET
 eset
 
+// ShareX
+ShareX
+
 // Discord
 discord
 discordjs
 python-discord
 DiscordPP
 Discord4J
+
+// MIT PDOS
+mit-pdos
 
 // PayPal
 paypal
