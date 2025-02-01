@@ -35,16 +35,28 @@ def repo_results_ranking_algorithm(search_query, search_results, readme_texts):
     # Used in `api_requests.py`
 
     # If the owner of the repo is in the list of reputable users, add 50 points
+    
+    # Lowercase the search query
+    search_query = search_query.lower()
+    
     for repo in search_results:
         score = 0
-        owner = repo["owner"]["login"]
+        
+        name = repo["name"] # The name of the repository
+        if search_query in name.lower():
+            score += 3000
+
+        owner = repo["owner"]["login"] # The owner of the repository      
+        if search_query in owner.lower():
+            score += 3000
+
         if is_owner_is_in_list(owner):
-            # Add 500 points if the owner is in the list of reputable users
-            score += 500
+            # Add 700 points if the owner is in the list of reputable users
+            score += 5000
 
         # Add points based on the amount of stars. Give 35% weight to stars
         stars = repo["stargazers_count"]
-        score += stars * 0.35
+        score += stars * 0.3
 
         # Add points based on the amount of forks. Give 30% weight to forks
         forks = repo["forks_count"]
