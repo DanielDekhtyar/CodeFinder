@@ -56,6 +56,29 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
+function setSearchPlaceholderOnLoading() {
+    const searchBar = document.getElementById("search-bar");
+
+    if (!searchBar) {
+        console.error("Search bar not found");
+        return;
+    }
+
+    // Check screen size
+    if (window.innerWidth <= 800) {
+        searchBar.placeholder = "Find any repository on GitHub!";
+    } else {
+        searchBar.placeholder = "Find any repository on GitHub! Just type and hit enter...";
+    }
+}
+
+// Run on page load
+setSearchPlaceholderOnLoading();
+
+// Listen for screen resize
+window.addEventListener("resize", setSearchPlaceholderOnLoading);
+
+
 // Check if the input form is not empty. If it is empty, make the border red.
 function validateForm() {
     var searchInput = document.getElementById("search-bar");
