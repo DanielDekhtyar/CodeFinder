@@ -1,7 +1,6 @@
 from flask import *
 
 import os
-import datetime
 
 from backend import api_requests, helpers
 
