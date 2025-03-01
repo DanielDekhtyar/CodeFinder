@@ -103,7 +103,11 @@
                         role="button"
                         class="btn btn-outline-secondary"
                         id="filter-button"
-                        onmouseover="hoverFilterButton();" onmouseout="unhoverFilterButton();" onclick="openFilterModal();"
+                        onmouseover="hoverFilterButton();"
+                        onmouseout="unhoverFilterButton();"
+                        onpointerdown="hoverFilterButton();"
+                        onpointerout="unhoverFilterButton();"
+                        onclick="openFilterModal();"
                     >
                     <span class="button-content">
                         <span class="button-text" id="search-button-text">Filter</span>
@@ -124,9 +128,19 @@
                         class="btn btn-outline-secondary"
                         id="random-search-button"
                         onclick="randomSearch();"
+                        onmouseover="hoverRandomSearchButton();"
+                        onmouseout="unhoverRandomSearchButton();"
+                        onpointerdown="hoverRandomSearchButton();"
+                        onpointerout="unhoverRandomSearchButton();"
                     >
                         <span class="button-content">
                             <span class="button-text", id="search-button-text">I'm feeling lucky</span>
+                            <img
+                                type="image"
+                                id="dice-icon"
+                                alt="Dice random search"
+                                src="static/assets/dice.png"
+                            >
                         </span>
                     </button>
 
@@ -136,7 +150,12 @@
                         role="button"
                         class="btn btn-outline-secondary"
                         id="search-submit-button"
-                        onmousedown="clickSearchButton();" onmouseup="unclickSearchButton();" onmouseout="unclickSearchButton();"
+                        onmousedown="clickSearchButton();"
+                        onmouseup="unclickSearchButton();"
+                        onmouseover="clickSearchButton();"
+                        onmouseout="unclickSearchButton();"
+                        onpointerdown="clickSearchButton();"
+                        onpointerup="unclickSearchButton();"
                     >
                     <span class="button-content">
                         <span class="button-text" id="search-button-text">Search</span>

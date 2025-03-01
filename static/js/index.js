@@ -1,17 +1,5 @@
 // JavaScript code for the main page index.html
 
-
-// Functions when you click the search icon
-function clickSearchButton() {
-    element = document.getElementById("search-icon");
-    element.setAttribute('src', 'static/assets/search_white.png');
-}
-
-function unclickSearchButton() {
-    element = document.getElementById("search-icon");
-    element.setAttribute('src', 'static/assets/search_black.png');
-}
-
 // Get the input element
 var searchBar = document.getElementsByClassName("form-control")[0];
 
@@ -96,16 +84,37 @@ function validateForm() {
     }
 }
 
-// Functions when you hover over the search icon
+// Functions when you click the search icon
+function clickSearchButton() {
+    element = document.getElementById("search-icon");
+    element.setAttribute('src', 'static/assets/search_hover.png');
+}
+
+function unclickSearchButton() {
+    element = document.getElementById("search-icon");
+    element.setAttribute('src', 'static/assets/search_black.png');
+}
+
+// Functions when you hover over the filter icon
 function hoverFilterButton() {
     element = document.getElementById("filter-icon");
     element.setAttribute('src', 'static/assets/filter_hover.png');
 }
 
-// Functions when you hover over the search icon
 function unhoverFilterButton() {
     element = document.getElementById("filter-icon");
     element.setAttribute('src', 'static/assets/filter.png');
+}
+
+// Functions when you hover over the random search icon
+function hoverRandomSearchButton() {
+    element = document.getElementById("dice-icon");
+    element.setAttribute('src', 'static/assets/dice_hover.png');
+}
+
+function unhoverRandomSearchButton() {
+    element = document.getElementById("dice-icon");
+    element.setAttribute('src', 'static/assets/dice.png');
 }
 
 // Function to show the loading screen animation

@@ -84,6 +84,7 @@
 
 #search-button-text {
     margin-right: 0.7em;
+    margin-bottom: 0.15em;
     font-size: 1.0rem;
 }
 
@@ -93,6 +94,15 @@
     margin-left: auto;
     margin-right: auto;
     object-fit: contain;
+}
+
+#dice-icon {
+    display: block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    height: 1.5rem;
 }
 
 #filter-button {
