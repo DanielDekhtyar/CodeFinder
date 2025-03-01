@@ -15,11 +15,13 @@ function unclickSearchButton() {
 // Get the input element
 var searchBar = document.getElementsByClassName("form-control")[0];
 
+// Defining what a small screen is
+const isSmallScreen = window.matchMedia("(max-width: 600px)").matches;
+
 // Event listener for when the input box gains focus
 searchBar.addEventListener("focus", function() {
     // Reset the placeholder text when the input box gains focus
-    // Check if the screen width is less than or equal to 800px (small screens)
-    const isSmallScreen = window.matchMedia("(max-width: 800px)").matches;
+    // Check if the screen width is less than or equal to 600px (small screens)
     if (isSmallScreen) {
         this.placeholder = "Find any repository on GitHub!";
     } else {
@@ -65,7 +67,7 @@ function setSearchPlaceholderOnLoading() {
     }
 
     // Check screen size
-    if (window.innerWidth <= 800) {
+    if (isSmallScreen) {
         searchBar.placeholder = "Find any repository on GitHub!";
     } else {
         searchBar.placeholder = "Find any repository on GitHub! Just type and hit enter...";

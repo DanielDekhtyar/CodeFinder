@@ -93,7 +93,7 @@
                 <input type="hidden" name="last_update" id="selected-last-update">
                 <input type="hidden" name="stars" id="selected-stars">
 
-                <p style="margin-bottom: -1vh; margin-right: 0.5vw; font-size:1.15vh; font-style: italic">Don't know where to start? Just hit "I'm feeling lucky"</p>
+                <p id="where-to-start-text">Don't know where to start? Just hit "I'm feeling lucky"</p>
                 
                 <!-- Buttons -->
                 <div id="search-buttons">
@@ -110,7 +110,7 @@
                         <img
                             type="image"
                             id="filter-icon"
-                            class="filter-icon"
+                            class="filter-icon, search-icons"
                             alt="Filter"
                             src="static/assets/filter.png"
                         >
@@ -126,7 +126,7 @@
                         onclick="randomSearch();"
                     >
                         <span class="button-content">
-                            <span class="button-text">I'm feeling lucky</span>
+                            <span class="button-text", id="search-button-text">I'm feeling lucky</span>
                         </span>
                     </button>
 
@@ -142,6 +142,7 @@
                         <span class="button-text" id="search-button-text">Search</span>
                         <img
                             id="search-icon"
+                            class="search-icons"
                             alt="Search"
                             src="static/assets/search_black.png"
                         >

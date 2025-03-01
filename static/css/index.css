@@ -25,6 +25,13 @@
     max-width: 100%;
 }
 
+#where-to-start-text {
+    margin-bottom: -1vh;
+    margin-right: 0.5vw;
+    font-size: 0.75rem;
+    font-style: italic
+}
+
 #search-buttons {
     display: flex;
     margin-top: 1.5vh;
@@ -44,6 +51,10 @@
     color: black;
     background-color: transparent;
     border-color: #CED4DA;
+}
+
+.search-icons {
+    height:1.15rem;
 }
 
 #search-submit-button {
@@ -73,11 +84,11 @@
 
 #search-button-text {
     margin-right: 0.7em;
+    font-size: 1.0rem;
 }
 
 #search-icon {
     display: block;
-    height:1.5rem;
     width: auto;
     margin-left: auto;
     margin-right: auto;
@@ -95,7 +106,6 @@
 
 .filter-icon {
     display: block;
-    height:1.5rem;
     width: auto;
     margin-left: auto;
     margin-right: auto;
@@ -104,7 +114,7 @@
 
 .form-control {
     font-family: arial, sans-serif;
-    font-size: 1.5vh;
+    font-size: 1.0rem;
     border-radius: 3vh;
     height: 3rem;
     min-height: 2.5rem;
@@ -494,10 +504,6 @@ footer {
 }
 
 @media screen and (max-width: 1700px) {
-    .form-control {
-        font-size: 2vh;
-    }
-    
     #title-image {
         width: 24rem;
     }
