@@ -416,7 +416,7 @@
 }
 
 /* Loading screen background color for non-touchscreen devices */
-@media (hover: hover) and (pointer: fine) {
+@media (hover: hover) {
     .loader-wrapper-hover{
         background-color: #242f3f;
         transition: background-color .5s ease;
@@ -424,7 +424,7 @@
 }
 
 /* Loading screen background color for touchscreen devices */
-@media (hover: none) and (pointer: coarse) {
+@media (hover: none) {
     .loader-wrapper-hover{
         background-color: #242f3f;
         transition: background-color .5s ease;
