@@ -56,9 +56,9 @@ function setSearchPlaceholderOnLoading() {
 
     // Check screen size
     if (isSmallScreen) {
-        searchBar.placeholder = "Find any repository on GitHub!";
+        searchBar.placeholder = "Find any bug on GitHub!";
     } else {
-        searchBar.placeholder = "Find any repository on GitHub! Just type and hit enter...";
+        searchBar.placeholder = "Find any bug on GitHub! Just type and hit enter...";
     }
 }
 
@@ -87,12 +87,12 @@ function validateForm() {
 // Functions when you click the search icon
 function clickSearchButton() {
     element = document.getElementById("search-icon");
-    element.setAttribute('src', 'static/assets/search_hover.png');
+    element.setAttribute('src', 'static/assets/bug_hover.png');
 }
 
 function unclickSearchButton() {
     element = document.getElementById("search-icon");
-    element.setAttribute('src', 'static/assets/search_black.png');
+    element.setAttribute('src', 'static/assets/bug.png');
 }
 
 // Functions when you hover over the filter icon
