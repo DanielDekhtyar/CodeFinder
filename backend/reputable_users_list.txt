@@ -89,6 +89,7 @@ microsoft-search
 
 // Git
 git
+git-for-windows
 
 // GitHub
 github
@@ -100,6 +101,9 @@ githubtraining
 actions
 skills
 githubtraining
+
+// Gitlab
+gitlabhq
 
 // Apple
 apple
