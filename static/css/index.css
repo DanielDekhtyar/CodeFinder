@@ -157,10 +157,10 @@
 }
 
 #trending {
-    margin-top: 2rem;
+    margin-top: 2.5vh;
     margin-bottom: 1vh;
     margin-right: 1rem;
-    font-size: 1.75vh;
+    font-size: 1.5vh;
 }
 
 .modal {

@@ -1,13 +1,13 @@
 // Functions when you hover over the search icon
 function hoverSearchButton() {
     element = document.getElementById("search-icon");
-    element.setAttribute('src', 'static/assets/bug_hover.png');
+    element.setAttribute('src', 'static/assets/search_hover.png');
 }
 
 // Functions when you hover over the search icon
 function unhoverSearchButton() {
     element = document.getElementById("search-icon");
-    element.setAttribute('src', 'static/assets/bug.png');
+    element.setAttribute('src', 'static/assets/search_black.png');
 }
 
 // Functions when you hover over the forward button

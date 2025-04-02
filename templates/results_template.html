@@ -55,7 +55,7 @@
         <meta name="twitter:description" content='Code Finder search results for "{{query}}"' />
         <meta name="twitter:image" content="https://codefinder.dev/static/assets/icon.png" />
         <!-- Favicon -->
-        <link rel="icon" href="static/assets/bug_icon.png" />
+        <link rel="icon" href="static/assets/icon.png" />
         <!-- Custom CSS -->
         <link rel="stylesheet" href="static/css/results_template.css" />
         {% block head %}{% endblock %}
@@ -65,7 +65,7 @@
     <header id="header">
         <!-- Code Finder Logo -->
         <a class="logo" href="/">
-            <img class="logo" alt="Code Finder Logo" title="Code Finder home page" src="static/assets/bug_icon.png" />
+            <img class="logo" alt="Code Finder Logo" title="Code Finder home page" src="static/assets/icon.png" />
         </a>
         <!-- Search Form -->
         <form id="search-form" role="form" action="/search" method="GET" onsubmit="return validateForm()">
@@ -94,7 +94,7 @@
                     <img
                         id="search-icon"
                         alt="Search"
-                        src="static/assets/bug.png"
+                        src="static/assets/search_black.png"
                     ></img>
                 </button>
     
@@ -306,7 +306,7 @@
 
         <!-- Preload the image to make image loading time faster when hovering -->
         <link rel="preload" as="image" href="static/assets/filter_hover.png">
-        <link rel="preload" as="image" href="static/assets/bug_hover.png">
+        <link rel="preload" as="image" href="static/assets/search_hover.png">
         <link rel="preload" as="image" href="static/assets/fork_hover.png">
         <link rel="preload" as="image" href="static/assets/star_hover.png">
         <link rel="preload" as="image" href="static/assets/forward black.png">

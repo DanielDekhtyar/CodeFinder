@@ -56,9 +56,9 @@
         <meta name="twitter:image" content="https://codefinder.dev/static/assets/icon.png" />
         <meta name="twitter:image:alt" content="Code Finder logo" />
         <!-- Favicon -->
-        <link rel="icon" href="static/assets/bug_icon.png" />
+        <link rel="icon" href="static/assets/icon.png" />
         <!-- Title -->
-        <title>Bug Finder</title>
+        <title>Code Finder</title>
     </head>
     <body>
         <div id="loader-wrapper" class="loader-wrapper">
@@ -67,7 +67,7 @@
         <div class="container">
             <div id="heading">
                 <!-- Title image -->
-                <img id="title-image" alt="Code Finder Logo" src="static/assets/transparent title with description with a bug.png" />
+                <img id="title-image" alt="Code Finder Logo" src="static/assets/transparent title with description.png" />
             </div>
 
             <!-- Search form -->
@@ -83,7 +83,7 @@
                         role="searchbox"
                         autocomplete="off"
                         autofocus
-                        placeholder="Find any bug on GitHub! Just type and hit enter..."
+                        placeholder="Find any repository on GitHub! Just type and hit enter..."
                     />
                 </div>
                 
@@ -93,7 +93,7 @@
                 <input type="hidden" name="last_update" id="selected-last-update">
                 <input type="hidden" name="stars" id="selected-stars">
 
-                <p id="where-to-start-text">Don't know where to start? Just hit "I'm feeling buggy!"</p>
+                <p id="where-to-start-text">Don't know where to start? Just hit "I'm feeling lucky"</p>
                 
                 <!-- Buttons -->
                 <div id="search-buttons">
@@ -134,7 +134,7 @@
                         onpointerout="unhoverRandomSearchButton();"
                     >
                         <span class="button-content">
-                            <span class="button-text", id="search-button-text">I'm feeling buggy!</span>
+                            <span class="button-text", id="search-button-text">I'm feeling lucky</span>
                             <img
                                 type="image"
                                 id="dice-icon"
@@ -163,15 +163,15 @@
                             id="search-icon"
                             class="search-icons"
                             alt="Search"
-                            src="static/assets/bug.png"
+                            src="static/assets/search_black.png"
                         >
                     </span>
                     </button>
                 </div>
             </form>
-            <div id="trending-container">
-                <h1 id="trending">Bug of the day 🐛  :  <a id="trending_link" role="link" title="Funny Video from the show Silicon Valley" href="https://www.youtube.com/watch?v=ig-dtw8Um_k" onclick="loading_screen()">Brute force search on a sorted list</a></h1>
-            </div>
+            <!-- <div id="trending-container">
+                <h1 id="trending">🔥 Trending : <a id="trending_link" role="link" title="DeepSeek" href="https://codefinder.dev/search?q=DeepSeek" onclick="loading_screen()">DeepSeek</a> 🐳</h1>
+            </div> -->
         </div>
 
         <!-- Product hunt badge -->
