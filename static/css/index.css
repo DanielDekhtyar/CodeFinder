@@ -1,10 +1,6 @@
-body {
-    margin-top: -6.5rem;
-}
-
 .container {
     text-align: center;
-    padding-top: 0vh;
+    padding-top: 1.5vh;
 }
 
 #heading {
@@ -515,54 +511,6 @@ footer {
     height: 3.5vh;
     display: flex; /* Use flexbox */
     align-items: center; /* Center vertically */
-}
-
-/* --- Help Needed Section --- */
-.help-needed-div {
-    max-width: 80rem;
-    margin: 1.5rem auto 2.5rem auto;
-    text-align: center;
-    background: linear-gradient(180deg, #f7faff 80%, rgba(247,250,255,0) 100%);
-    border-radius: 1.5em;
-    box-shadow: 0 2px 12px rgba(80,120,200,0.07);
-    padding: 2.2em 1.5em 1.5em 1.5em;
-    border: none;
-    transition: box-shadow 0.2s;
-}
-.help-needed-title {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: 1.45em;
-    font-weight: 600;
-    color: #2a2f3b;
-    letter-spacing: 0.01em;
-    margin-bottom: 0.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.help-needed-emoji {
-    font-size: 1.1em;
-    vertical-align: middle;
-    margin-left: 0.3em;
-}
-.help-needed-text {
-    font-size: 1rem;
-    color: #3a3a3a;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    font-weight: 400;
-    margin-top: 0.2em;
-}
-@media (max-width: 600px) {
-    .help-needed-div {
-        max-width: 95vw;
-        padding: 1.2em 0.5em 1em 0.5em;
-    }
-    .help-needed-title {
-        font-size: 1.1em;
-    }
-    .help-needed-text {
-        font-size: 1em;
-    }
 }
 
 @media screen and (max-width: 1700px) {
