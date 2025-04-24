@@ -254,6 +254,54 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 });
 
+// Countdown Timer Logic
+const countdownElement = document.getElementById("countdown-timer");
+// Set the date we're counting down to (May 1st, 2025)
+const targetDate = new Date("May 1, 2025 00:00:00").getTime();
+
+function updateCountdown() {
+    // Get today's date and time
+    const now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    const distance = targetDate - now;
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+        if (countdownElement) {
+            countdownElement.innerHTML = "The deadline has passed!";
+        }
+        clearInterval(countdownInterval); // Stop the interval
+        return;
+    }
+
+    // Time calculations for days, hours, minutes and seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Build the display string
+    let countdownText = "";
+    if (days > 0) countdownText += days + "d ";
+    if (hours > 0 || days > 0) countdownText += hours + "h ";
+    if (minutes > 0 || hours > 0 || days > 0) countdownText += minutes + "m ";
+    countdownText += seconds + "s";
+
+    // Display the result in the element with id="countdown-timer"
+    if (countdownElement) {
+        countdownElement.innerHTML = countdownText.trim();
+    }
+}
+
+// Update the count down every 1 second only if the element exists
+let countdownInterval;
+if (countdownElement) {
+    countdownInterval = setInterval(updateCountdown, 1000);
+    // Initial call to display the countdown immediately
+    updateCountdown();
+}
+
 // Array of random search queries
 const searchQueries = [
     "speech recognition using DeepSpeech",
