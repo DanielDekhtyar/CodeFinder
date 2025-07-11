@@ -2,7 +2,7 @@
 
 ## Making your code search experience better!  
 
-### Check it out on [codefinder.dev](https://codefinder.dev/)
+### Check it out on [codefinder.dev](https://web.archive.org/web/20250501122633/https://codefinder.dev/))
  
 > Disclaimer: This website is not affiliated with GitHub and has no connection to its owner, stakeholder, contributors, or any others.  
 > For the official GitHub Search website click [here](https://github.com/search)
@@ -51,4 +51,4 @@ Here is what the results might look like:
 ![Code Finder results page](<Code Finder results page.png>)
 
 
-### You can try it yourself on [codefinder.dev](https://codefinder.dev/)
+### You can try it yourself on [codefinder.dev](https://web.archive.org/web/20250501122633/https://codefinder.dev/))
